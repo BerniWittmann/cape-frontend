@@ -1,6 +1,6 @@
 {
   "name": "cape-frontend",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Frontend for CaPE",
   "private": true,
   "author": "Alexander Fischer <alexander.fischer@uni-ulm.de>, Lukas Jesche <lukas.jesche@uni-ulm.de>, Bernhard Wittmann <bernhard.wittmann@uni-ulm.de>",
