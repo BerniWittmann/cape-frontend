@@ -30,6 +30,10 @@ Die [Coding-Guidelines](https://gitlab.com/cape-modeler/frontend/wikis/coding-gu
 
 The E2E Tests are recorded and results are available on the [Cypress Dashboard](https://dashboard.cypress.io/#/projects/6623by/runs)
 
+## :computer: Technologiestack
+
+Das Wiki gibt eine Übersicht über den [Technologiestack](https://gitlab.com/cape-modeler/frontend/wikis/technologiestack)
+
 ## :question: FAQ
 
 Die [FAQ-Seite](https://gitlab.com/cape-modeler/frontend/wikis/FAQ) beantwortet womöglich noch offene Fragen
