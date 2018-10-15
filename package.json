@@ -1,7 +1,9 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "cape-frontend",
+  "version": "0.0.0",
+  "description": "Frontend for CaPE",
   "private": true,
+  "author": "Alexander Fischer <alexander.fischer@uni-ulm.de>, Lukas Jesche <lukas.jesche@uni-ulm.de>, Bernhard Wittmann <bernhard.wittmann@uni-ulm.de>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -28,5 +30,13 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/cape-modeler/frontend/issues"
+  },
+  "homepage": "https://gitlab.com/cape-modeler/frontend#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/cape-modeler/frontend.git"
   }
 }
