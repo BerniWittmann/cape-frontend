@@ -2,6 +2,8 @@
 
 > Repository für das Frontend des CaPE - Modelers
 
+Verfügbar unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/)
+
 ## Wiki
 
 Im [Wiki](https://gitlab.com/cape-modeler/frontend/wikis/home) finden sich die Dokumentation, Guidelines und vieles mehr
