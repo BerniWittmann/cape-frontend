@@ -20,6 +20,9 @@ unit:
       - cp -R /app/node_modules .
   script:
       - npm run test:unit -- --ci
+  artifacts:
+      paths:
+        - coverage
 
 e2e:
   stage: test
