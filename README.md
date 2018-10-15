@@ -28,7 +28,7 @@ The E2E Tests are recorded and results are available on the [Cypress Dashboard](
 
 ## :question: FAQ
 
-> TODO: The FAQ needs still to be added
+Die [FAQ-Seite](https://gitlab.com/cape-modeler/frontend/wikis/FAQ) beantwortet womöglich noch offene Fragen
 
 ## :gear: Project setup
 
