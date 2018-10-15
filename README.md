@@ -2,38 +2,76 @@
 
 > Repository für das Frontend des CaPE - Modelers
 
-Verfügbar unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/)
+:rocket: Verfügbar unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/)
 
-## Wiki
+## :book: Wiki
 
 Im [Wiki](https://gitlab.com/cape-modeler/frontend/wikis/home) finden sich die Dokumentation, Guidelines und vieles mehr
 
-## Project setup
+## :inbox_tray: Task Tracker
+
+Alle Tasks werden mit [GitLab Issues](https://gitlab.com/cape-modeler/frontend/issues) verwaltet
+
+## :clipboard: Changelog
+
+Im [Changelog](https://gitlab.com/cape-modeler/frontend/blob/master/CHANGELOG.md) werden alle Änderungen festgehalten
+
+## :flashlight: Coding Guidelines
+
+> TODO: The Coding Guidelines need still to be added
+
+## :mag: E2E-Test Dashboard
+
+The E2E Tests are recorded and results are available on the [Cypress Dashboard](https://dashboard.cypress.io/#/projects/6623by/runs)
+
+## :question: FAQ
+
+> TODO: The FAQ needs still to be added
+
+## :gear: Project setup
+
+Dependencies installieren
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Development Server
+
+Den Development Server inklusive Hot-Reloading starten
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Production Build
+
+Den Code kompilieren und minifizieren für die Produktion
+
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Linting
+
+Den Code auf Einhaltung der Coding-Standards *linten* und eventuell automatisch korrigieren
+
 ```
 npm run lint
 ```
 
-### Run your unit tests
+### Unit Tests
+
+Die Unit-Tests ausführen
+
 ```
 npm run test:unit
 ```
 
-### Run your end-to-end tests
+### E2E Tests
+
+Die End-to-End Tests ausführen
+
 ```
 npm run test:e2e
 ```
