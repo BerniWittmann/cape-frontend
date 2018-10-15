@@ -24,7 +24,7 @@ Im [Changelog](https://gitlab.com/cape-modeler/frontend/blob/master/CHANGELOG.md
 
 ## :flashlight: Coding Guidelines
 
-> TODO: The Coding Guidelines need still to be added
+Die [Coding-Guidelines](https://gitlab.com/cape-modeler/frontend/wikis/coding-guidelines) geben Auskunft über den Workflow und grundsätzliche Entwicklungs-Guidelines
 
 ## :mag: E2E-Test Dashboard
 
