@@ -1,3 +1,5 @@
+![](https://gitlab.com/cape-modeler/frontend/wikis/uploads/0f5dde93fdc7f027a656aed68cddfcdf/icon.png)
+
 # CaPE - Modeler - Frontend
 
 > Repository für das Frontend des CaPE - Modelers
