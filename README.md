@@ -1,4 +1,10 @@
-# frontend
+# CaPE - Modeler - Frontend
+
+> Repository für das Frontend des CaPE - Modelers
+
+## Wiki
+
+Im [Wiki](https://gitlab.com/cape-modeler/frontend/wikis/home) finden sich die Dokumentation, Guidelines und vieles mehr
 
 ## Project setup
 ```
