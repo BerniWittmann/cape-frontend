@@ -26,9 +26,13 @@ Im [Changelog](https://gitlab.com/cape-modeler/frontend/blob/master/CHANGELOG.md
 
 Die [Coding-Guidelines](https://gitlab.com/cape-modeler/frontend/wikis/coding-guidelines) geben Auskunft über den Workflow und grundsätzliche Entwicklungs-Guidelines
 
+## :file_folder: Datei Struktur
+
+Eine Erklärung der [Datei-Struktur](https://gitlab.com/cape-modeler/frontend/wikis/Datei-Struktur) findet sich im Wiki
+
 ## :mag: E2E-Test Dashboard
 
-The E2E Tests are recorded and results are available on the [Cypress Dashboard](https://dashboard.cypress.io/#/projects/6623by/runs)
+Die E2E Tests werden aufgezeichnet und sind dann auf [Cypress Dashboard](https://dashboard.cypress.io/#/projects/6623by/runs) zur Einsicht verfügbar
 
 ## :computer: Technologiestack
 
@@ -38,7 +42,7 @@ Das Wiki gibt eine Übersicht über den [Technologiestack](https://gitlab.com/ca
 
 Die [FAQ-Seite](https://gitlab.com/cape-modeler/frontend/wikis/FAQ) beantwortet womöglich noch offene Fragen
 
-## :gear: Project setup
+## :gear: Project Setup
 
 Dependencies installieren
 
