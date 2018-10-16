@@ -1,6 +1,5 @@
 <template>
-  <el-menu :default-active="this.activeRoute" mode="horizontal" :router="true" class="nav" background-color="#FFFFFF"
-           text-color="#6CC9E8" active-text-color="#61B5D1">
+  <el-menu :default-active="this.activeRoute" mode="horizontal" :router="true" class="nav" active-text-color="#6CC9E8">
     <router-link
             :to="{ name: 'home' }"
             class="nav-image-wrap"
