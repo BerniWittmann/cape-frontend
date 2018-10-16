@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components Footer renders 1`] = `
+<elrow-stub tag="div" justify="start" align="top" class="footer-wrap">
+  <elcol-stub span="24" tag="div" class="footer-col">
+    <elrow-stub tag="div" justify="start" align="top" class="footer">
+      <elcol-stub span="24" tag="div" xs="24" sm="12" md="12" lg="12">
+        <p class="footer-paragraph"><a>footer.about</a></p>
+      </elcol-stub>
+      <elcol-stub span="24" tag="div" xs="[object Object]" sm="[object Object]" md="[object Object]" lg="[object Object]">
+        <p class="footer-paragraph">
+          footer.version
+        </p>
+        <p class="footer-paragraph"><a href="https://gitlab.com/cape-modeler/frontend/">footer.gitlab</a></p>
+        <p class="footer-paragraph"><a href="https://dashboard.cypress.io/#/projects/6623by/runs">footer.cypress</a></p>
+      </elcol-stub>
+    </elrow-stub>
+  </elcol-stub>
+</elrow-stub>
+`;

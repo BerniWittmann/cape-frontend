@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "about": "@:about.title"
+  },
+  "footer": {
+    "about": "@:about.title",
+    "version": "Version: {version}",
+    "gitlab": "GitLab",
+    "cypress": "Cypress"
+  },
+  "about": {
+    "title": "Über das Projekt"
+  },
+  "home": {
+    "greeting": "Herzlich willkommen zum CaPE-Projekt",
+    "construction_notice": "Hier ist leider noch nicht viel zu sehen"
+  }
+}

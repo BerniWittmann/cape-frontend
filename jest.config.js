@@ -25,7 +25,12 @@ module.exports = {
     'src/**',
     'src/**/*.(vue|js|jsx)',
     '!**/node_modules/**',
-    '!src/*'
+    '!src/*',
+    '!src/assets/**',
+    '!src/locales/**',
+    '!src/plugins/**',
+    '!src/routes/**',
+    '!src/vuex/store.js'
   ],
   coverageReporters: [
     'html', 'text-summary'
