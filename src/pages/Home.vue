@@ -9,7 +9,12 @@
 </template>
 
 <script>
-// @ is an alias to /src
+/* ============
+ * Home Page
+ * ============
+ *
+ * The Home Page
+ */
 import DefaultLayout from '@/layouts/Default.vue'
 
 export default {

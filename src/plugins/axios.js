@@ -1,3 +1,12 @@
+/* ============
+ * Axios
+ * ============
+ *
+ * This file installs Axios (https://github.com/axios/axios)
+ *
+ * Axios is used as a HTTP Client to make HTTP Requests
+ */
+
 import Vue from 'vue'
 import Axios from 'axios'
 

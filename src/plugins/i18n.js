@@ -1,3 +1,13 @@
+/* ============
+ * Vue i18n
+ * ============
+ *
+ * This file installs VueI18n (https://kazupon.github.io/vue-i18n/)
+ *
+ * Vue i18n is used as the internationalization plugin.
+ * It translates the message keys stored in the locales directory
+ */
+
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 

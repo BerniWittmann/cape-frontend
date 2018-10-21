@@ -7,6 +7,13 @@
 </template>
 
 <script>
+/* ============
+ * About Page
+ * ============
+ *
+ * A page which explains the project and has other additional information
+ */
+
 import DefaultLayout from '@/layouts/Default.vue'
 
 export default {

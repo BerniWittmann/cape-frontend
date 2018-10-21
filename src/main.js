@@ -1,3 +1,10 @@
+/* ============
+ * Main
+ * ============
+ *
+ * This file creates the Vue App and also bootstraps all the used plugins
+ */
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './plugins/router'

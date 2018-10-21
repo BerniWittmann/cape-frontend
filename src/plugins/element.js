@@ -1,3 +1,12 @@
+/* ============
+ * ElementUI
+ * ============
+ *
+ * This file installs ElementUI (https://element.eleme.io/)
+ *
+ * ElementUI is use as the UI Library. It provides out of the box components
+ */
+
 import Vue from 'vue'
 import Element, { Loading, MessageBox, Notification, Message } from 'element-ui'
 import '@/assets/styles/element-variables.scss'

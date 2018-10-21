@@ -1,14 +1,18 @@
-/*
-Write your variables here. All available variables can be
-found in element-ui/packages/theme-chalk/src/common/var.scss.
-For example, to overwrite the theme color:
-*/
+/* ============
+ * ElementUI Variables
+ * ============
+ *
+ * This file manages the variables regarding the ElementUI library
+ * All available variables can be found in element-ui/packages/theme-chalk/src/common/var.scss.
+ */
 $--color-primary: #6CC9E8;
 
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+/* Needed Overrides of Element-UI styles */
 
 .el-footer {
   padding: 0;

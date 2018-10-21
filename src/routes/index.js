@@ -1,3 +1,10 @@
+/* ============
+ * Routes
+ * ============
+ *
+ * Here are all routes for Vue-Router defined
+ */
+
 import Home from '@/pages/Home.vue'
 import About from '@/pages/About.vue'
 

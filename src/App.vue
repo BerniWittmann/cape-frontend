@@ -7,6 +7,13 @@
 </template>
 
 <script>
+/* ============
+ * App - Root
+ * ============
+ *
+ * This file is the root component of the Vue Application
+ */
+
 export default {
   name: 'app'
 }

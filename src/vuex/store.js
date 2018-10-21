@@ -1,3 +1,10 @@
+/* ============
+ * Vuex - Store
+ * ============
+ *
+ * This file creates and exports the Vuex store
+ */
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
