@@ -12,11 +12,11 @@
 
 ## :book: Wiki
 
-Im [Wiki](https://gitlab.com/cape-modeler/frontend/wikis/home) finden sich die Dokumentation, Guidelines und vieles mehr
+Im [Confluence - Wiki](https://portal.dbis.info/confluence/display/CM) finden sich die Dokumentation, Guidelines und vieles mehr
 
 ## :inbox_tray: Task Tracker
 
-Alle Tasks werden mit [GitLab Issues](https://gitlab.com/cape-modeler/frontend/issues) verwaltet
+Alle Tasks werden mit [JIRA](https://portal.dbis.info/jira/projects/CM/summary) verwaltet
 
 ## :clipboard: Changelog
 
@@ -24,11 +24,11 @@ Im [Changelog](https://gitlab.com/cape-modeler/frontend/blob/master/CHANGELOG.md
 
 ## :flashlight: Coding Guidelines
 
-Die [Coding-Guidelines](https://gitlab.com/cape-modeler/frontend/wikis/coding-guidelines) geben Auskunft über den Workflow und grundsätzliche Entwicklungs-Guidelines
+Die [Coding-Guidelines](https://portal.dbis.info/confluence/display/CM/Coding+Guidelines) geben Auskunft über den Workflow und grundsätzliche Entwicklungs-Guidelines
 
 ## :file_folder: Datei Struktur
 
-Eine Erklärung der [Datei-Struktur](https://gitlab.com/cape-modeler/frontend/wikis/Datei-Struktur) findet sich im Wiki
+Eine Erklärung der [Datei-Struktur](https://portal.dbis.info/confluence/display/CM/Dateistruktur) findet sich im Wiki
 
 ## :mag: E2E-Test Dashboard
 
@@ -36,11 +36,11 @@ Die E2E Tests werden aufgezeichnet und sind dann auf [Cypress Dashboard](https:/
 
 ## :computer: Technologiestack
 
-Das Wiki gibt eine Übersicht über den [Technologiestack](https://gitlab.com/cape-modeler/frontend/wikis/technologiestack)
+Das Wiki gibt eine Übersicht über den [Technologiestack](https://portal.dbis.info/confluence/display/CM/Technologie+Stack)
 
 ## :question: FAQ
 
-Die [FAQ-Seite](https://gitlab.com/cape-modeler/frontend/wikis/FAQ) beantwortet womöglich noch offene Fragen
+Die [FAQ-Seite](https://portal.dbis.info/confluence/display/CM/FAQ) beantwortet womöglich noch offene Fragen
 
 ## :gear: Project Setup
 
