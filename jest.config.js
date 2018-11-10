@@ -34,5 +34,10 @@ module.exports = {
   ],
   coverageReporters: [
     'html', 'text-summary'
-  ]
+  ],
+  coverageThreshold: {
+    global: {
+      statements: 80
+    }
+  }
 }
