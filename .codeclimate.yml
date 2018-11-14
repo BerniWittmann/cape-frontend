@@ -1,0 +1,13 @@
+---
+version: "2"
+plugins:
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+exclude_patterns:
+  - node_modules/
+  - coverage
+  - tests/
+  - dist/
+  - .idea/
