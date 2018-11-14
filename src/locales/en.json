@@ -9,10 +9,10 @@
     "cypress": "Cypress"
   },
   "about": {
-    "title": "Über das Projekt"
+    "title": "About the Project"
   },
   "home": {
-    "greeting": "Herzlich willkommen zum CaPE-Projekt",
-    "construction_notice": "Hier ist leider noch nicht viel zu sehen"
+    "greeting": "Welcome to the CaPE-Project",
+    "construction_notice": "Currently here is not much to see yet"
   }
 }
