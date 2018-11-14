@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
+## 0.2.2 - (2018-11-14)
+---
+
+* Interface-Sprache auf Englisch geändert
+* About Seite aufbereitet
+* Footer und Navigation von unnötigen Links zur About Page und GitLab befreit
+
 ## 0.2.1 - (2018-10-16)
 ---
 
