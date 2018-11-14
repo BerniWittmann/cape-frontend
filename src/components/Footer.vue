@@ -12,12 +12,6 @@
           <p class="footer-paragraph">
             {{ $t('footer.version', { version: version }) }}
           </p>
-          <p class="footer-paragraph">
-            <a href="https://gitlab.com/cape-modeler/frontend/">{{ $t('footer.gitlab') }}</a>
-          </p>
-          <p class="footer-paragraph">
-            <a href="https://dashboard.cypress.io/#/projects/6623by/runs">{{ $t('footer.cypress') }}</a>
-          </p>
         </el-col>
       </el-row>
     </el-col>

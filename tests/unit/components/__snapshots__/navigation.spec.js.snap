@@ -3,7 +3,5 @@
 exports[`Components Navigation renders 1`] = `
 <elmenu-stub mode="horizontal" defaultactive="home" router="true" menutrigger="hover" activetextcolor="#6CC9E8" collapsetransition="true" class="nav"><a class="nav-image-wrap">
     <div class="nav-image"></div>
-  </a>
-  <elmenuitem-stub index="about" route="[object Object]">nav.about</elmenuitem-stub>
-</elmenu-stub>
+  </a></elmenu-stub>
 `;

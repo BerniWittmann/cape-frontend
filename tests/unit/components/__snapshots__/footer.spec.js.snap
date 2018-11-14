@@ -11,8 +11,6 @@ exports[`Components Footer renders 1`] = `
         <p class="footer-paragraph">
           footer.version
         </p>
-        <p class="footer-paragraph"><a href="https://gitlab.com/cape-modeler/frontend/">footer.gitlab</a></p>
-        <p class="footer-paragraph"><a href="https://dashboard.cypress.io/#/projects/6623by/runs">footer.cypress</a></p>
       </elcol-stub>
     </elrow-stub>
   </elcol-stub>

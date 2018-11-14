@@ -1,7 +1,7 @@
 describe('Navigations', () => {
   it('Navigates to the about page', () => {
     cy.visit('/')
-    cy.get('.nav').get('a').eq(1).click()
+    cy.get('.footer a').first().click()
     cy.url().should('eq', Cypress.config().baseUrl + '/about')
     cy.get('.el-main').contains('About the Project')
   })

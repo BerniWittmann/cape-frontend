@@ -7,7 +7,6 @@
     >
       <div class="nav-image"></div>
     </router-link>
-    <el-menu-item :route="{ name: 'about' }" index="about">{{ $t('nav.about') }}</el-menu-item>
   </el-menu>
 </template>
 <script>

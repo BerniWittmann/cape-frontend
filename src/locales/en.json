@@ -1,18 +1,19 @@
 {
-  "nav": {
-    "about": "@:about.title"
-  },
+  "nav": {},
   "footer": {
     "about": "@:about.title",
-    "version": "Version: {version}",
-    "gitlab": "GitLab",
-    "cypress": "Cypress"
+    "version": "Version: {version}"
   },
   "about": {
-    "title": "About the Project"
+    "title": "About the Project",
+    "description": "The Tool CaPE allows the modelling of context-adaptive processes",
+    "project_page": "Project-Page",
+    "wiki_description": "This Tool is documented in the Confluence - Wiki",
+    "wiki": "Wiki",
+    "source_description": "The Source-Code for this app is hosted on GitLab",
+    "source": "Source-Code"
   },
   "home": {
-    "greeting": "Welcome to the CaPE-Project",
-    "construction_notice": "Currently here is not much to see yet"
+    "greeting": "Welcome to the CaPE-Project"
   }
 }

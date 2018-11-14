@@ -4,6 +4,15 @@ exports[`Pages About renders 1`] = `
 <div>
   <div class="about">
     <h1>about.title</h1>
+    <p>about.description</p> <a href="https://www.uni-ulm.de/in/iui-dbis/forschung/laufende-projekte/cape/" target="_blank">
+      <elbutton-stub type="primary" icon="" nativetype="button">about.project_page</elbutton-stub>
+    </a>
+    <p>about.wiki_description</p> <a href="https://portal.dbis.info/confluence/display/CM" target="_blank">
+      <elbutton-stub type="primary" icon="" nativetype="button">about.wiki</elbutton-stub>
+    </a>
+    <p>about.source_description</p> <a href="https://gitlab.com/cape-modeler/frontend" target="_blank">
+      <elbutton-stub type="primary" icon="" nativetype="button">about.source</elbutton-stub>
+    </a>
   </div>
 </div>
 `;
