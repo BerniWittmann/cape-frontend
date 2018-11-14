@@ -4,6 +4,7 @@ image: registry.gitlab.com/cape-modeler/frontend:latest
 stages:
   - lint
   - test
+  - quality
   - deploy
 
 
@@ -47,7 +48,7 @@ pages:
 
 code_quality:
   image: docker:stable
-  stage: lint
+  stage: quality
   variables:
     DOCKER_DRIVER: overlay2
   allow_failure: true
