@@ -23,3 +23,7 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('setupSampleData', () => {
+  cy.request('POST', Cypress.env('TESTING_BACKEND_URL') + 'sample_data')
+})
