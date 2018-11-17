@@ -1,5 +1,7 @@
 {
-  "nav": {},
+  "nav": {
+    "processes": "Process Overview"
+  },
   "footer": {
     "about": "@:about.title",
     "version": "Version: {version}"
@@ -15,5 +17,20 @@
   },
   "home": {
     "greeting": "Welcome to the CaPE-Project"
+  },
+  "process": {
+    "name": "Name",
+    "created_at": "Creation Date",
+    "last_edited_at": "Last Edited",
+    "tags": "Tags",
+    "search": "Search Process",
+    "notifications": {
+      "get": {
+        "failed": {
+          "title": "Error",
+          "message": "Loading the Processes failed"
+        }
+      }
+    }
   }
 }

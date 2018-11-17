@@ -16,5 +16,9 @@ module.exports = {
         data: `@import "@/assets/styles/globals.scss";`
       }
     }
+  },
+
+  devServer: {
+    proxy: process.env.VUE_APP_API_LOCATION
   }
 }

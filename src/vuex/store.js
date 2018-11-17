@@ -8,10 +8,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import process from './modules/process'
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules: {}
+  modules: {
+    process
+  }
 })
 
 export default store

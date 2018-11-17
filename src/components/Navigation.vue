@@ -7,6 +7,7 @@
     >
       <div class="nav-image"></div>
     </router-link>
+    <el-menu-item :route="{ name: 'processes' }" index="processes">{{ $t('nav.processes') }}</el-menu-item>
   </el-menu>
 </template>
 <script>
