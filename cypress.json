@@ -1,4 +1,5 @@
 {
   "pluginsFile": "tests/e2e/plugins/index.js",
-  "projectId": "6623by"
+  "projectId": "6623by",
+  "requestTimeout": 10000
 }

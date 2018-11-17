@@ -1,4 +1,7 @@
 describe('Navigations', () => {
+  before(() => {
+    cy.setupSampleData()
+  })
   it('Navigates to the about page', () => {
     cy.visit('/')
     cy.get('.footer a').first().click()
