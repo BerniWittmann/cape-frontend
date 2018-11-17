@@ -13,7 +13,9 @@ export function convertObjectToSnakeCaseKeys(obj) {
   const result = {}
   for (let key of Object.keys(obj)) {
     let value = obj[key]
-    if (typeof obj === 'object') {
+    if (Array.isArray(value)) {
+      value = value.map(v => convertObjectToSnakeCaseKeys(v))
+    } else if (typeof obj === 'object') {
       value = convertObjectToSnakeCaseKeys(value)
     }
     result[toSnakeCase(key)] = value

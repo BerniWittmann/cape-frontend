@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages ProcessRepository.vue renders 1`] = `
+<div>
+  <elrow-stub tag="div" gutter="20" justify="end" align="top">
+    <elcol-stub span="6" tag="div" offset="18">
+      <elinput-stub value="" type="text" autocomplete="off" validateevent="true" placeholder="process.search"><i class="el-input__icon el-icon-search"></i></elinput-stub>
+    </elcol-stub>
+  </elrow-stub>
+  <elrow-stub tag="div" gutter="20" justify="start" align="top">
+    <elcol-stub span="24" tag="div">
+      <eltable-stub data="[object Object],[object Object],[object Object]" fit="true" showheader="true" defaultsort="[object Object]" selectonindeterminate="true">
+        <eltablecolumn-stub type="default" label="process.name" prop="name" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.created_at" prop="createdAt" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.last_edited_at" prop="lastEditedAt" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.tags" prop="tags" resizable="true" filtermethod="function () { [native code] }" filters="[object Object],[object Object]" filterplacement="bottom-end" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+      </eltable-stub>
+    </elcol-stub>
+  </elrow-stub>
+</div>
+`;
+
+exports[`Pages ProcessRepository.vue renders the table correctly 1`] = `
+<div>
+  <div class="el-row is-justify-end" style="margin-left: -10px; margin-right: -10px;">
+    <div class="el-col el-col-6 el-col-offset-18" style="padding-left: 10px; padding-right: 10px;">
+      <div class="el-input el-input--prefix">
+        <!----><input type="text" autocomplete="off" placeholder="process.search" class="el-input__inner"><span class="el-input__prefix"><i class="el-input__icon el-icon-search"></i><!----></span>
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
+    <div class="el-col el-col-24" style="padding-left: 10px; padding-right: 10px;">
+      <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
+        <div class="hidden-columns">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="el-table__header-wrapper">
+          <table cellspacing="0" cellpadding="0" border="0" class="el-table__header">
+            <colgroup></colgroup>
+            <thead class="">
+              <tr class=""></tr>
+            </thead>
+          </table>
+        </div>
+        <div class="el-table__body-wrapper is-scrolling-none">
+          <table cellspacing="0" cellpadding="0" border="0" class="el-table__body">
+            <colgroup></colgroup>
+            <tbody>
+              <tr class="el-table__row"></tr>
+              <tr class="el-table__row"></tr>
+              <tr class="el-table__row"></tr>
+              <!---->
+            </tbody>
+          </table>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div class="el-table__column-resize-proxy" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
