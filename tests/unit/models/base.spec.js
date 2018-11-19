@@ -38,14 +38,20 @@ describe('Models', () => {
           testValue: 'snakeCase',
           nestedObject: {
             otherValue: 'test',
-            foo: 42
+            foo: 42,
+            testyTest: {
+              aB: 'b'
+            }
           }
         })).toEqual({
           foo: 'bar',
           test_value: 'snakeCase',
           nested_object: {
             other_value: 'test',
-            foo: 42
+            foo: 42,
+            testy_test: {
+              a_b: 'b'
+            }
           }
         })
       })

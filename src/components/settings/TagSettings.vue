@@ -7,21 +7,23 @@
         </el-col>
       </el-row>
       <br>
+
       <el-row>
         <el-col>
-          <tag :tag="form" v-if="form.name && form.name.length > 0"></tag>
+          <tag :tag="tag" v-if="tag.name && tag.name.length > 0"></tag>
         </el-col>
       </el-row>
-      <el-form ref="tagForm" :model="form" label-position="top" :rules="rules">
+
+      <el-form ref="tagForm" :model="tag" label-position="top" :rules="rules">
         <el-form-item :label="$t('settings.tag.name')" prop="name">
-          <el-input v-model="form.name"></el-input>
+          <el-input v-model="tag.name"></el-input>
         </el-form-item>
         <el-form-item :label="$t('settings.tag.color')" prop="color">
-          <el-color-picker v-model="form.color"></el-color-picker>
+          <el-color-picker v-model="tag.color"></el-color-picker>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submit">{{ $t('settings.tag.submit') }}</el-button>
-          <el-button @click="reset">{{ $t('settings.tag.reset') }}</el-button>
+          <el-button type="primary" @click.native="submit">{{ $t('settings.tag.submit') }}</el-button>
+          <el-button @click.native="reset">{{ $t('settings.tag.reset') }}</el-button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -49,7 +51,7 @@ export default {
 
   data() {
     return {
-      form: {
+      tag: {
         name: undefined,
         color: DEFAULT_TAG_COLOR
       },
@@ -68,7 +70,7 @@ export default {
     submit() {
       this.$refs.tagForm.validate((valid) => {
         if (valid) {
-          const tag = new Tag(this.form)
+          const tag = new Tag(this.tag)
           tagService.create(tag).then(() => {
             this.reset()
           })
@@ -77,7 +79,7 @@ export default {
     },
 
     reset() {
-      this.form = {
+      this.tag = {
         name: undefined,
         color: DEFAULT_TAG_COLOR
       }

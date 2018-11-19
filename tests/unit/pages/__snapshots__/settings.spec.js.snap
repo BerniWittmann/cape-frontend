@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages Settings renders 1`] = `
+<div>
+  <div class="page">
+    <h3>settings.title</h3>
+    <h4>settings.tags</h4>
+    <tagsettings-stub></tagsettings-stub>
+  </div>
+</div>
+`;

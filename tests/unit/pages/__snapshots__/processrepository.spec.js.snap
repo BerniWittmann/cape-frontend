@@ -33,7 +33,7 @@ exports[`Pages ProcessRepository.vue renders the table correctly 1`] = `
   </div>
   <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
     <div class="el-col el-col-24" style="padding-left: 10px; padding-right: 10px;">
-      <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
+      <div class="el-table el-table--fit el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition">
         <div class="hidden-columns">
           <div></div>
           <div></div>
@@ -41,20 +41,94 @@ exports[`Pages ProcessRepository.vue renders the table correctly 1`] = `
           <div></div>
         </div>
         <div class="el-table__header-wrapper">
-          <table cellspacing="0" cellpadding="0" border="0" class="el-table__header">
-            <colgroup></colgroup>
+          <table cellspacing="0" cellpadding="0" border="0" class="el-table__header" style="width: 320px;">
+            <colgroup>
+              <col name="el-table_1_column_1" width="80">
+              <col name="el-table_1_column_2" width="80">
+              <col name="el-table_1_column_3" width="80">
+              <col name="el-table_1_column_4" width="80">
+            </colgroup>
             <thead class="">
-              <tr class=""></tr>
+              <tr class="">
+                <th colspan="1" rowspan="1" class="el-table_1_column_1     is-leaf is-sortable">
+                  <div class="cell">process.name<span class="caret-wrapper"><i class="sort-caret ascending"></i><i class="sort-caret descending"></i></span></div>
+                </th>
+                <th colspan="1" rowspan="1" class="el-table_1_column_2     is-leaf is-sortable">
+                  <div class="cell">process.created_at<span class="caret-wrapper"><i class="sort-caret ascending"></i><i class="sort-caret descending"></i></span></div>
+                </th>
+                <th colspan="1" rowspan="1" class="el-table_1_column_3     is-leaf is-sortable">
+                  <div class="cell">process.last_edited_at<span class="caret-wrapper"><i class="sort-caret ascending"></i><i class="sort-caret descending"></i></span></div>
+                </th>
+                <th colspan="1" rowspan="1" class="el-table_1_column_4     is-leaf">
+                  <div class="cell">process.tags<span class="el-table__column-filter-trigger"><i class="el-icon-arrow-down"></i></span></div>
+                </th>
+              </tr>
             </thead>
           </table>
         </div>
-        <div class="el-table__body-wrapper is-scrolling-none">
-          <table cellspacing="0" cellpadding="0" border="0" class="el-table__body">
-            <colgroup></colgroup>
+        <div class="el-table__body-wrapper is-scrolling-left">
+          <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 320px;">
+            <colgroup>
+              <col name="el-table_1_column_1" width="80">
+              <col name="el-table_1_column_2" width="80">
+              <col name="el-table_1_column_3" width="80">
+              <col name="el-table_1_column_4" width="80">
+            </colgroup>
             <tbody>
-              <tr class="el-table__row"></tr>
-              <tr class="el-table__row"></tr>
-              <tr class="el-table__row"></tr>
+              <tr class="el-table__row">
+                <td rowspan="1" colspan="1" class="el-table_1_column_1  ">
+                  <div class="cell">First Process</div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                  <div class="cell">
+                    05.11.2018 22:26
+                  </div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                  <div class="cell">
+                    17.11.2018 22:26
+                  </div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                  <div class="cell"><span class="tag row-tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">First Tag</span><span class="tag row-tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag</span></div>
+                </td>
+              </tr>
+              <tr class="el-table__row">
+                <td rowspan="1" colspan="1" class="el-table_1_column_1  ">
+                  <div class="cell">Second Process</div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                  <div class="cell">
+                    11.11.2018 22:26
+                  </div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                  <div class="cell">
+                    13.11.2018 22:26
+                  </div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                  <div class="cell"><span class="tag row-tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">First Tag</span></div>
+                </td>
+              </tr>
+              <tr class="el-table__row">
+                <td rowspan="1" colspan="1" class="el-table_1_column_1  ">
+                  <div class="cell">Third Process</div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_2  ">
+                  <div class="cell">
+                    17.11.2018 22:26
+                  </div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_3  ">
+                  <div class="cell">
+                    18.11.2018 22:26
+                  </div>
+                </td>
+                <td rowspan="1" colspan="1" class="el-table_1_column_4  ">
+                  <div class="cell"></div>
+                </td>
+              </tr>
               <!---->
             </tbody>
           </table>

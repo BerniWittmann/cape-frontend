@@ -19,4 +19,10 @@ describe('Navigations', () => {
     cy.url().should('eq', Cypress.config().baseUrl + '/')
     cy.get('.el-main').contains('Welcome')
   })
+  it('Navigates to the settings page', () => {
+    cy.visit('/')
+    cy.get('.footer a').eq(1).click()
+    cy.url().should('eq', Cypress.config().baseUrl + '/settings')
+    cy.get('.el-main').contains('Settings')
+  })
 })

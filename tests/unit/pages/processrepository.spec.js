@@ -2,8 +2,10 @@ import { shallowMount, mount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 import moment from 'moment'
 import ProcessRepository from '@/pages/ProcessRepository.vue'
-
+import Tag from '@/components/Tag.vue'
 import EmptySlotComponent from '../EmptySlotComponent.vue'
+
+Date.now = jest.fn(() => 1542662763500)
 
 describe('Pages', () => {
   describe('ProcessRepository.vue', () => {
@@ -67,7 +69,7 @@ describe('Pages', () => {
       expect(cmp.html()).toMatchSnapshot()
     })
 
-    it('renders the table correctly', () => {
+    it('renders the table correctly', (done) => {
       // Hide error resulting from el-table warning
       console.error = jest.fn()
 
@@ -78,9 +80,13 @@ describe('Pages', () => {
         },
         stubs: {
           'v-layout': EmptySlotComponent
-        }
+        },
+        sync: false
       })
-      expect(cmp.html()).toMatchSnapshot()
+      cmp.vm.$nextTick(() => {
+        expect(cmp.html()).toMatchSnapshot()
+        done()
+      })
     })
 
     it('renders the table', () => {
@@ -123,6 +129,23 @@ describe('Pages', () => {
         color: '#FF0000',
         id: '42',
         name: 'First Tag'
+      })
+    })
+
+    it('renders the tag components', (done) => {
+      cmp = mount(ProcessRepository, {
+        i18n,
+        mocks: {
+          $store: store
+        },
+        stubs: {
+          'v-layout': EmptySlotComponent
+        },
+        sync: false
+      })
+      cmp.vm.$nextTick(() => {
+        expect(cmp.contains(Tag)).toBeTruthy()
+        done()
       })
     })
   })
