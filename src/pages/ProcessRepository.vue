@@ -42,7 +42,7 @@
                   :filter-method="filterTag"
                   filter-placement="bottom-end">
             <template slot-scope="scope">
-              {{ scope.row.tags.map(t => t.name).join(', ')}}
+              <tag v-for="tag in scope.row.tags" :key="tag.id" :tag="tag" class="row-tag"></tag>
             </template>
           </el-table-column>
         </el-table>
@@ -60,10 +60,12 @@
  */
 import { DATE_TIME_FORMAT } from '@/utils/constants'
 import DefaultLayout from '@/layouts/Default.vue'
+import Tag from '@/components/Tag.vue'
 
 export default {
   components: {
-    VLayout: DefaultLayout
+    VLayout: DefaultLayout,
+    Tag
   },
 
   data() {

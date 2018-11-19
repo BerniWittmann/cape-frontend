@@ -4,7 +4,8 @@
   },
   "footer": {
     "about": "@:about.title",
-    "version": "Version: {version}"
+    "version": "Version: {version}",
+    "settings": "@:settings.title"
   },
   "about": {
     "title": "About the Project",
@@ -29,6 +30,44 @@
         "failed": {
           "title": "Error",
           "message": "Loading the Processes failed"
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "tags": "Tags",
+    "tag": {
+      "name": "Name",
+      "color": "Color",
+      "submit": "Submit",
+      "reset": "Reset",
+      "validation": {
+        "name": {
+          "required": "Please specify a Name"
+        },
+        "color": {
+          "required": "Please choose a Color"
+        }
+      },
+      "notifications": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Tags failed"
+          }
+        },
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Tag failed"
+          }
+        },
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Tag failed"
+          }
         }
       }
     }

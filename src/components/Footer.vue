@@ -6,6 +6,9 @@
           <p class="footer-paragraph">
             <router-link :to="{ name: 'about' }">{{ $t('footer.about') }}</router-link>
           </p>
+          <p class="footer-paragraph">
+            <router-link :to="{ name: 'settings' }">{{ $t('footer.settings') }}</router-link>
+          </p>
         </el-col>
         <el-col :lg="{span: 7, offset: 5}" :md="{span: 7, offset: 5}" :sm="{span: 7, offset: 5}"
                 :xs="{span: 24}">
