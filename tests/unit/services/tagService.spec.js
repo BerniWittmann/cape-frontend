@@ -81,8 +81,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'settings.tag.notifications.get.failed.title',
-            message: 'settings.tag.notifications.get.failed.message'
+            title: 'notifications.tags.get.failed.title',
+            message: 'notifications.tags.get.failed.message'
           })
           done()
         })
@@ -131,19 +131,19 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'settings.tag.notifications.post.failed.title',
-            message: 'settings.tag.notifications.post.failed.message'
+            title: 'notifications.tag.post.failed.title',
+            message: 'notifications.tag.post.failed.message'
           })
           done()
         })
       })
     })
 
-    describe('create', () => {
-      it('should create a tag', (done) => {
+    describe('remove', () => {
+      it('should remove a tag', (done) => {
         moxios.stubRequest('/tags/42', {
           status: 200,
-          response: [tagData]
+          response: undefined
         })
 
         const onFulfilled = jest.fn()
@@ -181,8 +181,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'settings.tag.notifications.delete.failed.title',
-            message: 'settings.tag.notifications.delete.failed.message'
+            title: 'notifications.tag.delete.failed.title',
+            message: 'notifications.tag.delete.failed.message'
           })
           done()
         })

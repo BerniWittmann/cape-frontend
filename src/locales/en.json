@@ -24,15 +24,7 @@
     "created_at": "Creation Date",
     "last_edited_at": "Last Edited",
     "tags": "Tags",
-    "search": "Search Process",
-    "notifications": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Processes failed"
-        }
-      }
-    }
+    "search": "Search Process"
   },
   "settings": {
     "title": "Settings",
@@ -49,25 +41,37 @@
         "color": {
           "required": "Please choose a Color"
         }
+      }
+    }
+  },
+  "notifications": {
+    "tags": {
+      "get": {
+        "failed": {
+          "title": "Error",
+          "message": "Loading the Tags failed"
+        }
+      }
+    },
+    "tag": {
+      "post": {
+        "failed": {
+          "title": "Error",
+          "message": "Creating the Tag failed"
+        }
       },
-      "notifications": {
-        "get": {
-          "failed": {
-            "title": "Error",
-            "message": "Loading the Tags failed"
-          }
-        },
-        "post": {
-          "failed": {
-            "title": "Error",
-            "message": "Creating the Tag failed"
-          }
-        },
-        "delete": {
-          "failed": {
-            "title": "Error",
-            "message": "Deleting the Tag failed"
-          }
+      "delete": {
+        "failed": {
+          "title": "Error",
+          "message": "Deleting the Tag failed"
+        }
+      }
+    },
+    "processes": {
+      "get": {
+        "failed": {
+          "title": "Error",
+          "message": "Loading the Processes failed"
         }
       }
     }

@@ -92,8 +92,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'process.notifications.get.failed.title',
-            message: 'process.notifications.get.failed.message'
+            title: 'notifications.processes.get.failed.title',
+            message: 'notifications.processes.get.failed.message'
           })
           done()
         })

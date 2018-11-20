@@ -1,24 +1,15 @@
 import Tag from '@/models/tag'
 import store from '@/vuex/store'
-import Vue from 'vue'
+import { makeRequest } from '@/services/base'
 
 // When the request succeeds
 const success = (tags) => {
-  tags = tags.map(p => new Tag(p))
-
-  store.dispatch('tag/store', tags)
+  store.dispatch('tag/store', tags.map(p => new Tag(p)))
 }
 
-// When the request fails
-const failed = () => {
-  Vue.$notify.error({
-    title: Vue.i18n.t('settings.tag.notifications.get.failed.title'),
-    message: Vue.i18n.t('settings.tag.notifications.get.failed.message')
-  })
-}
-
-export default () =>
-  Vue.$http.get('/tags')
-    .then((response) => {
-      success(response.data)
-    }).catch(failed)
+export default () => makeRequest({
+  method: 'get',
+  endpoint: '/tags',
+  name: 'tags',
+  success
+})
