@@ -7,6 +7,7 @@ export function makeRequest({
     .then((response) => {
       success(response.data, { method, endpoint, data, name })
     }).catch((response) => {
+      console.error(response)
       Vue.$notify.error({
         title: Vue.i18n.t('notifications.' + name + '.' + method + '.failed.title'),
         message: Vue.i18n.t('notifications.' + name + '.' + method + '.failed.message')

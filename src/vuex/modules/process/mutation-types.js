@@ -7,7 +7,11 @@
  */
 
 export const STORE = 'STORE'
+export const UPDATE = 'UPDATE'
+export const SET_ACTIVE = 'SET_ACTIVE'
 
 export default {
-  STORE
+  STORE,
+  UPDATE,
+  SET_ACTIVE
 }

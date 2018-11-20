@@ -50,11 +50,19 @@ export default {
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .tag {
   margin-right: 5px;
   &:last-of-type {
     margin-right: 0;
+  }
+
+  .el-tag__close {
+    color: inherit !important;
+    &:hover {
+      background-color: inherit !important;
+      color: #fff;
+    }
   }
 }
 </style>

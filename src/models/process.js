@@ -17,7 +17,8 @@ export default class Process extends Base {
   toJSON() {
     return {
       '_id': this.id,
-      'name': this.name
+      'name': this.name,
+      'tags': this.tags.map(t => t.toJSON())
     }
   }
 }

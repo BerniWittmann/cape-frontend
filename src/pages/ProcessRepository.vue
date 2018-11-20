@@ -45,6 +45,17 @@
               <tag v-for="tag in scope.row.tags" :key="tag.id" :tag="tag" class="row-tag"></tag>
             </template>
           </el-table-column>
+          <el-table-column
+                  width="60">
+            <template slot-scope="scope">
+              <el-tooltip :content="$t('process.edit.tooltip')" placement="top">
+              <el-button
+                      @click.native.prevent="edit(scope.row)"
+                      circle size="mini"
+                      icon="el-icon-edit"></el-button>
+              </el-tooltip>
+            </template>
+          </el-table-column>
         </el-table>
       </el-col>
     </el-row>
@@ -109,6 +120,15 @@ export default {
 
     filterTag(value, row) {
       return row.tags.find(t => t.id === value)
+    },
+
+    edit(process) {
+      this.$router.push({
+        name: 'process.edit',
+        params: {
+          processID: process.id
+        }
+      })
     }
   }
 }

@@ -24,7 +24,23 @@
     "created_at": "Creation Date",
     "last_edited_at": "Last Edited",
     "tags": "Tags",
-    "search": "Search Process"
+    "search": "Search Process",
+    "edit": {
+      "info": "Process Info",
+      "name": "@:process.name",
+      "tags": "@:process.tags",
+      "add_tag": "Add Tag",
+      "validation": {
+        "name": {
+          "required": "Please specify a Name"
+        }
+      },
+      "save": "Save",
+      "reset": "Reset",
+      "tooltip": "Edit Process",
+      "title": "Edit {name}",
+      "back": "Back"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -72,6 +88,24 @@
         "failed": {
           "title": "Error",
           "message": "Loading the Processes failed"
+        }
+      }
+    },
+    "process": {
+      "get": {
+        "failed": {
+          "title": "Error",
+          "message": "Loading the Process failed"
+        }
+      },
+      "put": {
+        "failed": {
+          "title": "Error",
+          "message": "Updating the Process failed"
+        },
+        "success": {
+          "title": "Success",
+          "message": "The Process got updated"
         }
       }
     }

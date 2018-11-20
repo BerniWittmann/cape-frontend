@@ -20,8 +20,10 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+* {
   font-family: Helvetica Neue, sans-serif;
+}
+#app {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

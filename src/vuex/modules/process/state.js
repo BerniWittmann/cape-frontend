@@ -6,5 +6,6 @@
  */
 
 export default {
-  processes: []
+  processes: [],
+  activeProcess: undefined
 }
