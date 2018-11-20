@@ -5,12 +5,12 @@ import ProcessRepository from '@/pages/ProcessRepository.vue'
 import Tag from '@/components/Tag.vue'
 import EmptySlotComponent from '../EmptySlotComponent.vue'
 
-Date.now = jest.fn(() => 1542662763500)
-
 describe('Pages', () => {
   describe('ProcessRepository.vue', () => {
     let store
     let cmp
+
+    const date = moment(moment().utc())
 
     beforeEach(() => {
       store = {
@@ -19,8 +19,8 @@ describe('Pages', () => {
             processes: [{
               id: '1',
               name: 'First Process',
-              createdAt: moment().subtract(14, 'days'),
-              lastEditedAt: moment().subtract(2, 'days'),
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
               tags: [{
                 id: '42',
                 name: 'First Tag',
@@ -33,8 +33,8 @@ describe('Pages', () => {
             }, {
               id: '2',
               name: 'Second Process',
-              createdAt: moment().subtract(8, 'days'),
-              lastEditedAt: moment().subtract(6, 'days'),
+              createdAt: date.clone().subtract(8, 'days'),
+              lastEditedAt: date.clone().subtract(6, 'days'),
               tags: [{
                 id: '42',
                 name: 'First Tag',
@@ -43,8 +43,8 @@ describe('Pages', () => {
             }, {
               id: '3',
               name: 'Third Process',
-              createdAt: moment().subtract(2, 'days'),
-              lastEditedAt: moment().subtract(1, 'days'),
+              createdAt: date.clone().subtract(2, 'days'),
+              lastEditedAt: date.clone().subtract(1, 'days'),
               tags: []
             }]
           }

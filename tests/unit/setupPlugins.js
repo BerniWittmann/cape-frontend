@@ -8,6 +8,9 @@
 import VueI18N from 'vue-i18n'
 import Vue from 'vue'
 import Element from 'element-ui'
+import mockDate from 'mockdate'
+mockDate.set(1542662763500)
+
 Vue.use(VueI18N)
 Vue.use(Element)
 

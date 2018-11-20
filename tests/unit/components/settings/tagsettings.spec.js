@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 import { ColorPicker } from 'element-ui'
 
-import TagSettings from '@/components/Settings/TagSettings.vue'
+import TagSettings from '@/components/settings/TagSettings.vue'
 import Tag from '@/components/Tag.vue'
 
 import tagService from '@/services/tag'
