@@ -3,24 +3,30 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
+## 0.3.0 - (2018-11-20)
+---
+
+* Added Process Repository Overview
+* Added Tag Settings
+
 ## 0.2.2 - (2018-11-14)
 ---
 
-* Interface-Sprache auf Englisch geändert
-* About Seite aufbereitet
-* Footer und Navigation von unnötigen Links zur About Page und GitLab befreit
+* Changed Interface-Language to english
+* Prepared About Page
+* Cleaned up Footer and Navigation from unused links
 
 ## 0.2.1 - (2018-10-16)
 ---
 
-* Primärfarbe ans Logo angepasst
-* Bildgröße auf der Home Seite responsive gemacht
+* Adjusted primary color to logo
+* Made Image size of home page responsive
 
 ## 0.2.0 - (2018-10-16)
 ---
 
-* Setup der Dateistruktur
-* der Boilerplate-Code wurde entfernt
+* Setup of file-structure
+* Removed Boilerplate Code
 
 ## 0.1.0 - (2018-10-15)
 ---
