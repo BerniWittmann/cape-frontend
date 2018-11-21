@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages EditProcess.vue renders 1`] = `
+<div>
+  <h2 class="process-edit__title"><button type="button" class="el-button el-button--text">
+      <!----><i class="el-icon-arrow-left"></i><span>process.edit.back</span></button> process.edit.title</h2>
+  <elrow-stub tag="div" gutter="20" justify="start" align="top">
+    <elcol-stub span="18" tag="div">
+      <p>TODO Modeler comes here </p>
+    </elcol-stub>
+    <elcol-stub span="6" tag="div">
+      <processinfoform-stub process="[object Object]"></processinfoform-stub>
+    </elcol-stub>
+  </elrow-stub>
+  <elrow-stub tag="div" type="flex" justify="center" align="top">
+    <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--success">
+        <!---->
+        <!----><span>process.edit.save</span></button> <button type="button" class="el-button el-button--danger is-plain">
+        <!---->
+        <!----><span>process.edit.reset</span></button></elcol-stub>
+  </elrow-stub>
+</div>
+`;

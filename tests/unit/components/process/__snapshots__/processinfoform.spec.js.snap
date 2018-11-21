@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ProcessInfoForm hides the add tag button if no tags are available 1`] = `
+<div class="process-info">
+  <h4>process.edit.info</h4>
+  <form class="el-form el-form--label-top">
+    <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
+      <div class="el-form-item__content">
+        <div class="el-input">
+          <!----><input type="text" autocomplete="off" class="el-input__inner">
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Components ProcessInfoForm it can add a tag can shows the option on new tag button click 1`] = `
+<div class="process-info">
+  <h4>process.edit.info</h4>
+  <form class="el-form el-form--label-top">
+    <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
+      <div class="el-form-item__content">
+        <div class="el-input">
+          <!----><input type="text" autocomplete="off" class="el-input__inner">
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+        <div class="el-select el-select--small">
+          <!---->
+          <div class="el-input el-input--small el-input--suffix">
+            <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+            <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span>
+            <!----></span>
+            <!---->
+          </div>
+          <div class="el-select-dropdown el-popper" style="display: none;">
+            <div class="el-scrollbar" style="">
+              <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+                <ul class="el-scrollbar__view el-select-dropdown__list">
+                  <!---->
+                  <li class="el-select-dropdown__item"><span class="tag el-tag el-tag--info el-tag--mini el-zoom-in-center-enter el-zoom-in-center-enter-active" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);">Third Tag</span></li>
+                  <li class="el-select-dropdown__item"><span class="tag el-tag el-tag--info el-tag--mini el-zoom-in-center-enter el-zoom-in-center-enter-active" style="background-color: rgba(0, 255, 240, 0.1); color: rgb(0, 255, 240);">Fourth Tag</span></li>
+                </ul>
+              </div>
+              <div class="el-scrollbar__bar is-horizontal">
+                <div class="el-scrollbar__thumb" style="width: 0px; transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+              </div>
+              <div class="el-scrollbar__bar is-vertical">
+                <div class="el-scrollbar__thumb" style="height: 0px; transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+              </div>
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Components ProcessInfoForm it can add a tag closes the dropdown after adding A Tag 1`] = `
+<div class="process-info">
+  <h4>process.edit.info</h4>
+  <form class="el-form el-form--label-top">
+    <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
+      <div class="el-form-item__content">
+        <div class="el-input">
+          <!----><input type="text" autocomplete="off" class="el-input__inner">
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button button-new-tag el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+        <!---->
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Components ProcessInfoForm renders 1`] = `
+<div class="process-info">
+  <h4>process.edit.info</h4>
+  <form class="el-form el-form--label-top">
+    <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
+      <div class="el-form-item__content">
+        <div class="el-input">
+          <!----><input type="text" autocomplete="off" class="el-input__inner">
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button button-new-tag el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+        <!---->
+      </div>
+    </div>
+  </form>
+</div>
+`;

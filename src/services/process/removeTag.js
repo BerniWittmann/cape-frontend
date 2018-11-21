@@ -11,7 +11,7 @@ const success = (process) => {
 export default (process, tag) => makeRequest({
   method: 'delete',
   endpoint: `/processes/${process.id}/tags`,
-  name: 'process',
+  name: 'process.tags',
   data: tag,
   success
 })

@@ -15,6 +15,7 @@ const tagData = {
 
 describe('Services', () => {
   describe('Tag', () => {
+    console.error = jest.fn()
     const notification = {
       error: jest.fn()
     }

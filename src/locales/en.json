@@ -107,6 +107,20 @@
           "title": "Success",
           "message": "The Process got updated"
         }
+      },
+      "tags": {
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Adding the Tag to the Process failed"
+          }
+        },
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Removing the Tag from the Process failed"
+          }
+        }
       }
     }
   }

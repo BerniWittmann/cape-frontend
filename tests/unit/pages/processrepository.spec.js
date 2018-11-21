@@ -8,11 +8,15 @@ import EmptySlotComponent from '../EmptySlotComponent.vue'
 describe('Pages', () => {
   describe('ProcessRepository.vue', () => {
     let store
+    let router
     let cmp
 
     const date = moment(moment().utc())
 
     beforeEach(() => {
+      router = {
+        push: jest.fn()
+      }
       store = {
         state: {
           process: {
@@ -57,10 +61,12 @@ describe('Pages', () => {
       cmp = shallowMount(ProcessRepository, {
         i18n,
         mocks: {
-          $store: store
+          $store: store,
+          $router: router
         },
         stubs: {
-          'v-layout': EmptySlotComponent
+          'v-layout': EmptySlotComponent,
+          'el-tooltip': EmptySlotComponent
         }
       })
     }
@@ -76,7 +82,8 @@ describe('Pages', () => {
       cmp = mount(ProcessRepository, {
         i18n,
         mocks: {
-          $store: store
+          $store: store,
+          $router: router
         },
         stubs: {
           'v-layout': EmptySlotComponent
@@ -136,7 +143,8 @@ describe('Pages', () => {
       cmp = mount(ProcessRepository, {
         i18n,
         mocks: {
-          $store: store
+          $store: store,
+          $router: router
         },
         stubs: {
           'v-layout': EmptySlotComponent
@@ -145,6 +153,34 @@ describe('Pages', () => {
       })
       cmp.vm.$nextTick(() => {
         expect(cmp.contains(Tag)).toBeTruthy()
+        done()
+      })
+    })
+
+    it('a process can be edited', (done) => {
+      cmp = mount(ProcessRepository, {
+        i18n,
+        mocks: {
+          $store: store,
+          $router: router
+        },
+        stubs: {
+          'v-layout': EmptySlotComponent
+        },
+        sync: false
+      })
+      cmp.vm.$nextTick(() => {
+        const link = cmp.find('.el-table_3_column_15  .el-button')
+        expect(link.exists()).toBeTruthy()
+        link.trigger('click')
+
+        expect(router.push).toHaveBeenCalledWith({
+          name: 'process.edit',
+          params: {
+            processID: '3'
+          }
+        })
+
         done()
       })
     })

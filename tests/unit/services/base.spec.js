@@ -8,6 +8,7 @@ store.dispatch = jest.fn()
 
 describe('BaseService', () => {
   describe('makeRequest', () => {
+    console.error = jest.fn()
     const notification = {
       error: jest.fn()
     }
@@ -64,6 +65,24 @@ describe('BaseService', () => {
                 title: `notifications.test.${method}.failed.title`,
                 message: `notifications.test.${method}.failed.message`
               })
+              done()
+            })
+          })
+        })
+
+        it(`logs the error message for ${method}`, (done) => {
+          makeRequest({
+            method: method,
+            endpoint: '/test',
+            name: 'test'
+          })
+
+          moxios.wait(function () {
+            let request = moxios.requests.mostRecent()
+            request.respondWith({
+              status: 400
+            }).then(function () {
+              expect(console.error).toHaveBeenCalled()
               done()
             })
           })

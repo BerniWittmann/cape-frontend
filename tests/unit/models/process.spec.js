@@ -72,15 +72,41 @@ describe('Models', () => {
       }])
     })
 
+    it('defaults the tags to an empty array', () => {
+      const date = moment()
+
+      const p = new Process({
+        _id: '42',
+        name: 'My Process',
+        created_at: date.clone().subtract(2, 'days').toISOString(),
+        last_edited_at: date.clone().subtract(1, 'days').toISOString()
+      })
+      expect(p.id).toEqual('42')
+      expect(p.name).toEqual('My Process')
+      expect(p.createdAt.toISOString()).toEqual(date.clone().subtract(2, 'days').toISOString())
+      expect(p.lastEditedAt.toISOString()).toEqual(date.clone().subtract(1, 'days').toISOString())
+      expect(p.tags).toEqual([])
+    })
+
     it('has a toJSON Method', () => {
       const p = new Process({
         _id: '42',
-        name: 'My Process'
+        name: 'My Process',
+        tags: [{
+          _id: '52',
+          color: '#FF0000',
+          name: 'Tag'
+        }]
       })
       expect(p.toJSON).toEqual(expect.any(Function))
       expect(p.toJSON()).toEqual({
         _id: '42',
-        name: 'My Process'
+        name: 'My Process',
+        tags: [{
+          _id: '52',
+          color: '#FF0000',
+          name: 'Tag'
+        }]
       })
     })
   })
