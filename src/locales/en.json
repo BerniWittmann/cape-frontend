@@ -38,6 +38,7 @@
       "save": "Save",
       "reset": "Reset",
       "tooltip": "Edit Process",
+      "link": "Edit Process",
       "title": "Edit {name}",
       "back": "Back"
     }

@@ -13,7 +13,8 @@
       <el-col :span="24">
         <el-table
                 :data="processes"
-                :default-sort="{prop: 'lastEditedAt', order: 'descending'}">
+                :default-sort="{prop: 'lastEditedAt', order: 'descending'}"
+                @row-click="navigateToPreview">
           <el-table-column
                   prop="name"
                   :label="$t('process.name')"
@@ -49,10 +50,10 @@
                   width="60">
             <template slot-scope="scope">
               <el-tooltip :content="$t('process.edit.tooltip')" placement="top">
-              <el-button
-                      @click.native.prevent="edit(scope.row)"
-                      circle size="mini"
-                      icon="el-icon-edit"></el-button>
+                <el-button
+                        @click.native.prevent.stop="edit(scope.row)"
+                        circle size="mini"
+                        icon="el-icon-edit"></el-button>
               </el-tooltip>
             </template>
           </el-table-column>
@@ -125,6 +126,15 @@ export default {
     edit(process) {
       this.$router.push({
         name: 'process.edit',
+        params: {
+          processID: process.id
+        }
+      })
+    },
+
+    navigateToPreview(process) {
+      this.$router.push({
+        name: 'process.preview',
         params: {
           processID: process.id
         }

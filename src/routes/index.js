@@ -12,6 +12,7 @@ import About from '@/pages/About.vue'
 import Settings from '@/pages/Settings.vue'
 import ProcessRepository from '@/pages/ProcessRepository.vue'
 import EditProcess from '@/pages/process/EditProcess.vue'
+import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog'
 
 import ProcessService from '@/services/process'
 import TagService from '@/services/tag'
@@ -50,6 +51,13 @@ const routes = [
         path: 'edit',
         name: 'process.edit',
         component: EditProcess
+      }, {
+        path: 'preview',
+        name: 'process.preview',
+        components: {
+          default: ProcessRepository,
+          dialog: ProcessPreviewDialog
+        }
       }]
     }]
   },

@@ -68,10 +68,6 @@ export default {
     }
   },
 
-  destroyed() {
-    this.$store.dispatch('process/unsetActive')
-  },
-
   beforeMount() {
     this.name = this.process.name
   }
