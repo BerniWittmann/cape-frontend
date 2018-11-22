@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialogs Process Preview Dialog can be closed 1`] = `
+<div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2007;">
+  <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
+    <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
+    <div class="el-dialog__body">
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div">
+          <tag-stub tag="[object Object]" size="small"></tag-stub>
+          <tag-stub tag="[object Object]" size="small"></tag-stub>
+        </elcol-stub>
+      </elrow-stub> <br>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
+            <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></elcol-stub>
+      </elrow-stub>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Dialogs Process Preview Dialog can be edited 1`] = `
+<div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2009;">
+  <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
+    <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
+    <div class="el-dialog__body">
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div">
+          <tag-stub tag="[object Object]" size="small"></tag-stub>
+          <tag-stub tag="[object Object]" size="small"></tag-stub>
+        </elcol-stub>
+      </elrow-stub> <br>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
+            <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></elcol-stub>
+      </elrow-stub>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Dialogs Process Preview Dialog can render 1`] = `
+<div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2001;">
+  <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
+    <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
+    <div class="el-dialog__body">
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div">
+          <tag-stub tag="[object Object]" size="small"></tag-stub>
+          <tag-stub tag="[object Object]" size="small"></tag-stub>
+        </elcol-stub>
+      </elrow-stub> <br>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
+            <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></elcol-stub>
+      </elrow-stub>
+    </div>
+    <!---->
+  </div>
+</div>
+`;

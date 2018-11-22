@@ -146,10 +146,5 @@ describe('Pages', () => {
       expect(ProcessService.update).not.toHaveBeenCalled()
       expect(cmp.vm.reset).not.toHaveBeenCalled()
     })
-    it('unsets the active process on destroy', () => {
-      cmp.destroy()
-
-      expect(store.dispatch).toHaveBeenCalledWith('process/unsetActive')
-    })
   })
 })

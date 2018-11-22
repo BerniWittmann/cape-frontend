@@ -184,5 +184,33 @@ describe('Pages', () => {
         done()
       })
     })
+
+    it('a process can be previewed', (done) => {
+      cmp = mount(ProcessRepository, {
+        i18n,
+        mocks: {
+          $store: store,
+          $router: router
+        },
+        stubs: {
+          'v-layout': EmptySlotComponent
+        },
+        sync: false
+      })
+      cmp.vm.$nextTick(() => {
+        const link = cmp.find('.el-table__row')
+        expect(link.exists()).toBeTruthy()
+        link.trigger('click')
+
+        expect(router.push).toHaveBeenCalledWith({
+          name: 'process.preview',
+          params: {
+            processID: '3'
+          }
+        })
+
+        done()
+      })
+    })
   })
 })

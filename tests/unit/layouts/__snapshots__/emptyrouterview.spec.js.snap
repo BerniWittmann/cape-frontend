@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layouts EmptyRouterView renders 1`] = `<div> </div>`;
+exports[`Layouts EmptyRouterView renders 1`] = `
+<div>
+  <div name="dialog"> </div>
+  <div> </div>
+</div>
+`;
