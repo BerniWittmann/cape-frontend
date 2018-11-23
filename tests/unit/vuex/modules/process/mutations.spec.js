@@ -91,6 +91,43 @@ describe('Vuex', () => {
             expect(state.activeProcess).toEqual(undefined)
           })
         })
+
+        describe('ADD', () => {
+          it('adds a given process', () => {
+            state.processes = [{ id: 1 }, { id: 2 }]
+            processMutations[mutationTypes.ADD](state, { id: 3 })
+
+            expect(state.processes).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
+          })
+
+          it('adds a given task to an empty array', () => {
+            processMutations[mutationTypes.ADD](state, { id: 1 })
+
+            expect(state.processes).toEqual([{ id: 1 }])
+          })
+        })
+
+        describe('REMOVE', () => {
+          it('removes a given process', () => {
+            state.processes = [{ id: 1 }, { id: 2 }, { id: 3 }]
+            processMutations[mutationTypes.REMOVE](state, { id: 2 })
+
+            expect(state.processes).toEqual([{ id: 1 }, { id: 3 }])
+          })
+
+          it('can handle an empty array', () => {
+            processMutations[mutationTypes.REMOVE](state, { id: 1 })
+
+            expect(state.processes).toEqual([])
+          })
+
+          it('removes all processes by the id', () => {
+            state.processes = [{ id: 1, foo: 'bar' }, { id: 2 }, { id: 1, fizz: 'bass' }]
+            processMutations[mutationTypes.REMOVE](state, { id: 1 })
+
+            expect(state.processes).toEqual([{ id: 2 }])
+          })
+        })
       })
     })
   })

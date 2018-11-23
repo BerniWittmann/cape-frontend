@@ -307,5 +307,105 @@ describe('Services', () => {
         })
       })
     })
+
+    describe('create', () => {
+      it('should create a process', (done) => {
+        moxios.stubRequest('/processes', {
+          status: 200,
+          response: processData
+        })
+
+        const onFulfilled = jest.fn()
+        processService.create({ name: 'Test', color: '#FF0000' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('process/add', new Process(processData))
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/processes', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        processService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/processes', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        processService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.process.post.failed.title',
+            message: 'notifications.process.post.failed.message'
+          })
+          done()
+        })
+      })
+    })
+
+    describe('remove', () => {
+      it('should remove a process', (done) => {
+        moxios.stubRequest('/processes/42', {
+          status: 200,
+          response: undefined
+        })
+
+        const onFulfilled = jest.fn()
+        processService.remove({ id: '42', name: 'Test', color: '#FF0000' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('process/remove', { id: '42', name: 'Test', color: '#FF0000' })
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/processes/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        processService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/processes/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        processService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.process.delete.failed.title',
+            message: 'notifications.process.delete.failed.message'
+          })
+          done()
+        })
+      })
+    })
   })
 })

@@ -43,6 +43,21 @@ describe('Vuex', () => {
             expect(store.commit).toHaveBeenCalledWith(mutationTypes.SET_ACTIVE, undefined)
           })
         })
+        describe('add', () => {
+          it('adds a single process', () => {
+            processActions.add(store, { id: 1, name: 'one' })
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.ADD, { id: 1, name: 'one' })
+          })
+        })
+
+        describe('remove', () => {
+          it('removes a single process', () => {
+            processActions.remove(store, { id: 1, name: 'one' })
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.REMOVE, { id: 1, name: 'one' })
+          })
+        })
       })
     })
   })
