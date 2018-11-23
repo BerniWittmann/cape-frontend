@@ -27,7 +27,6 @@
     "search": "Search Process",
     "create_new": "Create New Process",
     "create_new_name": "Name of new Process",
-    "delete": "Delete Process",
     "validation": {
       "name": {
         "required": "Please specify a Name"
@@ -49,6 +48,15 @@
       "link": "Edit Process",
       "title": "Edit {name}",
       "back": "Back"
+    },
+    "delete": {
+      "message": "This will permanently delete the Process. Continue?",
+      "ok": "OK",
+      "cancel": "Cancel",
+      "warning": "Warning",
+      "delete_button": "Delete Process",
+      "confirmation": "Delete completed",
+      "cancellation": "Delete canceled"
     }
   },
   "settings": {
