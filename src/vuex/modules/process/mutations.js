@@ -6,7 +6,8 @@
  * process module.
  */
 
-import { STORE, UPDATE, SET_ACTIVE } from './mutation-types'
+import { STORE, UPDATE, SET_ACTIVE, ADD } from './mutation-types'
+import { REMOVE } from '../tag/mutation-types'
 
 export default {
   [STORE](state, processes) {
@@ -24,5 +25,11 @@ export default {
     } else {
       state.activeProcess = state.processes.find((p) => p.id === process.id)
     }
+  },
+  [ADD](state, process) {
+    state.processes.push(process)
+  },
+  [REMOVE](state, process) {
+    state.processes = state.processes.filter(p => p.id !== process.id)
   }
 }

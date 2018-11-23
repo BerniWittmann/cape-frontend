@@ -9,6 +9,7 @@
     <el-row>
       <el-col>
         <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}</el-button>
+        <el-button icon="el-icon-delete" size="small" @click="deleteProcess">{{ $t('process.delete') }}</el-button>
       </el-col>
     </el-row>
   </el-dialog>
@@ -22,6 +23,7 @@
 * Shows a preview of the Dialog
 */
 import Tag from '@/components/Tag.vue'
+import processService from '@/services/process'
 
 export default {
   components: {
@@ -51,6 +53,10 @@ export default {
         name: 'process.edit',
         params: this.$route.params
       })
+    },
+    deleteProcess() {
+      processService.remove(this.activeProcess)
+      this.$router.back()
     }
   }
 }

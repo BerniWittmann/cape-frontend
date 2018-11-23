@@ -25,6 +25,14 @@
     "last_edited_at": "Last Edited",
     "tags": "Tags",
     "search": "Search Process",
+    "create_new": "Create New Process",
+    "create_new_name": "Name of new Process",
+    "delete": "Delete Process",
+    "validation": {
+      "name": {
+        "required": "Please specify a Name"
+      }
+    },
     "edit": {
       "info": "Process Info",
       "name": "@:process.name",
