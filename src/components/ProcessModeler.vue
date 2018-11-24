@@ -16,13 +16,15 @@ import Modeler from 'bpmn-js/lib/Modeler'
 import defaultProcessTemplate from '@/assets/defaultProcessTemplate'
 
 export default {
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
+
   props: {
     value: {
       type: Object,
-      required: true,
-      validator: function (value) {
-        return value.hasOwnProperty('xml') && value.hasOwnProperty('svg')
-      }
+      required: true
     }
   },
 
