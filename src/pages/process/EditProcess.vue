@@ -3,7 +3,7 @@
     <h2 class="process-edit__title"><el-button type="text" icon="el-icon-arrow-left" @click="$router.back()">{{ $t('process.edit.back' )}}</el-button> {{ $t('process.edit.title', { name })}}</h2>
     <el-row :gutter="20">
       <el-col :span="18">
-        <p>TODO Modeler comes here </p>
+        <process-modeler v-model="data"></process-modeler>
       </el-col>
       <el-col :span="6">
         <process-info-form ref="processInfoForm" :process="process"></process-info-form>
@@ -28,13 +28,15 @@
 
 import DefaultLayout from '@/layouts/Default.vue'
 import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
+import ProcessModeler from '@/components/ProcessModeler.vue'
 
 import ProcessService from '@/services/process'
 
 export default {
   components: {
     VLayout: DefaultLayout,
-    ProcessInfoForm
+    ProcessInfoForm,
+    ProcessModeler
   },
 
   computed: {
@@ -45,7 +47,11 @@ export default {
 
   data() {
     return {
-      name: undefined
+      name: undefined,
+      data: {
+        xml: undefined,
+        svg: undefined
+      }
     }
   },
 

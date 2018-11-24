@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bpmn-js": "^3.0.2",
     "element-ui": "^2.4.10",
     "moment": "^2.22.2",
     "vue": "^2.5.17",
