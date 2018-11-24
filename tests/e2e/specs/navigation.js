@@ -40,4 +40,10 @@ describe('Navigations', () => {
     cy.get('.process-edit__title > .el-button').click()
     cy.url().should('eq', Cypress.config().baseUrl + '/processes')
   })
+  it('Navigates to the process preview', () => {
+    cy.visit('/processes')
+    cy.get('tbody > :nth-child(1) > .el-table_1_column_1 > .cell').click()
+    cy.url().should('contain', 'preview')
+    cy.get('.el-dialog__header').contains('Eat Pizza')
+  })
 })
