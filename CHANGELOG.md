@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
+
+## 0.4.0 - (2018-11-25)
+---
+
+* Added Process Edit Page
+* Added BPMN.io for Process Modelling
+
 ## 0.3.0 - (2018-11-20)
 ---
 
