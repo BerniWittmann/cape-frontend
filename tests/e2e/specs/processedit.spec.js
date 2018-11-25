@@ -10,6 +10,7 @@ describe('Process Edit Page', () => {
     cy.get('.el-input__inner').type('{selectall}{backspace}New Name')
     cy.get('.el-button--success').click()
     cy.get('.process-edit__title').contains('New Name')
+    cy.get('.el-notification').contains('Success')
   })
   it('can add a tag', () => {
     cy.get('.el-form-item__content > .el-button').click()
@@ -33,5 +34,20 @@ describe('Process Edit Page', () => {
     cy.get('.el-button--danger').click()
     cy.wait(200)
     cy.get('.el-input__inner').should('have.value', 'Call Delivery Service')
+  })
+  it('can model the process', () => {
+    cy.get('.djs-palette-entries')
+
+    cy.get(':nth-child(7) > .djs-element .djs-label').contains('Call')
+    cy.get(':nth-child(7) > .djs-element > .djs-hit').dblclick()
+    cy.get('.djs-direct-editing-content').type('{selectall}{backspace}Call them')
+    cy.get('.djs-palette-entries').click()
+
+    cy.get('.el-button--success').click()
+    cy.get('.el-notification').contains('Success')
+    cy.wait(500)
+
+    cy.reload()
+    cy.get(':nth-child(7) > .djs-element .djs-label').contains('Call them')
   })
 })

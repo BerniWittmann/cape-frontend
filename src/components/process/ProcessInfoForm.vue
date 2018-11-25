@@ -1,5 +1,5 @@
 <template>
-  <div class="process-info">
+  <el-card class="process-info">
     <h4>{{ $t('process.edit.info')}}</h4>
     <el-form ref="processForm" :model="process" label-position="top" :rules="rules">
       <el-form-item :label="$t('process.edit.name')" prop="name">
@@ -30,7 +30,7 @@
         </el-button>
       </el-form-item>
     </el-form>
-  </div>
+  </el-card>
 </template>
 
 <script>

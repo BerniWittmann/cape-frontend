@@ -1,7 +1,7 @@
 <template>
-  <div class="modeler">
+  <el-card class="modeler">
     <div id="canvas"></div>
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -13,6 +13,8 @@
  */
 
 import Modeler from 'bpmn-js/lib/Modeler'
+import BPMNModules from '@/plugins/bpmn/modules'
+
 import defaultProcessTemplate from '@/assets/defaultProcessTemplate'
 
 export default {
@@ -70,7 +72,7 @@ export default {
   },
 
   mounted() {
-    this.modeler = new Modeler({ container: '#canvas' })
+    this.modeler = new Modeler({ container: '#canvas', additionalModules: BPMNModules })
 
     const xml = this.value.xml ? this.value.xml : defaultProcessTemplate
 
@@ -93,12 +95,10 @@ export default {
 <style lang="scss">
 .modeler {
   border-radius: 5px;
-  padding: 10px;
   background-color: white;
-  border: 1px solid #909399;
   margin-bottom: 20px;
 }
 #canvas {
-  height: 550px;
+  height: 530px;
 }
 </style>

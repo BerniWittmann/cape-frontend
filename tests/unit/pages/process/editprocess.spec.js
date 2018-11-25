@@ -7,6 +7,17 @@ import EmptySlotComponent from '../../EmptySlotComponent.vue'
 import { Button } from 'element-ui'
 import ProcessService from '@/services/process'
 
+jest.mock('bpmn-js/lib/Modeler', () => {
+  return jest.fn().mockImplementation(() => {
+    return {
+      on: jest.fn(),
+      importXML: jest.fn(),
+      saveXML: jest.fn(),
+      saveSVG: jest.fn()
+    }
+  })
+})
+
 describe('Pages', () => {
   describe('EditProcess.vue', () => {
     let store
@@ -72,7 +83,8 @@ describe('Pages', () => {
         stubs: {
           'v-layout': EmptySlotComponent,
           'el-tooltip': EmptySlotComponent,
-          'el-button': Button
+          'el-button': Button,
+          ProcessModeler: '<div id="modeler"></div>'
         }
       })
     }

@@ -28,7 +28,7 @@
 
 import DefaultLayout from '@/layouts/Default.vue'
 import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
-import ProcessModeler from '@/components/ProcessModeler.vue'
+import ProcessModeler from '@/components/process/ProcessModeler.vue'
 
 import ProcessService from '@/services/process'
 
@@ -42,10 +42,6 @@ export default {
   computed: {
     process() {
       return this.$store.state.process.activeProcess
-    },
-
-    containsNewData() {
-      return this.processData.xml.includes('###')
     }
   },
 

@@ -6,7 +6,7 @@ exports[`Pages EditProcess.vue renders 1`] = `
       <!----><i class="el-icon-arrow-left"></i><span>process.edit.back</span></button> process.edit.title</h2>
   <elrow-stub tag="div" gutter="20" justify="start" align="top">
     <elcol-stub span="18" tag="div">
-      <p>TODO Modeler comes here </p>
+      <div id="modeler"></div>
     </elcol-stub>
     <elcol-stub span="6" tag="div">
       <processinfoform-stub process="[object Object]"></processinfoform-stub>

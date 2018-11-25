@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ProcessModeler renders 1`] = `
+<elcard-stub class="modeler">
+  <div id="canvas"></div>
+</elcard-stub>
+`;
