@@ -6,8 +6,7 @@
  * process module.
  */
 
-import { STORE, UPDATE, SET_ACTIVE, ADD } from './mutation-types'
-import { REMOVE } from '../tag/mutation-types'
+import { STORE, UPDATE, SET_ACTIVE, ADD, REMOVE } from './mutation-types'
 
 export default {
   [STORE](state, processes) {

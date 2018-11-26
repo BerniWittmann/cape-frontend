@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Pages ProcessRepository.vue  a process can be created 1`] = `
+<div>
+  <elrow-stub tag="div" gutter="20" justify="end" align="top">
+    <elcol-stub span="8" tag="div">
+      <elform-stub model="[object Object]" rules="[object Object]" labelsuffix="" inline="true" showmessage="true" validateonrulechange="true">
+        <elformitem-stub prop="name" inlinemessage="" showmessage="true">
+          <elinput-stub type="text" autocomplete="off" validateevent="true" placeholder="process.create_new_name"></elinput-stub>
+        </elformitem-stub>
+        <elformitem-stub inlinemessage="" showmessage="true">
+          <elbutton-stub type="default" icon="el-icon-plus" nativetype="button">process.create_new</elbutton-stub>
+        </elformitem-stub>
+      </elform-stub>
+    </elcol-stub>
+    <elcol-stub span="6" tag="div" offset="10">
+      <elinput-stub value="" type="text" autocomplete="off" validateevent="true" placeholder="process.search"><i class="el-input__icon el-icon-search"></i></elinput-stub>
+    </elcol-stub>
+  </elrow-stub>
+  <elrow-stub tag="div" gutter="20" justify="start" align="top">
+    <elcol-stub span="24" tag="div">
+      <eltable-stub data="[object Object],[object Object],[object Object]" fit="true" showheader="true" defaultsort="[object Object]" selectonindeterminate="true">
+        <eltablecolumn-stub type="default" label="process.name" prop="name" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.created_at" prop="createdAt" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.last_edited_at" prop="lastEditedAt" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.tags" prop="tags" resizable="true" filtermethod="function () { [native code] }" filters="[object Object],[object Object]" filterplacement="bottom-end" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" width="60" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+      </eltable-stub>
+    </elcol-stub>
+  </elrow-stub>
+</div>
+`;
+
 exports[`Pages ProcessRepository.vue renders 1`] = `
 <div>
   <elrow-stub tag="div" gutter="20" justify="end" align="top">
