@@ -122,6 +122,18 @@
           "message": "The Process got updated"
         }
       },
+      "post": {
+        "failed": {
+          "title": "Error",
+          "message": "Creating the Process failed"
+        }
+      },
+      "delete": {
+        "failed": {
+          "title": "Error",
+          "message": "Deleting the Process failed"
+        }
+      },
       "tags": {
         "post": {
           "failed": {
