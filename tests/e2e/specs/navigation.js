@@ -46,4 +46,10 @@ describe('Navigations', () => {
     cy.url().should('contain', 'preview')
     cy.get('.el-dialog__header').contains('Eat Pizza')
   })
+  it('Navigates to the process creation page', () => {
+    cy.visit('/processes')
+    const buttons = cy.get('.el-main .el-button')
+    buttons.eq(0).click()
+    cy.url().should('eq', Cypress.config().baseUrl + '/processes/new')
+  })
 })

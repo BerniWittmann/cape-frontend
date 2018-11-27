@@ -21,8 +21,22 @@ describe('Process Preview Page', () => {
     cy.url().should('eq', Cypress.config().baseUrl + '/processes')
   })
   it('can navigate to edit page', () => {
-    cy.get('.el-col > .el-button').click()
+    cy.get('.el-col > .el-button').eq(0).click()
     cy.url().should('contain', Cypress.config().baseUrl + '/processes/')
     cy.url().should('contain', 'edit')
+  })
+  it('can delete a process', () => {
+    cy.get('.el-col > .el-button').eq(1).click()
+    cy.get('.el-button--primary').click()
+
+    cy.get('.el-message').contains('Delete completed')
+    cy.url().should('eq', Cypress.config().baseUrl + '/processes')
+    cy.wait(200)
+
+    const rows = cy.get('.el-main').find('.el-table').find('.el-table__row')
+    rows.should('have.length', 3)
+    cy.get('.el-table__row').eq(0).contains('Eat Pizza')
+    cy.get('.el-table__row').eq(1).contains('Order Food')
+    cy.get('.el-table__row').eq(2).contains('Pay Pizza bill')
   })
 })
