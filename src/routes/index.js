@@ -32,20 +32,24 @@ const routes = [
     path: '/processes',
     component: EmptyRouterView,
     beforeEnter: (to, from, next) => {
-      ProcessService.getAll().then(next)
+      Promise.all([
+        TagService.getAll(),
+        ProcessService.getAll()
+      ]).then(next)
     },
     children: [{
       path: '',
       name: 'processes',
       component: ProcessRepository
     }, {
+      path: 'new',
+      name: 'process.new',
+      component: EditProcess
+    }, {
       path: ':processID',
       component: EmptyRouterView,
       beforeEnter: (to, from, next) => {
-        Promise.all([
-          TagService.getAll(),
-          ProcessService.get({ id: to.params.processID })
-        ]).then(next)
+        ProcessService.get({ id: to.params.processID }).then(next)
       },
       children: [{
         path: 'edit',

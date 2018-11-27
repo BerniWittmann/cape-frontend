@@ -4,7 +4,7 @@ import Base from './base.js'
 import Tag from './tag.js'
 
 export default class Process extends Base {
-  constructor({ _id, name, created_at: createdAt, last_edited_at: lastEditedAt, tags = [], xml, svg }) {
+  constructor({ _id, name, created_at: createdAt, last_edited_at: lastEditedAt, tags = [], xml, svg } = {}) {
     super()
 
     this.id = _id

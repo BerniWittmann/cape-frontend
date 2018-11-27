@@ -1,6 +1,10 @@
 <template>
   <v-layout>
-    <h2 class="process-edit__title"><el-button type="text" icon="el-icon-arrow-left" @click="$router.back()">{{ $t('process.edit.back' )}}</el-button> {{ $t('process.edit.title', { name })}}</h2>
+    <h2 class="process-edit__title">
+      <el-button type="text" icon="el-icon-arrow-left" @click="$router.back()">{{ $t('process.edit.back' )}}</el-button>
+      <span v-if="isNewProcess">{{ $t('process.add.title')}}</span>
+      <span v-else>{{ $t('process.edit.title', { name })}}</span>
+    </h2>
     <el-row :gutter="20">
       <el-col :span="18">
         <process-modeler v-model="processData" @input="() => {}"></process-modeler>
@@ -12,7 +16,8 @@
     <el-row type="flex" justify="center">
       <el-col :span="6">
         <el-button type="success" @click.native="submit">{{ $t('process.edit.save') }}</el-button>
-        <el-button @click.native="reset" type="danger" plain>{{ $t('process.edit.reset') }}</el-button>
+        <el-button v-if="!isNewProcess" @click.native="reset" type="danger" plain>{{ $t('process.edit.reset') }}
+        </el-button>
       </el-col>
     </el-row>
   </v-layout>
@@ -31,6 +36,7 @@ import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
 import ProcessModeler from '@/components/process/ProcessModeler.vue'
 
 import ProcessService from '@/services/process'
+import Process from '@/models/process'
 
 export default {
   components: {
@@ -41,7 +47,13 @@ export default {
 
   computed: {
     process() {
+      if (this.isNewProcess) {
+        return new Process()
+      }
       return this.$store.state.process.activeProcess
+    },
+    isNewProcess() {
+      return this.$route.name === 'process.new'
     }
   },
 
@@ -59,12 +71,27 @@ export default {
     submit() {
       this.$refs.processInfoForm.submit((result) => {
         if (result) {
-          ProcessService.update({
-            ...this.process,
-            ...this.processData
-          }).then(() => {
-            this.reset()
-          })
+          if (!this.isNewProcess) {
+            ProcessService.update({
+              ...this.process,
+              ...this.processData
+            }).then(() => {
+              this.reset()
+            })
+          } else {
+            ProcessService.create({
+              ...this.process,
+              ...this.processData
+            }).then(() => {
+              this.$router.replace({
+                name: 'process.edit',
+                params: {
+                  processID: this.$store.state.process.processes[this.$store.state.process.processes.length - 1].id
+                }
+
+              })
+            })
+          }
         }
       })
     },
@@ -91,6 +118,7 @@ export default {
 .process-edit__title {
   display: flex;
   align-items: center;
+
   .el-button {
     margin-right: 3em;
   }

@@ -26,11 +26,8 @@
     "tags": "Tags",
     "search": "Search Process",
     "create_new": "Create New Process",
-    "create_new_name": "Name of new Process",
-    "validation": {
-      "name": {
-        "required": "Please specify a Name"
-      }
+    "add": {
+      "title": "Create Process"
     },
     "edit": {
       "info": "Process Info",

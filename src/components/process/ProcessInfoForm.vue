@@ -25,7 +25,8 @@
             <tag :tag="tag" size="mini"></tag>
           </el-option>
         </el-select>
-        <el-button v-if="!tagInputVisible && availableTags.length > 0" class="button-new-tag" size="small" @click="showTagInput" icon="el-icon-plus">{{
+        <el-button v-if="!tagInputVisible && availableTags.length > 0" class="button-new-tag" size="small"
+                   @click="showTagInput" icon="el-icon-plus">{{
           $t('process.edit.add_tag') }}
         </el-button>
       </el-form-item>
@@ -84,6 +85,7 @@ export default {
   methods: {
     submit(cb) {
       this.$refs.processForm.validate((valid) => {
+        valid = true
         if (valid) {
           return cb(this.process)
         } else {
