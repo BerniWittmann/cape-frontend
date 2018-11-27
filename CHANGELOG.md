@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.5.0 - (2018-11-27)
+---
+
+* Implemented Process Creation
+* Added Process Delete Button
+* Updated Favicon with white background
+
 ## 0.4.0 - (2018-11-25)
 ---
 
