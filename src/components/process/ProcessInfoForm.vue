@@ -1,12 +1,12 @@
 <template>
   <el-card class="process-info">
     <h4>{{ $t('process.edit.info')}}</h4>
-    <el-form ref="processForm" :model="process" label-position="top" :rules="rules">
+    <el-form ref="processForm" :model="data" label-position="top" :rules="rules">
       <el-form-item :label="$t('process.edit.name')" prop="name">
-        <el-input v-model="process.name"></el-input>
+        <el-input v-model="data.name"></el-input>
       </el-form-item>
       <el-form-item :label="$t('process.edit.tags')" prop="tags">
-        <tag v-for="tag in process.tags" :tag="tag" :key="tag.id" closable @close="removeTag(tag)"></tag>
+        <tag v-for="tag in data.tags" :tag="tag" :key="tag.id" closable @close="removeTag(tag)"></tag>
         <el-select
                 v-if="tagInputVisible"
                 v-model="newTag"
@@ -56,8 +56,24 @@ export default {
     }
   },
 
+  watch: {
+    process: {
+      deep: true,
+      handler: function () {
+        this.data = {
+          name: this.process.name,
+          tags: this.process.tags
+        }
+      }
+    }
+  },
+
   data() {
     return {
+      data: {
+        name: undefined,
+        tags: []
+      },
       rules: {
         name: [
           { required: true, message: this.$t('process.edit.validation.name.required'), trigger: 'blur' }
@@ -74,7 +90,7 @@ export default {
     },
 
     usedTagIDs() {
-      return this.process.tags.map((t) => t.id)
+      return this.data.tags.map((t) => t.id)
     },
 
     availableTags() {
@@ -85,9 +101,8 @@ export default {
   methods: {
     submit(cb) {
       this.$refs.processForm.validate((valid) => {
-        valid = true
         if (valid) {
-          return cb(this.process)
+          return cb(this.data)
         } else {
           return cb()
         }
@@ -99,11 +114,11 @@ export default {
     },
 
     removeTag(tag) {
-      this.process.tags = this.process.tags.filter((t) => t.id !== tag.id)
+      this.data.tags = this.data.tags.filter((t) => t.id !== tag.id)
     },
 
     addTag() {
-      this.process.tags.push(this.newTag)
+      this.data.tags.push(this.newTag)
     },
 
     showTagInput() {
@@ -118,6 +133,13 @@ export default {
         this.tagInputVisible = false
         this.newTag = undefined
       }, 100)
+    }
+  },
+
+  beforeMount() {
+    this.data = {
+      name: this.process.name,
+      tags: this.process.tags
     }
   }
 }

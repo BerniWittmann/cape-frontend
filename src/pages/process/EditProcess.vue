@@ -71,18 +71,19 @@ export default {
     submit() {
       this.$refs.processInfoForm.submit((result) => {
         if (result) {
+          const data = Process.create({
+            ...this.process,
+            ...this.processData
+          })
+          data.id = this.process.id
+          data.name = result.name
+          data.tags = result.tags
           if (!this.isNewProcess) {
-            ProcessService.update({
-              ...this.process,
-              ...this.processData
-            }).then(() => {
+            ProcessService.update(data).then(() => {
               this.reset()
             })
           } else {
-            ProcessService.create({
-              ...this.process,
-              ...this.processData
-            }).then(() => {
+            ProcessService.create(data).then(() => {
               this.$router.replace({
                 name: 'process.edit',
                 params: {
