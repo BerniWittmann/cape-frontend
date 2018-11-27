@@ -1,4 +1,4 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { shallowMount, mount, RouterLinkStub } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 import moment from 'moment'
 import ProcessRepository from '@/pages/ProcessRepository.vue'
@@ -66,7 +66,8 @@ describe('Pages', () => {
         },
         stubs: {
           'v-layout': EmptySlotComponent,
-          'el-tooltip': EmptySlotComponent
+          'el-tooltip': EmptySlotComponent,
+          RouterLink: RouterLinkStub
         }
       })
     }
@@ -210,6 +211,14 @@ describe('Pages', () => {
         })
 
         done()
+      })
+    })
+
+    it('has a button to create a new process', () => {
+      const link = cmp.find(RouterLinkStub)
+      expect(link.exists()).toBeTruthy()
+      expect(link.props('to')).toEqual({
+        name: 'process.new'
       })
     })
   })

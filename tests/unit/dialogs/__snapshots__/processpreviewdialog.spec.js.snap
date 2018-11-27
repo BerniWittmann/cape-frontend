@@ -14,7 +14,7 @@ exports[`Dialogs Process Preview Dialog can be closed 1`] = `
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
-            </span></button> <button type="button" class="el-button el-button--default el-button--small">
+            </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
             </span></button></elcol-stub>
       </elrow-stub>
@@ -38,7 +38,7 @@ exports[`Dialogs Process Preview Dialog can be deleted show as confirmation dial
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
-            </span></button> <button type="button" class="el-button el-button--default el-button--small">
+            </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
             </span></button></elcol-stub>
       </elrow-stub>
@@ -62,7 +62,7 @@ exports[`Dialogs Process Preview Dialog can be edited 1`] = `
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
-            </span></button> <button type="button" class="el-button el-button--default el-button--small">
+            </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
             </span></button></elcol-stub>
       </elrow-stub>
@@ -86,7 +86,7 @@ exports[`Dialogs Process Preview Dialog can render 1`] = `
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
-            </span></button> <button type="button" class="el-button el-button--default el-button--small">
+            </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
             </span></button></elcol-stub>
       </elrow-stub>

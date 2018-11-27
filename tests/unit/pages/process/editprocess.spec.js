@@ -6,6 +6,7 @@ import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
 import EmptySlotComponent from '../../EmptySlotComponent.vue'
 import { Button } from 'element-ui'
 import ProcessService from '@/services/process'
+import Process from '@/models/process'
 
 jest.mock('bpmn-js/lib/Modeler', () => {
   return jest.fn().mockImplementation(() => {
@@ -22,6 +23,7 @@ describe('Pages', () => {
   describe('EditProcess.vue', () => {
     let store
     let router
+    let route
     let cmp
 
     const date = moment(moment().utc())
@@ -29,7 +31,11 @@ describe('Pages', () => {
     beforeEach(() => {
       router = {
         push: jest.fn(),
-        back: jest.fn()
+        back: jest.fn(),
+        replace: jest.fn()
+      }
+      route = {
+        name: 'process.edit'
       }
       store = {
         state: {
@@ -48,7 +54,22 @@ describe('Pages', () => {
                 name: 'Second Tag',
                 color: '#FFFF00'
               }]
-            }
+            },
+            processes: [{
+              id: '1',
+              name: 'My Process',
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
+              tags: [{
+                id: '42',
+                name: 'First Tag',
+                color: '#FF0000'
+              }, {
+                id: '43',
+                name: 'Second Tag',
+                color: '#FFFF00'
+              }]
+            }, { id: '2' }]
           },
           tag: {
             tags: [{
@@ -78,7 +99,8 @@ describe('Pages', () => {
         i18n,
         mocks: {
           $store: store,
-          $router: router
+          $router: router,
+          $route: route
         },
         stubs: {
           'v-layout': EmptySlotComponent,
@@ -157,6 +179,87 @@ describe('Pages', () => {
       expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
       expect(ProcessService.update).not.toHaveBeenCalled()
       expect(cmp.vm.reset).not.toHaveBeenCalled()
+    })
+
+    describe('it can create a new process', () => {
+      beforeEach(() => {
+        route.name = 'process.new'
+        render()
+      })
+
+      it('renders', () => {
+        expect(cmp.html()).toMatchSnapshot()
+      })
+
+      it('shows the correct title', () => {
+        const title = cmp.find('.process-edit__title')
+        expect(title.exists()).toBeTruthy()
+        expect(title.text()).toContain('process.edit.back process.add.title')
+      })
+
+      it('has a save and no reset button', () => {
+        const buttons = cmp.findAll('elrow-stub button')
+        expect(buttons.length).toEqual(1)
+
+        expect(buttons.at(0).text()).toContain('save')
+      })
+
+      it('works on an empty process', () => {
+        expect(cmp.vm.process).not.toEqual(store.state.process.activeProcess)
+        expect(cmp.vm.process).toEqual(new Process())
+      })
+
+      it('does not create the process if validation failed', () => {
+        cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+          cb()
+        })
+        ProcessService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+
+        const button = cmp.findAll('elrow-stub button').at(0)
+        button.trigger('click')
+
+        expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+        expect(ProcessService.create).not.toHaveBeenCalled()
+      })
+
+      it('creates a new process', () => {
+        cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+          // eslint-disable-next-line standard/no-callback-literal
+          cb({ name: 'my new Process Name', tags: [] })
+        })
+        ProcessService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+
+        const button = cmp.findAll('elrow-stub button').at(0)
+        button.trigger('click')
+
+        expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+        expect(ProcessService.create).toHaveBeenCalled()
+      })
+
+      it('goes to the edit route after creating a process', () => {
+        cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+          // eslint-disable-next-line standard/no-callback-literal
+          cb({ name: 'my new Process Name', tags: [] })
+        })
+        ProcessService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+
+        const button = cmp.findAll('elrow-stub button').at(0)
+        button.trigger('click')
+
+        expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+        expect(router.replace).toHaveBeenCalledWith({
+          name: 'process.edit',
+          params: {
+            processID: '2'
+          }
+        })
+      })
     })
   })
 })

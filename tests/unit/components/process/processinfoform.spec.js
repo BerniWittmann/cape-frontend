@@ -98,7 +98,7 @@ describe('Components', () => {
       const input = cmp.find('input')
       expect(input.exists()).toBeTruthy()
       input.setValue('My new Name')
-      expect(propsData.process.name).toEqual('My new Name')
+      expect(cmp.vm.data.name).toEqual('My new Name')
     })
     it('renders the tags', () => {
       const tags = cmp.findAll(Tag)
@@ -153,7 +153,7 @@ describe('Components', () => {
       const tag = cmp.findAll(Tag).at(1)
       tag.vm.$emit('close')
 
-      expect(propsData.process.tags.length).toEqual(1)
+      expect(cmp.vm.data.tags.length).toEqual(1)
     })
     it('hides the add tag button if no tags are available', (done) => {
       store.state.tag.tags = [store.state.tag.tags[0], store.state.tag.tags[1]]
@@ -172,7 +172,18 @@ describe('Components', () => {
           cb(true)
         })
         cmp.vm.submit((result) => {
-          expect(result).toEqual(propsData.process)
+          expect(result).toEqual({
+            'name': 'My Process',
+            'tags': [{
+              'color': '#FF0000',
+              'id': '42',
+              'name': 'First Tag'
+            }, {
+              'color': '#FFFF00',
+              'id': '43',
+              'name': 'Second Tag'
+            }]
+          })
         })
       })
       it('does not submit if its not valid', () => {
@@ -185,14 +196,27 @@ describe('Components', () => {
         })
       })
     })
-    describe('has a function to vreset the form validation state', () => {
+    describe('has a function to reset the form validation state', () => {
       it('has the function defined', () => {
         expect(cmp.vm.setFormPristine).toEqual(expect.any(Function))
       })
-      it('resets the From', () => {
+      it('resets the Form', () => {
         cmp.vm.$refs.processForm.resetFields = jest.fn()
         cmp.vm.setFormPristine()
         expect(cmp.vm.$refs.processForm.resetFields).toHaveBeenCalled()
+      })
+    })
+    it('handles a change from the external process', (done) => {
+      cmp.setProps({
+        process: {
+          name: 'New Prop Name',
+          tags: []
+        }
+      })
+      cmp.vm.$nextTick(() => {
+        expect(cmp.vm.data.name).toEqual('New Prop Name')
+        expect(cmp.vm.data.tags).toEqual([])
+        done()
       })
     })
   })
