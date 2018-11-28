@@ -48,12 +48,12 @@
     },
     "delete": {
       "message": "This will permanently delete the Process. Continue?",
-      "ok": "OK",
+      "ok": "Delete",
       "cancel": "Cancel",
       "warning": "Warning",
       "delete_button": "Delete Process",
-      "confirmation": "Delete completed",
-      "cancellation": "Delete canceled"
+      "confirmation": "Process deleted",
+      "cancellation": "Delete cancelled"
     }
   },
   "settings": {

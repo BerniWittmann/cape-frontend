@@ -27,9 +27,9 @@ describe('Process Preview Page', () => {
   })
   it('can delete a process', () => {
     cy.get('.el-col > .el-button').eq(1).click()
-    cy.get('.el-button--primary').click()
+    cy.get('.el-message-box .el-button--danger').click()
 
-    cy.get('.el-message').contains('Delete completed')
+    cy.get('.el-message').contains('Process deleted')
     cy.url().should('eq', Cypress.config().baseUrl + '/processes')
     cy.wait(200)
 

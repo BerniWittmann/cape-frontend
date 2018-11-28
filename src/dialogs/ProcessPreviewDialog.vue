@@ -61,7 +61,9 @@ export default {
       this.$confirm(this.$t('process.delete.message'), this.$t('process.delete.warning'), {
         confirmButtonText: this.$t('process.delete.ok'),
         cancelButtonText: this.$t('process.delete.cancel'),
-        type: 'warning'
+        type: 'warning',
+        cancelButtonClass: 'is-plain el-button--info',
+        confirmButtonClass: 'el-button--danger'
       }).then(() => {
         this.$message({
           type: 'success',

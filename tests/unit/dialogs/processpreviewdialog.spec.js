@@ -115,7 +115,13 @@ describe('Dialogs', () => {
         expect(button.exists()).toBeTruthy()
         button.trigger('click')
         expect(cmp.vm.$confirm).toHaveBeenCalledWith('process.delete.message', 'process.delete.warning',
-          { 'cancelButtonText': 'process.delete.cancel', 'confirmButtonText': 'process.delete.ok', 'type': 'warning' })
+          {
+            'cancelButtonText': 'process.delete.cancel',
+            'confirmButtonText': 'process.delete.ok',
+            'type': 'warning',
+            'cancelButtonClass': 'is-plain el-button--info',
+            'confirmButtonClass': 'el-button--danger'
+          })
       })
       it('deletes the process on confirm  ', () => {
         cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
