@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.5.1 - (2018-11-28)
+---
+
+* Small Styling and Text Fixes for Delete Process
+
 ## 0.5.0 - (2018-11-27)
 ---
 
