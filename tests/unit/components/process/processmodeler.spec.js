@@ -22,7 +22,7 @@ jest.mock('bpmn-js/lib/Modeler', () => {
         return cb(undefined, '<svg></svg>')
       }),
       get: jest.fn().mockImplementation(() => {
-        return { zoom: jest.fn(), undo: jest.fn() }
+        return { zoom: jest.fn(), get: jest.fn(), select: jest.fn(), undo: jest.fn() }
       })
     }
   })
@@ -69,6 +69,7 @@ describe('Components', () => {
     it('sets up the change event listeners', () => {
       expect(cmp.vm.modeler.on).toHaveBeenCalledWith('element.changed', expect.any(Function))
       expect(cmp.vm.modeler.on).toHaveBeenCalledWith('commandStack.changed', expect.any(Function))
+      expect(cmp.vm.modeler.on).toHaveBeenCalledWith('element.out', expect.any(Function))
     })
     it('updates the svg on change event', () => {
       const fn = cmp.vm.modeler.on.mock.calls[0][1]

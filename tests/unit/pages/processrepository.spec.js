@@ -140,6 +140,41 @@ describe('Pages', () => {
       })
     })
 
+    it('can sort properly case insensitive', () => {
+      store = {
+        state: {
+          process: {
+            processes: [
+              {
+                id: '0',
+                name: 'A Process',
+                createdAt: date.clone().subtract(2, 'days'),
+                lastEditedAt: date.clone().subtract(1, 'days'),
+                tags: []
+              }, {
+                id: '1',
+                name: 'b Process',
+                createdAt: date.clone().subtract(2, 'days'),
+                lastEditedAt: date.clone().subtract(1, 'days'),
+                tags: []
+              }, {
+                id: '2',
+                name: 'B Process',
+                createdAt: date.clone().subtract(2, 'days'),
+                lastEditedAt: date.clone().subtract(1, 'days'),
+                tags: []
+              }
+            ]
+          }
+        }
+      }
+      expect(cmp.vm.nameCompare(store.state.process.processes[0], store.state.process.processes[1])).toBe(-1)
+      expect(cmp.vm.nameCompare(store.state.process.processes[1], store.state.process.processes[0])).toBe(1)
+      expect(cmp.vm.nameCompare(store.state.process.processes[0], store.state.process.processes[2])).toBe(-1)
+      expect(cmp.vm.nameCompare(store.state.process.processes[2], store.state.process.processes[0])).toBe(1)
+      expect(cmp.vm.nameCompare(store.state.process.processes[1], store.state.process.processes[2])).toBe(0)
+    })
+
     it('renders the tag components', (done) => {
       cmp = mount(ProcessRepository, {
         i18n,

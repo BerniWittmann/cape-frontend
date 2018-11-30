@@ -13,7 +13,7 @@ exports[`Pages ProcessRepository.vue renders 1`] = `
   <elrow-stub tag="div" gutter="20" justify="start" align="top">
     <elcol-stub span="24" tag="div">
       <eltable-stub data="[object Object],[object Object],[object Object]" fit="true" showheader="true" defaultsort="[object Object]" selectonindeterminate="true">
-        <eltablecolumn-stub type="default" label="process.name" prop="name" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="process.name" prop="name" sortable="" sortmethod="function () { [native code] }" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
         <eltablecolumn-stub type="default" label="process.created_at" prop="createdAt" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
         <eltablecolumn-stub type="default" label="process.last_edited_at" prop="lastEditedAt" sortable="" resizable="true" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
         <eltablecolumn-stub type="default" label="process.tags" prop="tags" resizable="true" filtermethod="function () { [native code] }" filters="[object Object],[object Object]" filterplacement="bottom-end" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>

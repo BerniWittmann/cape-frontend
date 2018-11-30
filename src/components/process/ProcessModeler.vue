@@ -74,11 +74,14 @@ export default {
     },
 
     updateValues(event) {
+      const s = this.modeler === undefined ? undefined : this.modeler.get('selection').get()
+      if (this.modeler !== undefined) this.modeler.get('selection').select(null)
       this.getXML(() => {
         this.getSVG(() => {
           this.$emit('input', this.value)
         })
       })
+      if (this.modeler !== undefined) this.modeler.get('selection').select(s)
     },
 
     handleKeyPress(e) {
@@ -112,6 +115,7 @@ export default {
 
     this.modeler.on('element.changed', this.updateValues)
     this.modeler.on('commandStack.changed', this.updateValues)
+    this.modeler.on('element.out', this.updateValues)
 
     // Listen for Undo Keycode
     document.onkeypress = this.handleKeyPress
@@ -126,11 +130,13 @@ export default {
   background-color: white;
   margin-bottom: 20px;
 }
+
 .el-card.modeler-properties {
   background-color: #f8f8f8;
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
 #canvas {
   height: 65vh;
 }

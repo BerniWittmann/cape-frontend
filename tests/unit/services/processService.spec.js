@@ -32,7 +32,8 @@ describe('Services', () => {
   describe('Process', () => {
     console.error = jest.fn()
     const notification = {
-      error: jest.fn()
+      error: jest.fn(),
+      success: jest.fn()
     }
 
     beforeEach(() => {
@@ -306,6 +307,24 @@ describe('Services', () => {
           done()
         })
       })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/processes/42', {
+          status: 200
+        })
+
+        const onFulfilled = jest.fn()
+        processService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.process.put.success.title',
+            message: 'notifications.process.put.success.message'
+          })
+          done()
+        })
+      })
     })
 
     describe('create', () => {
@@ -352,6 +371,25 @@ describe('Services', () => {
           expect(notification.error).toHaveBeenCalledWith({
             title: 'notifications.process.post.failed.title',
             message: 'notifications.process.post.failed.message'
+          })
+          done()
+        })
+      })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/processes', {
+          status: 200,
+          response: processData
+        })
+
+        const onFulfilled = jest.fn()
+        processService.create({ name: 'Test', color: '#FF0000' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.process.post.success.title',
+            message: 'notifications.process.post.success.message'
           })
           done()
         })

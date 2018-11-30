@@ -3,7 +3,7 @@
     <el-row justify="end" :gutter="20">
       <el-col :span="8">
         <router-link :to="{name: 'process.new'}">
-          <el-button icon="el-icon-plus" >{{ $t('process.create_new') }}</el-button>
+          <el-button icon="el-icon-plus">{{ $t('process.create_new') }}</el-button>
         </router-link>
       </el-col>
       <el-col :span="6" :offset="10">
@@ -23,7 +23,8 @@
           <el-table-column
                   prop="name"
                   :label="$t('process.name')"
-                  sortable>
+                  sortable
+                  :sort-method=nameCompare>
           </el-table-column>
           <el-table-column
                   prop="createdAt"
@@ -144,6 +145,12 @@ export default {
           processID: process.id
         }
       })
+    },
+    nameCompare(a, b) {
+      if (a === undefined || b === undefined) return 0
+      const lca = a.name.toLowerCase()
+      const lcb = b.name.toLowerCase()
+      return lca > lcb ? 1 : lca < lcb ? -1 : 0
     }
   }
 }

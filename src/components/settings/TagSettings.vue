@@ -22,8 +22,8 @@
           <el-color-picker v-model="tag.color"></el-color-picker>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click.native="submit">{{ $t('settings.tag.submit') }}</el-button>
-          <el-button @click.native="reset">{{ $t('settings.tag.reset') }}</el-button>
+          <el-button type="success" @click.native="submit">{{ $t('settings.tag.submit') }}</el-button>
+          <el-button type="danger" plain @click.native="reset">{{ $t('settings.tag.reset') }}</el-button>
         </el-form-item>
       </el-form>
     </el-col>

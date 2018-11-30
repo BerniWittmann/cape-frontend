@@ -126,6 +126,10 @@
         "failed": {
           "title": "Error",
           "message": "Creating the Process failed"
+        },
+        "success": {
+          "title": "Success",
+          "message": "The Process got created"
         }
       },
       "delete": {

@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import moment from 'moment'
@@ -32,6 +32,7 @@ describe('Dialogs', () => {
               name: 'My Process',
               createdAt: date.clone().subtract(14, 'days'),
               lastEditedAt: date.clone().subtract(2, 'days'),
+              svg: 'text height="30" more text="even more Text"',
               tags: [{
                 id: '42',
                 name: 'First Tag',
@@ -78,6 +79,43 @@ describe('Dialogs', () => {
       expect(cmp.find('.el-dialog__title').text()).toEqual(store.state.process.activeProcess.name)
     })
 
+    it('can show the svg in iframe', () => {
+      expect(cmp.find('iframe').attributes('srcdoc')).toEqual(store.state.process.activeProcess.svg)
+    })
+
+    it('can extract and reuse the height from svg', () => {
+      expect(cmp.find('iframe').attributes('style')).toEqual('height: 50px;')
+      store = {
+        state: {
+          process: {
+            activeProcess: {
+              id: '42',
+              name: 'My Process 1',
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
+              svg: 'placeholder height="3000" placeholder',
+              tags: [{
+                id: '421',
+                name: 'First Tag',
+                color: '#FF0000'
+              }, {
+                id: '43',
+                name: 'Second Tag',
+                color: '#FFFF00'
+              }]
+            }
+          }
+        }
+      }
+      cmp = mount(ProcessPreviewDialog, {
+        i18n,
+        mocks: {
+          $store: store
+        }
+      })
+      expect(cmp.vm.svgHeightAdjust).toBe('500px')
+    })
+
     it('can be closed', () => {
       expect(cmp.html()).toMatchSnapshot()
       cmp.find('.el-dialog__header button').trigger('click')
@@ -100,7 +138,8 @@ describe('Dialogs', () => {
         cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
           then: (arg) => {
             return {
-              catch: () => {}
+              catch: () => {
+              }
             }
           }
         }))

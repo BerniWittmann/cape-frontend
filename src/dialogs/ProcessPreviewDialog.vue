@@ -1,20 +1,23 @@
 <template>
-    <el-dialog :title="activeProcess.name" :visible.sync="showProcessPreview">
-        <el-row>
-            <el-col>
-                <tag v-for="tag in activeProcess.tags" :tag="tag" :key="tag.id" size="small"></tag>
-            </el-col>
-        </el-row>
-        <br>
-        <el-row>
-            <el-col>
-                <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}
-                </el-button>
-                <el-button icon="el-icon-delete" type="danger" plain size="small" @click="deleteProcess">{{ $t('process.delete.delete_button') }}
-                </el-button>
-            </el-col>
-        </el-row>
-    </el-dialog>
+  <el-dialog :title="activeProcess.name" :visible.sync="showProcessPreview">
+    <el-row>
+      <el-col>
+        <tag v-for="tag in activeProcess.tags" :tag="tag" :key="tag.id" size="small"></tag>
+      </el-col>
+    </el-row>
+    <br>
+    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svgView"></iframe>
+    <br>
+    <el-row>
+      <el-col>
+        <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}
+        </el-button>
+        <el-button icon="el-icon-delete" type="danger" plain size="small" @click="deleteProcess">{{
+          $t('process.delete.delete_button') }}
+        </el-button>
+      </el-col>
+    </el-row>
+  </el-dialog>
 </template>
 
 <script>
@@ -43,6 +46,12 @@ export default {
       set: function () {
         this.closeDialog()
       }
+    },
+    svgHeightAdjust() {
+      const maxHeight = 500
+      const heightPos = this.activeProcess.svg.indexOf('height="') + 8
+      const height = parseInt(this.activeProcess.svg.substring(heightPos, this.activeProcess.svg.indexOf('"', heightPos)))
+      return height <= maxHeight ? height + 20 + 'px' : maxHeight + 'px'
     }
   },
 
@@ -84,5 +93,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.svgView {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border: none;
+}
 
 </style>

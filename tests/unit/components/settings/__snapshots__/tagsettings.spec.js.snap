@@ -59,9 +59,9 @@ exports[`Components TagSettings renders 1`] = `
       </div>
       <div class="el-form-item">
         <!---->
-        <div class="el-form-item__content"><button type="button" class="el-button el-button--primary">
+        <div class="el-form-item__content"><button type="button" class="el-button el-button--success">
             <!---->
-            <!----><span>settings.tag.submit</span></button> <button type="button" class="el-button el-button--default">
+            <!----><span>settings.tag.submit</span></button> <button type="button" class="el-button el-button--danger is-plain">
             <!---->
             <!----><span>settings.tag.reset</span></button>
           <!---->
