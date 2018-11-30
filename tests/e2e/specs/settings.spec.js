@@ -18,7 +18,7 @@ describe('Settings Page', () => {
     cy.get('.el-color-picker__icon').click()
     cy.get('.el-color-dropdown__value > .el-input > .el-input__inner').type('{selectall}{backspace}#FF0000')
     cy.get('.el-color-dropdown__btn').click()
-    cy.get('.el-button--primary').click()
+    cy.get('.el-button--success').click()
     const tag = cy.get(':nth-child(1) > .el-col > :nth-child(4)')
     tag.should('have.text', 'My new Tag')
     tag.should('have.css', 'color').and('match', /rgb\(255, 0, 0\)/)

@@ -16,6 +16,9 @@ describe('Process Preview Page', () => {
   it('renders the tags', () => {
     cy.get('.el-col > .tag').contains('Delivery')
   })
+  it('renders the svg', () => {
+    cy.get('.svgView').should('have.attr', 'srcdoc')
+  })
   it('can navigate back', () => {
     cy.get('.el-dialog__close').click()
     cy.url().should('eq', Cypress.config().baseUrl + '/processes')
