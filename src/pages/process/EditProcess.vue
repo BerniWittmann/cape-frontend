@@ -6,7 +6,7 @@
       <span v-else>{{ $t('process.edit.title', { name })}}</span>
     </h2>
     <el-row :gutter="20">
-      <el-col :span="18">
+      <el-col :span="24">
         <process-modeler v-model="processData" @input="() => {}"></process-modeler>
       </el-col>
       <el-col :span="6">
