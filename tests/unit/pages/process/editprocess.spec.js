@@ -18,6 +18,8 @@ jest.mock('bpmn-js/lib/Modeler', () => {
     }
   })
 })
+jest.mock('@/plugins/bpmn/modules', () => [])
+jest.mock('@/plugins/bpmn/moddleExtensions', () => [])
 
 describe('Pages', () => {
   describe('EditProcess.vue', () => {

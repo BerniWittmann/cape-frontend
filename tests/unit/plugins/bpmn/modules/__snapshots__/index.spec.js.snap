@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins BPMN Modules has the correct configuration Keys 1`] = `
+Array [
+  Object {
+    "name": "properties-panel",
+  },
+  Object {
+    "name": "camunda-properties-panel",
+  },
+  Object {
+    "name": "custom-rules",
+  },
+  Object {
+    "name": "custom-context-pad",
+  },
+  Object {
+    "name": "custom-palette",
+  },
+  Object {
+    "name": "custom-replace-menu",
+  },
+]
+`;

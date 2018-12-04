@@ -4,6 +4,7 @@ import { i18n } from '../../setupPlugins'
 import Modeler from 'bpmn-js/lib/Modeler'
 import ProcessModeler from '@/components/process/ProcessModeler.vue'
 import BPMNModules from '@/plugins/bpmn/modules'
+import BPMNModdleExtensions from '@/plugins/bpmn/moddleExtensions'
 import defaultProcessTemplate from '@/assets/defaultProcessTemplate'
 
 jest.mock('bpmn-js/lib/Modeler', () => {
@@ -21,11 +22,14 @@ jest.mock('bpmn-js/lib/Modeler', () => {
         return cb(undefined, '<svg></svg>')
       }),
       get: jest.fn().mockImplementation(() => {
-        return { zoom: jest.fn() }
+        return { zoom: jest.fn(), undo: jest.fn() }
       })
     }
   })
 })
+
+jest.mock('@/plugins/bpmn/modules', () => [])
+jest.mock('@/plugins/bpmn/moddleExtensions', () => [])
 
 describe('Components', () => {
   describe('ProcessModeler', () => {
@@ -56,7 +60,9 @@ describe('Components', () => {
     it('sets up the modeler', () => {
       expect(Modeler).toHaveBeenCalledWith({
         container: '#canvas',
-        additionalModules: BPMNModules
+        additionalModules: BPMNModules,
+        moddleExtensions: BPMNModdleExtensions,
+        propertiesPanel: { parent: '#canvas-properties' }
       })
     })
 
@@ -128,6 +134,50 @@ describe('Components', () => {
       expect(() => {
         render()
       }).toThrow()
+    })
+    describe('can revert a modelling step when pressing a key combination', () => {
+      it('reverts a modelling step on Ctrl Z', () => {
+        const handler = document.onkeypress
+        expect(handler).toEqual(expect.any(Function))
+        handler({
+          key: 'z',
+          ctrlKey: true
+        })
+        expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
+        expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+      })
+      it('reverts a modelling step on Meta Z', () => {
+        const handler = document.onkeypress
+        expect(handler).toEqual(expect.any(Function))
+        handler({
+          key: 'z',
+          metaKey: true
+        })
+        expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
+        expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+      })
+      it('does not revert a modelling step on another combination', () => {
+        const handler = document.onkeypress
+        expect(handler).toEqual(expect.any(Function))
+        handler({
+          key: 'x',
+          ctrlKey: false
+        })
+        expect(cmp.vm.modeler.get).not.toHaveBeenCalledWith('commandStack')
+      })
+      it('can work on the window object', () => {
+        const handler = document.onkeypress
+        expect(handler).toEqual(expect.any(Function))
+        window.event = {}
+        // eslint-disable-next-line no-global-assign
+        event = {
+          key: 'z',
+          ctrlKey: true
+        }
+        handler()
+        expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
+        expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+      })
     })
   })
 })

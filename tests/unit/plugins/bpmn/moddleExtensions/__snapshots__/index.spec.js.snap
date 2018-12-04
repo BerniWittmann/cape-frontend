@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins BPMN ModdleExtensions has the correct configuration Keys 1`] = `
+Object {
+  "camunda": Object {
+    "name": "camunda",
+  },
+}
+`;

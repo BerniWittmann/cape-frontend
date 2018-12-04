@@ -79,6 +79,13 @@ export default {
           this.$emit('input', this.value)
         })
       })
+    },
+
+    handleKeyPress(e) {
+      const ev = window.event ? event : e
+      if (ev.key === 'z' && (ev.ctrlKey || ev.metaKey)) {
+        this.modeler.get('commandStack').undo()
+      }
     }
   },
 
@@ -105,6 +112,9 @@ export default {
 
     this.modeler.on('element.changed', this.updateValues)
     this.modeler.on('commandStack.changed', this.updateValues)
+
+    // Listen for Undo Keycode
+    document.onkeypress = this.handleKeyPress
   }
 }
 
@@ -122,6 +132,6 @@ export default {
   margin-bottom: 20px;
 }
 #canvas {
-  height: 530px;
+  height: 65vh;
 }
 </style>

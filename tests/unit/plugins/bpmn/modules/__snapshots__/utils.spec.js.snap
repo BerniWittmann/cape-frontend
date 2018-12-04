@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins BPMN Modules utils provides the necessary helper functions 1`] = `
+Array [
+  "shapeIsType",
+  "shapeHasType",
+  "getElementsByType",
+  "hasUnconnectedActivities",
+]
+`;

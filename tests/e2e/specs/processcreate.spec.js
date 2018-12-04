@@ -39,14 +39,13 @@ describe('Process Create Page', () => {
     tags.should('have.length', 0)
   })
   it('can model the process', () => {
+    cy.get('#app').scrollTo('top')
     cy.get('.djs-palette-entries')
 
     cy.get(':nth-child(2) > .djs-element > .djs-hit').click()
     cy.get('[data-group="model"] > .bpmn-icon-task').click()
     cy.get('.djs-direct-editing-content').type('Do that')
     cy.get('[data-group="model"] > .bpmn-icon-intermediate-event-none').click()
-    cy.get(':nth-child(5) > .djs-element > .djs-hit').click()
-    cy.get('.bpmn-icon-trash').click()
 
     cy.get('.el-input__inner').type('My modelled Process')
     cy.get('.el-button--success').click()
@@ -54,7 +53,7 @@ describe('Process Create Page', () => {
     cy.wait(300)
 
     cy.reload()
-    cy.get(':nth-child(4) > .djs-element .djs-label').contains('Do that')
+    cy.get(':nth-child(6) > .djs-element .djs-label').contains('Do that')
   })
   it('the newly created process is shown in the overview', () => {
     cy.get('.el-input__inner').type('My new test Name')

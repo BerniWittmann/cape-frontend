@@ -4,17 +4,17 @@ export default '<?xml version="1.0" encoding="UTF-8"?> ' +
 '<bpmn:startEvent id="StartEvent_1"> ' +
 '<bpmn:outgoing>SequenceFlow_1efzkxz</bpmn:outgoing> ' +
 '</bpmn:startEvent> ' +
-'<bpmn:intermediateThrowEvent id="IntermediateThrowEvent_12et4wi"> ' +
+'<bpmn:endEvent id="EndEvent_12et4wi"> ' +
 '<bpmn:incoming>SequenceFlow_1efzkxz</bpmn:incoming> ' +
-'</bpmn:intermediateThrowEvent> ' +
-'<bpmn:sequenceFlow id="SequenceFlow_1efzkxz" sourceRef="StartEvent_1" targetRef="IntermediateThrowEvent_12et4wi" /> ' +
+'</bpmn:endEvent> ' +
+'<bpmn:sequenceFlow id="SequenceFlow_1efzkxz" sourceRef="StartEvent_1" targetRef="EndEvent_12et4wi" /> ' +
 '</bpmn:process> ' +
 '<bpmndi:BPMNDiagram id="BPMNDiagram_1"> ' +
 '<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1"> ' +
 '<bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1"> ' +
 '<dc:Bounds x="173" y="102" width="36" height="36" /> ' +
 '</bpmndi:BPMNShape> ' +
-'<bpmndi:BPMNShape id="IntermediateThrowEvent_12et4wi_di" bpmnElement="IntermediateThrowEvent_12et4wi"> ' +
+'<bpmndi:BPMNShape id="EndEvent_12et4wi_di" bpmnElement="EndEvent_12et4wi"> ' +
 '<dc:Bounds x="259" y="102" width="36" height="36" /> ' +
 '</bpmndi:BPMNShape> ' +
 '<bpmndi:BPMNEdge id="SequenceFlow_1efzkxz_di" bpmnElement="SequenceFlow_1efzkxz"> ' +

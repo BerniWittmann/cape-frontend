@@ -28,7 +28,8 @@ module.exports = {
     '!src/*',
     '!src/assets/**',
     '!src/locales/**',
-    '!src/plugins/**',
+    '!src/plugins/*',
+    '!src/plugins/bpmn/**/index.js',
     '!src/routes/**',
     '!src/vuex/store.js'
   ],

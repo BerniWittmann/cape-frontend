@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components ProcessModeler renders 1`] = `
-<elcard-stub class="modeler">
-  <div id="canvas"></div>
-</elcard-stub>
+<elrow-stub tag="div" gutter="20" justify="start" align="top">
+  <elcol-stub span="18" tag="div">
+    <elcard-stub class="modeler">
+      <div id="canvas"></div>
+    </elcard-stub>
+  </elcol-stub>
+  <elcol-stub span="6" tag="div">
+    <elcard-stub class="modeler-properties">
+      <div id="canvas-properties"></div>
+    </elcard-stub>
+  </elcol-stub>
+</elrow-stub>
 `;
