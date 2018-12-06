@@ -17,7 +17,7 @@ describe('Process Preview Page', () => {
     cy.get('.el-col > .tag').contains('Delivery')
   })
   it('renders the svg', () => {
-    cy.get('.svgView').should('have.attr', 'srcdoc')
+    cy.get('.svg-view').should('have.attr', 'srcdoc')
   })
   it('can navigate back', () => {
     cy.get('.el-dialog__close').click()

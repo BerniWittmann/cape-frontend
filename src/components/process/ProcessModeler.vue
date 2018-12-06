@@ -74,14 +74,15 @@ export default {
     },
 
     updateValues(event) {
-      const s = this.modeler === undefined ? undefined : this.modeler.get('selection').get()
-      if (this.modeler !== undefined) this.modeler.get('selection').select(null)
+      if (!this.modeler) return
+      const s = this.modeler.get('selection').get()
+      this.modeler.get('selection').select(null)
       this.getXML(() => {
         this.getSVG(() => {
           this.$emit('input', this.value)
         })
       })
-      if (this.modeler !== undefined) this.modeler.get('selection').select(s)
+      this.modeler.get('selection').select(s)
     },
 
     handleKeyPress(e) {

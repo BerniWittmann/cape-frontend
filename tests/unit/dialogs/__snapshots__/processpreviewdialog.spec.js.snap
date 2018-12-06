@@ -10,7 +10,7 @@ exports[`Dialogs Process Preview Dialog can be closed 1`] = `
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svgView" style="height: 50px;"></iframe> <br>
+      </elrow-stub> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view" style="height: 50px;"></iframe>
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
@@ -34,7 +34,7 @@ exports[`Dialogs Process Preview Dialog can be deleted show as confirmation dial
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svgView" style="height: 50px;"></iframe> <br>
+      </elrow-stub> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view" style="height: 50px;"></iframe>
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
@@ -58,7 +58,7 @@ exports[`Dialogs Process Preview Dialog can be edited 1`] = `
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svgView" style="height: 50px;"></iframe> <br>
+      </elrow-stub> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view" style="height: 50px;"></iframe>
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link
@@ -82,7 +82,7 @@ exports[`Dialogs Process Preview Dialog can render 1`] = `
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svgView" style="height: 50px;"></iframe> <br>
+      </elrow-stub> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view" style="height: 50px;"></iframe>
       <elrow-stub tag="div" justify="start" align="top">
         <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
             <!----><i class="el-icon-edit"></i><span>process.edit.link

@@ -107,15 +107,27 @@ describe('Components', () => {
       const fn = cmp.vm.modeler.on.mock.calls[0][1]
       cmp.vm.modeler = undefined
       fn()
-      expect(cmp.emitted('input')).toBeTruthy()
-      expect(cmp.emitted('input')[0][0].svg).toEqual(undefined)
+      expect(cmp.emitted('input')).not.toBeTruthy()
     })
     it('handles not setup modeler in change event for xml', () => {
       const fn = cmp.vm.modeler.on.mock.calls[0][1]
       cmp.vm.modeler = undefined
       fn()
-      expect(cmp.emitted('input')).toBeTruthy()
-      expect(cmp.emitted('input')[0][0].xml).toEqual(undefined)
+      expect(cmp.emitted('input')).not.toBeTruthy()
+    })
+    it('handles not setup modeler in getSvg', () => {
+      const cb = jest.fn()
+      const fn = cmp.vm.getSVG
+      cmp.vm.modeler = undefined
+      fn(cb)
+      expect(cb).toHaveBeenCalledWith()
+    })
+    it('handles not setup modeler in getXml', () => {
+      const cb = jest.fn()
+      const fn = cmp.vm.getXML
+      cmp.vm.modeler = undefined
+      fn(cb)
+      expect(cb).toHaveBeenCalledWith()
     })
     it('imports the defaultXMLTemplate on empty process', () => {
       propsData.value.xml = undefined

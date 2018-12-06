@@ -5,9 +5,7 @@
         <tag v-for="tag in activeProcess.tags" :tag="tag" :key="tag.id" size="small"></tag>
       </el-col>
     </el-row>
-    <br>
-    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svgView"></iframe>
-    <br>
+    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svg-view"></iframe>
     <el-row>
       <el-col>
         <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}
@@ -94,11 +92,12 @@ export default {
 
 <style scoped lang="scss">
 
-.svgView {
+.svg-view {
   width: 100%;
   height: 100%;
   min-height: 100%;
   border: none;
+  margin: 15px 0;
 }
 
 </style>

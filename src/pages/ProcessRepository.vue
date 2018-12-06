@@ -147,10 +147,10 @@ export default {
       })
     },
     nameCompare(a, b) {
-      if (a === undefined || b === undefined) return 0
+      if (!a || !a.name || !b || !b.name) return 0
       const lca = a.name.toLowerCase()
       const lcb = b.name.toLowerCase()
-      return lca > lcb ? 1 : lca < lcb ? -1 : 0
+      return lca > lcb ? 1 : (lca < lcb ? -1 : 0)
     }
   }
 }

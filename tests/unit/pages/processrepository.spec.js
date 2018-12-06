@@ -119,6 +119,10 @@ describe('Pages', () => {
       expect(table.props('data')).toEqual([store.state.process.processes[1]])
     })
 
+    it('search can handle undefined values', () => {
+      expect(cmp.vm.nameCompare(undefined, null)).toEqual(0)
+    })
+
     it('can filter for process tags', () => {
       const tagColumn = cmp.findAll('eltablecolumn-stub').at(3)
       expect(tagColumn.exists()).toBeTruthy()
