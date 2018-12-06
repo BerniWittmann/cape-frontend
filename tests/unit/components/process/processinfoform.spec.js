@@ -46,6 +46,7 @@ describe('Components', () => {
         process: {
           id: '1',
           name: 'My Process',
+          description: 'My Description',
           createdAt: date.clone().subtract(14, 'days'),
           lastEditedAt: date.clone().subtract(2, 'days'),
           tags: [{
@@ -99,6 +100,12 @@ describe('Components', () => {
       expect(input.exists()).toBeTruthy()
       input.setValue('My new Name')
       expect(cmp.vm.data.name).toEqual('My new Name')
+    })
+    it('renders an input field for the description', () => {
+      const input = cmp.find('textarea')
+      expect(input.exists()).toBeTruthy()
+      input.setValue('My new Name')
+      expect(cmp.vm.data.description).toEqual('My new Name')
     })
     it('renders the tags', () => {
       const tags = cmp.findAll(Tag)
@@ -174,6 +181,7 @@ describe('Components', () => {
         cmp.vm.submit((result) => {
           expect(result).toEqual({
             'name': 'My Process',
+            'description': 'My Description',
             'tags': [{
               'color': '#FF0000',
               'id': '42',
@@ -210,12 +218,14 @@ describe('Components', () => {
       cmp.setProps({
         process: {
           name: 'New Prop Name',
+          description: 'My Description',
           tags: []
         }
       })
       cmp.vm.$nextTick(() => {
         expect(cmp.vm.data.name).toEqual('New Prop Name')
         expect(cmp.vm.data.tags).toEqual([])
+        expect(cmp.vm.data.description).toEqual('My Description')
         done()
       })
     })

@@ -78,6 +78,7 @@ export default {
           data.id = this.process.id
           data.name = result.name
           data.tags = result.tags
+          data.description = result.description
           if (!this.isNewProcess) {
             ProcessService.update(data).then(() => {
               this.reset()

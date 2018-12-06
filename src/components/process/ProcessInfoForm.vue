@@ -30,6 +30,8 @@
           $t('process.edit.add_tag') }}
         </el-button>
       </el-form-item>
+      <el-input type ="textarea" v-model="data.description">
+      </el-input>
     </el-form>
   </el-card>
 </template>
@@ -62,7 +64,8 @@ export default {
       handler: function () {
         this.data = {
           name: this.process.name,
-          tags: this.process.tags
+          tags: this.process.tags,
+          description: this.process.description
         }
       }
     }
@@ -80,7 +83,8 @@ export default {
         ]
       },
       newTag: undefined,
-      tagInputVisible: false
+      tagInputVisible: false,
+      description: undefined
     }
   },
 
@@ -139,7 +143,8 @@ export default {
   beforeMount() {
     this.data = {
       name: this.process.name,
-      tags: this.process.tags
+      tags: this.process.tags,
+      description: this.process.description
     }
   }
 }

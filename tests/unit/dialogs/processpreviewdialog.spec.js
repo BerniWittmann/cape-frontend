@@ -33,6 +33,7 @@ describe('Dialogs', () => {
               createdAt: date.clone().subtract(14, 'days'),
               lastEditedAt: date.clone().subtract(2, 'days'),
               svg: 'text height="30" more text="even more Text"',
+              description: 'My Description',
               tags: [{
                 id: '42',
                 name: 'First Tag',
@@ -116,6 +117,10 @@ describe('Dialogs', () => {
       expect(cmp.vm.svgHeightAdjust).toBe('500px')
     })
 
+    it('renders the description', () => {
+      const description = cmp.find('elcol-stub span')
+      expect(description.text()).toEqual(store.state.process.activeProcess.description)
+    })
     it('can be closed', () => {
       expect(cmp.html()).toMatchSnapshot()
       cmp.find('.el-dialog__header button').trigger('click')

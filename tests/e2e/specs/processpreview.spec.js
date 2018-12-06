@@ -13,6 +13,12 @@ describe('Process Preview Page', () => {
   it('renders the name', () => {
     cy.get('.el-dialog__header').contains('Call Delivery Service')
   })
+  it('renders the description', () => {
+    cy.visit('/processes')
+    cy.get('tbody > :nth-child(1) > .el-table_1_column_1').click()
+    cy.url().should('contain', 'preview')
+    cy.get('.el-col > span').contains('Yummy Pizza')
+  })
   it('renders the tags', () => {
     cy.get('.el-col > .tag').contains('Delivery')
   })

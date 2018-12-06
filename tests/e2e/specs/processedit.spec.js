@@ -12,6 +12,15 @@ describe('Process Edit Page', () => {
     cy.get('.process-edit__title').contains('New Name')
     cy.get('.el-notification').contains('Success')
   })
+  it('can update the description', () => {
+    cy.get('.el-input__inner').type('New Name')
+    cy.get('.el-textarea__inner').type('New Description')
+    cy.get('.el-button--success').click()
+    cy.wait(500)
+
+    cy.get('.el-notification').contains('Success')
+    cy.get('.el-textarea__inner').should('have.value', 'New Description')
+  })
   it('can add a tag', () => {
     cy.get('.el-form-item__content > .el-button').click()
     cy.wait(200)

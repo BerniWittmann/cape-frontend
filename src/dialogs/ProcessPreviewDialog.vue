@@ -5,6 +5,12 @@
         <tag v-for="tag in activeProcess.tags" :tag="tag" :key="tag.id" size="small"></tag>
       </el-col>
     </el-row>
+    <el-row>
+      <el-col>
+        <span>{{activeProcess.description}}</span>
+      </el-col>
+    </el-row>
+    <br>
     <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svg-view"></iframe>
     <el-row>
       <el-col>

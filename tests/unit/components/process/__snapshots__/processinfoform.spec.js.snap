@@ -24,6 +24,7 @@ exports[`Components ProcessInfoForm hides the add tag button if no tags are avai
           <!---->
         </div>
       </div>
+      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
     </form>
   </div>
 </div>
@@ -79,6 +80,7 @@ exports[`Components ProcessInfoForm it can add a tag can shows the option on new
           <!---->
         </div>
       </div>
+      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
     </form>
   </div>
 </div>
@@ -109,6 +111,7 @@ exports[`Components ProcessInfoForm it can add a tag closes the dropdown after a
           <!---->
         </div>
       </div>
+      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
     </form>
   </div>
 </div>
@@ -139,6 +142,7 @@ exports[`Components ProcessInfoForm renders 1`] = `
           <!---->
         </div>
       </div>
+      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
     </form>
   </div>
 </div>
