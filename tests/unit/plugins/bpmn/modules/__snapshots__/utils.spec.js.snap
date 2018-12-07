@@ -6,5 +6,8 @@ Array [
   "shapeHasType",
   "getElementsByType",
   "hasUnconnectedActivities",
+  "hasExceedingConnectionCountElements",
+  "getStartEventCount",
+  "getEndEventCount",
 ]
 `;

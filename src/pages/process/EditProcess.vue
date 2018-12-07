@@ -7,7 +7,7 @@
     </h2>
     <el-row :gutter="20">
       <el-col :span="24">
-        <process-modeler v-model="processData" @input="() => {}"></process-modeler>
+        <process-modeler v-model="processData" @input="() => {}" ref="processModeler"></process-modeler>
       </el-col>
       <el-col :span="6">
         <process-info-form ref="processInfoForm" :process="process"></process-info-form>
@@ -71,6 +71,13 @@ export default {
     submit() {
       this.$refs.processInfoForm.submit((result) => {
         if (result) {
+          try {
+            this.$refs.processModeler.validate()
+          } catch (e) {
+            this.$message.error(this.$t('process.edit.process_validation_errors.' + e.message))
+            return
+          }
+
           const data = Process.create({
             ...this.process,
             ...this.processData
@@ -90,7 +97,6 @@ export default {
                 params: {
                   processID: this.$store.state.process.processes[this.$store.state.process.processes.length - 1].id
                 }
-
               })
             })
           }

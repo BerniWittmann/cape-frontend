@@ -111,6 +111,7 @@ describe('Pages', () => {
           ProcessModeler: '<div id="modeler"></div>'
         }
       })
+      cmp.vm.$refs.processModeler.validate = jest.fn()
     }
 
     it('renders', () => {
@@ -181,6 +182,46 @@ describe('Pages', () => {
       expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
       expect(ProcessService.update).not.toHaveBeenCalled()
       expect(cmp.vm.reset).not.toHaveBeenCalled()
+    })
+
+    it('validates the process structure', () => {
+      cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+        cb(store.state.process.activeProcess)
+      })
+      cmp.vm.reset = jest.fn()
+      ProcessService.update = jest.fn().mockImplementation(() => ({
+        then: (arg) => arg()
+      }))
+
+      const button = cmp.findAll('elrow-stub button').at(0)
+      button.trigger('click')
+
+      expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+      expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
+      expect(ProcessService.update).toHaveBeenCalled()
+      expect(cmp.vm.reset).toHaveBeenCalled()
+    })
+    it('shows an error when the process structure validation fails', () => {
+      cmp.vm.$message.error = jest.fn()
+      cmp.vm.$refs.processModeler.validate = jest.fn().mockImplementation(() => {
+        throw (new Error('my_error'))
+      })
+      cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+        cb(store.state.process.activeProcess)
+      })
+      cmp.vm.reset = jest.fn()
+      ProcessService.update = jest.fn().mockImplementation(() => ({
+        then: (arg) => arg()
+      }))
+
+      const button = cmp.findAll('elrow-stub button').at(0)
+      button.trigger('click')
+
+      expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+      expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
+      expect(ProcessService.update).not.toHaveBeenCalled()
+      expect(cmp.vm.reset).not.toHaveBeenCalled()
+      expect(cmp.vm.$message.error).toHaveBeenCalledWith('process.edit.process_validation_errors.my_error')
     })
 
     describe('it can create a new process', () => {
@@ -261,6 +302,44 @@ describe('Pages', () => {
             processID: '2'
           }
         })
+      })
+
+      it('validates the process structure', () => {
+        cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+          // eslint-disable-next-line standard/no-callback-literal
+          cb({ name: 'my new Process Name', tags: [] })
+        })
+        ProcessService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+
+        const button = cmp.findAll('elrow-stub button').at(0)
+        button.trigger('click')
+
+        expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+        expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
+        expect(ProcessService.create).toHaveBeenCalled()
+      })
+      it('shows an error when the process structure validation fails', () => {
+        cmp.vm.$message.error = jest.fn()
+        cmp.vm.$refs.processModeler.validate = jest.fn().mockImplementation(() => {
+          throw (new Error('my_error'))
+        })
+        cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {
+          // eslint-disable-next-line standard/no-callback-literal
+          cb({ name: 'my new Process Name', tags: [] })
+        })
+        ProcessService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+
+        const button = cmp.findAll('elrow-stub button').at(0)
+        button.trigger('click')
+
+        expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
+        expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
+        expect(ProcessService.create).not.toHaveBeenCalled()
+        expect(cmp.vm.$message.error).toHaveBeenCalledWith('process.edit.process_validation_errors.my_error')
       })
     })
   })

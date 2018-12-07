@@ -44,20 +44,7 @@ describe('Process Edit Page', () => {
     cy.wait(200)
     cy.get('.el-input__inner').should('have.value', 'Call Delivery Service')
   })
-  it('can model the process', () => {
-    cy.get('#app').scrollTo('top')
+  it('shows the modeler', () => {
     cy.get('.djs-palette-entries')
-
-    cy.get(':nth-child(6) > .djs-element .djs-label').contains('Call')
-    cy.get(':nth-child(6) > .djs-element > .djs-hit').dblclick({ force: true })
-    cy.get('.djs-direct-editing-content').type('{selectall}{backspace}Call them')
-    cy.get('.djs-palette-entries').click()
-
-    cy.get('.el-button--success').click()
-    cy.get('.el-notification').contains('Success')
-    cy.wait(500)
-
-    cy.reload()
-    cy.get(':nth-child(6) > .djs-element .djs-label').contains('Call them')
   })
 })

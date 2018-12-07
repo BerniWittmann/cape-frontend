@@ -5,7 +5,7 @@ import PreventMultipleIncomingConnectionCreationRule from './preventMultipleInco
 import PreventMultipleOutgoingConnectionCreationRule from './preventMultipleOutgoingConnectionCreation'
 import PreventMultipleIncomingConnectionReconnectRule from './preventMultipleIncomingConnectionReconnect'
 import PreventMultipleOutgoingConnectionReconnectRule from './preventMultipleOutgoingConnectionReconnect'
-import PreventUnconnectedElementsRule from './preventUnconnectedElements'
+import ValidationRule from './validation'
 
 export const rules = {
   EnsureOnlyOneStartEventRule,
@@ -15,7 +15,7 @@ export const rules = {
   PreventMultipleOutgoingConnectionCreationRule,
   PreventMultipleIncomingConnectionReconnectRule,
   PreventMultipleOutgoingConnectionReconnectRule,
-  PreventUnconnectedElementsRule
+  ValidationRule
 }
 
 export default function setupRules(context) {

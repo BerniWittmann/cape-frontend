@@ -47,22 +47,8 @@ describe('Process Create Page', () => {
     tags = cy.get('.el-form-item__content > .el-tag')
     tags.should('have.length', 0)
   })
-  it('can model the process', () => {
-    cy.get('#app').scrollTo('top')
+  it('shows the modeler', () => {
     cy.get('.djs-palette-entries')
-
-    cy.get(':nth-child(2) > .djs-element > .djs-hit').click()
-    cy.get('[data-group="model"] > .bpmn-icon-task').click()
-    cy.get('.djs-direct-editing-content').type('Do that')
-    cy.get('[data-group="model"] > .bpmn-icon-intermediate-event-none').click()
-
-    cy.get('.el-input__inner').type('My modelled Process')
-    cy.get('.el-button--success').click()
-    cy.url().should('contain', 'edit')
-    cy.wait(300)
-
-    cy.reload()
-    cy.get(':nth-child(6) > .djs-element .djs-label').contains('Do that')
   })
   it('the newly created process is shown in the overview', () => {
     cy.get('.el-input__inner').type('My new test Name')

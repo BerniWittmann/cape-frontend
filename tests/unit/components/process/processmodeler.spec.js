@@ -22,7 +22,7 @@ jest.mock('bpmn-js/lib/Modeler', () => {
         return cb(undefined, '<svg></svg>')
       }),
       get: jest.fn().mockImplementation(() => {
-        return { zoom: jest.fn(), get: jest.fn(), select: jest.fn(), undo: jest.fn() }
+        return { zoom: jest.fn(), get: jest.fn(), select: jest.fn(), undo: jest.fn(), eventBus: jest.fn() }
       })
     }
   })
@@ -190,6 +190,32 @@ describe('Components', () => {
         handler()
         expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
         expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+      })
+
+      describe('it has a validation method', () => {
+        let eventFireFn
+        it('has a validate method', () => {
+          expect(cmp.vm.validate).toEqual(expect.any(Function))
+        })
+
+        it('throws an error if the validation fails', () => {
+          const err = (new Error('my_error'))
+          eventFireFn = jest.fn().mockImplementation(() => {
+            return err
+          })
+          cmp.vm.modeler.get = jest.fn().mockReturnValue({ fire: eventFireFn })
+
+          expect(cmp.vm.validate).toThrow(err)
+          expect(eventFireFn).toHaveBeenCalled()
+        })
+
+        it('throws no error if the validation succeeds', () => {
+          eventFireFn = jest.fn().mockImplementation(() => {})
+          cmp.vm.modeler.get = jest.fn().mockReturnValue({ fire: eventFireFn })
+
+          expect(cmp.vm.validate).not.toThrow()
+          expect(eventFireFn).toHaveBeenCalled()
+        })
       })
     })
   })

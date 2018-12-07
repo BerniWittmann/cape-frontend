@@ -44,7 +44,15 @@
       "tooltip": "Edit Process",
       "link": "Edit Process",
       "title": "Edit {name}",
-      "back": "Back"
+      "back": "Back",
+      "process_validation_errors": {
+        "unconnected_entities": "The Process contains unconnected entities",
+        "no_start_event": "The Process has no Start Event",
+        "too_many_start_events": "The Process has too many Start Events",
+        "no_end_event": "The Process has no End Event",
+        "too_many_end_events": "The Process has too many End Events",
+        "element_connections_exceeded": "The Process has at least one entity which exceeds the connection count"
+      }
     },
     "delete": {
       "message": "This will permanently delete the Process. Continue?",

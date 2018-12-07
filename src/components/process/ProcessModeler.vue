@@ -90,6 +90,11 @@ export default {
       if (ev.key === 'z' && (ev.ctrlKey || ev.metaKey)) {
         this.modeler.get('commandStack').undo()
       }
+    },
+
+    validate() {
+      const error = this.modeler.get('eventBus').fire('validate')
+      if (error) throw error
     }
   },
 
