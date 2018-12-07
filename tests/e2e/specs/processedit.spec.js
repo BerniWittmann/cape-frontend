@@ -7,13 +7,13 @@ describe('Process Edit Page', () => {
     cy.url().should('contain', 'edit')
   })
   it('can update the name', () => {
+    cy.get('.el-icon-edit').click()
     cy.get('.el-input__inner').type('{selectall}{backspace}New Name')
     cy.get('.el-button--success').click()
-    cy.get('.process-edit__title').contains('New Name')
+    cy.get(':nth-child(4) > .title').contains('New Name')
     cy.get('.el-notification').contains('Success')
   })
   it('can update the description', () => {
-    cy.get('.el-input__inner').type('New Name')
     cy.get('.el-textarea__inner').type('New Description')
     cy.get('.el-button--success').click()
     cy.wait(500)
@@ -22,7 +22,7 @@ describe('Process Edit Page', () => {
     cy.get('.el-textarea__inner').should('have.value', 'New Description')
   })
   it('can add a tag', () => {
-    cy.get('.el-form-item__content > .el-button').click()
+    cy.get(':nth-child(3) > .el-form-item__content > .el-button').click()
     cy.wait(200)
     cy.get('.el-form-item__content > .el-select').click()
     cy.wait(200)
@@ -39,10 +39,14 @@ describe('Process Edit Page', () => {
     tags.contains('Payment')
   })
   it('can reset the process', () => {
+    cy.get('.el-icon-edit').click()
+    cy.get('.el-input__inner').type('{selectall}{backspace}Call Delivery Service')
+    cy.get('.el-button--success').click()
+    cy.get('.el-icon-edit').click()
     cy.get('.el-input__inner').type('{selectall}{backspace}Invalid Name')
     cy.get('.el-button--danger').click()
     cy.wait(200)
-    cy.get('.el-input__inner').should('have.value', 'Call Delivery Service')
+    cy.get(':nth-child(4) > .title').contains('Call Delivery Service')
   })
   it('shows the modeler', () => {
     cy.get('.djs-palette-entries')

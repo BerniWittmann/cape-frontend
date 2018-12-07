@@ -1,30 +1,200 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components ProcessInfoForm hides the add tag button if no tags are available 1`] = `
+exports[`Components ProcessInfoForm allows to edit the input for the title 1`] = `
 <div class="el-card process-info is-always-shadow">
   <!---->
-  <div class="el-card__body">
-    <h4>process.edit.info</h4>
-    <form class="el-form el-form--label-top">
-      <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+            <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
         <div class="el-form-item__content">
-          <div class="el-input">
-            <!----><input type="text" autocomplete="off" class="el-input__inner">
-            <!---->
-            <!---->
-            <!---->
-          </div>
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
           <!---->
         </div>
       </div>
-      <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm checks the input to not be empty 1`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+            <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm checks the input to not be empty 2`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+            <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm hides the add tag button if no tags are available 1`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
         <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span>
           <!---->
           <!---->
           <!---->
         </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
       </div>
-      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm hides the input after editing title 1`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+            <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
+      </div>
     </form>
   </div>
 </div>
@@ -33,23 +203,27 @@ exports[`Components ProcessInfoForm hides the add tag button if no tags are avai
 exports[`Components ProcessInfoForm it can add a tag can shows the option on new tag button click 1`] = `
 <div class="el-card process-info is-always-shadow">
   <!---->
-  <div class="el-card__body">
-    <h4>process.edit.info</h4>
-    <form class="el-form el-form--label-top">
-      <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
-        <div class="el-form-item__content">
-          <div class="el-input">
-            <!----><input type="text" autocomplete="off" class="el-input__inner">
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
             <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
             <!---->
-            <!---->
-          </div>
+            <!----><span>process.edit.save</span></button>
           <!---->
         </div>
-      </div>
-      <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
         <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-          <div class="el-select el-select--small">
+          <div class="el-select tag-space el-select--small">
             <!---->
             <div class="el-input el-input--small el-input--suffix">
               <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
@@ -79,8 +253,14 @@ exports[`Components ProcessInfoForm it can add a tag can shows the option on new
           <!---->
           <!---->
         </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
       </div>
-      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
     </form>
   </div>
 </div>
@@ -89,29 +269,39 @@ exports[`Components ProcessInfoForm it can add a tag can shows the option on new
 exports[`Components ProcessInfoForm it can add a tag closes the dropdown after adding A Tag 1`] = `
 <div class="el-card process-info is-always-shadow">
   <!---->
-  <div class="el-card__body">
-    <h4>process.edit.info</h4>
-    <form class="el-form el-form--label-top">
-      <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
-        <div class="el-form-item__content">
-          <div class="el-input">
-            <!----><input type="text" autocomplete="off" class="el-input__inner">
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
             <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
             <!---->
-            <!---->
-          </div>
+            <!----><span>process.edit.save</span></button>
           <!---->
         </div>
-      </div>
-      <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
         <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-          <!----> <button type="button" class="el-button button-new-tag el-button--default el-button--small">
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
             <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
       </span></button>
           <!---->
         </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
       </div>
-      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
     </form>
   </div>
 </div>
@@ -120,29 +310,116 @@ exports[`Components ProcessInfoForm it can add a tag closes the dropdown after a
 exports[`Components ProcessInfoForm renders 1`] = `
 <div class="el-card process-info is-always-shadow">
   <!---->
-  <div class="el-card__body">
-    <h4>process.edit.info</h4>
-    <form class="el-form el-form--label-top">
-      <div class="el-form-item is-required"><label for="name" class="el-form-item__label">process.edit.name</label>
-        <div class="el-form-item__content">
-          <div class="el-input">
-            <!----><input type="text" autocomplete="off" class="el-input__inner">
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
             <!---->
+            <!----><span>process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
             <!---->
-            <!---->
-          </div>
+            <!----><span>process.edit.save</span></button>
           <!---->
         </div>
-      </div>
-      <div class="el-form-item"><label for="tags" class="el-form-item__label">process.edit.tags</label>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
         <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-          <!----> <button type="button" class="el-button button-new-tag el-button--default el-button--small">
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
             <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
       </span></button>
           <!---->
         </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
       </div>
-      <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: -4px;"></textarea></div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm works in new process as expected has back and save button but no reset button 1`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button>
+          <!----> <span class="title left-space right-space"><span>process.add.title</span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+            <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm works in new process as expected renders correct title prefix 1`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button>
+          <!----> <span class="title left-space right-space"><span>process.add.title</span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
+            <!---->
+            <!----><span>process.edit.save</span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+          <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+            <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+      </span></button>
+          <!---->
+        </div>
+      </div> <br>
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content">
+          <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+          <!---->
+        </div>
+      </div>
     </form>
   </div>
 </div>

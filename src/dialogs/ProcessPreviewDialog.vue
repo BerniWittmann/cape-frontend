@@ -5,14 +5,14 @@
         <tag v-for="tag in activeProcess.tags" :tag="tag" :key="tag.id" size="small"></tag>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="margin-top">
       <el-col>
         <span>{{activeProcess.description}}</span>
       </el-col>
     </el-row>
     <br>
-    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svg-view"></iframe>
-    <el-row>
+    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svg-view margin-top"></iframe>
+    <el-row class="margin-top">
       <el-col>
         <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}
         </el-button>
@@ -103,7 +103,10 @@ export default {
   height: 100%;
   min-height: 100%;
   border: none;
-  margin: 15px 0;
+}
+
+.margin-top {
+  margin-top: 15px;
 }
 
 </style>

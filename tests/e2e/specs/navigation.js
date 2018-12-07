@@ -37,7 +37,7 @@ describe('Navigations', () => {
     cy.visit('/processes')
     const buttons = cy.get('.el-main .el-table .el-button')
     buttons.eq(1).click()
-    cy.get('.process-edit__title > .el-button').click()
+    cy.get('.right-space.el-button--text').click()
     cy.url().should('eq', Cypress.config().baseUrl + '/processes')
   })
   it('Navigates to the process preview', () => {

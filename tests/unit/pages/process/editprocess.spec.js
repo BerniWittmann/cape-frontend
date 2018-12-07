@@ -119,27 +119,8 @@ describe('Pages', () => {
     it('renders', () => {
       expect(cmp.html()).toMatchSnapshot()
     })
-
-    it('shows the title', () => {
-      const title = cmp.find('.process-edit__title')
-      expect(title.exists()).toBeTruthy()
-      expect(title.text()).toContain('process.edit.back process.edit.title')
-    })
-    it('has a back button', () => {
-      const button = cmp.find('.process-edit__title button')
-      expect(button.exists()).toBeTruthy()
-      button.trigger('click')
-      expect(router.back).toHaveBeenCalled()
-    })
     it('renders the process info form', () => {
       expect(cmp.contains(ProcessInfoForm)).toBeTruthy()
-    })
-    it('has a save and a reset button', () => {
-      const buttons = cmp.findAll('elrow-stub button')
-      expect(buttons.length).toEqual(2)
-
-      expect(buttons.at(0).text()).toContain('save')
-      expect(buttons.at(1).text()).toContain('reset')
     })
     it('can reset the process', () => {
       cmp.vm.$refs.processInfoForm.setFormPristine = jest.fn()
@@ -147,8 +128,7 @@ describe('Pages', () => {
         then: (arg) => arg()
       }))
 
-      const button = cmp.findAll('elrow-stub button').at(1)
-      button.trigger('click')
+      cmp.vm.reset()
 
       expect(ProcessService.get).toHaveBeenCalled()
       expect(cmp.vm.$refs.processInfoForm.setFormPristine).toHaveBeenCalled()
@@ -163,8 +143,7 @@ describe('Pages', () => {
         then: (arg) => arg()
       }))
 
-      const button = cmp.findAll('elrow-stub button').at(0)
-      button.trigger('click')
+      cmp.vm.submit()
 
       expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
       expect(ProcessService.update).toHaveBeenCalled()
@@ -179,8 +158,7 @@ describe('Pages', () => {
         then: (arg) => arg()
       }))
 
-      const button = cmp.findAll('elrow-stub button').at(0)
-      button.trigger('click')
+      cmp.vm.submit()
 
       expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
       expect(ProcessService.update).not.toHaveBeenCalled()
@@ -195,9 +173,7 @@ describe('Pages', () => {
       ProcessService.update = jest.fn().mockImplementation(() => ({
         then: (arg) => arg()
       }))
-
-      const button = cmp.findAll('elrow-stub button').at(0)
-      button.trigger('click')
+      cmp.vm.$refs.processInfoForm.$emit('submit-process')
 
       expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
       expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
@@ -217,8 +193,7 @@ describe('Pages', () => {
         then: (arg) => arg()
       }))
 
-      const button = cmp.findAll('elrow-stub button').at(0)
-      button.trigger('click')
+      cmp.vm.$refs.processInfoForm.$emit('submit-process')
 
       expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
       expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
@@ -237,19 +212,6 @@ describe('Pages', () => {
         expect(cmp.html()).toMatchSnapshot()
       })
 
-      it('shows the correct title', () => {
-        const title = cmp.find('.process-edit__title')
-        expect(title.exists()).toBeTruthy()
-        expect(title.text()).toContain('process.edit.back process.add.title')
-      })
-
-      it('has a save and no reset button', () => {
-        const buttons = cmp.findAll('elrow-stub button')
-        expect(buttons.length).toEqual(1)
-
-        expect(buttons.at(0).text()).toContain('save')
-      })
-
       it('works on an empty process', () => {
         expect(cmp.vm.process).not.toEqual(store.state.process.activeProcess)
         expect(cmp.vm.process).toEqual(new Process())
@@ -263,8 +225,7 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
 
-        const button = cmp.findAll('elrow-stub button').at(0)
-        button.trigger('click')
+        cmp.vm.submit()
 
         expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
         expect(ProcessService.create).not.toHaveBeenCalled()
@@ -279,8 +240,7 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
 
-        const button = cmp.findAll('elrow-stub button').at(0)
-        button.trigger('click')
+        cmp.vm.submit()
 
         expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
         expect(ProcessService.create).toHaveBeenCalled()
@@ -295,8 +255,7 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
 
-        const button = cmp.findAll('elrow-stub button').at(0)
-        button.trigger('click')
+        cmp.vm.submit()
 
         expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
         expect(router.replace).toHaveBeenCalledWith({
@@ -316,8 +275,7 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
 
-        const button = cmp.findAll('elrow-stub button').at(0)
-        button.trigger('click')
+        cmp.vm.$refs.processInfoForm.$emit('submit-process')
 
         expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
         expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
@@ -336,8 +294,7 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
 
-        const button = cmp.findAll('elrow-stub button').at(0)
-        button.trigger('click')
+        cmp.vm.$refs.processInfoForm.$emit('submit-process')
 
         expect(cmp.vm.$refs.processInfoForm.submit).toHaveBeenCalled()
         expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()

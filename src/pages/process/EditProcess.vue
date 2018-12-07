@@ -1,23 +1,19 @@
 <template>
   <v-layout>
-    <h2 class="process-edit__title">
-      <el-button type="text" icon="el-icon-arrow-left" @click="$router.back()">{{ $t('process.edit.back' )}}</el-button>
-      <span v-if="isNewProcess">{{ $t('process.add.title')}}</span>
-      <span v-else>{{ $t('process.edit.title', { name })}}</span>
-    </h2>
+    <el-row>
+      <el-col>
+        <process-info-form
+                ref="processInfoForm"
+                :process="process" :isNewProcess="isNewProcess"
+                v-on:router-back="$router.back()"
+                v-on:submit-process="submit"
+                v-on:reset-process="reset"
+        ></process-info-form>
+      </el-col>
+    </el-row>
     <el-row :gutter="20">
       <el-col :span="24">
         <process-modeler v-model="processData" @input="() => {}" ref="processModeler"></process-modeler>
-      </el-col>
-      <el-col :span="6">
-        <process-info-form ref="processInfoForm" :process="process"></process-info-form>
-      </el-col>
-    </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="6">
-        <el-button type="success" @click.native="submit">{{ $t('process.edit.save') }}</el-button>
-        <el-button v-if="!isNewProcess" @click.native="reset" type="danger" plain>{{ $t('process.edit.reset') }}
-        </el-button>
       </el-col>
     </el-row>
   </v-layout>
@@ -134,5 +130,8 @@ export default {
   .el-button {
     margin-right: 3em;
   }
+}
+.el-row {
+  margin-bottom: 20px;
 }
 </style>

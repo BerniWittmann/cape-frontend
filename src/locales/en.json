@@ -47,7 +47,7 @@
       "reset": "Reset",
       "tooltip": "Edit Process",
       "link": "Edit Process",
-      "title": "Edit {name}",
+      "title": "Edit Process",
       "back": "Back",
       "process_validation_errors": {
         "unconnected_entities": "The Process contains unconnected entities",
@@ -57,6 +57,7 @@
         "too_many_end_events": "The Process has too many End Events",
         "element_connections_exceeded": "The Process has at least one entity which exceeds the connection count"
       },
+      "description": "Description",
       "error_xml_load": "Could not load Process XML Structure"
     },
     "delete": {

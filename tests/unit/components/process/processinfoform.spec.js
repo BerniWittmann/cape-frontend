@@ -13,6 +13,7 @@ describe('Components', () => {
     config.stubs.transition = false
 
     const date = moment(moment().utc())
+    console.warn = jest.fn()
 
     beforeEach((done) => {
       jest.useRealTimers()
@@ -58,7 +59,8 @@ describe('Components', () => {
             name: 'Second Tag',
             color: '#FFFF00'
           }]
-        }
+        },
+        isNewProcess: false
       }
       render(done)
     })
@@ -94,12 +96,9 @@ describe('Components', () => {
     it('renders', () => {
       expect(cmp.html()).toMatchSnapshot()
     })
-
-    it('renders an input field for the name', () => {
-      const input = cmp.find('input')
-      expect(input.exists()).toBeTruthy()
-      input.setValue('My new Name')
-      expect(cmp.vm.data.name).toEqual('My new Name')
+    it('renders the correct title', () => {
+      expect(cmp.find('.title span').find('span').exists()).toBeTruthy()
+      expect(cmp.find('.title span').find('span').text()).toEqual('process.edit.title')
     })
     it('renders an input field for the description', () => {
       const input = cmp.find('textarea')
@@ -113,13 +112,96 @@ describe('Components', () => {
       expect(tags.at(0).props('tag')).toEqual(propsData.process.tags[0])
       expect(tags.at(1).props('tag')).toEqual(propsData.process.tags[1])
     })
+    it('allows to edit the input for the title', (done) => {
+      // cmp.setMethods({ showInput: jest.fn() })
+      const editTitleButton = cmp.find('button.black-color')
+      expect(cmp.vm.nameInputVisible).not.toBeTruthy()
+      expect(editTitleButton.exists).toBeTruthy()
+      editTitleButton.trigger('click')
+      expect(cmp.vm.nameInputVisible).toBeTruthy()
+      // expect(cmp.vm.showInput).toHaveBeenCalled()
+      cmp.vm.$nextTick(() => {
+        expect(cmp.html()).toMatchSnapshot()
+        expect(cmp.find('.el-input__inner').exists).toBeTruthy()
+        done()
+      })
+    })
+    it('hides the input after editing title', (done) => {
+      const editTitleButton = cmp.find('button.black-color')
+      expect(editTitleButton.exists).toBeTruthy()
+
+      editTitleButton.trigger('click')
+      cmp.vm.$nextTick(() => {
+        expect(cmp.html()).toMatchSnapshot()
+        const input = cmp.find('.el-input__inner')
+        input.setValue('My new Process Name')
+        expect(cmp.vm.data.name).toEqual('My new Process Name')
+        expect(cmp.vm.nameInputVisible).toBeTruthy()
+        input.trigger('keyup', { key: 'Enter' })
+        expect(cmp.vm.nameInputVisible).not.toBeTruthy()
+        done()
+      })
+    })
+    it('checks the input to not be empty', (done) => {
+      const editTitleButton = cmp.find('button.black-color')
+
+      editTitleButton.trigger('click')
+      cmp.vm.$nextTick(() => {
+        expect(cmp.html()).toMatchSnapshot()
+        const input = cmp.find('.el-input__inner')
+        input.setValue('')
+        input.trigger('keypress', { key: 'Enter' })
+        expect(cmp.html()).toMatchSnapshot()
+        expect(cmp.find('.el-input__inner').exists).toBeTruthy()
+        done()
+      })
+    })
+    describe('works in edit mode as expected', () => {
+      it('renders correct title prefix', () => {
+        expect(cmp.findAll('.title').at(1).exists()).toBeTruthy()
+        expect(cmp.findAll('.title').at(1).text()).toEqual(propsData.process.name)
+      })
+      it('has back, reset and save button', () => {
+        const buttons = cmp.findAll('button.right-space')
+        expect(buttons.length).toEqual(3)
+
+        expect(buttons.at(0).text()).toContain('back')
+        expect(buttons.at(1).text()).toContain('reset')
+        expect(buttons.at(2).text()).toContain('save')
+      })
+    })
+    describe('works in new process as expected', () => {
+      it('renders correct title prefix', (done) => {
+        propsData.process.name = undefined
+        propsData.isNewProcess = true
+        render(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
+        expect(cmp.vm.nameInputVisible).toBeTruthy()
+        expect(cmp.find('.title span').find('span').exists()).toBeTruthy()
+        expect(cmp.find('.title span').find('span').text()).toEqual('process.add.title')
+      })
+      it('has back and save button but no reset button', (done) => {
+        propsData.isNewProcess = true
+        render(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
+        const buttons = cmp.findAll('button.right-space')
+        expect(buttons.length).toEqual(2)
+
+        expect(buttons.at(0).text()).toContain('back')
+        expect(buttons.at(1).text()).toContain('save')
+      })
+    })
     describe('it can add a tag', () => {
       it('has a addTag Button', () => {
-        const addButton = cmp.find('.button-new-tag')
+        const addButton = cmp.find('.tag-space')
         expect(addButton.exists()).toBeTruthy()
       })
       it('can shows the option on new tag button click', (done) => {
-        cmp.find('.button-new-tag').trigger('click')
+        cmp.findAll('.tag-space').at(1).trigger('click')
         cmp.vm.$nextTick(() => {
           expect(cmp.html()).toMatchSnapshot()
           const options = cmp.findAll('.el-select-dropdown li')
@@ -130,7 +212,7 @@ describe('Components', () => {
         })
       })
       it('adds the new tag on click', (done) => {
-        cmp.find('.button-new-tag').trigger('click')
+        cmp.findAll('.tag-space').at(1).trigger('click')
         cmp.vm.$nextTick(() => {
           cmp.find('.el-select-dropdown li').trigger('click')
           expect(propsData.process.tags.length).toEqual(3)
@@ -138,7 +220,12 @@ describe('Components', () => {
           done()
         })
       })
-
+      it('adds a tag just once', () => {
+        expect(cmp.vm.process.tags.length).toEqual(2)
+        cmp.vm.newTag = cmp.vm.process.tags[0]
+        cmp.vm.addTag()
+        expect(cmp.vm.process.tags.length).toEqual(2)
+      })
       it('closes the dropdown after adding A Tag', (done) => {
         cmp.vm.tagInputVisible = true
         cmp.vm.$nextTick(() => {

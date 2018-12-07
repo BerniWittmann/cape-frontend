@@ -1,11 +1,44 @@
 <template>
-  <el-card class="process-info">
-    <h4>{{ $t('process.edit.info')}}</h4>
-    <el-form ref="processForm" :model="data" label-position="top" :rules="rules">
-      <el-form-item :label="$t('process.edit.name')" prop="name">
-        <el-input v-model="data.name"></el-input>
+  <el-card class="process-info" :body-style="{ width: '100%' }">
+    <el-form ref="processForm" :model="data" label-position="top" :rules="rules" status-icon inline class="use-space" @submit.native.prevent>
+      <el-form-item class="use-space">
+        <el-button type="text" icon="el-icon-arrow-left" @click="$emit('router-back')" class="right-space">{{ $t('process.edit.back' )}}
+        </el-button>
+        <el-button v-if="!isNewProcess" @click.native="$emit('reset-process')" type="danger" plain class="right-space">{{ $t('process.edit.reset') }}
+        </el-button>
+        <span class="title left-space right-space">
+          <span v-if="isNewProcess">{{ $t('process.add.title')}}</span>
+          <span v-else>{{ $t('process.edit.title')}} </span>
+        </span>
+        <span class="right-space">
+          <span class="title" v-if="!nameInputVisible">{{ data.name }}</span>
+          <span v-else>
+            <el-form-item prop="name">
+              <el-input
+                      v-model="data.name"
+                      ref="nameInput"
+                      size="mini"
+                      :placeholder="$t('process.edit.name')"
+                      @blur="hideInput"
+                      @keyup.enter.native="hideInput"
+                      @submit.native.prevent="hideInput"
+                      class="use-space input-width"
+              >
+              </el-input>
+            </el-form-item>
+          </span>
+          <el-button
+                  type="text"
+                  icon="el-icon-edit"
+                  @click="showInput"
+                  v-if="!nameInputVisible"
+                  class="black-color tag-space"
+          ></el-button>
+        </span>
+        <el-button type="success" @click.native="$emit('submit-process')" class="submit-button right-space">{{ $t('process.edit.save') }}</el-button>
       </el-form-item>
-      <el-form-item :label="$t('process.edit.tags')" prop="tags">
+      <br>
+      <el-form-item prop="tags" class="use-space">
         <tag v-for="tag in data.tags" :tag="tag" :key="tag.id" closable @close="removeTag(tag)"></tag>
         <el-select
                 v-if="tagInputVisible"
@@ -16,6 +49,7 @@
                 @change="addTag"
                 @blur="hideTagInput"
                 filterable
+                class="tag-space"
         >
           <el-option
                   v-for="tag in availableTags"
@@ -25,23 +59,34 @@
             <tag :tag="tag" size="mini"></tag>
           </el-option>
         </el-select>
-        <el-button v-if="!tagInputVisible && availableTags.length > 0" class="button-new-tag" size="small"
-                   @click="showTagInput" icon="el-icon-plus">{{
-          $t('process.edit.add_tag') }}
+        <el-button v-if="!tagInputVisible && availableTags.length > 0" class="tag-space" size="small"
+                   @click="showTagInput" icon="el-icon-plus">{{$t('process.edit.add_tag') }}
         </el-button>
       </el-form-item>
-      <el-input type ="textarea" v-model="data.description">
-      </el-input>
+      <br>
+      <el-form-item class="use-space">
+        <el-input type="textarea" v-model="data.description"  :autosize="{ minRows: 2 }" :placeholder="$t('process.edit.description')">
+        </el-input>
+      </el-form-item>
+
     </el-form>
   </el-card>
 </template>
 
 <script>
 /* ============
- * Tag Settings Component
+ * Process Info Form
  * ============
  *
- * A component to edit the Tags
+ * A Form which shows information's about a process and allows to edit them
+ * Requires:
+ *  props:
+ *    process - The Process to show and edit
+ *    isNewProcess - Boolean, whether it's for a new Process
+ *  methods which are emitted:
+ *    router-back - if back is pressed
+ *    submit - if submit is pressed
+ *    reset - if reset is pressed
  */
 
 import TagComponent from '@/components/Tag.vue'
@@ -54,6 +99,10 @@ export default {
   props: {
     process: {
       type: Object,
+      required: true
+    },
+    isNewProcess: {
+      type: Boolean,
       required: true
     }
   },
@@ -84,6 +133,7 @@ export default {
       },
       newTag: undefined,
       tagInputVisible: false,
+      nameInputVisible: false,
       description: undefined
     }
   },
@@ -117,12 +167,27 @@ export default {
       this.$refs.processForm.resetFields()
     },
 
+    showInput() {
+      this.nameInputVisible = true
+      this.$nextTick(_ => {
+        this.$refs.nameInput.$refs.input.focus()
+      })
+    },
+
+    hideInput() {
+      this.$refs.processForm.validate((valid) => {
+        if (valid) {
+          this.nameInputVisible = false
+        }
+      })
+    },
+
     removeTag(tag) {
       this.data.tags = this.data.tags.filter((t) => t.id !== tag.id)
     },
 
     addTag() {
-      this.data.tags.push(this.newTag)
+      if (this.data.tags.indexOf(this.newTag) < 0) { this.data.tags.push(this.newTag) }
     },
 
     showTagInput() {
@@ -146,19 +211,51 @@ export default {
       tags: this.process.tags,
       description: this.process.description
     }
+    if (!this.data.name) this.nameInputVisible = true
   }
 }
 
 </script>
 
 <style scoped lang="scss">
+
 .process-info {
-  background-color: #EBEEF5;
-  border-radius: 5px;
-  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
 }
 
-.button-new-tag {
+.use-space {
+  width: 100%;
+}
+
+.left-space {
+  margin-left: 20px;
+}
+
+.right-space {
+  margin-right: 10px;
+}
+
+.input-width {
+  width: 300px;
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.tag-space {
   margin-left: 5px;
 }
+
+.submit-button {
+  float: right;
+}
+
+.black-color {
+  color: #000000;
+}
+
 </style>
