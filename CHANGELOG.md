@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.6.0 - (2018-12-07)
+---
+
+* Added Process Property Panel
+* Customized Process Modeler with Rules and Validation
+* Added Process SVG Preview
+* Added Description for Processes
+* Small Button Styling Adjustments
+
 ## 0.5.1 - (2018-11-28)
 ---
 
