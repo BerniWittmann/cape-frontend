@@ -121,7 +121,11 @@ export default {
     const xml = this.value.xml ? this.value.xml : defaultProcessTemplate
 
     this.modeler.importXML(xml, (err) => {
-      if (err) throw err
+      if (err) {
+        this.$message.error(this.$t('process.edit.error_xml_load'))
+        this.$router.back()
+        throw err
+      }
 
       const canvas = this.modeler.get('canvas')
       canvas.zoom('fit-viewport')

@@ -1,12 +1,20 @@
 <template>
   <v-layout>
     <el-row justify="end" :gutter="20">
-      <el-col :span="8">
+      <el-col :span="12">
         <router-link :to="{name: 'process.new'}">
           <el-button icon="el-icon-plus">{{ $t('process.create_new') }}</el-button>
         </router-link>
+        <el-upload class="process-import-upload"
+                   :action="uploadURL"
+                   accept=".bpmn,.xml"
+                   drag ref="processImportUpload"
+                   :on-success="handleImportSuccess"
+                   :on-error="handleImportError">
+          <el-button icon="el-icon-upload">{{ $t('process.import.button_text') }}</el-button>
+        </el-upload>
       </el-col>
-      <el-col :span="6" :offset="10">
+      <el-col :span="6" :offset="4">
         <el-input
                 :placeholder="$t('process.search')"
                 v-model="search">
@@ -117,6 +125,10 @@ export default {
       })
 
       return Object.values(tags)
+    },
+
+    uploadURL() {
+      return process.env.VUE_APP_API_LOCATION + 'processes/get_process_data_from_file'
     }
   },
 
@@ -151,11 +163,40 @@ export default {
       const lca = a.name.toLowerCase()
       const lcb = b.name.toLowerCase()
       return lca > lcb ? 1 : (lca < lcb ? -1 : 0)
+    },
+
+    handleImportSuccess(data) {
+      this.$router.push({
+        name: 'process.new',
+        params: {
+          processData: data
+        }
+      })
+      this.$refs.processImportUpload.clearFiles()
+    },
+
+    handleImportError() {
+      this.$message.error(this.$t('process.import.failed'))
     }
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.process-import-upload {
+  display: inline-flex;
+  margin-left: 10px;
 
+  .el-upload-dragger {
+    .el-icon-upload {
+      font-size: 14px;
+      line-height: 1;
+      margin: 0;
+    }
+
+    border: none;
+    width: auto;
+    height: auto;
+  }
+}
 </style>

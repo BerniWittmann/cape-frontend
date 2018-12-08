@@ -9,6 +9,7 @@ describe('Pages', () => {
   describe('ProcessRepository.vue', () => {
     let store
     let router
+    let message
     let cmp
 
     const date = moment(moment().utc())
@@ -16,6 +17,9 @@ describe('Pages', () => {
     beforeEach(() => {
       router = {
         push: jest.fn()
+      }
+      message = {
+        error: jest.fn()
       }
       store = {
         state: {
@@ -62,7 +66,8 @@ describe('Pages', () => {
         i18n,
         mocks: {
           $store: store,
-          $router: router
+          $router: router,
+          $message: message
         },
         stubs: {
           'v-layout': EmptySlotComponent,
@@ -258,6 +263,44 @@ describe('Pages', () => {
       expect(link.exists()).toBeTruthy()
       expect(link.props('to')).toEqual({
         name: 'process.new'
+      })
+    })
+
+    describe('it has a process import Button', () => {
+      let button
+      beforeEach(() => {
+        button = cmp.find('elupload-stub')
+      })
+      it('renders the upload component', () => {
+        expect(button.exists()).toBeTruthy()
+      })
+
+      it('points to the correct upload url', () => {
+        expect(button.props('action')).toContain('processes/get_process_data_from_file')
+      })
+
+      it('has the correct props', () => {
+        expect(button.props()).toMatchSnapshot()
+      })
+      it('has a on success function', () => {
+        cmp.vm.$refs.processImportUpload.clearFiles = jest.fn()
+        const fn = button.props('onSuccess')
+        expect(fn).toEqual(expect.any(Function))
+        const data = { myData: 42, foo: 'bar' }
+        fn(data)
+        expect(router.push).toHaveBeenCalledWith({
+          name: 'process.new',
+          params: {
+            processData: data
+          }
+        })
+        expect(cmp.vm.$refs.processImportUpload.clearFiles).toHaveBeenCalled()
+      })
+      it('has a on error function', () => {
+        const fn = button.props('onError')
+        expect(fn).toEqual(expect.any(Function))
+        fn()
+        expect(message.error).toHaveBeenCalledWith('process.import.failed')
       })
     })
   })

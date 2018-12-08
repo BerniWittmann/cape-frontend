@@ -48,6 +48,9 @@ export default {
   computed: {
     process() {
       if (this.isNewProcess) {
+        if (this.$route.params.processData) {
+          return Process.create(this.$route.params.processData)
+        }
         return new Process()
       }
       return this.$store.state.process.activeProcess

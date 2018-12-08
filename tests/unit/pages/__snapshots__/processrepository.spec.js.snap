@@ -1,12 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Pages ProcessRepository.vue it has a process import Button has the correct props 1`] = `
+Object {
+  "accept": ".bpmn,.xml",
+  "action": "http://localhost:10010/processes/get_process_data_from_file",
+  "autoUpload": true,
+  "beforeRemove": undefined,
+  "beforeUpload": undefined,
+  "data": undefined,
+  "disabled": false,
+  "drag": true,
+  "dragger": false,
+  "fileList": Array [],
+  "headers": Object {},
+  "httpRequest": undefined,
+  "limit": undefined,
+  "listType": "text",
+  "multiple": false,
+  "name": "file",
+  "onChange": [Function],
+  "onError": [Function],
+  "onExceed": [Function],
+  "onPreview": undefined,
+  "onProgress": [Function],
+  "onRemove": [Function],
+  "onSuccess": [Function],
+  "showFileList": true,
+  "type": "select",
+  "withCredentials": false,
+}
+`;
+
 exports[`Pages ProcessRepository.vue renders 1`] = `
 <div>
   <elrow-stub tag="div" gutter="20" justify="end" align="top">
-    <elcol-stub span="8" tag="div"><a>
+    <elcol-stub span="12" tag="div"><a>
         <elbutton-stub type="default" icon="el-icon-plus" nativetype="button">process.create_new</elbutton-stub>
-      </a></elcol-stub>
-    <elcol-stub span="6" tag="div" offset="10">
+      </a>
+      <elupload-stub action="http://localhost:10010/processes/get_process_data_from_file" headers="[object Object]" name="file" drag="true" showfilelist="true" accept=".bpmn,.xml" type="select" onremove="function noop() {}" onchange="function noop() {}" onsuccess="function () { [native code] }" onprogress="function noop() {}" onerror="function () { [native code] }" filelist="" autoupload="true" listtype="text" onexceed="function noop() {}" class="process-import-upload">
+        <elbutton-stub type="default" icon="el-icon-upload" nativetype="button">process.import.button_text</elbutton-stub>
+      </elupload-stub>
+    </elcol-stub>
+    <elcol-stub span="6" tag="div" offset="4">
       <elinput-stub value="" type="text" autocomplete="off" validateevent="true" placeholder="process.search"><i class="el-input__icon el-icon-search"></i></elinput-stub>
     </elcol-stub>
   </elrow-stub>
@@ -27,9 +62,16 @@ exports[`Pages ProcessRepository.vue renders 1`] = `
 exports[`Pages ProcessRepository.vue renders the table correctly 1`] = `
 <div>
   <div class="el-row is-justify-end" style="margin-left: -10px; margin-right: -10px;">
-    <div class="el-col el-col-8" style="padding-left: 10px; padding-right: 10px;"><a><button type="button" class="el-button el-button--default">
-          <!----><i class="el-icon-plus"></i><span>process.create_new</span></button></a></div>
-    <div class="el-col el-col-6 el-col-offset-10" style="padding-left: 10px; padding-right: 10px;">
+    <div class="el-col el-col-12" style="padding-left: 10px; padding-right: 10px;"><a><button type="button" class="el-button el-button--default">
+          <!----><i class="el-icon-plus"></i><span>process.create_new</span></button></a>
+      <div class="process-import-upload">
+        <div tabindex="0" class="el-upload el-upload--text">
+          <div class="el-upload-dragger"><button type="button" class="el-button el-button--default">
+              <!----><i class="el-icon-upload"></i><span>process.import.button_text</span></button></div><input type="file" name="file" accept=".bpmn,.xml" class="el-upload__input">
+        </div><span tag="ul" name="el-list" class="el-upload-list el-upload-list--text"></span>
+      </div>
+    </div>
+    <div class="el-col el-col-6 el-col-offset-4" style="padding-left: 10px; padding-right: 10px;">
       <div class="el-input el-input--prefix">
         <!----><input type="text" autocomplete="off" placeholder="process.search" class="el-input__inner"><span class="el-input__prefix"><i class="el-input__icon el-icon-search"></i><!----></span>
         <!---->

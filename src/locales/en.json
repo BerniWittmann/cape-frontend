@@ -26,6 +26,10 @@
     "tags": "Tags",
     "search": "Search Process",
     "create_new": "Create New Process",
+    "import": {
+      "button_text": "Import Process",
+      "failed": "Importing the Process failed"
+    },
     "add": {
       "title": "Create Process"
     },
@@ -52,7 +56,8 @@
         "no_end_event": "The Process has no End Event",
         "too_many_end_events": "The Process has too many End Events",
         "element_connections_exceeded": "The Process has at least one entity which exceeds the connection count"
-      }
+      },
+      "error_xml_load": "Could not load Process XML Structure"
     },
     "delete": {
       "message": "This will permanently delete the Process. Continue?",

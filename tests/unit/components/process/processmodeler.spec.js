@@ -35,8 +35,20 @@ describe('Components', () => {
   describe('ProcessModeler', () => {
     let propsData
     let cmp
+    const router = {
+      back: jest.fn()
+    }
+    const message = {
+      error: jest.fn()
+    }
+    const route = {
+      params: {
+
+      }
+    }
 
     beforeEach(() => {
+      route.params = {}
       propsData = {
         value: {
           xml: undefined,
@@ -49,7 +61,12 @@ describe('Components', () => {
     function render() {
       cmp = shallowMount(ProcessModeler, {
         i18n,
-        propsData
+        propsData,
+        mocks: {
+          $router: router,
+          $message: message,
+          $route: route
+        }
       })
     }
 
@@ -147,6 +164,8 @@ describe('Components', () => {
       expect(() => {
         render()
       }).toThrow()
+      expect(message.error).toHaveBeenCalledWith('process.edit.error_xml_load')
+      expect(router.back).toHaveBeenCalled()
     })
     describe('can revert a modelling step when pressing a key combination', () => {
       it('reverts a modelling step on Ctrl Z', () => {

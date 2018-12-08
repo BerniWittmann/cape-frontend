@@ -37,7 +37,8 @@ describe('Pages', () => {
         replace: jest.fn()
       }
       route = {
-        name: 'process.edit'
+        name: 'process.edit',
+        params: {}
       }
       store = {
         state: {
@@ -342,6 +343,18 @@ describe('Pages', () => {
         expect(cmp.vm.$refs.processModeler.validate).toHaveBeenCalled()
         expect(ProcessService.create).not.toHaveBeenCalled()
         expect(cmp.vm.$message.error).toHaveBeenCalledWith('process.edit.process_validation_errors.my_error')
+      })
+
+      it('if it has route data it initializes the process with the route data', () => {
+        route.params.processData = {
+          name: 'My Name!',
+          xml: '<xml>My Process!</xml>'
+        }
+        render()
+        expect(cmp.vm.name).toEqual('My Name!')
+        expect(cmp.vm.processData.xml).toEqual('<xml>My Process!</xml>')
+        expect(cmp.vm.process.name).toEqual('My Name!')
+        expect(cmp.vm.process.xml).toEqual('<xml>My Process!</xml>')
       })
     })
   })
