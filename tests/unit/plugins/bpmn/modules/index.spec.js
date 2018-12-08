@@ -2,6 +2,7 @@ import modules from '@/plugins/bpmn/modules'
 
 jest.mock('bpmn-js-properties-panel', () => ({ name: 'properties-panel' }))
 jest.mock('bpmn-js-properties-panel/lib/provider/camunda', () => ({ name: 'camunda-properties-panel' }))
+jest.mock('diagram-js-minimap', () => ({ name: 'diagram-js-minimap' }))
 jest.mock('@/plugins/bpmn/modules/custom-rules', () => ({ name: 'custom-rules' }))
 jest.mock('@/plugins/bpmn/modules/custom-context-pad', () => ({ name: 'custom-context-pad' }))
 jest.mock('@/plugins/bpmn/modules/custom-palette', () => ({ name: 'custom-palette' }))
