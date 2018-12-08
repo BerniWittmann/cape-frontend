@@ -110,6 +110,7 @@ export default {
         this.processData.xml = this.process.xml
         this.processData.svg = this.process.svg
         this.$refs.processInfoForm.setFormPristine()
+        this.$refs.processModeler.reloadXML()
       })
     }
   },

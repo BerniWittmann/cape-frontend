@@ -217,6 +217,38 @@ describe('Components', () => {
           expect(eventFireFn).toHaveBeenCalled()
         })
       })
+      describe('it has a reloadXML method', () => {
+        it('has a reloadXML method', () => {
+          expect(cmp.vm.reloadXML).toEqual(expect.any(Function))
+        })
+
+        it('throws an error if import Fails', () => {
+          console.error = jest.fn()
+          propsData.value.xml = '<xml>####</xml>'
+          expect(cmp.vm.reloadXML).toThrow()
+        })
+
+        it('does nothing if modeler not defined', () => {
+          cmp.setProps({
+            value: {
+              xml: '<xml>Reloaded</xml>'
+            }
+          })
+          cmp.vm.modeler = undefined
+          expect(cmp.vm.reloadXML).not.toThrow()
+        })
+
+        it('reloads the xml', () => {
+          cmp.setProps({
+            value: {
+              xml: '<xml>Reloaded</xml>'
+            }
+          })
+          cmp.vm.reloadXML()
+
+          expect(cmp.vm.modeler.importXML).toHaveBeenCalledWith('<xml>Reloaded</xml>', expect.any(Function))
+        })
+      })
     })
   })
 })

@@ -112,6 +112,7 @@ describe('Pages', () => {
         }
       })
       cmp.vm.$refs.processModeler.validate = jest.fn()
+      cmp.vm.$refs.processModeler.reloadXML = jest.fn()
     }
 
     it('renders', () => {
@@ -150,6 +151,7 @@ describe('Pages', () => {
 
       expect(ProcessService.get).toHaveBeenCalled()
       expect(cmp.vm.$refs.processInfoForm.setFormPristine).toHaveBeenCalled()
+      expect(cmp.vm.$refs.processModeler.reloadXML).toHaveBeenCalled()
     })
     it('can save the process', () => {
       cmp.vm.$refs.processInfoForm.submit = jest.fn().mockImplementation((cb) => {

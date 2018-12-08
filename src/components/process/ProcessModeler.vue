@@ -95,6 +95,16 @@ export default {
     validate() {
       const error = this.modeler.get('eventBus').fire('validate')
       if (error) throw error
+    },
+
+    reloadXML() {
+      if (!this.modeler) return
+      this.modeler.importXML(this.value.xml, (err) => {
+        if (err) throw err
+
+        const canvas = this.modeler.get('canvas')
+        canvas.zoom('fit-viewport')
+      })
     }
   },
 
