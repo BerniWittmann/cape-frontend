@@ -145,6 +145,19 @@ export default {
   border-radius: 5px;
   background-color: white;
   margin-bottom: 20px;
+
+  .djs-minimap {
+    .toggle {
+      font-family: element-icons !important;
+    }
+    &.open .toggle:before {
+      content: "\E621";
+    }
+
+    &:not(.open) .toggle:before {
+      content: "\E625";
+    }
+  }
 }
 
 .el-card.modeler-properties {
