@@ -38,6 +38,7 @@
       "name": "@:process.name",
       "tags": "@:process.tags",
       "add_tag": "Add Tag",
+      "download": "Download",
       "validation": {
         "name": {
           "required": "Please specify a Name"

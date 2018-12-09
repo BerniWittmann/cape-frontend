@@ -19,6 +19,7 @@
         <el-button icon="el-icon-delete" type="danger" plain size="small" @click="deleteProcess">{{
           $t('process.delete.delete_button') }}
         </el-button>
+        <a  :href="fileContent" :download="fileName"><el-button plain size="small" icon=" el-icon-download">{{$t('process.edit.download')}}</el-button></a>
       </el-col>
     </el-row>
   </el-dialog>
@@ -56,6 +57,12 @@ export default {
       const heightPos = this.activeProcess.svg.indexOf('height="') + 8
       const height = parseInt(this.activeProcess.svg.substring(heightPos, this.activeProcess.svg.indexOf('"', heightPos)))
       return height <= maxHeight ? height + 20 + 'px' : maxHeight + 'px'
+    },
+    fileContent() {
+      return 'data:text/xml,' + encodeURIComponent(this.activeProcess.xml)
+    },
+    fileName() {
+      return this.activeProcess.name.replace(/ /g, '_') + '.bpmn'
     }
   },
 
