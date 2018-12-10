@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.7.0 - (2018-12-10)
+---
+
+* Added Process Import
+* Added Process Export
+* Added Minimap to process modeler
+* Redesigned Process Info Form
+* Bugfix for resetting the process modeler
+
+
 ## 0.6.0 - (2018-12-07)
 ---
 
