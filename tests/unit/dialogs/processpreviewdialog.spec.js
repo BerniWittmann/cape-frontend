@@ -34,56 +34,7 @@ describe('Dialogs', () => {
               lastEditedAt: date.clone().subtract(2, 'days'),
               svg: 'text height="30" more text="even more Text"',
               description: 'My Description',
-              xml: '<?xml version="1.0" encoding="UTF-8"?>\n' +
-                '<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0pzq2xr" targetNamespace="http://bpmn.io/schema/bpmn">\n' +
-                '  <bpmn:process id="Process_1" isExecutable="false">\n' +
-                '    <bpmn:startEvent id="StartEvent_1">\n' +
-                '      <bpmn:outgoing>SequenceFlow_1o1m34m</bpmn:outgoing>\n' +
-                '    </bpmn:startEvent>\n' +
-                '    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_12et4wi">\n' +
-                '      <bpmn:incoming>SequenceFlow_1c5784p</bpmn:incoming>\n' +
-                '    </bpmn:intermediateThrowEvent>\n' +
-                '    <bpmn:task id="Task_143c6ni" name="Eat the Pizza&#10;">\n' +
-                '      <bpmn:incoming>SequenceFlow_1o1m34m</bpmn:incoming>\n' +
-                '      <bpmn:outgoing>SequenceFlow_0o3q2zf</bpmn:outgoing>\n' +
-                '    </bpmn:task>\n' +
-                '    <bpmn:sequenceFlow id="SequenceFlow_0o3q2zf" sourceRef="Task_143c6ni" targetRef="Task_04e7bem" />\n' +
-                '    <bpmn:sequenceFlow id="SequenceFlow_1o1m34m" sourceRef="StartEvent_1" targetRef="Task_143c6ni" />\n' +
-                '    <bpmn:task id="Task_04e7bem" name="Want more Pizza&#10;">\n' +
-                '      <bpmn:incoming>SequenceFlow_0o3q2zf</bpmn:incoming>\n' +
-                '      <bpmn:outgoing>SequenceFlow_1c5784p</bpmn:outgoing>\n' +
-                '    </bpmn:task>\n' +
-                '    <bpmn:sequenceFlow id="SequenceFlow_1c5784p" sourceRef="Task_04e7bem" targetRef="IntermediateThrowEvent_12et4wi" />\n' +
-                '  </bpmn:process>\n' +
-                '  <bpmndi:BPMNDiagram id="BPMNDiagram_1">\n' +
-                '    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">\n' +
-                '      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">\n' +
-                '        <dc:Bounds x="173" y="102" width="36" height="36" />\n' +
-                '      </bpmndi:BPMNShape>\n' +
-                '      <bpmndi:BPMNShape id="IntermediateThrowEvent_12et4wi_di" bpmnElement="IntermediateThrowEvent_12et4wi">\n' +
-                '        <dc:Bounds x="695" y="102" width="36" height="36" />\n' +
-                '      </bpmndi:BPMNShape>\n' +
-                '      <bpmndi:BPMNShape id="Task_143c6ni_di" bpmnElement="Task_143c6ni">\n' +
-                '        <dc:Bounds x="279" y="80" width="100" height="80" />\n' +
-                '      </bpmndi:BPMNShape>\n' +
-                '      <bpmndi:BPMNEdge id="SequenceFlow_0o3q2zf_di" bpmnElement="SequenceFlow_0o3q2zf">\n' +
-                '        <di:waypoint x="379" y="120" />\n' +
-                '        <di:waypoint x="471" y="120" />\n' +
-                '      </bpmndi:BPMNEdge>\n' +
-                '      <bpmndi:BPMNEdge id="SequenceFlow_1o1m34m_di" bpmnElement="SequenceFlow_1o1m34m">\n' +
-                '        <di:waypoint x="209" y="120" />\n' +
-                '        <di:waypoint x="279" y="120" />\n' +
-                '      </bpmndi:BPMNEdge>\n' +
-                '      <bpmndi:BPMNShape id="Task_04e7bem_di" bpmnElement="Task_04e7bem">\n' +
-                '        <dc:Bounds x="471" y="80" width="100" height="80" />\n' +
-                '      </bpmndi:BPMNShape>\n' +
-                '      <bpmndi:BPMNEdge id="SequenceFlow_1c5784p_di" bpmnElement="SequenceFlow_1c5784p">\n' +
-                '        <di:waypoint x="571" y="120" />\n' +
-                '        <di:waypoint x="695" y="120" />\n' +
-                '      </bpmndi:BPMNEdge>\n' +
-                '    </bpmndi:BPMNPlane>\n' +
-                '  </bpmndi:BPMNDiagram>\n' +
-                '</bpmn:definitions> ',
+              xml: '<?xml version="1.0" encoding="UTF-8"?><bpmn:Process>Test Process</bpmn:Process>',
               tags: [{
                 id: '42',
                 name: 'First Tag',

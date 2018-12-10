@@ -19,7 +19,7 @@
         <el-button icon="el-icon-delete" type="danger" plain size="small" @click="deleteProcess">{{
           $t('process.delete.delete_button') }}
         </el-button>
-        <a  :href="fileContent" :download="fileName"><el-button plain size="small" icon=" el-icon-download">{{$t('process.edit.download')}}</el-button></a>
+        <a :href="fileContent" :download="fileName" class="download-link"><el-button plain size="small" icon="el-icon-download">{{$t('process.edit.download')}}</el-button></a>
       </el-col>
     </el-row>
   </el-dialog>
@@ -114,6 +114,10 @@ export default {
 
 .margin-top {
   margin-top: 15px;
+}
+
+.download-link {
+  margin-left: 10px;
 }
 
 </style>
