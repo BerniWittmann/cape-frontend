@@ -34,7 +34,7 @@ module.exports = {
     '!src/vuex/store.js'
   ],
   coverageReporters: [
-    'html', 'text-summary'
+    'lcov', 'html', 'text-summary'
   ],
   coverageThreshold: {
     global: {
