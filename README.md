@@ -7,6 +7,13 @@
 :rocket: **Verfügbar unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/)**
 
 
+[![Pipeline Status](https://gitlab.com/cape-modeler/frontend/badges/master/pipeline.svg)](https://gitlab.com/cape-modeler/frontend/commits/master)
+[![Cypress Dashboard](https://img.shields.io/badge/cypress-dashboard-brightgreen.svg)](https://dashboard.cypress.io/#/projects/6623by/runs)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e91a9f319f7c7541cdfa/test_coverage)](https://codeclimate.com/github/BerniWittmann/cape-frontend/test_coverage) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/e91a9f319f7c7541cdfa/maintainability)](https://codeclimate.com/github/BerniWittmann/cape-frontend/maintainability)
+[![GitLab](https://img.shields.io/badge/-GitLab-lightgrey.svg?logo=gitlab)](https://gitlab.com/cape-modeler/frontend)
+[![Neueste Version](https://img.shields.io/badge/-Aktuellste%20Version-lightgrey.svg?logo=skyliner&logoColor=6CC9E8)](https://cape-modeler.gitlab.io/frontend/)
+
 ---
 
 
@@ -33,6 +40,10 @@ Eine Erklärung der [Datei-Struktur](https://portal.dbis.info/confluence/display
 ## :mag: E2E-Test Dashboard
 
 Die E2E Tests werden aufgezeichnet und sind dann auf [Cypress Dashboard](https://dashboard.cypress.io/#/projects/6623by/runs) zur Einsicht verfügbar
+
+## :bar_chart: Code Climate Dashboard
+
+Die Ergebnisse der statischen Codeanalyse werden auf dem [Code Climate Dashboard](https://codeclimate.com/github/BerniWittmann/cape-frontend) dokumentiert
 
 ## :computer: Technologiestack
 
