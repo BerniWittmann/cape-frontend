@@ -50,3 +50,14 @@ pages:
       - public
   only:
     - tags
+
+electron:
+  before_script:
+    - cp -R /app/node_modules .
+  script:
+    - npm run electron:build -- -p onTagOrDraft -mwl
+  artifacts:
+    paths:
+      - dist_electron
+  only:
+    - tags
