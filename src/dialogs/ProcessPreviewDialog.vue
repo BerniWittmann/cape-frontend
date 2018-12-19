@@ -11,7 +11,7 @@
       </el-col>
     </el-row>
     <br>
-    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="activeProcess.svg" class="svg-view margin-top"></iframe>
+    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="processSVG" class="svg-view margin-top"></iframe>
     <el-row class="margin-top">
       <el-col>
         <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}
@@ -53,6 +53,7 @@ export default {
       }
     },
     svgHeightAdjust() {
+      if (!this.activeProcess.svg) return 'auto'
       const maxHeight = 500
       const heightPos = this.activeProcess.svg.indexOf('height="') + 8
       const height = parseInt(this.activeProcess.svg.substring(heightPos, this.activeProcess.svg.indexOf('"', heightPos)))
@@ -63,6 +64,9 @@ export default {
     },
     fileName() {
       return this.activeProcess.name.replace(/ /g, '_') + '.bpmn'
+    },
+    processSVG() {
+      return !this.activeProcess.svg ? this.$t('process.error_svg_preview') : this.activeProcess.svg
     }
   },
 

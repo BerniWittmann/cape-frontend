@@ -41,7 +41,7 @@ exports[`Pages ProcessRepository.vue renders 1`] = `
         <elbutton-stub type="default" icon="el-icon-upload" nativetype="button">process.import.button_text</elbutton-stub>
       </elupload-stub>
     </elcol-stub>
-    <elcol-stub span="6" tag="div" offset="4">
+    <elcol-stub span="4" tag="div" offset="8">
       <elinput-stub value="" type="text" autocomplete="off" validateevent="true" placeholder="process.search"><i class="el-input__icon el-icon-search"></i></elinput-stub>
     </elcol-stub>
   </elrow-stub>
@@ -71,7 +71,7 @@ exports[`Pages ProcessRepository.vue renders the table correctly 1`] = `
         </div><span tag="ul" name="el-list" class="el-upload-list el-upload-list--text"></span>
       </div>
     </div>
-    <div class="el-col el-col-6 el-col-offset-4" style="padding-left: 10px; padding-right: 10px;">
+    <div class="el-col el-col-4 el-col-offset-8" style="padding-left: 10px; padding-right: 10px;">
       <div class="el-input el-input--prefix">
         <!----><input type="text" autocomplete="off" placeholder="process.search" class="el-input__inner"><span class="el-input__prefix"><i class="el-input__icon el-icon-search"></i><!----></span>
         <!---->

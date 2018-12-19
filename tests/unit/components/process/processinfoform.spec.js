@@ -15,6 +15,10 @@ describe('Components', () => {
     const date = moment(moment().utc())
     console.warn = jest.fn()
 
+    const mockMath = Object.create(global.Math)
+    mockMath.random = () => 0.5
+    global.Math = mockMath
+
     beforeEach((done) => {
       jest.useRealTimers()
       store = {

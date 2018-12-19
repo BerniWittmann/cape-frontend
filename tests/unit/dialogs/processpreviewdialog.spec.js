@@ -85,6 +85,66 @@ describe('Dialogs', () => {
       expect(cmp.find('iframe').attributes('srcdoc')).toEqual(store.state.process.activeProcess.svg)
     })
 
+    it('preview can handle no/empty svg', () => {
+      store = {
+        state: {
+          process: {
+            activeProcess: {
+              id: '42',
+              name: 'My Process 1',
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
+              tags: [{
+                id: '421',
+                name: 'First Tag',
+                color: '#FF0000'
+              }, {
+                id: '43',
+                name: 'Second Tag',
+                color: '#FFFF00'
+              }]
+            }
+          }
+        }
+      }
+      cmp = mount(ProcessPreviewDialog, {
+        i18n,
+        mocks: {
+          $store: store
+        }
+      })
+      expect(cmp.vm.processSVG).toBe('process.error_svg_preview')
+      store = {
+        state: {
+          process: {
+            activeProcess: {
+              id: '42',
+              name: 'My Process 1',
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
+              svg: '',
+              tags: [{
+                id: '421',
+                name: 'First Tag',
+                color: '#FF0000'
+              }, {
+                id: '43',
+                name: 'Second Tag',
+                color: '#FFFF00'
+              }]
+            }
+          }
+        }
+      }
+      cmp = mount(ProcessPreviewDialog, {
+        i18n,
+        mocks: {
+          $store: store
+        }
+      })
+      expect(cmp.vm.processSVG).toBe('process.error_svg_preview')
+    })
+
     it('can extract and reuse the height from svg', () => {
       expect(cmp.find('iframe').attributes('style')).toEqual('height: 50px;')
       store = {
@@ -116,6 +176,66 @@ describe('Dialogs', () => {
         }
       })
       expect(cmp.vm.svgHeightAdjust).toBe('500px')
+    })
+
+    it('can handle no/empty svg for height adjustment', () => {
+      store = {
+        state: {
+          process: {
+            activeProcess: {
+              id: '42',
+              name: 'My Process 1',
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
+              tags: [{
+                id: '421',
+                name: 'First Tag',
+                color: '#FF0000'
+              }, {
+                id: '43',
+                name: 'Second Tag',
+                color: '#FFFF00'
+              }]
+            }
+          }
+        }
+      }
+      cmp = mount(ProcessPreviewDialog, {
+        i18n,
+        mocks: {
+          $store: store
+        }
+      })
+      expect(cmp.vm.svgHeightAdjust).toBe('auto')
+      store = {
+        state: {
+          process: {
+            activeProcess: {
+              id: '42',
+              name: 'My Process 1',
+              createdAt: date.clone().subtract(14, 'days'),
+              lastEditedAt: date.clone().subtract(2, 'days'),
+              svg: '',
+              tags: [{
+                id: '421',
+                name: 'First Tag',
+                color: '#FF0000'
+              }, {
+                id: '43',
+                name: 'Second Tag',
+                color: '#FFFF00'
+              }]
+            }
+          }
+        }
+      }
+      cmp = mount(ProcessPreviewDialog, {
+        i18n,
+        mocks: {
+          $store: store
+        }
+      })
+      expect(cmp.vm.svgHeightAdjust).toBe('auto')
     })
 
     it('renders the description', () => {

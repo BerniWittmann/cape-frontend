@@ -15,6 +15,7 @@ describe('Process Create Page', () => {
   })
   it('can update the description', () => {
     cy.get('.el-input__inner').type('New Name')
+    cy.get('.el-collapse').click()
     cy.get('.el-textarea__inner').type('New Description')
     cy.get('.el-button--success').click()
     cy.wait(500)
@@ -23,7 +24,8 @@ describe('Process Create Page', () => {
     cy.get('.el-textarea__inner').should('have.value', 'New Description')
   })
   it('can add a tag', () => {
-    cy.get(':nth-child(3) > .el-form-item__content > .el-button').click()
+    cy.get('.el-collapse').click()
+    cy.get('.el-collapse-item__content > :nth-child(1) > .el-form-item__content > .el-button').click()
     cy.wait(200)
     cy.get('.el-form-item__content > .el-select').click()
     cy.wait(200)
@@ -34,7 +36,8 @@ describe('Process Create Page', () => {
     tags.contains('Delivery')
   })
   it('can remove a tag', () => {
-    cy.get(':nth-child(3) > .el-form-item__content > .el-button').click()
+    cy.get('.el-collapse').click()
+    cy.get('.el-collapse-item__content > :nth-child(1) > .el-form-item__content > .el-button').click()
     cy.wait(200)
     cy.get('.el-form-item__content > .el-select').click()
     cy.wait(200)

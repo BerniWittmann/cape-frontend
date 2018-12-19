@@ -14,7 +14,7 @@
           <el-button icon="el-icon-upload">{{ $t('process.import.button_text') }}</el-button>
         </el-upload>
       </el-col>
-      <el-col :span="6" :offset="4">
+      <el-col :span="4" :offset="8">
         <el-input
                 :placeholder="$t('process.search')"
                 v-model="search">

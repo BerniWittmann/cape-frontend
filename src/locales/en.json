@@ -24,6 +24,7 @@
     "created_at": "Creation Date",
     "last_edited_at": "Last Edited",
     "tags": "Tags",
+    "error_svg_preview": "No SVG available!",
     "search": "Search Process",
     "create_new": "Create New Process",
     "import": {
@@ -39,6 +40,7 @@
       "tags": "@:process.tags",
       "add_tag": "Add Tag",
       "download": "Download",
+      "properties": "Properties:",
       "validation": {
         "name": {
           "required": "Please specify a Name"

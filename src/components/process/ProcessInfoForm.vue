@@ -1,10 +1,13 @@
 <template>
   <el-card class="process-info" :body-style="{ width: '100%' }">
-    <el-form ref="processForm" :model="data" label-position="top" :rules="rules" status-icon inline class="use-space" @submit.native.prevent>
+    <el-form ref="processForm" :model="data" label-position="top" :rules="rules" status-icon inline class="use-space"
+             @submit.native.prevent>
       <el-form-item class="use-space">
-        <el-button type="text" icon="el-icon-arrow-left" @click="$emit('router-back')" class="right-space">{{ $t('process.edit.back' )}}
+        <el-button type="text" icon="el-icon-arrow-left" @click="$emit('router-back')" class="right-space">{{
+          $t('process.edit.back' )}}
         </el-button>
-        <el-button v-if="!isNewProcess" @click.native="$emit('reset-process')" type="danger" plain class="right-space">{{ $t('process.edit.reset') }}
+        <el-button v-if="!isNewProcess" @click.native="$emit('reset-process')" type="danger" plain class="right-space">
+          {{ $t('process.edit.reset') }}
         </el-button>
         <span class="title left-space right-space">
           <span v-if="isNewProcess">{{ $t('process.add.title')}}</span>
@@ -35,40 +38,46 @@
                   class="black-color tag-space"
           ></el-button>
         </span>
-        <el-button type="success" @click.native="$emit('submit-process')" class="submit-button right-space">{{ $t('process.edit.save') }}</el-button>
-      </el-form-item>
-      <br>
-      <el-form-item prop="tags" class="use-space">
-        <tag v-for="tag in data.tags" :tag="tag" :key="tag.id" closable @close="removeTag(tag)"></tag>
-        <el-select
-                v-if="tagInputVisible"
-                v-model="newTag"
-                size="small"
-                ref="tagSelect"
-                @keyup.enter.native="addTag"
-                @change="addTag"
-                @blur="hideTagInput"
-                filterable
-                class="tag-space"
-        >
-          <el-option
-                  v-for="tag in availableTags"
-                  :key="tag.id"
-                  :label="tag.name"
-                  :value="tag">
-            <tag :tag="tag" size="mini"></tag>
-          </el-option>
-        </el-select>
-        <el-button v-if="!tagInputVisible && availableTags.length > 0" class="tag-space" size="small"
-                   @click="showTagInput" icon="el-icon-plus">{{$t('process.edit.add_tag') }}
+        <el-button type="success" @click.native="$emit('submit-process')" class="submit-button right-space">{{
+          $t('process.edit.save') }}
         </el-button>
       </el-form-item>
       <br>
-      <el-form-item class="use-space">
-        <el-input type="textarea" v-model="data.description"  :autosize="{ minRows: 2 }" :placeholder="$t('process.edit.description')">
-        </el-input>
-      </el-form-item>
-
+      <el-collapse v-model="activeProperty">
+        <el-collapse-item :title="$t('process.edit.properties')" name="1">
+          <el-form-item prop="tags" class="use-space">
+            <tag v-for="tag in data.tags" :tag="tag" :key="tag.id" closable @close="removeTag(tag)"></tag>
+            <el-select
+                    v-if="tagInputVisible"
+                    v-model="newTag"
+                    size="small"
+                    ref="tagSelect"
+                    @keyup.enter.native="addTag"
+                    @change="addTag"
+                    @blur="hideTagInput"
+                    filterable
+                    class="tag-space"
+            >
+              <el-option
+                      v-for="tag in availableTags"
+                      :key="tag.id"
+                      :label="tag.name"
+                      :value="tag">
+                <tag :tag="tag" size="mini"></tag>
+              </el-option>
+            </el-select>
+            <el-button v-if="!tagInputVisible && availableTags.length > 0" class="tag-space" size="small"
+                       @click="showTagInput" icon="el-icon-plus">{{$t('process.edit.add_tag') }}
+            </el-button>
+          </el-form-item>
+          <br>
+          <el-form-item class="use-space">
+            <el-input type="textarea" v-model="data.description" :autosize="{ minRows: 2 }"
+                      :placeholder="$t('process.edit.description')">
+            </el-input>
+          </el-form-item>
+        </el-collapse-item>
+      </el-collapse>
     </el-form>
   </el-card>
 </template>
@@ -134,7 +143,8 @@ export default {
       newTag: undefined,
       tagInputVisible: false,
       nameInputVisible: false,
-      description: undefined
+      description: undefined,
+      activeProperty: [] // ['1'] - in case that it should be open
     }
   },
 
@@ -187,7 +197,9 @@ export default {
     },
 
     addTag() {
-      if (this.data.tags.indexOf(this.newTag) < 0) { this.data.tags.push(this.newTag) }
+      if (this.data.tags.indexOf(this.newTag) < 0) {
+        this.data.tags.push(this.newTag)
+      }
     },
 
     showTagInput() {
