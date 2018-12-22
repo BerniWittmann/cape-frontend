@@ -99,6 +99,24 @@
           "required": "Please choose a Color"
         }
       }
+    },
+    "context_types": "Context Types",
+    "context_type": {
+      "name": "Name",
+      "icon": "Icon",
+      "submit": "Submit",
+      "reset": "Reset",
+      "deletable": "Deleteable",
+      "search": "Type to search",
+      "new": "New Context Type",
+      "validation": {
+        "name": {
+          "required": "Please specify a Name"
+        },
+        "icon": {
+          "required": "Please choose an Icon"
+        }
+      }
     }
   },
   "notifications": {
@@ -186,6 +204,29 @@
             "message": "Removing the Tag from the Process failed"
           }
         }
+      }
+    },
+    "context_types": {
+      "get": {
+        "failed": {
+          "title": "Error",
+          "message": "Loading the Context Types failed"
+        }
+      }
+    },
+    "context_type": {
+      "post": {
+        "failed": {
+          "title": "Error",
+          "message": "Creating the Context Type failed"
+        }
+      },
+      "delete": {
+        "failed": {
+          "title": "Error",
+          "message": "Deleting the Context Type failed"
+        },
+        "not_allowed": "This Context is in use"
       }
     }
   }

@@ -17,6 +17,7 @@ import ContextFactors from '@/pages/ContextFactors'
 
 import ProcessService from '@/services/process'
 import TagService from '@/services/tag'
+import ContextTypeService from '@/services/contextType'
 import ContextFactorService from '@/services/contextFactor'
 
 const routes = [
@@ -82,7 +83,10 @@ const routes = [
     name: 'settings',
     component: Settings,
     beforeEnter: (to, from, next) => {
-      TagService.getAll().then(next)
+      Promise.all([
+        TagService.getAll(),
+        ContextTypeService.getAll()
+      ]).then(next)
     }
   },
   {

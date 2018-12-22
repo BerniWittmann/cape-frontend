@@ -15,6 +15,7 @@ describe('Components', () => {
     const date = moment(moment().utc())
     console.warn = jest.fn()
 
+    // mock the random function to get always the same id for working snapshots
     const mockMath = Object.create(global.Math)
     mockMath.random = () => 0.5
     global.Math = mockMath

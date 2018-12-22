@@ -3,6 +3,8 @@ import { i18n } from '../setupPlugins'
 
 import Tag from '@/components/Tag.vue'
 
+// TODO add .toBe(true) to .exists
+
 describe('Components', () => {
   describe('Tag', () => {
     let propsData

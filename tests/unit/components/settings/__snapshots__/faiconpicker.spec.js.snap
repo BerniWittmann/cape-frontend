@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components Font Awesome Icon Picker renders 1`] = `
+<section class="el-container font-awesome-chooser is-vertical" search="">
+  <header class="el-header" style="height: 60px;">
+    <div class="el-input el-input--mini">
+      <!----><input type="text" autocomplete="off" placeholder="Type to search" class="el-input__inner">
+      <!---->
+      <!---->
+      <!---->
+    </div> <button type="button" class="el-button el-button--default el-button--mini">
+      <!----><i class="el-icon-close"></i><span>Close</span></button>
+  </header>
+  <main class="el-main" id="icon-overview">
+    <div class="icon-item">
+      <div class="icon"><i id="fa-icon" class="fa fa-lg fa-glass"></i></div>
+      <div class="text-space">
+        <div class="text">glass</div>
+      </div>
+    </div>
+    <div class="icon-item">
+      <div class="icon"><i id="fa-icon" class="fa fa-lg fa-music"></i></div>
+      <div class="text-space">
+        <div class="text">music</div>
+      </div>
+    </div>
+    <div class="icon-item">
+      <div class="icon"><i id="fa-icon" class="fa fa-lg fa-search"></i></div>
+      <div class="text-space">
+        <div class="text">search</div>
+      </div>
+    </div>
+    <div class="icon-item">
+      <div class="icon"><i id="fa-icon" class="fa fa-lg fa-envelope-o"></i></div>
+      <div class="text-space">
+        <div class="text">envelope-o</div>
+      </div>
+    </div>
+    <div class="icon-item">
+      <div class="icon"><i id="fa-icon" class="fa fa-lg fa-heart"></i></div>
+      <div class="text-space">
+        <div class="text">heart</div>
+      </div>
+    </div>
+  </main>
+</section>
+`;

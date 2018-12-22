@@ -13,6 +13,7 @@ import i18n from './plugins/i18n'
 import './plugins/axios'
 import './plugins/element.js'
 import './plugins/bpmn'
+import './assets/styles/external.scss'
 
 Vue.config.productionTip = false
 

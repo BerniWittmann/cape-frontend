@@ -16,7 +16,9 @@
 
       <el-form ref="tagForm" :model="tag" label-position="top" :rules="rules">
         <el-form-item :label="$t('settings.tag.name')" prop="name">
-          <el-input v-model="tag.name"></el-input>
+          <el-input v-model="tag.name"
+                    @keyup.enter.native="submit"
+                    @submit.native.prevent="submit"></el-input>
         </el-form-item>
         <el-form-item :label="$t('settings.tag.color')" prop="color">
           <el-color-picker v-model="tag.color"></el-color-picker>
