@@ -89,6 +89,24 @@
           "required": "Please choose a Color"
         }
       }
+    },
+    "context_types": "Context Types",
+    "context_type": {
+      "name": "Name",
+      "icon": "Icon",
+      "submit": "Submit",
+      "reset": "Reset",
+      "deletable": "Deleteable",
+      "search": "Type to search",
+      "new": "New Context Type",
+      "validation": {
+        "name": {
+          "required": "Please specify a Name"
+        },
+        "icon": {
+          "required": "Please choose an Icon"
+        }
+      }
     }
   },
   "notifications": {

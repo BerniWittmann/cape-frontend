@@ -10,13 +10,15 @@ import Vuex from 'vuex'
 
 import process from './modules/process'
 import tag from './modules/tag'
+import contextType from './modules/contextType'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
     process,
-    tag
+    tag,
+    contextType
   }
 })
 
