@@ -4,8 +4,14 @@ exports[`Pages Settings renders 1`] = `
 <div>
   <div class="page">
     <h3>settings.title</h3>
-    <h4>settings.tags</h4>
-    <tagsettings-stub></tagsettings-stub>
+    <eltabs-stub type="border-card" tabposition="top">
+      <eltabpane-stub label="settings.tags">
+        <tagsettings-stub></tagsettings-stub>
+      </eltabpane-stub>
+      <eltabpane-stub label="settings.context_types">
+        <contexttypesettings-stub></contexttypesettings-stub>
+      </eltabpane-stub>
+    </eltabs-stub>
   </div>
 </div>
 `;
