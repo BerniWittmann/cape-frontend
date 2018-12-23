@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ProcessModelerSettings it can toggle the custom Rules loads the existing state on render loads the active state 1`] = `
+<div class="el-row is-justify-center el-row--flex">
+  <div class="el-col el-col-8"><label role="checkbox" aria-checked="true" class="el-checkbox is-bordered is-checked"><span aria-checked="mixed" class="el-checkbox__input is-checked"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="settings.process_modeler.enable_validation"></span><span class="el-checkbox__label">settings.process_modeler.enable_validation</span></label>
+    <p><small>settings.process_modeler.enable_validation_help_text</small></p>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessModelerSettings it can toggle the custom Rules loads the existing state on render loads the inactive state 1`] = `
+<div class="el-row is-justify-center el-row--flex">
+  <div class="el-col el-col-8"><label role="checkbox" class="el-checkbox is-bordered"><span aria-checked="mixed" class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="settings.process_modeler.enable_validation"></span><span class="el-checkbox__label">settings.process_modeler.enable_validation</span></label>
+    <p><small>settings.process_modeler.enable_validation_help_text</small></p>
+  </div>
+</div>
+`;
+
+exports[`Components ProcessModelerSettings renders 1`] = `
+<div class="el-row is-justify-center el-row--flex">
+  <div class="el-col el-col-8"><label role="checkbox" aria-checked="true" class="el-checkbox is-bordered is-checked"><span aria-checked="mixed" class="el-checkbox__input is-checked"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="settings.process_modeler.enable_validation"></span><span class="el-checkbox__label">settings.process_modeler.enable_validation</span></label>
+    <p><small>settings.process_modeler.enable_validation_help_text</small></p>
+  </div>
+</div>
+`;

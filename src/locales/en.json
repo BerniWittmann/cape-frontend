@@ -76,6 +76,11 @@
   "settings": {
     "title": "Settings",
     "tags": "Tags",
+    "process_modeler": {
+      "tab_title": "Process Modeler",
+      "enable_validation": "Enable Custom Rules and Validation",
+      "enable_validation_help_text": "This option allows the process Modeler to either have the custom rules or the default BPMN rules"
+    },
     "tag": {
       "name": "Name",
       "color": "Color",

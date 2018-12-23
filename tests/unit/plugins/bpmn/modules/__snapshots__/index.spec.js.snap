@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Plugins BPMN Modules has the correct configuration Keys 1`] = `
+exports[`Plugins BPMN Modules the custom rules are disabled has the correct configuration Keys 1`] = `
+Array [
+  Object {
+    "name": "properties-panel",
+  },
+  Object {
+    "name": "camunda-properties-panel",
+  },
+  Object {
+    "name": "diagram-js-minimap",
+  },
+]
+`;
+
+exports[`Plugins BPMN Modules the custom rules are enabled has the correct configuration Keys 1`] = `
 Array [
   Object {
     "name": "properties-panel",
