@@ -170,7 +170,11 @@ export default {
   margin-bottom: 20px;
 }
 
-#canvas {
+#canvas, #canvas-properties {
   height: 65vh;
+}
+
+#canvas-properties {
+  overflow: auto;
 }
 </style>
