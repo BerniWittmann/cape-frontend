@@ -22,6 +22,12 @@ export default function CustomReplaceMenuProvider(injector) {
     actions = actions.filter((a) => {
       return !['replace-with-none-end', 'replace-with-none-start'].includes(a.id)
     })
+
+    // Hides the Replace Action to prevent it from being made to an expanded subprocess
+    actions = actions.filter((a) => {
+      return !['replace-with-expanded-subprocess'].includes(a.id)
+    })
+
     return actions
   }
 

@@ -100,6 +100,11 @@ describe('Plugins', () => {
             expect(utils.hasUnconnectedActivities(arr)).toBeFalsy()
           })
 
+          it('does not care about labels', () => {
+            const arr = [{ type: 'label', businessObject: { $type: 'bpmn:Task' }, incoming: [], outgoing: [] }]
+            expect(utils.hasUnconnectedActivities(arr)).toBeFalsy()
+          })
+
           it('does not care about end events having only incoming edges', () => {
             const arr = [{ businessObject: { $type: 'bpmn:EndEvent' }, incoming: [sequenceFlow], outgoing: [] }]
             expect(utils.hasUnconnectedActivities(arr)).toBeFalsy()

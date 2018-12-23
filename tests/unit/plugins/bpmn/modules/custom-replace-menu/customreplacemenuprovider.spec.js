@@ -18,6 +18,8 @@ jest.mock('min-dash', () => {
       id: 'replace-with-none-gateway'
     }, {
       id: 'replace-with-none-subtask'
+    }, {
+      id: 'replace-with-expanded-subprocess'
     }]))
   }
 })
@@ -46,6 +48,12 @@ describe('Plugins', () => {
             const crmp = CustomReplaceMenuProvider.call({}, injector)
             const entries = crmp.getEntries({}).map(e => e.id)
             expect(entries).not.toContain('replace-with-none-end')
+          })
+
+          it('removes the replace-with-expanded-subprocess option', () => {
+            const crmp = CustomReplaceMenuProvider.call({}, injector)
+            const entries = crmp.getEntries({}).map(e => e.id)
+            expect(entries).not.toContain('replace-with-expanded-subprocess')
           })
 
           it('keeps all the other options', () => {

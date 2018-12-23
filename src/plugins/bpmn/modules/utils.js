@@ -24,6 +24,7 @@ export function getElementsByType(elementRegistry, type) {
 export function hasUnconnectedActivities(elementRegistry) {
   const unconnectedElements = elementRegistry.filter(el => {
     if (!shapeHasType(el, NO_CONNECTIONS_DISALLOWED_OBJECTS)) return false
+    if (el.type === 'label') return false
     const hasIncomingConnections = el.incoming.filter(c => shapeIsType(c, SEQUENCE_FLOW_TYPE)).length > 0
     const hasOutgoingConnections = el.outgoing.filter(c => shapeIsType(c, SEQUENCE_FLOW_TYPE)).length > 0
     if (shapeIsType(el, END_EVENT_TYPE) && hasIncomingConnections) return false
