@@ -10,4 +10,5 @@ exclude_patterns:
   - coverage
   - tests/
   - dist/
+  - dist_electron/
   - .idea/

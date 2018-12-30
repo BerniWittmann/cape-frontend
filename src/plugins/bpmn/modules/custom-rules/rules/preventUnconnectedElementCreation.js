@@ -5,7 +5,7 @@
 import { shapeHasType } from '../../utils'
 import { NO_CONNECTIONS_DISALLOWED_OBJECTS, PROCESS_TYPES } from '../../constants'
 
-import BaseRule from './baseRule'
+import BaseRule from './abstract-rules/baseRule'
 
 export default class PreventUnconnectedElementCreationRule extends BaseRule {
   get events() {

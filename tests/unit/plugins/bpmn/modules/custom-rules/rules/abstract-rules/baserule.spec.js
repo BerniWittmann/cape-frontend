@@ -1,4 +1,4 @@
-import BaseRule from '@/plugins/bpmn/modules/custom-rules/rules/baseRule'
+import BaseRule from '@/plugins/bpmn/modules/custom-rules/rules/abstract-rules/baseRule'
 
 describe('Plugins', () => {
   describe('BPMN', () => {

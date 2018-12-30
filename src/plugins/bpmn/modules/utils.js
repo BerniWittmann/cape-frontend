@@ -21,42 +21,49 @@ export function getElementsByType(elementRegistry, type) {
   return elementRegistry.filter(el => shapeIsType(el, type))
 }
 
+function getConnectionCountForElement(el) {
+  return {
+    incomingConnections: getElementsByType(el.incoming, SEQUENCE_FLOW_TYPE).length,
+    outgoingConnections: getElementsByType(el.outgoing, SEQUENCE_FLOW_TYPE).length
+  }
+}
+
+function checkElementForUnconnectedActivities(el) {
+  if (!shapeHasType(el, NO_CONNECTIONS_DISALLOWED_OBJECTS) || el.type === 'label') return false
+  if (isCorrectStartEvent(el) || isCorrectEndEvent(el)) return false
+  const { incomingConnections, outgoingConnections } = getConnectionCountForElement(el)
+  const hasIncomingConnections = incomingConnections > 0
+  const hasOutgoingConnections = outgoingConnections > 0
+  return !(hasIncomingConnections && hasOutgoingConnections)
+}
+
 export function hasUnconnectedActivities(elementRegistry) {
-  const unconnectedElements = elementRegistry.filter(el => {
-    if (!shapeHasType(el, NO_CONNECTIONS_DISALLOWED_OBJECTS)) return false
-    if (el.type === 'label') return false
-    const hasIncomingConnections = el.incoming.filter(c => shapeIsType(c, SEQUENCE_FLOW_TYPE)).length > 0
-    const hasOutgoingConnections = el.outgoing.filter(c => shapeIsType(c, SEQUENCE_FLOW_TYPE)).length > 0
-    if (shapeIsType(el, END_EVENT_TYPE) && hasIncomingConnections) return false
-    if (shapeIsType(el, START_EVENT_TYPE) && hasOutgoingConnections) return false
-    return !(hasIncomingConnections && hasOutgoingConnections)
-  })
-  return unconnectedElements.length > 0
+  return elementRegistry.filter(checkElementForUnconnectedActivities).length > 0
+}
+
+function isCorrectStartEvent(el) {
+  return shapeIsType(el, START_EVENT_TYPE) && getConnectionCountForElement(el).outgoingConnections === 1
+}
+
+function isCorrectEndEvent(el) {
+  return shapeIsType(el, END_EVENT_TYPE) && getConnectionCountForElement(el).incomingConnections === 1
+}
+
+function checkElementForExceedingConnectionCount(el) {
+  if (shapeHasType(el, MULTIPLE_SEQUENCE_FLOW_ALLOWED_OBJECT_TYPES) || !shapeHasType(el, CONNECTION_RULE_ENFORCED_ELEMENTS)) return false
+  if (isCorrectStartEvent(el) || isCorrectEndEvent(el)) return false
+  const { incomingConnections, outgoingConnections } = getConnectionCountForElement(el)
+  return !(incomingConnections === 1 && outgoingConnections === 1)
 }
 
 export function hasExceedingConnectionCountElements(elementRegistry) {
-  const invalidConnectedElements = elementRegistry.filter(el => {
-    if (shapeHasType(el, MULTIPLE_SEQUENCE_FLOW_ALLOWED_OBJECT_TYPES)) return false
-    if (!shapeHasType(el, CONNECTION_RULE_ENFORCED_ELEMENTS)) return false
-    const incomingConnections = el.incoming.filter(c => shapeIsType(c, SEQUENCE_FLOW_TYPE)).length
-    const outgoingConnections = el.outgoing.filter(c => shapeIsType(c, SEQUENCE_FLOW_TYPE)).length
-    if (shapeIsType(el, END_EVENT_TYPE) && incomingConnections === 1) return false
-    if (shapeIsType(el, START_EVENT_TYPE) && outgoingConnections === 1) return false
-    return !(incomingConnections === 1 && outgoingConnections === 1)
-  })
-  return invalidConnectedElements.length > 0
+  return elementRegistry.filter(checkElementForExceedingConnectionCount).length > 0
 }
 
 export function getStartEventCount(elementRegistry) {
-  const startEvents = elementRegistry.filter(el => {
-    return shapeIsType(el, START_EVENT_TYPE)
-  })
-  return startEvents.length
+  return getElementsByType(elementRegistry, START_EVENT_TYPE).length
 }
 
 export function getEndEventCount(elementRegistry) {
-  const endEvents = elementRegistry.filter(el => {
-    return shapeIsType(el, END_EVENT_TYPE)
-  })
-  return endEvents.length
+  return getElementsByType(elementRegistry, END_EVENT_TYPE).length
 }

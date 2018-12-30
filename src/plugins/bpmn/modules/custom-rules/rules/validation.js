@@ -2,10 +2,9 @@
  * Validates the BPMN Model manually
  */
 
-import { PROCESS_VALIDATION_ERRORS } from '@/utils/constants'
-import { hasUnconnectedActivities, getStartEventCount, getEndEventCount, hasExceedingConnectionCountElements } from '../../utils'
+import BaseRule from './abstract-rules/baseRule'
 
-import BaseRule from './baseRule'
+import validators from '../../validators'
 
 export default class ValidationRule extends BaseRule {
   get events() {
@@ -13,28 +12,10 @@ export default class ValidationRule extends BaseRule {
   }
 
   handler() {
-    if (hasUnconnectedActivities(this.elementRegistry)) {
-      return new Error(PROCESS_VALIDATION_ERRORS.UNCONNECTED_ENTITIES)
-    }
-
-    const countStartEvents = getStartEventCount(this.elementRegistry)
-    if (countStartEvents === 0) {
-      return new Error(PROCESS_VALIDATION_ERRORS.NO_START_EVENT)
-    }
-    if (countStartEvents > 1) {
-      return new Error(PROCESS_VALIDATION_ERRORS.TOO_MANY_START_EVENTS)
-    }
-
-    const countEndEvents = getEndEventCount(this.elementRegistry)
-    if (countEndEvents === 0) {
-      return new Error(PROCESS_VALIDATION_ERRORS.NO_END_EVENT)
-    }
-    if (countEndEvents > 1) {
-      return new Error(PROCESS_VALIDATION_ERRORS.TOO_MANY_END_EVENTS)
-    }
-
-    if (hasExceedingConnectionCountElements(this.elementRegistry)) {
-      return new Error(PROCESS_VALIDATION_ERRORS.ELEMENT_CONNECTIONS_EXCEEDED)
+    try {
+      validators.forEach(val => val(this.elementRegistry))
+    } catch (e) {
+      return e
     }
   }
 }

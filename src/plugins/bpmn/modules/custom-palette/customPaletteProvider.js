@@ -6,6 +6,14 @@ import {
   bind, assign
 } from 'min-dash'
 
+function createSubProcessListener(event) {
+  const shape = this.elementFactory.createShape(assign({ type: 'bpmn:SubProcess' }, { isExpanded: false }))
+
+  shape.businessObject.di.isExpanded = false
+
+  this.create.start(event, shape)
+}
+
 /**
  * Customizes the Palette which shows the available Elements on the left side
  *
@@ -13,19 +21,13 @@ import {
 export default function CustomPaletteProvider(injector) {
   injector.invoke(PaletteProvider, this)
 
-  const elementFactory = injector.get('elementFactory')
-  const create = injector.get('create')
-  const translate = injector.get('translate')
+  this.elementFactory = injector.get('elementFactory')
+  this.create = injector.get('create')
+  this.translate = injector.get('translate')
 
   this.cached = bind(this.getPaletteEntries, this)
 
-  function createSubProcessListener(event) {
-    const shape = elementFactory.createShape(assign({ type: 'bpmn:SubProcess' }, { isExpanded: false }))
-
-    shape.businessObject.di.isExpanded = false
-
-    create.start(event, shape)
-  }
+  const actionLister = createSubProcessListener.bind(this)
 
   this.getPaletteEntries = function (element) {
     const actions = this.cached(element)
@@ -37,10 +39,10 @@ export default function CustomPaletteProvider(injector) {
     actions['create.subprocess-collapsed'] = {
       ...actions['create.subprocess-expanded'],
       className: 'bpmn-icon-subprocess-collapsed',
-      title: translate('Create collapsed SubProcess'),
+      title: this.translate('Create collapsed SubProcess'),
       action: {
-        dragstart: createSubProcessListener,
-        click: createSubProcessListener
+        dragstart: actionLister,
+        click: actionLister
       }
     }
     delete actions['create.subprocess-expanded']
