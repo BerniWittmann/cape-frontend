@@ -1,10 +1,15 @@
-import { makeRequest } from '@/services/base'
+// eslint-disable no-new
+import Service from '@/services/base'
 import moxios from 'moxios'
 import axios from 'axios'
 import Vue from 'vue'
 import store from '@/vuex/store'
 
 store.dispatch = jest.fn()
+
+function makeRequest(data) {
+  return new Service(data)
+}
 
 describe('BaseService', () => {
   describe('makeRequest', () => {
@@ -135,7 +140,12 @@ describe('BaseService', () => {
           }
         }).then(function () {
           expect(success).toHaveBeenCalledWith({ foo: 'bar' }, {
-            method: 'get', endpoint: '/test', name: 'test'
+            data: undefined,
+            success: expect.any(Function),
+            failed: expect.any(Function),
+            method: 'get',
+            endpoint: '/test',
+            name: 'test'
           })
           done()
         })
@@ -160,7 +170,12 @@ describe('BaseService', () => {
           }
         }).then(function () {
           expect(failed).toHaveBeenCalledWith(new Error('Request failed with status code 400'), {
-            method: 'get', endpoint: '/test', name: 'test'
+            data: undefined,
+            success: expect.any(Function),
+            failed: expect.any(Function),
+            method: 'get',
+            endpoint: '/test',
+            name: 'test'
           })
           done()
         })
@@ -182,7 +197,12 @@ describe('BaseService', () => {
           status: 400
         }).then(function () {
           expect(failed).toHaveBeenCalledWith(new Error('Request failed with status code 400'), {
-            method: 'get', endpoint: '/test', name: 'test'
+            data: undefined,
+            success: expect.any(Function),
+            failed: expect.any(Function),
+            method: 'get',
+            endpoint: '/test',
+            name: 'test'
           })
           done()
         })

@@ -1,21 +1,17 @@
 import Process from '@/models/process'
 import store from '@/vuex/store'
-import { makeRequest } from '@/services/base'
-import Vue from 'vue'
+import Service from '@/services/base'
 
 // When the request succeeds
-const success = (process) => {
+function success(process) {
   store.dispatch('process/add', new Process(process))
-  Vue.$notify.success({
-    title: Vue.i18n.t('notifications.process.post.success.title'),
-    message: Vue.i18n.t('notifications.process.post.success.message')
-  })
+  this.showSuccessNotification()
 }
 
-export default (process) => makeRequest({
+export default (process) => new Service({
   method: 'post',
   endpoint: '/processes',
-  data: process,
   name: 'process',
+  data: process,
   success
 })

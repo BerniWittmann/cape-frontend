@@ -1,13 +1,13 @@
 import Tag from '@/models/tag'
 import store from '@/vuex/store'
-import { makeRequest } from '@/services/base'
+import Service from '@/services/base'
 
 // When the request succeeds
-const success = (tag) => {
+function success(tag) {
   store.dispatch('tag/add', new Tag(tag))
 }
 
-export default (tag) => makeRequest({
+export default (tag) => new Service({
   method: 'post',
   endpoint: '/tags',
   data: tag,

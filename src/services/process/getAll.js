@@ -1,13 +1,13 @@
 import Process from '@/models/process'
 import store from '@/vuex/store'
-import { makeRequest } from '@/services/base'
+import Service from '@/services/base'
 
 // When the request succeeds
-const success = (processes) => {
+function success(processes) {
   store.dispatch('process/store', processes.map(p => new Process(p)))
 }
 
-export default () => makeRequest({
+export default () => new Service({
   method: 'get',
   endpoint: '/processes',
   name: 'processes',

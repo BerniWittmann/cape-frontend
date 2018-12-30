@@ -1,12 +1,12 @@
 import store from '@/vuex/store'
-import { makeRequest } from '@/services/base'
+import Service from '@/services/base'
 
 // When the request succeeds
-const success = (response, { data }) => {
+function success(response, { data }) {
   store.dispatch('tag/remove', data)
 }
 
-export default (tag) => makeRequest({
+export default (tag) => new Service({
   method: 'delete',
   endpoint: `/tags/${tag.id}`,
   data: tag,
