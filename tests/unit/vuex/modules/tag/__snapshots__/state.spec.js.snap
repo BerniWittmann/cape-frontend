@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vuex Modules Tag State has an empty base state 1`] = `
+Object {
+  "tags": Array [],
+}
+`;

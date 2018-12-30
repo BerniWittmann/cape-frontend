@@ -6,6 +6,7 @@
  * process module.
  */
 
+import { removeByID } from '@/utils/helpers'
 import { STORE, UPDATE, SET_ACTIVE, ADD, REMOVE } from './mutation-types'
 
 export default {
@@ -29,6 +30,6 @@ export default {
     state.processes.push(process)
   },
   [REMOVE](state, process) {
-    state.processes = state.processes.filter(p => p.id !== process.id)
+    state.processes = removeByID(state.processes, process.id)
   }
 }

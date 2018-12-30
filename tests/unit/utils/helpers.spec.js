@@ -1,4 +1,4 @@
-import { convertHexToRgba, getCookie, hasProcessModelerRulesEnabled } from '@/utils/helpers'
+import { convertHexToRgba, getCookie, hasProcessModelerRulesEnabled, removeByID } from '@/utils/helpers'
 
 describe('Helpers', () => {
   describe('convertHexToRgba', () => {
@@ -69,6 +69,22 @@ describe('Helpers', () => {
     it('returns true if cookie is not set ', () => {
       document.cookie = 'enableProcessValidation=true;'
       expect(hasProcessModelerRulesEnabled()).toBeTruthy()
+    })
+  })
+
+  describe('removeByID', () => {
+    it('removes element by id', () => {
+      expect(removeByID([{ id: 1 }, { id: 2 }, { id: 3 }], 2)).toEqual([{ id: 1 }, { id: 3 }])
+    })
+    it('removes multplie elements by id', () => {
+      expect(removeByID([{ id: 1 }, { id: 2 }, { id: 1 }], 1)).toEqual([{ id: 2 }])
+    })
+    it('returns empty array on empty array', () => {
+      expect(removeByID([], 2)).toEqual([])
+    })
+
+    it('returns array if nothing can be removed', () => {
+      expect(removeByID([{ id: 1 }, { id: 2 }, { id: 3 }], 99)).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
     })
   })
 })

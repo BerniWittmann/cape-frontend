@@ -6,6 +6,7 @@
  * tag module.
  */
 
+import { removeByID } from '@/utils/helpers'
 import { STORE, ADD, REMOVE } from './mutation-types'
 
 export default {
@@ -16,6 +17,6 @@ export default {
     state.tags.push(tag)
   },
   [REMOVE](state, tag) {
-    state.tags = state.tags.filter(t => t.id !== tag.id)
+    state.tags = removeByID(state.tags, tag.id)
   }
 }

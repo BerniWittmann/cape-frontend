@@ -8,6 +8,9 @@ describe('Vuex', () => {
   describe('Modules', () => {
     describe('Process', () => {
       describe('Module', () => {
+        it('is namespaced', () => {
+          expect(processModule.namespaced).toBeTruthy()
+        })
         it('has actions', () => {
           expect(processModule.actions).toEqual(processActions)
         })

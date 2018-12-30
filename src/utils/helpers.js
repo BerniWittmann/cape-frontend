@@ -13,3 +13,7 @@ export function hasProcessModelerRulesEnabled() {
   const cookie = getCookie('enableProcessValidation')
   return cookie ? cookie === 'true' : true
 }
+
+export function removeByID(arr, id) {
+  return arr.filter(o => o.id !== id)
+}
