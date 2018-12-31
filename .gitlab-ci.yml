@@ -60,9 +60,11 @@ pages:
 electron:
   stage: deploy
   before_script:
+    - hostnamectl
     - cp -R /app/node_modules .
     - echo "deb https://dl.winehq.org/wine-builds/debian/ jessie main" > /etc/apt/sources.list.d/debian_sources.list
-    - apt install --install-recommends winehq-stable
+    - apt-get update
+    - apt-get install --install-recommends winehq-stable
   script:
     - npm run electron:build -- -p always -mwl
   artifacts:
