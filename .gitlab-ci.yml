@@ -61,7 +61,7 @@ electron:
   stage: deploy
   before_script:
     - apt-get update
-    - apt-get install software-properties-common
+    - apt-get install -y software-properties-common
     - add-apt-repository -y ppa:ubuntu-wine/ppa
     - apt-get update
     - apt-get install -y wine1.8 winetricks
