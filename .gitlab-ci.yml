@@ -61,7 +61,8 @@ electron:
   stage: deploy
   before_script:
     - cp -R /app/node_modules .
-    - echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main" > /etc/apt/sources.list.d/debian_sources.list
+    - apt-get install apt-transport-https
+    - echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main" > /etc/apt/sources.list.d/my_sources.list
     - apt-get update
     - apt-get install --install-recommends winehq-stable
   script:
