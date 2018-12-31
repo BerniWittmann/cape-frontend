@@ -61,10 +61,12 @@ electron:
   stage: deploy
   before_script:
     - cp -R /app/node_modules .
+    - wget -nc https://dl.winehq.org/wine-builds/winehq.key
+    - apt-key add winehq.key
     - apt-get install apt-transport-https
-    - echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main" > /etc/apt/sources.list.d/my_sources.list
+    - echo "deb https://dl.winehq.org/wine-builds/debian/ jessie main" > /etc/apt/sources.list.d/my_sources.list
     - apt-get update
-    - apt-get install --install-recommends -y wine-stable
+    - apt-get install --install-recommends -y wine1.8
     - wine --version
     - apt-get install --install-recommends -y winehq-stable
     - wine --version
