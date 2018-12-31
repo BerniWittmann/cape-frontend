@@ -62,7 +62,7 @@ electron:
   before_script:
     - cp -R /app/node_modules .
     - echo "deb https://dl.winehq.org/wine-builds/debian/ jessie main" > /etc/apt/sources.list.d/debian_sources.list
-    - apt-get update
+    - apt update
     - apt install --install-recommends winehq-stable
   script:
     - npm run electron:build -- -p always -mwl
