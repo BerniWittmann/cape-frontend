@@ -60,7 +60,6 @@ pages:
 electron:
   stage: deploy
   before_script:
-    - lsb_release -cs
     - cp -R /app/node_modules .
     - echo "deb https://dl.winehq.org/wine-builds/debian/ jessie main" > /etc/apt/sources.list.d/debian_sources.list
     - apt-get update
