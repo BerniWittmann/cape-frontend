@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.8.0 - (2018-12-31)
+---
+
+* Native App Support with Electron
+* Refactorings
+* Updated Process Modeling Rules
+* Process Modeling Rules can be toggled
+
 ## 0.7.0 - (2018-12-10)
 ---
 
