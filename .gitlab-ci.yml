@@ -14,6 +14,8 @@ lint:
       - cp -R /app/node_modules .
   script:
       - npm run lint -- --no-fix
+  except:
+    - electron_ci_deploy
 
 unit:
   stage: test
@@ -29,6 +31,8 @@ unit:
   artifacts:
       paths:
         - coverage
+  except:
+    - electron_ci_deploy
 
 e2e:
   stage: test
@@ -36,6 +40,8 @@ e2e:
       - cp -R /app/node_modules .
   script:
       - npm run test:e2e -- --headless --record --key $CYPRESS_RECORD_KEY
+  except:
+    - electron_ci_deploy
 
 pages:
   stage: deploy
@@ -52,12 +58,15 @@ pages:
     - tags
 
 electron:
+  stage: deploy
   before_script:
     - cp -R /app/node_modules .
+    - apt-get install --no-install-recommends --assume-yes wine
   script:
-    - npm run electron:build -- -p onTagOrDraft -mwl
+    - npm run electron:build -- -p always -mwl
   artifacts:
     paths:
       - dist_electron
   only:
     - tags
+    - electron_ci_deploy
