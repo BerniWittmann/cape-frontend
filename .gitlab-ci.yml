@@ -61,7 +61,7 @@ electron:
   stage: deploy
   before_script:
     - cp -R /app/node_modules .
-    - apt-get install --no-install-recommends --assume-yes wine
+    - apt install --install-recommends winehq-stable
   script:
     - npm run electron:build -- -p always -mwl
   artifacts:
