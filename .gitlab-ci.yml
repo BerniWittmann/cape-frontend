@@ -11,35 +11,35 @@ stages:
 lint:
   stage: lint
   before_script:
-      - cp -R /app/node_modules .
+    - cp -R /app/node_modules .
   script:
-      - npm run lint -- --no-fix
+    - npm run lint -- --no-fix
   except:
     - electron_ci_deploy
 
 unit:
   stage: test
   before_script:
-      - cp -R /app/node_modules .
-      - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      - chmod +x ./cc-test-reporter
-      - ./cc-test-reporter before-build
+    - cp -R /app/node_modules .
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
   script:
-      - npm run test:unit -- --ci
+    - npm run test:unit -- --ci
   after_script:
-      - ./cc-test-reporter after-build
+    - ./cc-test-reporter after-build
   artifacts:
-      paths:
-        - coverage
+    paths:
+      - coverage
   except:
     - electron_ci_deploy
 
 e2e:
   stage: test
   before_script:
-      - cp -R /app/node_modules .
+    - cp -R /app/node_modules .
   script:
-      - npm run test:e2e -- --headless --record --key $CYPRESS_RECORD_KEY
+    - npm run test:e2e -- --headless --record --key $CYPRESS_RECORD_KEY
   except:
     - electron_ci_deploy
 
@@ -60,10 +60,15 @@ pages:
 electron:
   stage: deploy
   before_script:
-    - apt-get update && apt-get install -y --no-install-recommends software-properties-common && dpkg --add-architecture i386 && curl -L https://dl.winehq.org/wine-builds/Release.key > Release.key && apt-key add Release.key && apt-add-repository https://dl.winehq.org/wine-builds/debian && \
-      apt-get update && \
-      apt-get -y purge software-properties-common libdbus-glib-1-2 python3-dbus python3-gi python3-pycurl python3-software-properties && \
-      apt-get install -y --no-install-recommends winehq-stable
+    - apt-get update
+    - apt-get install -y --no-install-recommends software-properties-common
+    - dpkg --add-architecture i386
+    - curl -L https://dl.winehq.org/wine-builds/Release.key > Release.key
+    - apt-key add Release.key
+    - apt-add-repository https://dl.winehq.org/wine-builds/debian
+    - apt-get update
+    - apt-get -y purge software-properties-common libdbus-glib-1-2 python3-dbus python3-gi python3-pycurl python3-software-properties
+    - apt-get install -y --no-install-recommends winehq-stable
     - wine --version
     - cp -R /app/node_modules .
   script:
