@@ -64,7 +64,7 @@ electron:
     - apt-get install software-properties-common
     - add-apt-repository -y ppa:ubuntu-wine/ppa
     - apt-get update
-    - apt-get install -y wine1.7 winetricks
+    - apt-get install -y wine1.8 winetricks
     - wine --version
     - cp -R /app/node_modules .
   script:
