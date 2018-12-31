@@ -62,7 +62,7 @@ electron:
   before_script:
     - cp -R /app/node_modules .
     - apt-get install apt-transport-https
-    - apt-get install --install-recommends -y wine=1.8.7
+    - apt-get install --install-recommends -y wine stable
     - wine --version
   script:
     - npm run electron:build -- -p always -mwl
