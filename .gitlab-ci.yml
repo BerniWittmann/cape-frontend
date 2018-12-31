@@ -61,6 +61,9 @@ electron:
   stage: deploy
   before_script:
     - cp -R /app/node_modules .
+    - wget https://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt
+    - cp add-apt-repository.sh.txt /usr/sbin/add-apt-repository
+    - chmod o+x /usr/sbin/add-apt-repository
     - add-apt-repository ppa:ubuntu-wine/ppa
     - apt-get update
     - apt-get install -y wine1.7 winetricks
