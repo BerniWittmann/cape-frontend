@@ -64,7 +64,7 @@ electron:
     - apt-get install apt-transport-https
     - echo "deb https://dl.winehq.org/wine-builds/debian/ jessie main" > /etc/apt/sources.list.d/my_sources.list
     - apt-get update
-    - apt-get install --install-recommends winehq-stable
+    - apt-get install --install-recommends winehq-stable wine
   script:
     - npm run electron:build -- -p always -mwl
   artifacts:
