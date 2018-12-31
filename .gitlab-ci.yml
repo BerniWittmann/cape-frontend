@@ -60,7 +60,6 @@ pages:
 electron:
   stage: deploy
   before_script:
-    - hostnamectl
     - cp -R /app/node_modules .
     - echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main" > /etc/apt/sources.list.d/debian_sources.list
     - apt-get update
