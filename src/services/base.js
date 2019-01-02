@@ -19,6 +19,7 @@ export default class Service {
       .then((response) => {
         this.success(response.data, this)
       }).catch((response) => {
+        // eslint-disable-next-line no-console
         console.error(response)
         this.showNotification({ type: 'error', key: 'failed' })
         this.failed(response, this)

@@ -28,7 +28,7 @@ module.exports = {
           category: 'Education'
         }
       },
-      externals: ['!bpmn-js-properties-panel']
+      externals: ['!bpmn-js', '!bpmn-js-properties-panel', '!./node_modules/bpmn-js/']
     }
   },
 
