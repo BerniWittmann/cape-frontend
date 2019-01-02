@@ -34,3 +34,6 @@ script:
 before_cache:
   - rm -rf .env.docker
   - rm -rf $HOME/.cache/electron-builder/wine
+
+on:
+  tags: true
