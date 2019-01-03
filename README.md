@@ -17,6 +17,10 @@
 ---
 
 
+## :package: Download
+
+Die App ist entweder als Browser App unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/) verfügbar oder als native App für Mac, Windows und Linux [zum Download](https://github.com/BerniWittmann/cape-frontend/releases/latest) verfügbar.
+
 ## :book: Wiki
 
 Im [Confluence - Wiki](https://portal.dbis.info/confluence/display/CM) finden sich die Dokumentation, Guidelines und vieles mehr

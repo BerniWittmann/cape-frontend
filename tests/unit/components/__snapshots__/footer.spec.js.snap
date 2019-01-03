@@ -9,6 +9,7 @@ exports[`Components Footer renders 1`] = `
         <p class="footer-paragraph"><a>footer.settings</a></p>
       </elcol-stub>
       <elcol-stub span="24" tag="div" xs="[object Object]" sm="[object Object]" md="[object Object]" lg="[object Object]">
+        <p class="footer-paragraph"><a href="https://github.com/BerniWittmann/cape-frontend/releases/latest">footer.download</a></p>
         <p class="footer-paragraph">
           footer.version
         </p>

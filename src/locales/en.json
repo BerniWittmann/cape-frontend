@@ -5,7 +5,8 @@
   "footer": {
     "about": "@:about.title",
     "version": "Version: {version}",
-    "settings": "@:settings.title"
+    "settings": "@:settings.title",
+    "download": "Download"
   },
   "about": {
     "title": "About the Project",
