@@ -1,4 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
+
+let externals = ['!bpmn-js-properties-panel', '!./node_modules/bpmn-js/']
+if (process.env.NODE_ENV === 'production') {
+  externals = ['!bpmn-js', ...externals]
+}
+
 module.exports = {
   baseUrl: process.env.BASE_URL,
 
@@ -27,7 +33,7 @@ module.exports = {
           category: 'Education'
         }
       },
-      externals: ['!bpmn-js', '!bpmn-js-properties-panel', '!./node_modules/bpmn-js/']
+      externals
     }
   },
 

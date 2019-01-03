@@ -13,7 +13,7 @@
         <el-col :lg="{span: 7, offset: 5}" :md="{span: 7, offset: 5}" :sm="{span: 7, offset: 5}"
                 :xs="{span: 24}">
           <p class="footer-paragraph">
-            <a href="https://github.com/BerniWittmann/cape-frontend/releases/latest">{{ $t('footer.download') }}</a>
+            <a href="https://github.com/BerniWittmann/cape-frontend/releases/latest" target="_blank">{{ $t('footer.download') }}</a>
           </p>
           <p class="footer-paragraph">
             {{ $t('footer.version', { version: version }) }}

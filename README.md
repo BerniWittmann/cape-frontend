@@ -4,7 +4,7 @@
 
 > Repository für das Frontend des CaPE - Modelers
 
-:rocket: **Verfügbar unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/)**
+:rocket: **Verfügbar unter [https://cape-modeler.gitlab.io/frontend/](https://cape-modeler.gitlab.io/frontend/) oder [zum Download](https://github.com/BerniWittmann/cape-frontend/releases/latest).**
 
 
 [![Pipeline Status](https://gitlab.com/cape-modeler/frontend/badges/master/pipeline.svg)](https://gitlab.com/cape-modeler/frontend/commits/master)
@@ -13,7 +13,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e91a9f319f7c7541cdfa/maintainability)](https://codeclimate.com/github/BerniWittmann/cape-frontend/maintainability)
 [![GitLab](https://img.shields.io/badge/-GitLab-lightgrey.svg?logo=gitlab)](https://gitlab.com/cape-modeler/frontend)
 [![Neueste Version](https://img.shields.io/badge/-Aktuellste%20Version-lightgrey.svg?logo=skyliner&logoColor=6CC9E8)](https://cape-modeler.gitlab.io/frontend/)
-
+[![Download](https://img.shields.io/github/release/berniwittmann/cape-frontend.svg)](https://github.com/BerniWittmann/cape-frontend/releases/latest)
 ---
 
 
