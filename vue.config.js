@@ -16,9 +16,8 @@ module.exports = {
         productName: 'CaPE',
         copyright: 'Copyright © 2018 Alexander Fischer <alexander.fischer@uni-ulm.de>, Lukas Jesche <lukas.jesche@uni-ulm.de>, Bernhard Wittmann <bernhard.wittmann@uni-ulm.de>',
         publish: {
-          provider: 'bintray',
-          package: 'cape-frontend',
-          repo: 'CaPE',
+          provider: 'github',
+          repo: 'cape-frontend',
           owner: 'berniwittmann'
         },
         mac: {
