@@ -5,5 +5,6 @@ exports[`Components Navigation renders 1`] = `
     <div class="nav-image"></div>
   </a>
   <elmenuitem-stub index="processes" route="[object Object]">nav.processes</elmenuitem-stub>
+  <elmenuitem-stub index="contextFactors" route="[object Object]">nav.contextFactors</elmenuitem-stub>
 </elmenu-stub>
 `;

@@ -8,6 +8,7 @@
       <div class="nav-image"></div>
     </router-link>
     <el-menu-item :route="{ name: 'processes' }" index="processes">{{ $t('nav.processes') }}</el-menu-item>
+    <el-menu-item :route="{ name: 'contextFactors'}" index="contextFactors">{{$t('nav.contextFactors')}}</el-menu-item>
   </el-menu>
 </template>
 <script>
@@ -16,7 +17,7 @@
  * ============
  *
  * Navigation Bar component.
- *
+ *port DefaultLayout from '@/layouts/Default.vue'
  * Renders the navigation Bar.
  */
 

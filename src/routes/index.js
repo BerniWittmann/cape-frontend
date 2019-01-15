@@ -13,9 +13,11 @@ import Settings from '@/pages/Settings.vue'
 import ProcessRepository from '@/pages/ProcessRepository.vue'
 import EditProcess from '@/pages/process/EditProcess.vue'
 import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog'
+import ContextFactors from '@/pages/ContextFactors'
 
 import ProcessService from '@/services/process'
 import TagService from '@/services/tag'
+import ContextFactorService from '@/services/contextFactor'
 
 const routes = [
   {
@@ -27,6 +29,16 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About
+  },
+  {
+    path: '/context_factors',
+    name: 'contextFactors',
+    component: ContextFactors,
+    beforeEnter: (to, from, next) => {
+      Promise.all([
+        ContextFactorService.getAll()
+      ]).then(next)
+    }
   },
   {
     path: '/processes',

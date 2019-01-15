@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages ContextFactors.vue renders 1`] = `
+<vlayout-stub>
+  <elrow-stub tag="div" justify="start" align="top">
+    <elcol-stub span="20" tag="div" offset="2">
+      <div class="contextFactors">
+        <h3>context_factor.title</h3>
+        <eltree-stub data="[object Object]" emptytext="暂无数据" renderafterexpand="true" expandonclicknode="true" autoexpandparent="true" props="[object Object]" indent="18"></eltree-stub>
+      </div>
+    </elcol-stub>
+  </elrow-stub>
+</vlayout-stub>
+`;

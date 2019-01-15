@@ -1,6 +1,7 @@
 {
   "nav": {
-    "processes": "Process Overview"
+    "processes": "Process Overview",
+    "contextFactors": "Context Factors"
   },
   "footer": {
     "about": "@:about.title",
@@ -19,6 +20,9 @@
   },
   "home": {
     "greeting": "Welcome to the CaPE-Project"
+  },
+  "context_factor": {
+    "title": "Context Factors"
   },
   "process": {
     "name": "Name",
@@ -117,6 +121,14 @@
         "failed": {
           "title": "Error",
           "message": "Deleting the Tag failed"
+        }
+      }
+    },
+    "context_factors": {
+      "get": {
+        "failed": {
+          "title": "Error",
+          "message": "Loading the Context Factors failed"
         }
       }
     },

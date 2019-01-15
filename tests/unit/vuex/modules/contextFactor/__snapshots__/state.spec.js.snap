@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vuex Modules contextFactor State has an empty base state 1`] = `
+Object {
+  "contextFactors": Array [],
+}
+`;
