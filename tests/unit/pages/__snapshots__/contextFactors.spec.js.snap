@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pages ContextFactors.vue renders 1`] = `
+exports[`Pages ContextFactors.vue renders the tree 1`] = `
 <vlayout-stub>
   <elrow-stub tag="div" justify="start" align="top">
     <elcol-stub span="20" tag="div" offset="2">

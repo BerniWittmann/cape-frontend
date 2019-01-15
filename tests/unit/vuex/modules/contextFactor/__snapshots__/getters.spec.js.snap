@@ -1,3 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Vuex Modules contextFactor Getters returns all getters 1`] = `Object {}`;
+exports[`Vuex Modules contextFactor Getters contextFactorsTree generates the contextFactors Tree 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "contextFactor": Object {
+              "id": "7",
+              "name": "Eins - Eins - Eins",
+              "parentID": "2",
+            },
+            "label": "Eins - Eins - Eins",
+          },
+        ],
+        "contextFactor": Object {
+          "id": "2",
+          "name": "Eins - Eins",
+          "parentID": "1",
+        },
+        "label": "Eins - Eins",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "contextFactor": Object {
+              "id": "4",
+              "name": "Eins - Zwei - Eins",
+              "parentID": "3",
+            },
+            "label": "Eins - Zwei - Eins",
+          },
+          Object {
+            "children": Array [],
+            "contextFactor": Object {
+              "id": "5",
+              "name": "Eins - Zwei - Zwei",
+              "parentID": "3",
+            },
+            "label": "Eins - Zwei - Zwei",
+          },
+          Object {
+            "children": Array [],
+            "contextFactor": Object {
+              "id": "6",
+              "name": "Eins - Zwei - Drei",
+              "parentID": "3",
+            },
+            "label": "Eins - Zwei - Drei",
+          },
+        ],
+        "contextFactor": Object {
+          "id": "3",
+          "name": "Eins - Zwei",
+          "parentID": "1",
+        },
+        "label": "Eins - Zwei",
+      },
+      Object {
+        "children": Array [],
+        "contextFactor": Object {
+          "id": "8",
+          "name": "Eins - Zwei",
+          "parentID": "1",
+        },
+        "label": "Eins - Zwei",
+      },
+    ],
+    "contextFactor": Object {
+      "id": "1",
+      "name": "Eins",
+      "parentID": undefined,
+    },
+    "label": "Eins",
+  },
+]
+`;
+
+exports[`Vuex Modules contextFactor Getters returns all getters 1`] = `
+Array [
+  "contextFactorsTree",
+]
+`;
