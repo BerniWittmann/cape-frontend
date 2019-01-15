@@ -78,6 +78,7 @@ $columns: 5;
   display: grid;
   width: calc(#{$size} * #{$columns} + 19px);
   height: calc(#{$size} * 4);
+  max-height: calc(#{$size} * 4);
   grid-template-columns: repeat($columns, $size);
   grid-auto-rows: $size;
   border: solid #2c3e50 1px;
