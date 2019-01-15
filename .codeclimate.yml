@@ -12,3 +12,4 @@ exclude_patterns:
   - dist/
   - dist_electron/
   - .idea/
+  - src/utils/fontAwesomeIcons.js
