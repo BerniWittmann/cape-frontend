@@ -3,11 +3,11 @@
     <el-aside width="180px">
 
       <el-table
+              class="el-table---disable-row-hover"
               :data="contextTypes.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
               :header-cell-style="headerStyle"
               :cell-style="cellStyle"
-              height="420"
-              @cell-mouse-enter="hideHover">
+              height="420">
 
         <el-table-column
                 prop="contextTypes">
@@ -120,14 +120,6 @@ export default {
   },
 
   methods: {
-    hideHover() {
-      if (document.getElementsByClassName('el-table--enable-row-hover').length < 1) {
-        return
-      }
-      const element = document.getElementsByClassName('el-table--enable-row-hover')[0]
-      element.classList.remove('el-table--enable-row-hover')
-    },
-
     updateLayoutTable() {
       // necessary to update the layout and fit the ContextTypes right, doLayout() not working
       // resets deletable back to false

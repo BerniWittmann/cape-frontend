@@ -3,7 +3,7 @@
 exports[`Components ContextTypeSettings renders 1`] = `
 <section class="el-container">
   <aside class="el-aside" style="width: 180px;">
-    <div class="el-table el-table--fit el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition" style="height: 420px;">
+    <div class="el-table el-table---disable-row-hover el-table--fit el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition" style="height: 420px;">
       <div class="hidden-columns">
         <div></div>
       </div>

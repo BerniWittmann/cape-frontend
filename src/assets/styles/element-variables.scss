@@ -29,3 +29,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 .el-main {
   flex: 2;
 }
+
+.el-table---disable-row-hover .el-table__body tr:hover > td {
+  background-color: inherit !important;
+}

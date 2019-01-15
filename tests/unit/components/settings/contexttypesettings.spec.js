@@ -146,19 +146,6 @@ describe('Components', () => {
       expect(cmp.vm.contextType.name).toEqual(undefined)
     })
 
-    it('hides the hover on the list of context types', () => {
-      Object.defineProperty(global, 'document', {})
-      var t = document.createElement('div')
-      t.className = 'el-table--enable-row-hover'
-      document.body.append(t)
-
-      expect(document.getElementsByClassName('el-table--enable-row-hover').length).toBeLessThan(2)
-      cmp.vm.hideHover()
-      expect(document.getElementsByClassName('el-table--enable-row-hover').length).toBeLessThan(1)
-      cmp.vm.hideHover()
-      expect(document.getElementsByClassName('el-table--enable-row-hover').length).toBeLessThan(1)
-    })
-
     it('has function to update the layout of the table by resetting the deletable feature', () => {
       expect(cmp.vm.deletable).toBe(false)
       cmp.vm.updateLayoutTable()

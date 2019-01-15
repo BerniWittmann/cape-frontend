@@ -106,7 +106,7 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
         <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display: none;">
           <section class="el-container">
             <aside class="el-aside" style="width: 180px;">
-              <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
+              <div class="el-table el-table---disable-row-hover el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
                 <div class="hidden-columns">
                   <div></div>
                 </div>
