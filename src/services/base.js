@@ -18,11 +18,13 @@ export default class Service {
     return Vue.$http[this.method](this.endpoint, this.data)
       .then((response) => {
         this.success(response.data, this)
+        return true
       }).catch((response) => {
         // eslint-disable-next-line no-console
         console.error(response)
         this.showNotification({ type: 'error', key: 'failed' })
         this.failed(response, this)
+        return false
       })
   }
 

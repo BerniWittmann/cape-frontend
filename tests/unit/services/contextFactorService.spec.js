@@ -31,6 +31,13 @@ describe('Services', () => {
     afterEach(() => {
       moxios.uninstall()
     })
+
+    it('exports all functions', () => {
+      expect(cFService.getAll).toEqual(expect.any(Function))
+      expect(cFService.get).toEqual(expect.any(Function))
+      expect(cFService.update).toEqual(expect.any(Function))
+    })
+
     describe('getAll', () => {
       it('should load all Context Factors', (done) => {
         moxios.stubRequest('/context_factors', {
@@ -44,6 +51,124 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(store.dispatch).toHaveBeenCalledWith('contextFactor/store', [new ContextFactor(cFData)])
+          done()
+        })
+      })
+    })
+
+    describe('get', () => {
+      it('should load a single contextFactor', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 200,
+          response: cFData
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.get({ id: 42 }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextFactor/update', new ContextFactor(cFData))
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.get({ id: 42 }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.get({ id: 42 }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_factor.get.failed.title',
+            message: 'notifications.context_factor.get.failed.message'
+          })
+          done()
+        })
+      })
+    })
+
+    describe('update', () => {
+      it('should update a single context Factor', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 200,
+          response: cFData
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextFactor/update', new ContextFactor(cFData))
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_factor.put.failed.title',
+            message: 'notifications.context_factor.put.failed.message'
+          })
+          done()
+        })
+      })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 200
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.context_factor.put.success.title',
+            message: 'notifications.context_factor.put.success.message'
+          })
           done()
         })
       })

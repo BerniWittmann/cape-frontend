@@ -119,5 +119,15 @@ describe('Pages', () => {
       expect(data).toEqual(expect.any(Array))
       expect(data.length).toBeGreaterThan(0)
     })
+
+    it('has an edit button', () => {
+      cmp.vm.edit(store.getters['contextFactor/contextFactorsTree'][0])
+      expect(router.push).toHaveBeenCalledWith({
+        name: 'context_factors.edit',
+        params: {
+          contextFactorID: '5c3c83a5a0983a6a94272513'
+        }
+      })
+    })
   })
 })

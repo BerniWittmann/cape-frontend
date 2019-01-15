@@ -1,3 +1,11 @@
+/* ============
+ * Getters for the contextFactor  module
+ * ============
+ *
+ * The getters that are available on the
+ * contextFactor  module.
+ */
+
 function getRoots(state) {
   return state.contextFactors.filter(cF => !cF.parentID)
 }

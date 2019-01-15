@@ -2,9 +2,20 @@
   <v-layout>
     <el-row>
       <el-col :span="20" :offset="2">
-        <div class="contextFactors">
+        <div>
           <h3>{{$t('context_factor.title')}}</h3>
-          <el-tree :data="contextTree" ></el-tree>
+          <el-tree ref="tree" :data="contextTree" :default-expand-all="true" :accordion="true">
+            <span class="custom-tree-node" slot-scope="{ node, data }">
+              <span>{{ node.label }}</span>
+              <span class="align-right">
+                <el-button
+                        type="text"
+                        @click="edit(data)">
+                  {{ $t('context_factor.edit.link')}}
+                </el-button>
+              </span>
+            </span>
+          </el-tree>
         </div>
       </el-col>
     </el-row>
@@ -22,13 +33,32 @@ export default {
     contextTree() {
       return this.$store.getters['contextFactor/contextFactorsTree']
     }
+  },
+  methods: {
+    edit(data) {
+      this.$router.push({
+        name: 'context_factors.edit',
+        params: {
+          contextFactorID: data.contextFactor.id
+        }
+      })
+    }
   }
 }
 
 </script>
 
 <style scoped lang="scss">
-.contextFactors {
-  text-align: center;
+.custom-tree-node {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+
+  .align-right {
+    margin-left: auto;
+    margin-right: 15px;
+  }
 }
 </style>

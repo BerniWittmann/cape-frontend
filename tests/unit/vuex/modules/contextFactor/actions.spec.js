@@ -18,6 +18,27 @@ describe('Vuex', () => {
             expect(store.commit).toHaveBeenCalledWith(mutationTypes.STORE, [{ id: 1 }, { id: 2 }])
           })
         })
+        describe('update', () => {
+          it('updates the given context Factor', () => {
+            processActions.update(store, { id: 1 })
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.UPDATE, { id: 1 })
+          })
+        })
+        describe('setActive', () => {
+          it('sets the given context Factor active', () => {
+            processActions.setActive(store, { id: 1 })
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.SET_ACTIVE, { id: 1 })
+          })
+        })
+        describe('unsetActive', () => {
+          it('unsets the active context Factor', () => {
+            processActions.unsetActive(store)
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.SET_ACTIVE, undefined)
+          })
+        })
       })
     })
   })

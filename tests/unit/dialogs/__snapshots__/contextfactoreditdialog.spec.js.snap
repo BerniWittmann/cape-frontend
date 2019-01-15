@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialogs Context Factor Edit Dialog can render 1`] = `
+<div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2001;">
+  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh;">
+    <div class="el-dialog__header"><span class="el-dialog__title">My Context Factor</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
+    <div class="el-dialog__body">
+      <div class="el-row">
+        <div class="el-col el-col-24">
+          <form class="el-form">
+            <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
+              <div class="el-form-item__content">
+                <div class="el-input">
+                  <!----><input type="text" autocomplete="off" class="el-input__inner">
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="el-dialog__footer">
+      <div class="el-row">
+        <div class="el-col el-col-24"><button type="button" class="el-button el-button--text">
+            <!---->
+            <!----><span>context_factor.edit.cancel</span></button> <button type="button" class="el-button el-button--success">
+            <!---->
+            <!----><span>context_factor.edit.save</span></button></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -12,8 +12,9 @@ import About from '@/pages/About.vue'
 import Settings from '@/pages/Settings.vue'
 import ProcessRepository from '@/pages/ProcessRepository.vue'
 import EditProcess from '@/pages/process/EditProcess.vue'
-import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog'
-import ContextFactors from '@/pages/ContextFactors'
+import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog.vue'
+import ContextFactors from '@/pages/ContextFactors.vue'
+import ContextFactorEditDialog from '@/dialogs/ContextFactorEditDialog.vue'
 
 import ProcessService from '@/services/process'
 import TagService from '@/services/tag'
@@ -33,13 +34,31 @@ const routes = [
   },
   {
     path: '/context_factors',
-    name: 'contextFactors',
-    component: ContextFactors,
+    component: EmptyRouterView,
     beforeEnter: (to, from, next) => {
       Promise.all([
         ContextFactorService.getAll()
       ]).then(next)
-    }
+    },
+    children: [{
+      path: '',
+      name: 'context_factors',
+      component: ContextFactors
+    }, {
+      path: ':contextFactorID',
+      component: EmptyRouterView,
+      beforeEnter: (to, from, next) => {
+        ContextFactorService.get({ id: to.params.contextFactorID }).then(next)
+      },
+      children: [{
+        path: 'edit',
+        name: 'context_factors.edit',
+        components: {
+          default: ContextFactors,
+          dialog: ContextFactorEditDialog
+        }
+      }]
+    }]
   },
   {
     path: '/processes',
