@@ -1,5 +1,5 @@
 import store from '@/vuex/store'
-import { makeRequest } from '@/services/base'
+import Service from '@/services/base'
 import Vue from 'vue'
 
 // When the request succeeds
@@ -13,7 +13,7 @@ const failed = (response) => {
   }
 }
 
-export default (contextType) => makeRequest({
+export default (contextType) => new Service({
   method: 'delete',
   endpoint: `/context_types/${contextType.id}`,
   data: contextType,

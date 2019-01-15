@@ -5,15 +5,15 @@ exports[`Pages Settings renders 1`] = `
   <div class="page">
     <h3>settings.title</h3>
     <eltabs-stub type="border-card" tabposition="top">
-          <eltabpane-stub label="settings.tags">
-            <tagsettings-stub></tagsettings-stub>
-          </eltabpane-stub>
-          <eltabpane-stub label="settings.context_types">
-            <contexttypesettings-stub></contexttypesettings-stub>
-          </eltabpane-stub>
-          <eltabpane-stub label="settings.process_modeler.tab_title">
-            <processmodelersettings-stub></processmodelersettings-stub>
-          </eltabpane-stub>
+      <eltabpane-stub label="settings.tags">
+        <tagsettings-stub></tagsettings-stub>
+      </eltabpane-stub>
+      <eltabpane-stub label="settings.context_types">
+        <contexttypesettings-stub></contexttypesettings-stub>
+      </eltabpane-stub>
+      <eltabpane-stub label="settings.process_modeler.tab_title">
+        <processmodelersettings-stub></processmodelersettings-stub>
+      </eltabpane-stub>
     </eltabs-stub>
   </div>
 </div>
@@ -4894,6 +4894,13 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
     </form>
     </main>
     </section>
+  </div>
+  <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display: none;">
+    <div class="el-row is-justify-center el-row--flex">
+      <div class="el-col el-col-8"><label role="checkbox" aria-checked="true" class="el-checkbox is-bordered is-checked"><span aria-checked="mixed" class="el-checkbox__input is-checked"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="settings.process_modeler.enable_validation"></span><span class="el-checkbox__label">settings.process_modeler.enable_validation</span></label>
+        <p><small>settings.process_modeler.enable_validation_help_text</small></p>
+      </div>
+    </div>
   </div>
 </div>
 </div>

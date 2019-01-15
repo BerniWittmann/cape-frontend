@@ -52,7 +52,7 @@ describe('Pages', () => {
 
       expect(cmp.html()).toMatchSnapshot()
       const tabs = cmp.findAll('.el-tab-pane')
-      expect(tabs.length).toBe(2)
+      expect(tabs.length).toBe(3)
       cmp.find('.el-tabs').vm.$emit('tab-click')
       // cmp.vm.updateContextType()
       // expect(Settings.updateContextType).toHaveBeenCalled()
