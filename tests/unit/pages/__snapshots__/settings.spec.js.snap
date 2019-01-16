@@ -3,7 +3,7 @@
 exports[`Pages Settings renders 1`] = `
 <div>
   <div class="page">
-    <h3>settings.title</h3>
+    <h2>settings.title</h2>
     <eltabs-stub type="border-card" tabposition="top">
       <eltabpane-stub label="settings.tags">
         <tagsettings-stub></tagsettings-stub>
@@ -22,7 +22,7 @@ exports[`Pages Settings renders 1`] = `
 exports[`Pages Settings updates the context type table layout on tab click 1`] = `
 <div>
   <div class="page">
-    <h3>settings.title</h3>
+    <h2>settings.title</h2>
     <div class="el-tabs el-tabs--top el-tabs--border-card">
       <div class="el-tabs__header is-top">
         <div class="el-tabs__nav-wrap is-top">
@@ -33,14 +33,42 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
       </div>
       <div class="el-tabs__content">
         <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display: none;">
-          <div class="el-row is-justify-center el-row--flex">
-            <div class="el-col el-col-8">
-              <div class="el-row">
-                <div class="el-col el-col-24"><span class="tag tag-row__tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">My Tag<i class="el-tag__close el-icon-close"></i></span></div>
-              </div> <br>
-              <div class="el-row">
-                <div class="el-col el-col-24"></div>
+          <section class="el-container">
+            <aside class="el-aside" style="width: 180px;">
+              <div class="el-table el-table---disable-row-hover el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
+                <div class="hidden-columns">
+                  <div></div>
+                </div>
+                <div class="el-table__header-wrapper">
+                  <table cellspacing="0" cellpadding="0" border="0" class="el-table__header">
+                    <colgroup></colgroup>
+                    <thead class="">
+                      <tr class=""></tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="el-table__body-wrapper is-scrolling-none">
+                  <table cellspacing="0" cellpadding="0" border="0" class="el-table__body">
+                    <colgroup></colgroup>
+                    <tbody>
+                      <tr class="el-table__row"></tr>
+                      <!---->
+                    </tbody>
+                  </table>
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <div class="el-table__column-resize-proxy" style="display: none;"></div>
               </div>
+              <div role="switch" class="el-switch"><input type="checkbox" name="" true-value="true" class="el-switch__input">
+                <!----><span class="el-switch__core" style="width: 40px;"></span><span class="el-switch__label el-switch__label--right"><!----><span aria-hidden="true">settings.tag.deletable</span></span></div>
+            </aside>
+            <main class="el-main">
+              <h3>settings.tag.new</h3> <span class="tag el-tag el-tag--info" style="background-color: rgba(108, 201, 232, 0.1); color: rgb(108, 201, 232);" name="el-zoom-in-center"></span>
               <form class="el-form el-form--label-top">
                 <div class="el-form-item is-required"><label for="name" class="el-form-item__label">settings.tag.name</label>
                   <div class="el-form-item__content">
@@ -100,8 +128,8 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
                   </div>
                 </div>
               </form>
-            </div>
-          </div>
+            </main>
+          </section>
         </div>
         <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display: none;">
           <section class="el-container">
@@ -139,7 +167,7 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
                 <!----><span class="el-switch__core" style="width: 40px;"></span><span class="el-switch__label el-switch__label--right"><!----><span aria-hidden="true">settings.context_type.deletable</span></span></div>
             </aside>
             <main class="el-main">
-              <h2>settings.context_type.new</h2>
+              <h3>settings.context_type.new</h3>
               <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-heart"></i>
     
     <!----></span></div>

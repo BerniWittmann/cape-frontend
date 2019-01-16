@@ -1,5 +1,6 @@
 export const DATE_TIME_FORMAT = 'DD.MM.YYYY HH:mm'
 export const DEFAULT_TAG_COLOR = '#6CC9E8'
+export const DEFAULT_ICON = 'fa-heart'
 
 export const PROCESS_VALIDATION_ERRORS = {
   UNCONNECTED_ENTITIES: 'unconnected_entities',

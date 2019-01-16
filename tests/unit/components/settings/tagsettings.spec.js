@@ -53,26 +53,30 @@ describe('Components', () => {
 
     it('renders the available Tags', () => {
       const tags = cmp.findAll(Tag)
-      expect(tags.length).toEqual(2)
+      expect(tags.length).toEqual(3)
       expect(tags.at(0).props('tag')).toEqual(store.state.tag.tags[0])
       expect(tags.at(1).props('tag')).toEqual(store.state.tag.tags[1])
     })
+
     it('the existing tags can be deleted', () => {
       const tags = cmp.findAll(Tag)
-      expect(tags.length).toEqual(2)
-      expect(tags.at(0).props('closable')).toBeTruthy()
-      expect(tags.at(1).props('tag')).toBeTruthy()
+      expect(tags.length).toEqual(3)
 
-      tags.at(1).vm.$emit('close')
+      cmp.vm.deletable = true
+      cmp.vm.$nextTick(() => {
+        expect(tags.at(0).props('closable')).toBe(true)
+        expect(tags.at(1).props('closable')).toBe(true)
+        expect(tags.at(2).props('closable')).toBe(false)
 
-      expect(tagService.remove).toHaveBeenCalledWith(store.state.tag.tags[1])
+        tags.at(1).vm.$emit('close')
+        cmp.vm.$nextTick(() => {
+          expect(tagService.remove).toHaveBeenCalledWith(store.state.tag.tags[1])
+        })
+      })
     })
-    it('does not display the tag preview if no name given', () => {
-      const tags = cmp.findAll(Tag)
-      expect(tags.length).toEqual(2)
-    })
+
     it('displays a preview of the tag', (done) => {
-      cmp.find('input').setValue('My Name')
+      cmp.findAll('.el-input__inner').at(1).setValue('My Name')
       cmp.vm.tag.color = '#FFFF00'
 
       cmp.vm.$nextTick(() => {
@@ -85,6 +89,7 @@ describe('Components', () => {
         done()
       })
     })
+
     it('shows an error if no name given on submit', (done) => {
       console.warn = jest.fn()
       cmp.vm.submit()
@@ -96,9 +101,10 @@ describe('Components', () => {
         done()
       })
     })
+
     it('shows an error if no color given on submit', (done) => {
       console.warn = jest.fn()
-      cmp.find('input').setValue('My Name')
+      cmp.findAll('.el-input__inner').at(1).setValue('My Name')
       cmp.vm.tag.color = undefined
       cmp.vm.submit()
 
@@ -109,9 +115,11 @@ describe('Components', () => {
         done()
       })
     })
+
     it('shows a color picker', () => {
       expect(cmp.contains(ColorPicker)).toBeTruthy()
     })
+
     it('validates the form on submit', (done) => {
       cmp.vm.submit()
 
@@ -120,11 +128,13 @@ describe('Components', () => {
         done()
       })
     })
+
     it('the form has a submit and a cancel button', () => {
       expect(cmp.findAll('.el-form-item > .el-form-item__content > .el-button').length).toEqual(2)
     })
-    it('the form can be reset', () => {
-      cmp.find('input').setValue('My Name')
+    it('t' +
+      'he form can be reset', () => {
+      cmp.findAll('.el-input__inner').at(1).setValue('My Name')
       cmp.vm.tag.color = '#FFF000'
       expect(cmp.vm.tag.name).toEqual('My Name')
 
@@ -133,8 +143,9 @@ describe('Components', () => {
       expect(cmp.vm.tag.name).toEqual(undefined)
       expect(cmp.vm.tag.color).toEqual('#6CC9E8')
     })
+
     it('the form can be submitted', (done) => {
-      cmp.find('input').setValue('My new Name')
+      cmp.findAll('.el-input__inner').at(1).setValue('My new Name')
       cmp.vm.tag.color = '#FFF000'
       cmp.vm.submit()
 
@@ -147,8 +158,9 @@ describe('Components', () => {
         done()
       })
     })
+
     it('the form is reset after submitting', (done) => {
-      cmp.find('input').setValue('My new Name')
+      cmp.findAll('.el-input__inner').at(1).setValue('My new Name')
       cmp.vm.tag.color = '#FFF000'
       cmp.vm.submit()
 
@@ -157,6 +169,14 @@ describe('Components', () => {
         expect(cmp.vm.tag.name).toEqual(undefined)
         done()
       })
+    })
+
+    it('has function to update the layout of the table by resetting the deletable feature', () => {
+      expect(cmp.vm.deletable).toBe(false)
+      cmp.vm.updateLayoutTable()
+      cmp.vm.deletable = true
+      cmp.vm.updateLayoutTable()
+      expect(cmp.vm.deletable).toBe(false)
     })
   })
 })

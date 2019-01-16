@@ -1,14 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components TagSettings renders 1`] = `
-<div class="el-row is-justify-center el-row--flex">
-  <div class="el-col el-col-8">
-    <div class="el-row">
-      <div class="el-col el-col-24"><span class="tag tag-row__tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">My Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag tag-row__tag el-tag el-tag--info" style="background-color: rgba(255, 0, 255, 0.1); color: rgb(255, 0, 255);" name="el-zoom-in-center">My Second Tag<i class="el-tag__close el-icon-close"></i></span></div>
-    </div> <br>
-    <div class="el-row">
-      <div class="el-col el-col-24"></div>
+<section class="el-container">
+  <aside class="el-aside" style="width: 180px;">
+    <div class="el-table el-table---disable-row-hover el-table--fit el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition" style="height: 420px;">
+      <div class="hidden-columns">
+        <div></div>
+      </div>
+      <div class="el-table__header-wrapper">
+        <table cellspacing="0" cellpadding="0" border="0" class="el-table__header" style="width: 80px;">
+          <colgroup>
+            <col name="el-table_1_column_1" width="80">
+          </colgroup>
+          <thead class="">
+            <tr class="">
+              <th colspan="1" rowspan="1" class="el-table_1_column_1     is-leaf" style="border: 0px; padding: 0px;">
+                <div class="cell">
+                  <div class="el-input el-input--mini">
+                    <!----><input type="text" autocomplete="off" placeholder="settings.tag.search" class="el-input__inner">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="el-table__body-wrapper is-scrolling-left">
+        <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 80px;">
+          <colgroup>
+            <col name="el-table_1_column_1" width="80">
+          </colgroup>
+          <tbody>
+            <tr class="el-table__row">
+              <td rowspan="1" colspan="1" class="el-table_1_column_1  " style="border: 0px; padding-right: 5px; padding-top: 0px; padding-bottom: 5px; float: right;">
+                <div class="cell"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);" name="el-zoom-in-center">My Tag</span></div>
+              </td>
+            </tr>
+            <tr class="el-table__row">
+              <td rowspan="1" colspan="1" class="el-table_1_column_1  " style="border: 0px; padding-right: 5px; padding-top: 0px; padding-bottom: 5px; float: right;">
+                <div class="cell"><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 255, 0.1); color: rgb(255, 0, 255);" name="el-zoom-in-center">My Second Tag</span></div>
+              </td>
+            </tr>
+            <!---->
+          </tbody>
+        </table>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <div class="el-table__column-resize-proxy" style="display: none;"></div>
     </div>
+    <div role="switch" class="el-switch"><input type="checkbox" name="" true-value="true" class="el-switch__input">
+      <!----><span class="el-switch__core" style="width: 40px;"></span><span class="el-switch__label el-switch__label--right"><!----><span aria-hidden="true">settings.tag.deletable</span></span></div>
+  </aside>
+  <main class="el-main">
+    <h3>settings.tag.new</h3> <span class="tag el-tag el-tag--info" style="background-color: rgba(108, 201, 232, 0.1); color: rgb(108, 201, 232);" name="el-zoom-in-center"></span>
     <form class="el-form el-form--label-top">
       <div class="el-form-item is-required"><label for="name" class="el-form-item__label">settings.tag.name</label>
         <div class="el-form-item__content">
@@ -68,6 +120,6 @@ exports[`Components TagSettings renders 1`] = `
         </div>
       </div>
     </form>
-  </div>
-</div>
+  </main>
+</section>
 `;

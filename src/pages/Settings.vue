@@ -1,11 +1,11 @@
 <template>
   <v-layout>
     <div class="page">
-      <h3>{{ $t('settings.title') }}</h3>
-      <el-tabs type="border-card" @tab-click="updateContextType">
+      <h2>{{ $t('settings.title') }}</h2>
+      <el-tabs type="border-card" @tab-click="updateLayout">
 
         <el-tab-pane :label="$t('settings.tags')">
-          <tag-settings></tag-settings>
+          <tag-settings ref="tagSettings"></tag-settings>
         </el-tab-pane>
 
         <el-tab-pane :label="$t('settings.context_types')">
@@ -41,9 +41,15 @@ export default {
   },
 
   methods: {
-    updateContextType() {
-      this.$refs.contextTypeSettings.updateLayoutTable()
+    updateLayout(tab) {
+      if (tab.label === this.$t('settings.tags')) {
+        this.$refs.tagSettings.updateLayoutTable()
+      }
+      if (tab.label === this.$t('settings.context_types')) {
+        this.$refs.contextTypeSettings.updateLayoutTable()
+      }
     }
+
   }
 }
 </script>

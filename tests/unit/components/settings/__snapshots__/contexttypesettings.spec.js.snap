@@ -68,7 +68,7 @@ exports[`Components ContextTypeSettings renders 1`] = `
       <!----><span class="el-switch__core" style="width: 40px;"></span><span class="el-switch__label el-switch__label--right"><!----><span aria-hidden="true">settings.context_type.deletable</span></span></div>
   </aside>
   <main class="el-main">
-    <h2>settings.context_type.new</h2>
+    <h3>settings.context_type.new</h3>
     <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-heart"></i>
     
     <!----></span></div>

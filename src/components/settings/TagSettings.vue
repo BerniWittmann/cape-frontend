@@ -1,35 +1,62 @@
 <template>
-  <el-row type="flex" justify="center">
-    <el-col :span="8">
-      <el-row>
-        <el-col>
-          <tag class="tag-row__tag" :tag="tag" v-for="tag in tags" :key="tag.id" closable @close="deleteTag(tag)"></tag>
-        </el-col>
-      </el-row>
-      <br>
+  <el-container>
+    <el-aside width="180px">
+      <el-table
+              class="el-table---disable-row-hover"
+              :data="tags.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+              :header-cell-style="headerStyle"
+              :cell-style="cellStyle"
+              height="420">
 
-      <el-row>
-        <el-col>
-          <tag :tag="tag" v-if="tag.name && tag.name.length > 0"></tag>
-        </el-col>
-      </el-row>
+        <el-table-column
+                prop="tags">
+
+          <template slot="header" slot-scope="scope">
+            <el-input
+                    v-model="search"
+                    size="mini"
+                    :placeholder="$t('settings.tag.search')"/>
+          </template>
+
+          <template slot-scope="scope">
+            <tag :tag="scope.row" :closable="deletable"
+                          @close="deleteTag(scope.row)"></tag>
+          </template>
+
+        </el-table-column>
+      </el-table>
+
+      <el-switch
+              v-model="deletable"
+              :active-text="$t('settings.tag.deletable')">
+      </el-switch>
+    </el-aside>
+    <el-main>
+
+      <h3>{{ $t('settings.tag.new') }}</h3>
+
+      <tag :tag="tag"></tag>
 
       <el-form ref="tagForm" :model="tag" label-position="top" :rules="rules">
+
         <el-form-item :label="$t('settings.tag.name')" prop="name">
           <el-input v-model="tag.name"
                     @keyup.enter.native="submit"
                     @submit.native.prevent="submit"></el-input>
         </el-form-item>
+
         <el-form-item :label="$t('settings.tag.color')" prop="color">
           <el-color-picker v-model="tag.color"></el-color-picker>
         </el-form-item>
+
         <el-form-item>
           <el-button type="success" @click.native="submit">{{ $t('settings.tag.submit') }}</el-button>
           <el-button type="danger" plain @click.native="reset">{{ $t('settings.tag.reset') }}</el-button>
         </el-form-item>
+
       </el-form>
-    </el-col>
-  </el-row>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -53,6 +80,8 @@ export default {
 
   data() {
     return {
+      search: '',
+      deletable: false,
       tag: {
         name: undefined,
         color: DEFAULT_TAG_COLOR
@@ -69,6 +98,13 @@ export default {
   },
 
   methods: {
+    updateLayoutTable() {
+      // necessary to update the layout and fit the ContextTypes right, doLayout() not working
+      // resets deletable back to false
+      this.deletable = true
+      this.deletable = false
+    },
+
     submit() {
       this.$refs.tagForm.validate((valid) => {
         if (valid) {
@@ -96,6 +132,13 @@ export default {
   computed: {
     tags() {
       return this.$store.state.tag.tags
+    },
+
+    headerStyle() {
+      return { border: '0', padding: '0' }
+    },
+    cellStyle() {
+      return { border: '0', paddingRight: '5px', paddingTop: '0', paddingBottom: '5px', float: 'right' }
     }
   }
 }
@@ -103,7 +146,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tag-row__tag {
-  margin-bottom: 5px;
+
+.el-input {
+  padding-left: 0;
 }
+
+.el-switch {
+  margin-top: 10px;
+}
+
+.el-form {
+  margin: auto;
+  width: 420px;
+}
+
+h2 {
+  margin-top: 0px;
+}
+
+.el-main {
+  padding-top: 0px;
+}
+
 </style>

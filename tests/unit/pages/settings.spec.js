@@ -2,7 +2,9 @@ import { shallowMount, mount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import Settings from '@/pages/Settings.vue'
+import TagSettings from '@/components/settings/TagSettings.vue'
 import EmptySlotComponent from '../EmptySlotComponent.vue'
+
 console.error = jest.fn()
 
 // mock the random function to get always the same id for working snapshots
@@ -42,6 +44,7 @@ describe('Pages', () => {
           }
         }
       }
+
       let cmp = mount(Settings, {
         i18n,
         mocks: {
@@ -53,9 +56,20 @@ describe('Pages', () => {
       expect(cmp.html()).toMatchSnapshot()
       const tabs = cmp.findAll('.el-tab-pane')
       expect(tabs.length).toBe(3)
-      cmp.find('.el-tabs').vm.$emit('tab-click')
-      // cmp.vm.updateContextType()
-      // expect(Settings.updateContextType).toHaveBeenCalled()
+
+      let tab = {
+        label: 'settings.tags'
+      }
+      let m = jest.fn()
+
+      cmp.vm.$refs.tagSettings.updateLayoutTable = m
+      cmp.find('.el-tabs').vm.$emit('tab-click', tab)
+      expect(m).toHaveBeenCalled()
+
+      tab.label = 'settings.context_types'
+      cmp.vm.$refs.contextTypeSettings.updateLayoutTable = m
+      cmp.find('.el-tabs').vm.$emit('tab-click', tab)
+      expect(m).toHaveBeenCalled()
     })
   })
 })

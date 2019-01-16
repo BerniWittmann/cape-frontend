@@ -120,6 +120,9 @@
       "color": "Color",
       "submit": "Submit",
       "reset": "Reset",
+      "deletable": "Deletable",
+      "search": "Type to search",
+      "new": "New Tag",
       "validation": {
         "name": {
           "required": "Please specify a Name"
@@ -135,7 +138,7 @@
       "icon": "Icon",
       "submit": "Submit",
       "reset": "Reset",
-      "deletable": "Deleteable",
+      "deletable": "Deletable",
       "search": "Type to search",
       "new": "New Context Type",
       "validation": {

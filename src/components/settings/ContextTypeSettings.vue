@@ -1,7 +1,6 @@
 <template>
   <el-container>
     <el-aside width="180px">
-
       <el-table
               class="el-table---disable-row-hover"
               :data="contextTypes.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
@@ -33,7 +32,8 @@
       </el-switch>
     </el-aside>
     <el-main>
-      <h2>{{ $t('settings.context_type.new') }}</h2>
+
+      <h3>{{ $t('settings.context_type.new') }}</h3>
 
       <context-type :contextType="contextType"></context-type>
 
@@ -82,6 +82,7 @@ import contextTypeService from '@/services/contextType'
 
 import ContextTypeComponent from '@/components/ContextType'
 import FAIconPicker from '@/components/settings/FAIconPicker'
+import { DEFAULT_ICON } from '@/utils/constants'
 
 export default {
   components: {
@@ -96,7 +97,7 @@ export default {
       showPopover: false,
       contextType: {
         name: undefined,
-        icon: 'fa-heart'
+        icon: DEFAULT_ICON
       },
       rules: {
         name: [
@@ -188,10 +189,6 @@ h2 {
 
 .el-main {
   padding-top: 0px;
-}
-
-.el-main > .context-type {
-  margin-bottom: 15px;
 }
 
 </style>
