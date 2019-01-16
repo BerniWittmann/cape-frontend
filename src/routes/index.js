@@ -48,7 +48,10 @@ const routes = [
       path: ':contextFactorID',
       component: EmptyRouterView,
       beforeEnter: (to, from, next) => {
-        ContextFactorService.get({ id: to.params.contextFactorID }).then(next)
+        Promise.all([
+          ContextTypeService.getAll(),
+          ContextFactorService.get({ id: to.params.contextFactorID })
+        ]).then(next)
       },
       children: [{
         path: 'edit',

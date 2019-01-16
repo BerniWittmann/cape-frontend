@@ -28,10 +28,26 @@
       "cancel": "Cancel",
       "save": "Save",
       "name": "Name",
+      "type": "Context Type",
+      "attributes": "Attributes",
+      "attribute": {
+        "key": "Key",
+        "value": "Value",
+        "add": "Add Attribute",
+        "remove": "Remove Attribute"
+      },
       "validation": {
         "name": {
           "required": "Please input a name",
           "min": "The name needs to be at least 3 chars long"
+        },
+        "attribute": {
+          "key": {
+            "required": "Please input a Key"
+          },
+          "value": {
+            "required": "Please input a Value"
+          }
         }
       }
     }
