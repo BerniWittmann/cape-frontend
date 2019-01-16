@@ -2,7 +2,6 @@ import { shallowMount, mount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import Settings from '@/pages/Settings.vue'
-import TagSettings from '@/components/settings/TagSettings.vue'
 import EmptySlotComponent from '../EmptySlotComponent.vue'
 
 console.error = jest.fn()
