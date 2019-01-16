@@ -4,10 +4,17 @@ exports[`Pages ContextFactors.vue renders the tree 1`] = `
 <vlayout-stub>
   <elrow-stub tag="div" justify="start" align="top">
     <elcol-stub span="20" tag="div" offset="2">
-      <div>
-        <h3>context_factor.title</h3>
-        <eltree-stub data="[object Object]" emptytext="暂无数据" renderafterexpand="true" defaultexpandall="true" expandonclicknode="true" autoexpandparent="true" draggable="true" allowdrag="function () { [native code] }" props="[object Object]" accordion="true" indent="18"></eltree-stub>
-      </div>
+      <h3>context_factor.title</h3>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div">
+          <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" placeholder="context_factor.filter_placeholder"></elinput-stub>
+        </elcol-stub>
+      </elrow-stub>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div">
+          <eltree-stub data="[object Object]" emptytext="暂无数据" renderafterexpand="true" defaultexpandall="true" expandonclicknode="true" autoexpandparent="true" draggable="true" allowdrag="function () { [native code] }" props="[object Object]" filternodemethod="function () { [native code] }" accordion="true" indent="18"></eltree-stub>
+        </elcol-stub>
+      </elrow-stub>
     </elcol-stub>
   </elrow-stub>
 </vlayout-stub>

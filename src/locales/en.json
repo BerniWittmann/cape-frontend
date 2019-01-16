@@ -23,6 +23,7 @@
   },
   "context_factor": {
     "title": "Context Factors",
+    "filter_placeholder": "Filter Context Factors",
     "edit": {
       "link": "Edit",
       "cancel": "Cancel",

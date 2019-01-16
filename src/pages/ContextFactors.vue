@@ -2,22 +2,33 @@
   <v-layout>
     <el-row>
       <el-col :span="20" :offset="2">
-        <div>
-          <h3>{{$t('context_factor.title')}}</h3>
-          <el-tree ref="tree" :data="contextTree" :default-expand-all="true" accordion
-                   @node-drop="handleDrop" draggable :allow-drag="allowDrag">
-            <span class="custom-tree-node" slot-scope="{ node, data }">
-              <span>{{ node.label }}</span>
-              <span class="align-right">
-                <el-button
-                        type="text"
-                        @click="edit(data)">
-                  {{ $t('context_factor.edit.link')}}
-                </el-button>
-              </span>
-            </span>
-          </el-tree>
-        </div>
+        <h3>{{$t('context_factor.title')}}</h3>
+        <el-row>
+          <el-col>
+            <el-input
+                    :placeholder="$t('context_factor.filter_placeholder')"
+                    v-model="filterText" clearable>
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col>
+            <el-tree ref="tree" :data="contextTree" :default-expand-all="true" accordion
+                     @node-drop="handleDrop" draggable :allow-drag="allowDrag" :filter-node-method="filterNode">
+                <span class="custom-tree-node" slot-scope="{ node, data }">
+                  <i :class="getIconClasses(data)"></i>
+                  <span>{{ node.label }}</span>
+                  <span class="align-right">
+                    <el-button
+                            type="text"
+                            @click="edit(data)">
+                      {{ $t('context_factor.edit.link')}}
+                    </el-button>
+                  </span>
+                </span>
+            </el-tree>
+          </el-col>
+        </el-row>
       </el-col>
     </el-row>
   </v-layout>
@@ -30,6 +41,16 @@ import ContextFactorService from '@/services/contextFactor'
 export default {
   components: {
     VLayout: DefaultLayout
+  },
+  data() {
+    return {
+      filterText: undefined
+    }
+  },
+  watch: {
+    filterText(val) {
+      this.$refs.tree.filter(val)
+    }
   },
   computed: {
     contextTree() {
@@ -60,6 +81,17 @@ export default {
     },
     allowDrag(draggingNode) {
       return this.hasMultipleRootElements || draggingNode.data.contextFactor.parentID
+    },
+    filterNode(value, data) {
+      if (!value || value.length === 0) return true
+      return data.label.toLowerCase().includes(value.toLowerCase())
+    },
+    getIconClasses(data) {
+      const result = ['fa', 'fa-fw']
+      if (data.contextFactor && data.contextFactor.contextType && data.contextFactor.contextType.icon) {
+        result.push(data.contextFactor.contextType.icon)
+      }
+      return result.join(' ')
     }
   }
 }
@@ -77,6 +109,13 @@ export default {
   .align-right {
     margin-left: auto;
     margin-right: 15px;
+  }
+}
+.el-row {
+  margin-bottom: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 }
 </style>

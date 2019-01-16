@@ -132,6 +132,33 @@ describe('Pages', () => {
       })
     })
 
+    it('renders the icon for a context Type', () => {
+      expect(cmp.vm.getIconClasses({ contextFactor: { contextType: undefined } })).toEqual('fa fa-fw')
+      expect(cmp.vm.getIconClasses({ contextFactor: { contextType: { icon: 'fa-heart' } } })).toEqual('fa fa-fw fa-heart')
+    })
+
+    describe('can filter for the tree nodes', () => {
+      beforeEach(() => {
+        cmp.vm.$refs.tree.filter = jest.fn()
+      })
+      it('displays all nodes if no search text given', () => {
+        cmp.vm.filterText = ''
+        expect(cmp.vm.$refs.tree.filter).toHaveBeenCalled()
+        expect(cmp.vm.filterNode('', { label: 'test' })).toBeTruthy()
+        expect(cmp.vm.filterNode(undefined, { label: 'test' })).toBeTruthy()
+      })
+      it('renders tree nodes that match the search text', () => {
+        cmp.vm.filterText = 'Test'
+        expect(cmp.vm.$refs.tree.filter).toHaveBeenCalled()
+        expect(cmp.vm.filterNode('Test', { label: 'test' })).toBeTruthy()
+        expect(cmp.vm.filterNode('Test', { label: 'TeST' })).toBeTruthy()
+        expect(cmp.vm.filterNode('Test', { label: 'ab_TeSTdde' })).toBeTruthy()
+        expect(cmp.vm.filterNode('TeST', { label: 'abtest' })).toBeTruthy()
+        expect(cmp.vm.filterNode('Test', { label: 'wrong' })).toBeFalsy()
+        expect(cmp.vm.filterNode('Test', { label: 'tesWRONGt' })).toBeFalsy()
+      })
+    })
+
     describe('it updates the tree structure on drag and drop', () => {
       it('updates a node, when it was dropped within another node', () => {
         cmp.vm.handleDrop(
