@@ -4,7 +4,8 @@
       <el-col :span="20" :offset="2">
         <div>
           <h3>{{$t('context_factor.title')}}</h3>
-          <el-tree ref="tree" :data="contextTree" :default-expand-all="true" :accordion="true">
+          <el-tree ref="tree" :data="contextTree" :default-expand-all="true" accordion
+                   @node-drop="handleDrop" draggable :allow-drag="allowDrag">
             <span class="custom-tree-node" slot-scope="{ node, data }">
               <span>{{ node.label }}</span>
               <span class="align-right">
@@ -24,6 +25,7 @@
 
 <script>
 import DefaultLayout from '@/layouts/Default.vue'
+import ContextFactorService from '@/services/contextFactor'
 
 export default {
   components: {
@@ -32,6 +34,9 @@ export default {
   computed: {
     contextTree() {
       return this.$store.getters['contextFactor/contextFactorsTree']
+    },
+    hasMultipleRootElements() {
+      return this.contextTree.length > 1
     }
   },
   methods: {
@@ -42,6 +47,19 @@ export default {
           contextFactorID: data.contextFactor.id
         }
       })
+    },
+    handleDrop(draggingNode, dropNode, dropType) {
+      let newParentID
+      if (dropType === 'inner') {
+        newParentID = dropNode.data.contextFactor.id
+      } else {
+        newParentID = dropNode.data.contextFactor.parentID
+      }
+      draggingNode.data.contextFactor.parentID = newParentID
+      ContextFactorService.update(draggingNode.data.contextFactor)
+    },
+    allowDrag(draggingNode) {
+      return this.hasMultipleRootElements || draggingNode.data.contextFactor.parentID
     }
   }
 }

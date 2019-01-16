@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import ContextFactors from '@/pages/ContextFactors.vue'
+import ContextFactorService from '@/services/contextFactor'
 
 describe('Pages', () => {
   describe('ContextFactors.vue', () => {
@@ -9,6 +10,7 @@ describe('Pages', () => {
     let router
     let message
     let cmp
+    ContextFactorService.update = jest.fn()
 
     beforeEach(() => {
       router = {
@@ -127,6 +129,68 @@ describe('Pages', () => {
         params: {
           contextFactorID: '5c3c83a5a0983a6a94272513'
         }
+      })
+    })
+
+    describe('it updates the tree structure on drag and drop', () => {
+      it('updates a node, when it was dropped within another node', () => {
+        cmp.vm.handleDrop(
+          { data: { contextFactor: { id: '1', name: 'A', parentID: '15' } } },
+          { data: { contextFactor: { id: '2', name: 'B', parentID: '99' } } },
+          'inner'
+        )
+        expect(ContextFactorService.update).toHaveBeenCalledWith({
+          id: '1', name: 'A', parentID: '2'
+        })
+      })
+      it('updates a node, when it was dropped before another node', () => {
+        cmp.vm.handleDrop(
+          { data: { contextFactor: { id: '1', name: 'A', parentID: '15' } } },
+          { data: { contextFactor: { id: '2', name: 'B', parentID: '99' } } },
+          'before'
+        )
+        expect(ContextFactorService.update).toHaveBeenCalledWith({
+          id: '1', name: 'A', parentID: '99'
+        })
+      })
+      it('updates a node, when it was dropped after another node', () => {
+        cmp.vm.handleDrop(
+          { data: { contextFactor: { id: '1', name: 'A', parentID: '15' } } },
+          { data: { contextFactor: { id: '2', name: 'B', parentID: '99' } } },
+          'after'
+        )
+        expect(ContextFactorService.update).toHaveBeenCalledWith({
+          id: '1', name: 'A', parentID: '99'
+        })
+      })
+      it('can update a node to a root node', () => {
+        cmp.vm.handleDrop(
+          { data: { contextFactor: { id: '1', name: 'A', parentID: '15' } } },
+          { data: { contextFactor: { id: '2', name: 'otherRoot', parentID: undefined } } },
+          'before'
+        )
+        expect(ContextFactorService.update).toHaveBeenCalledWith({
+          id: '1', name: 'A', parentID: undefined
+        })
+      })
+      it('prevents dragging for a single root element', () => {
+        expect(cmp.vm.allowDrag({ data: { contextFactor: { id: '2', name: 'root', parentID: undefined } } })).toBeFalsy()
+      })
+      it('does not prevent dragging for non root elements', () => {
+        expect(cmp.vm.allowDrag({ data: { contextFactor: { id: '2', name: 'inner', parentID: '19' } } })).toBeTruthy()
+      })
+      it('does not prevent dragging for multiple root elements', () => {
+        store.getters['contextFactor/contextFactorsTree'].push({
+          label: 'Other Root',
+          contextFactor: {
+            attributes: [],
+            id: '5c3c83a5a0983a6a94272599',
+            name: 'Other Root',
+            __v: 0
+          },
+          children: []
+        })
+        expect(cmp.vm.allowDrag({ data: { contextFactor: { id: '2', name: 'root', parentID: undefined } } })).toBeTruthy()
       })
     })
   })
