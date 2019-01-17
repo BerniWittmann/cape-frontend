@@ -1,4 +1,4 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import ContextFactors from '@/pages/ContextFactors.vue'
