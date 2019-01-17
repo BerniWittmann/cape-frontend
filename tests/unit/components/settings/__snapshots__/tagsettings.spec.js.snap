@@ -16,9 +16,8 @@ exports[`Components TagSettings renders 1`] = `
             <tr class="">
               <th colspan="1" rowspan="1" class="el-table_1_column_1     is-leaf" style="border: 0px; padding: 0px;">
                 <div class="cell">
-                  <div class="el-input el-input--mini">
-                    <!----><input type="text" autocomplete="off" placeholder="settings.tag.search" class="el-input__inner">
-                    <!---->
+                  <div class="el-input el-input--mini el-input--prefix">
+                    <!----><input type="text" autocomplete="off" placeholder="settings.tag.search" class="el-input__inner"><span class="el-input__prefix"><i class="el-input__icon el-icon-search"></i><!----></span>
                     <!---->
                     <!---->
                   </div>

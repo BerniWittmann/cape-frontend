@@ -60,6 +60,21 @@ describe('Vuex', () => {
           })
         })
 
+        describe('ADD', () => {
+          it('adds a given context factor', () => {
+            state.contextFactors = [{ id: 1 }, { id: 2 }]
+            cFMutations[mutationTypes.ADD](state, { id: 3 })
+
+            expect(state.contextFactors).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
+          })
+
+          it('adds a given task to an empty array', () => {
+            cFMutations[mutationTypes.ADD](state, { id: 1 })
+
+            expect(state.contextFactors).toEqual([{ id: 1 }])
+          })
+        })
+
         describe('SET_ACTIVE', () => {
           beforeEach(() => {
             state.contextFactors = [{ id: 1, test: 'data' }, { id: 2 }]

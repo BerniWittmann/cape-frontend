@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import ContextFactors from '@/pages/ContextFactors.vue'
@@ -201,7 +201,15 @@ describe('Pages', () => {
         })
       })
       it('prevents dragging for a single root element', () => {
-        expect(cmp.vm.allowDrag({ data: { contextFactor: { id: '2', name: 'root', parentID: undefined } } })).toBeFalsy()
+        expect(cmp.vm.allowDrag({
+          data: {
+            contextFactor: {
+              id: '2',
+              name: 'root',
+              parentID: undefined
+            }
+          }
+        })).toBeFalsy()
       })
       it('does not prevent dragging for non root elements', () => {
         expect(cmp.vm.allowDrag({ data: { contextFactor: { id: '2', name: 'inner', parentID: '19' } } })).toBeTruthy()
@@ -217,7 +225,15 @@ describe('Pages', () => {
           },
           children: []
         })
-        expect(cmp.vm.allowDrag({ data: { contextFactor: { id: '2', name: 'root', parentID: undefined } } })).toBeTruthy()
+        expect(cmp.vm.allowDrag({
+          data: {
+            contextFactor: {
+              id: '2',
+              name: 'root',
+              parentID: undefined
+            }
+          }
+        })).toBeTruthy()
       })
     })
   })

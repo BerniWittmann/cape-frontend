@@ -2,19 +2,22 @@
 
 exports[`Pages ContextFactors.vue renders the tree 1`] = `
 <vlayout-stub>
-  <elrow-stub tag="div" justify="start" align="top">
-    <elcol-stub span="20" tag="div" offset="2">
-      <h3>context_factor.title</h3>
-      <elrow-stub tag="div" justify="start" align="top">
-        <elcol-stub span="24" tag="div">
-          <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" placeholder="context_factor.filter_placeholder"></elinput-stub>
-        </elcol-stub>
-      </elrow-stub>
-      <elrow-stub tag="div" justify="start" align="top">
-        <elcol-stub span="24" tag="div">
-          <eltree-stub data="[object Object]" emptytext="暂无数据" renderafterexpand="true" defaultexpandall="true" expandonclicknode="true" autoexpandparent="true" draggable="true" allowdrag="function () { [native code] }" props="[object Object]" filternodemethod="function () { [native code] }" accordion="true" indent="18"></eltree-stub>
-        </elcol-stub>
-      </elrow-stub>
+  <elrow-stub tag="div" gutter="20" justify="end" align="top">
+    <elcol-stub span="10" tag="div">
+      <elform-stub model="[object Object]" rules="[object Object]" labelposition="top" labelsuffix="" inline="true" statusicon="true" showmessage="true" validateonrulechange="true">
+        <elformitem-stub prop="name" inlinemessage="" showmessage="true">
+          <elinput-stub type="text" autocomplete="off" validateevent="true" placeholder="context_factor.new_context_factor_name"></elinput-stub>
+        </elformitem-stub>
+        <elbutton-stub type="default" icon="el-icon-plus" nativetype="button">context_factor.create_new</elbutton-stub>
+      </elform-stub>
+    </elcol-stub>
+    <elcol-stub span="6" tag="div" offset="8">
+      <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" placeholder="context_factor.filter_placeholder"><i class="el-input__icon el-icon-search"></i></elinput-stub>
+    </elcol-stub>
+  </elrow-stub>
+  <elrow-stub tag="div" gutter="20" justify="start" align="top">
+    <elcol-stub span="24" tag="div">
+      <eltree-stub data="[object Object]" emptytext="暂无数据" renderafterexpand="true" defaultexpandall="true" expandonclicknode="true" autoexpandparent="true" draggable="true" allowdrag="function () { [native code] }" props="[object Object]" highlightcurrent="true" filternodemethod="function () { [native code] }" accordion="true" indent="18"></eltree-stub>
     </elcol-stub>
   </elrow-stub>
 </vlayout-stub>

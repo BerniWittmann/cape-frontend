@@ -173,5 +173,74 @@ describe('Services', () => {
         })
       })
     })
+
+    describe('create', () => {
+      it('should create a context factor', (done) => {
+        moxios.stubRequest('/context_factors', {
+          status: 200,
+          response: cFData
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.create({ name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextFactor/add', new ContextFactor(cFData))
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_factors', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_factors', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_factor.post.failed.title',
+            message: 'notifications.context_factor.post.failed.message'
+          })
+          done()
+        })
+      })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/context_factors', {
+          status: 200,
+          response: cFData
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.create({ name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.context_factor.post.success.title',
+            message: 'notifications.context_factor.post.success.message'
+          })
+          done()
+        })
+      })
+    })
   })
 })

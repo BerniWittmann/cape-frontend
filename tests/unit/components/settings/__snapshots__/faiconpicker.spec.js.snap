@@ -3,9 +3,8 @@
 exports[`Components Font Awesome Icon Picker renders 1`] = `
 <section class="el-container font-awesome-chooser is-vertical" search="">
   <header class="el-header" style="height: 60px;">
-    <div class="el-input el-input--mini">
-      <!----><input type="text" autocomplete="off" placeholder="Type to search" class="el-input__inner">
-      <!---->
+    <div class="el-input el-input--mini el-input--prefix">
+      <!----><input type="text" autocomplete="off" placeholder="Type to search" class="el-input__inner"><span class="el-input__prefix"><i class="el-input__icon el-icon-search"></i><!----></span>
       <!---->
       <!---->
     </div> <button type="button" class="el-button el-button--default el-button--mini">
