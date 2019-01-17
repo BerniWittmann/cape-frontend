@@ -15,7 +15,9 @@
             <el-input
                     v-model="search"
                     size="mini"
-                    :placeholder="$t('settings.tag.search')"/>
+                    :placeholder="$t('settings.tag.search')">
+              <i slot="prefix" class="el-input__icon el-icon-search"></i>
+            </el-input>
           </template>
 
           <template slot-scope="scope">

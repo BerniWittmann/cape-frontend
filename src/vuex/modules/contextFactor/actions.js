@@ -24,9 +24,14 @@ export const unsetActive = ({ commit }) => {
   commit(types.SET_ACTIVE, undefined)
 }
 
+export const add = ({ commit }, payload) => {
+  commit(types.ADD, payload)
+}
+
 export default {
   store,
   update,
   setActive,
-  unsetActive
+  unsetActive,
+  add
 }

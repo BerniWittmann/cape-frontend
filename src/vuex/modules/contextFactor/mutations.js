@@ -6,7 +6,7 @@
  * contextFactor  module.
  */
 
-import { STORE, UPDATE, SET_ACTIVE } from './mutation-types'
+import { STORE, UPDATE, ADD, SET_ACTIVE } from './mutation-types'
 
 export default {
   [STORE](state, contextFactors) {
@@ -17,6 +17,9 @@ export default {
     if (state.activeContextFactor && state.activeContextFactor.id === contextFactor.id) {
       state.activeContextFactor = { ...contextFactor }
     }
+  },
+  [ADD](state, contextFactor) {
+    state.contextFactors.push(contextFactor)
   },
   [SET_ACTIVE](state, contextFactor) {
     if (!contextFactor || !contextFactor.id) {

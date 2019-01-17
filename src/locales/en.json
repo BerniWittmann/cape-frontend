@@ -23,7 +23,9 @@
   },
   "context_factor": {
     "title": "Context Factors",
-    "filter_placeholder": "Filter Context Factors",
+    "filter_placeholder": "Search Context Factors",
+    "create_new": "New Context Factor",
+    "new_context_factor_name": "New Context Factor Name",
     "edit": {
       "link": "Edit",
       "cancel": "Cancel",
@@ -197,6 +199,16 @@
         "success": {
           "title": "Success",
           "message": "The Context Factor got updated"
+        }
+      },
+      "post": {
+        "failed": {
+          "title": "Error",
+          "message": "Creating the Context Factor failed"
+        },
+        "success": {
+          "title": "Success",
+          "message": "The Context Factor got created"
         }
       }
     },

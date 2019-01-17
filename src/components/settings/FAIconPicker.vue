@@ -1,7 +1,9 @@
 <template>
   <el-container class="font-awesome-chooser">
     <el-header>
-      <el-input v-model="search" placeholder="Type to search" size="mini"></el-input>
+      <el-input v-model="search" placeholder="Type to search" size="mini">
+        <i slot="prefix" class="el-input__icon el-icon-search"></i>
+      </el-input>
       <el-button icon="el-icon-close" @click="emitClose" size="mini">Close</el-button>
     </el-header>
     <el-main id="icon-overview">

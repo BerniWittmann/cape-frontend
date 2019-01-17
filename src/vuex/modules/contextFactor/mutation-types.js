@@ -9,9 +9,11 @@
 export const STORE = 'STORE'
 export const UPDATE = 'UPDATE'
 export const SET_ACTIVE = 'SET_ACTIVE'
+export const ADD = 'ADD'
 
 export default {
   STORE,
   UPDATE,
-  SET_ACTIVE
+  SET_ACTIVE,
+  ADD
 }
