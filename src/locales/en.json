@@ -293,5 +293,8 @@
         "not_allowed": "This Context is in use"
       }
     }
+  },
+  "websocket": {
+    "connection_closed": "No Connection to WebSocket. Reconnecting..."
   }
 }

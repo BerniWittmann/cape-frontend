@@ -3,7 +3,7 @@
 exports[`Pages ProcessRepository.vue it has a process import Button has the correct props 1`] = `
 Object {
   "accept": ".bpmn,.xml",
-  "action": "http://localhost:10010/processes/get_process_data_from_file",
+  "action": "http://localhost:10010/api/processes/get_process_data_from_file",
   "autoUpload": true,
   "beforeRemove": undefined,
   "beforeUpload": undefined,
@@ -37,7 +37,7 @@ exports[`Pages ProcessRepository.vue renders 1`] = `
     <elcol-stub span="12" tag="div"><a>
         <elbutton-stub type="default" icon="el-icon-plus" nativetype="button">process.create_new</elbutton-stub>
       </a>
-      <elupload-stub action="http://localhost:10010/processes/get_process_data_from_file" headers="[object Object]" name="file" drag="true" showfilelist="true" accept=".bpmn,.xml" type="select" onremove="function noop() {}" onchange="function noop() {}" onsuccess="function () { [native code] }" onprogress="function noop() {}" onerror="function () { [native code] }" filelist="" autoupload="true" listtype="text" onexceed="function noop() {}" class="process-import-upload">
+      <elupload-stub action="http://localhost:10010/api/processes/get_process_data_from_file" headers="[object Object]" name="file" drag="true" showfilelist="true" accept=".bpmn,.xml" type="select" onremove="function noop() {}" onchange="function noop() {}" onsuccess="function () { [native code] }" onprogress="function noop() {}" onerror="function () { [native code] }" filelist="" autoupload="true" listtype="text" onexceed="function noop() {}" class="process-import-upload">
         <elbutton-stub type="default" icon="el-icon-upload" nativetype="button">process.import.button_text</elbutton-stub>
       </elupload-stub>
     </elcol-stub>

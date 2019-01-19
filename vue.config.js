@@ -46,6 +46,12 @@ module.exports = {
   },
 
   devServer: {
-    proxy: process.env.VUE_APP_API_LOCATION
+    proxy: {
+      '/api': {
+        target: process.env.VUE_APP_API_LOCATION,
+        ws: true,
+        changeOrigin: true
+      }
+    }
   }
 }

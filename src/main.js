@@ -14,12 +14,18 @@ import './plugins/axios'
 import './plugins/element.js'
 import './plugins/bpmn'
 import './assets/styles/external.scss'
+import WebSocketService from './services/websocket'
 
 Vue.config.productionTip = false
+
+const ws = new WebSocketService()
 
 new Vue({
   router,
   store,
   i18n,
-  render: h => h(App)
+  render: h => h(App),
+  destroyed: () => {
+    ws.close()
+  }
 }).$mount('#app')
