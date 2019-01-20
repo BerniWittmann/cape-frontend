@@ -1,8 +1,9 @@
 <template>
   <el-dialog :title="activeContextFactor.name" :visible.sync="showContextFactorEdit">
-    <el-row>
+    <el-row class="less-margin-top">
       <el-col>
-        <el-form :model="contextFactorData" :rules="rules" ref="contextFactorForm" label-position="left" label-width="120px">
+        <el-form :model="contextFactorData" :rules="rules" ref="contextFactorForm" label-position="top"
+                 label-width="120px" inline>
           <el-form-item :label="$t('context_factor.edit.name')" prop="name">
             <el-input v-model="contextFactorData.name"></el-input>
           </el-form-item>
@@ -18,29 +19,41 @@
               </el-option>
             </el-select>
           </el-form-item>
-
           <br>
           <h4>{{ $t('context_factor.edit.attributes') }}</h4>
-          <el-form v-for="(attr, idx) in contextFactorData.attributes" :key="idx" :model="attr" inline :rules="attributeRules" :ref="'contextAttributeForm' + idx">
-            <el-form-item prop="key">
-              <el-input v-model="attr.key" :placeholder="$t('context_factor.edit.attribute.key')"></el-input>
-            </el-form-item>
-            <el-form-item prop="value">
-              <el-input v-model="attr.value" :placeholder="$t('context_factor.edit.attribute.value')"></el-input>
-            </el-form-item>
-            <el-tooltip :content="$t('context_factor.edit.attribute.remove')">
-              <el-button plain type="info" icon="el-icon-close" @click="removeAttribute(idx)"></el-button>
-            </el-tooltip>
-          </el-form>
-          <el-button plain icon="el-icon-plus" @click="addAttribute()">
+          <ul>
+            <template v-for="(attr, idx) in contextFactorData.attributes">
+              <li :key="idx">
+                <el-form :model="attr" inline :rules="attributeRules" :ref="'contextAttributeForm' + idx">
+                  <el-form-item prop="key">
+                    <el-input v-model="attr.key" :placeholder="$t('context_factor.edit.attribute.key')"></el-input>
+                  </el-form-item>
+                  <el-form-item prop="value">
+                    <el-input v-model="attr.value" :placeholder="$t('context_factor.edit.attribute.value')"></el-input>
+                  </el-form-item>
+                  <el-tooltip :content="$t('context_factor.edit.attribute.remove')">
+                    <el-button plain type="info" icon="el-icon-close" @click="removeAttribute(idx)"></el-button>
+                  </el-tooltip>
+                </el-form>
+              </li>
+            </template>
+          </ul>
+          <el-button plain icon="el-icon-plus" size="small" @click="addAttribute()">
             {{ $t('context_factor.edit.attribute.add') }}
           </el-button>
         </el-form>
       </el-col>
     </el-row>
-    <el-row slot="footer">
-      <el-col>
-        <el-button type="text" @click="closeDialog">{{ $t('context_factor.edit.cancel') }}</el-button>
+    <el-row slot="footer" justify="end" :gutter="20">
+      <el-col :span="8" id="left-align">
+          <el-button @click.native="$emit('reset-process')" type="danger" plain>
+            {{ $t('context_factor.edit.reset') }}
+          </el-button>
+          <el-button @click.native="$emit('reset-process')" type="danger">
+            {{ $t('context_factor.edit.delete') }}
+          </el-button>
+      </el-col>
+      <el-col :span="5" :offset="10">
         <el-button type="success" @click="save">{{ $t('context_factor.edit.save') }}</el-button>
       </el-col>
     </el-row>
@@ -73,7 +86,11 @@ export default {
           { required: true, message: this.$t('context_factor.edit.validation.attribute.key.required'), trigger: 'blur' }
         ],
         value: [
-          { required: true, message: this.$t('context_factor.edit.validation.attribute.value.required'), trigger: 'blur' }
+          {
+            required: true,
+            message: this.$t('context_factor.edit.validation.attribute.value.required'),
+            trigger: 'blur'
+          }
         ]
       }
     }
@@ -162,7 +179,38 @@ export default {
 .context-type-icon {
   margin-right: 10px;
 }
+
 input {
   width: 80%;
+}
+
+ul {
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+.el-form-item {
+  margin-bottom: 5px;
+  width: 35%;
+}
+
+#left-align {
+  text-align: left;
+}
+
+.less-margin-top {
+ margin-top: -20px;
+}
+
+</style>
+<!-- if this is in the scoped style it does not work -> TODO: better solutions? -->
+<style>
+.el-form-item__content {
+  width: 100%;
 }
 </style>

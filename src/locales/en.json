@@ -30,6 +30,8 @@
       "link": "Edit",
       "cancel": "Cancel",
       "save": "Save",
+      "reset": "Reset",
+      "delete": "Delete",
       "name": "Name",
       "type": "Context Type",
       "attributes": "Attributes",

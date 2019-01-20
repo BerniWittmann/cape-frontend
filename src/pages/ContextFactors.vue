@@ -13,7 +13,7 @@
         <el-button icon="el-icon-plus" @click="createNew">{{ $t('context_factor.create_new') }}</el-button>
       </el-form>
       </el-col>
-      <el-col :span="6" :offset="8">
+      <el-col :span="4" :offset="10">
         <el-input
                 :placeholder="$t('context_factor.filter_placeholder')"
                 v-model="filterText" clearable>
@@ -24,7 +24,8 @@
     <el-row :gutter="20">
       <el-col :span="24">
         <el-tree ref="tree" :data="contextTree" :default-expand-all="true" accordion highlight-current
-                 @node-drop="handleDrop" draggable :allow-drag="allowDrag" :filter-node-method="filterNode">
+                 @node-drop="handleDrop" draggable :allow-drag="allowDrag" :filter-node-method="filterNode"
+                 v-on:dblclick.native="editDouble">
                 <span class="custom-tree-node" slot-scope="{ node, data }">
                   <i :class="getIconClasses(data)"></i>
                   <span>{{ node.label }}</span>
@@ -82,6 +83,11 @@ export default {
   },
 
   methods: {
+    editDouble() {
+      // with v-on we we just get the html of the clicked node instead we use the currentNode
+      // because the first click is not prevented and does select the correct node
+      this.edit(this.$refs.tree.getCurrentNode())
+    },
     edit(data) {
       this.$router.push({
         name: 'context_factors.edit',

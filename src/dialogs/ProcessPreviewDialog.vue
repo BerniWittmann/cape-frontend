@@ -1,25 +1,35 @@
 <template>
   <el-dialog :title="activeProcess.name" :visible.sync="showProcessPreview">
-    <el-row>
+    <el-row class="margin-props">
       <el-col>
+        {{$t('process.edit.properties')}}
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col class="margin-left">
         <tag v-for="tag in activeProcess.tags" :tag="tag" :key="tag.id" size="small"></tag>
       </el-col>
     </el-row>
     <el-row class="margin-top">
-      <el-col>
+      <el-col class="margin-left">
         <span>{{activeProcess.description}}</span>
       </el-col>
     </el-row>
     <br>
     <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="processSVG" class="svg-view margin-top"></iframe>
-    <el-row class="margin-top">
-      <el-col>
-        <el-button icon="el-icon-edit" size="small" @click="editProcess">{{ $t('process.edit.link') }}
-        </el-button>
-        <el-button icon="el-icon-delete" type="danger" plain size="small" @click="deleteProcess">{{
+    <el-row class="margin-top" justify="end" :gutter="20">
+      <el-col :span="6">
+        <el-button icon="el-icon-delete" type="danger" @click="deleteProcess">{{
           $t('process.delete.delete_button') }}
         </el-button>
-        <a :href="fileContent" :download="fileName" class="download-link"><el-button plain size="small" icon="el-icon-download">{{$t('process.edit.download')}}</el-button></a>
+      </el-col>
+      <el-col :span="8" :offset="10">
+        <div style="float: right">
+        <a :href="fileContent" :download="fileName" class="download-link">
+          <el-button plain icon="el-icon-download">{{$t('process.edit.download')}}</el-button>
+        </a>
+        <el-button icon="el-icon-edit" @click="editProcess" class="margin-left">{{ $t('process.edit.link') }}</el-button>
+        </div>
       </el-col>
     </el-row>
   </el-dialog>
@@ -57,7 +67,7 @@ export default {
       const maxHeight = 500
       const heightPos = this.activeProcess.svg.indexOf('height="') + 8
       const height = parseInt(this.activeProcess.svg.substring(heightPos, this.activeProcess.svg.indexOf('"', heightPos)))
-      return height <= maxHeight ? height + 20 + 'px' : maxHeight + 'px'
+      return height <= maxHeight ? height + 25 + 'px' : maxHeight + 'px'
     },
     fileContent() {
       return 'data:text/xml,' + encodeURIComponent(this.activeProcess.xml)
@@ -117,7 +127,16 @@ export default {
 }
 
 .margin-top {
-  margin-top: 15px;
+  margin-top: 25px;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.margin-props {
+  margin-top: -25px;
+  margin-bottom: 10px;
 }
 
 .download-link {
