@@ -95,6 +95,14 @@ describe('Pages', () => {
               ]
             }
           ]
+        },
+        state: {
+          contextFactor: {
+            contextFactors: [{
+              id: 12,
+              name: 'CF'
+            }]
+          }
         }
       }
       render()
@@ -234,6 +242,83 @@ describe('Pages', () => {
             }
           }
         })).toBeTruthy()
+      })
+    })
+    describe('creating new context factors', () => {
+      it('can create new context factor with parentID', () => {
+        cmp.vm.newContextFactor.name = 'New CF'
+        cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
+          valid(true)
+        })
+        cmp.vm.$refs.tree.getCurrentNode = jest.fn().mockImplementation(() => {
+          return { contextFactor: { id: '12' } }
+        })
+        ContextFactorService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.createNew()
+        expect(ContextFactorService.create).toHaveBeenCalledWith({
+          '_id': undefined,
+          'attributes': [],
+          'context_type': undefined,
+          'name': 'New CF',
+          'parentID': '12'
+        })
+      })
+      it('can create new context factor as root', () => {
+        cmp.vm.newContextFactor.name = 'New CF'
+        cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
+          valid(true)
+        })
+        cmp.vm.$refs.tree.getCurrentNode = jest.fn().mockImplementation(() => {
+          return undefined
+        })
+        ContextFactorService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.createNew()
+        expect(ContextFactorService.create).toHaveBeenCalledWith({
+          '_id': undefined,
+          'attributes': [],
+          'context_type': undefined,
+          'name': 'New CF',
+          'parentID': undefined
+        })
+      })
+
+      it('cannot create new context factor if validation failed', () => {
+        cmp.vm.newContextFactor.name = 'New CF'
+        cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
+          valid(false)
+        })
+        cmp.vm.$refs.tree.getCurrentNode = jest.fn().mockImplementation(() => {
+          return undefined
+        })
+        ContextFactorService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.createNew()
+        expect(ContextFactorService.create).not.toHaveBeenCalled()
+      })
+
+      it('opens the new context factor in edit view', () => {
+        cmp.vm.newContextFactor.name = 'New CF'
+        cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
+          valid(true)
+        })
+        cmp.vm.$refs.tree.getCurrentNode = jest.fn().mockImplementation(() => {
+          return undefined
+        })
+        ContextFactorService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.createNew()
+        expect(router.push).toHaveBeenCalledWith({
+          name: 'context_factors.edit',
+          params: {
+            contextFactorID: 12
+          }
+        })
       })
     })
   })

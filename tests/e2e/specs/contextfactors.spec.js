@@ -20,6 +20,16 @@ describe('Context Factors Page', () => {
     cy.get('.el-col-6 > .el-input > .el-input__inner').type('Do')
     cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > .el-tree-node__content > .custom-tree-node > :nth-child(2)').should('not.be.visible')
   })
+  it('can add a context factor', () => {
+    cy.get('.el-form-item__content > .el-input > .el-input__inner').type('New CF')
+    cy.wait(300)
+    cy.get('.el-form > .el-button').click()
+    cy.wait(300)
+    cy.url().should('contain', Cypress.config().baseUrl + '/context_factors/')
+    cy.url().should('contain', 'edit')
+    cy.get('.el-button--success').click()
+    cy.get('[style="padding-left: 0px;"] > .custom-tree-node > :nth-child(2)').contains('New CF')
+  })
   it('can edit a context factor', () => {
     cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .align-right > .el-button > span').click()
     cy.url().should('contain', Cypress.config().baseUrl + '/context_factors/')

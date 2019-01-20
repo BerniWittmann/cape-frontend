@@ -2,7 +2,7 @@
 
 exports[`Components ContextTypeSettings renders 1`] = `
 <section class="el-container">
-  <aside class="el-aside" style="width: 180px;">
+  <aside class="el-aside" style="width: 240px;">
     <div class="el-table el-table---disable-row-hover el-table--fit el-table--scrollable-x el-table--enable-row-hover el-table--enable-row-transition" style="height: 420px;">
       <div class="hidden-columns">
         <div></div>
@@ -36,7 +36,7 @@ exports[`Components ContextTypeSettings renders 1`] = `
             <tr class="el-table__row">
               <td rowspan="1" colspan="1" class="el-table_1_column_1  " style="border: 0px; padding-right: 5px; padding-top: 0px; padding-bottom: 5px; float: right;">
                 <div class="cell">
-                  <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-heart"></i>
+                  <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-fw fa-heart"></i>
     My first ContextType
     <!----></span></div>
                 </div>
@@ -45,7 +45,7 @@ exports[`Components ContextTypeSettings renders 1`] = `
             <tr class="el-table__row">
               <td rowspan="1" colspan="1" class="el-table_1_column_1  " style="border: 0px; padding-right: 5px; padding-top: 0px; padding-bottom: 5px; float: right;">
                 <div class="cell">
-                  <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-play"></i>
+                  <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-fw fa-play"></i>
     Context Type
     <!----></span></div>
                 </div>
@@ -68,7 +68,7 @@ exports[`Components ContextTypeSettings renders 1`] = `
   </aside>
   <main class="el-main">
     <h3>settings.context_type.new</h3>
-    <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-heart"></i>
+    <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-fw fa-heart"></i>
     
     <!----></span></div>
     <form class="el-form el-form--label-top">

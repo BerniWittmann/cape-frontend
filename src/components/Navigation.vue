@@ -8,7 +8,7 @@
       <div class="nav-image"></div>
     </router-link>
     <el-menu-item :route="{ name: 'processes' }" index="processes">{{ $t('nav.processes') }}</el-menu-item>
-    <el-menu-item :route="{ name: 'context_factors'}" index="contextFactors">{{$t('nav.context_factors')}}</el-menu-item>
+    <el-menu-item :route="{ name: 'context_factors'}" index="context_factors">{{$t('nav.context_factors')}}</el-menu-item>
   </el-menu>
 </template>
 <script>

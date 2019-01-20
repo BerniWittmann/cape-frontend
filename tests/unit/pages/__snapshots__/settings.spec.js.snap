@@ -34,7 +34,7 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
       <div class="el-tabs__content">
         <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display: none;">
           <section class="el-container">
-            <aside class="el-aside" style="width: 180px;">
+            <aside class="el-aside" style="width: 240px;">
               <div class="el-table el-table---disable-row-hover el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
                 <div class="hidden-columns">
                   <div></div>
@@ -133,7 +133,7 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
         </div>
         <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display: none;">
           <section class="el-container">
-            <aside class="el-aside" style="width: 180px;">
+            <aside class="el-aside" style="width: 240px;">
               <div class="el-table el-table---disable-row-hover el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
                 <div class="hidden-columns">
                   <div></div>
@@ -168,7 +168,7 @@ exports[`Pages Settings updates the context type table layout on tab click 1`] =
             </aside>
             <main class="el-main">
               <h3>settings.context_type.new</h3>
-              <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-heart"></i>
+              <div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-fw fa-heart"></i>
     
     <!----></span></div>
               <form class="el-form el-form--label-top">

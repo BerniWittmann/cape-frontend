@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="180px">
+    <el-aside width="240px">
       <el-table
               class="el-table---disable-row-hover"
               :data="contextTypes.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"

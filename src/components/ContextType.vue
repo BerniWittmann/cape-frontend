@@ -1,7 +1,7 @@
 <template>
   <div class="context-type">
     <span class="tag tag-row__tag el-tag">
-      <i class="fa fa-lg" :class="contextType.icon" id="fa-icon"></i>
+      <i class="fa fa-lg fa-fw" :class="contextType.icon" id="fa-icon"></i>
       {{ contextType.name }}
       <i class="el-tag__close el-icon-close" @click="emitClose" v-if="closable"></i>
     </span>

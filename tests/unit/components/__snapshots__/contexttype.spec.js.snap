@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components ContextType renders 1`] = `
-<div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-heart"></i>
+<div class="context-type"><span class="tag tag-row__tag el-tag"><i id="fa-icon" class="fa fa-lg fa-fw fa-heart"></i>
     My ContextType
     <!----></span></div>
 `;
