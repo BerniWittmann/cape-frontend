@@ -17,7 +17,7 @@ describe('Context Factors Page', () => {
   })
   it('can filter the context factors', () => {
     cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > .el-tree-node__content > .custom-tree-node > :nth-child(2)').should('be.visible')
-    cy.get('.el-col-6 > .el-input > .el-input__inner').type('Do')
+    cy.get('.el-col > .el-input > .el-input__inner').type('Do')
     cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > .el-tree-node__content > .custom-tree-node > :nth-child(2)').should('not.be.visible')
   })
   it('can add a context factor', () => {
@@ -35,8 +35,8 @@ describe('Context Factors Page', () => {
     cy.url().should('contain', Cypress.config().baseUrl + '/context_factors/')
     cy.url().should('contain', 'edit')
     cy.get('.el-dialog__body > .el-row > .el-col > .el-form > .is-required > .el-form-item__content > .el-input > .el-input__inner').type(' new')
-    cy.get('.el-dialog__body > .el-row > .el-col > .el-form > .el-button').click()
-    cy.get('.el-form--label-left > .el-form > :nth-child(1) > .el-form-item__content > .el-input > .el-input__inner').type('Foo')
+    cy.get('.less-margin-top > .el-col > .el-form > .el-button').click()
+    cy.get('li > .el-form > :nth-child(1) > .el-form-item__content > .el-input > .el-input__inner').type('Foo')
     cy.get(':nth-child(2) > .el-form-item__content > .el-input > .el-input__inner').type('Bar')
     cy.get('.el-select > .el-input > .el-input__inner').click()
     cy.get('.el-scrollbar__view > :nth-child(2) > span').click()

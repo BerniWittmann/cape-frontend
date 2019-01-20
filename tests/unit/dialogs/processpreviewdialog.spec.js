@@ -146,7 +146,7 @@ describe('Dialogs', () => {
     })
 
     it('can extract and reuse the height from svg', () => {
-      expect(cmp.find('iframe').attributes('style')).toEqual('height: 50px;')
+      expect(cmp.find('iframe').attributes('style')).toEqual('height: 55px;')
       store = {
         state: {
           process: {
@@ -250,9 +250,9 @@ describe('Dialogs', () => {
 
     it('can be edited', () => {
       expect(cmp.html()).toMatchSnapshot()
-      const button = cmp.find('elrow-stub button')
-      expect(button.exists()).toBeTruthy()
-      button.trigger('click')
+      const button = cmp.findAll('elrow-stub button')
+      expect(button.length).toBe(3)
+      button.at(2).trigger('click')
       expect(router.push).toHaveBeenCalledWith({
         name: 'process.edit',
         params: route.params
@@ -276,7 +276,7 @@ describe('Dialogs', () => {
       })
       it('show as confirmation dialog', () => {
         expect(cmp.html()).toMatchSnapshot()
-        const button = cmp.findAll('elrow-stub button').at(1)
+        const button = cmp.findAll('elrow-stub button').at(0)
         expect(button.exists()).toBeTruthy()
         button.trigger('click')
         expect(cmp.vm.$confirm).toHaveBeenCalledWith('process.delete.message', 'process.delete.warning',
@@ -288,7 +288,7 @@ describe('Dialogs', () => {
             'confirmButtonClass': 'el-button--danger'
           })
       })
-      it('deletes the process on confirm  ', () => {
+      it('deletes the process on confirm', () => {
         cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
           then: (arg) => {
             arg()
@@ -298,12 +298,12 @@ describe('Dialogs', () => {
             }
           }
         }))
-        cmp.findAll('elrow-stub button').at(1).trigger('click')
+        cmp.findAll('elrow-stub button').at(0).trigger('click')
         expect(ProcessService.remove).toHaveBeenCalledWith(store.state.process.activeProcess)
         expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'process.delete.confirmation', 'type': 'success' })
         expect(router.back).toHaveBeenCalled()
       })
-      it('deletes the process on confirm  ', () => {
+      it('does not delete the process if canceled', () => {
         cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
           then: () => {
             return {
@@ -313,7 +313,7 @@ describe('Dialogs', () => {
             }
           }
         }))
-        cmp.findAll('elrow-stub button').at(1).trigger('click')
+        cmp.findAll('elrow-stub button').at(0).trigger('click')
         expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'process.delete.cancellation', 'type': 'info' })
       })
     })

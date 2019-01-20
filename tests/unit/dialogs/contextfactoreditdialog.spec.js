@@ -34,7 +34,17 @@ describe('Dialogs', () => {
                 key: 'foo',
                 value: 'bar'
               }]
-            })
+            }),
+            contextFactors: [new ContextFactor({
+              id: '1',
+              name: 'My Context Factor',
+              contextType: undefined,
+              attributes: [{
+                id: 'ca1',
+                key: 'foo',
+                value: 'bar'
+              }]
+            })]
           },
           contextType: {
             contextTypes: [new ContextType({
@@ -128,7 +138,7 @@ describe('Dialogs', () => {
         })
 
         it('it has a key input', () => {
-          const form = cmp.find('.el-form--inline')
+          const form = cmp.findAll('.el-form--inline').at(1)
           const input = form.findAll('input').at(0)
           expect(input.exists()).toBeTruthy()
           input.setValue('new Key')
@@ -136,7 +146,7 @@ describe('Dialogs', () => {
         })
 
         it('shows error on empty key input', (done) => {
-          const form = cmp.find('.el-form--inline')
+          const form = cmp.findAll('.el-form--inline').at(1)
           const input = form.findAll('input').at(0)
           expect(input.exists()).toBeTruthy()
           expect(form.html()).not.toContain('context_factor.edit.validation.attribute.key.required')
@@ -149,7 +159,7 @@ describe('Dialogs', () => {
         })
 
         it('it has a key input', () => {
-          const form = cmp.find('.el-form--inline')
+          const form = cmp.findAll('.el-form--inline').at(1)
           const input = form.findAll('input').at(1)
           expect(input.exists()).toBeTruthy()
           input.setValue('new Value')
@@ -157,7 +167,7 @@ describe('Dialogs', () => {
         })
 
         it('shows error on empty value input', (done) => {
-          const form = cmp.find('.el-form--inline')
+          const form = cmp.findAll('.el-form--inline').at(1)
           const input = form.findAll('input').at(1)
           expect(input.exists()).toBeTruthy()
           expect(form.html()).not.toContain('context_factor.edit.validation.attribute.value.required')
@@ -176,10 +186,10 @@ describe('Dialogs', () => {
           cmp.vm.$nextTick(() => {
             let forms = cmp.findAll('.el-form--inline')
             expect(cmp.html()).toMatchSnapshot()
-            expect(forms.length).toEqual(2)
+            expect(forms.length).toEqual(3)
             button.trigger('click')
             forms = cmp.findAll('.el-form--inline')
-            expect(forms.length).toEqual(3)
+            expect(forms.length).toEqual(4)
             done()
           })
         })
@@ -191,7 +201,7 @@ describe('Dialogs', () => {
           cmp.vm.$nextTick(() => {
             let forms = cmp.findAll('.el-form--inline')
             expect(cmp.html()).toMatchSnapshot()
-            expect(forms.length).toEqual(0)
+            expect(forms.length).toEqual(1)
             done()
           })
         })
@@ -218,11 +228,18 @@ describe('Dialogs', () => {
       })
     })
 
-    it('has a cancel button', () => {
-      const button = cmp.find('.el-button--text')
+    it('has a reset button', () => {
+      const button = cmp.findAll('.el-button').at(0)
       expect(button.exists()).toBeTruthy()
+      cmp.vm.contextFactorData.id = '112'
+      cmp.vm.contextFactorData.name = 'different'
+      cmp.vm.contextFactorData.parentID = 'new'
+      cmp.vm.contextFactorData.contextType = cmp.vm.$store.state.contextType.contextTypes[0]
+      cmp.vm.contextFactorData.attributes = [new ContextAttribute({})]
       button.trigger('click')
-      expect(router.back).toHaveBeenCalled()
+      cmp.vm.reset()
+      // expect(cmp.vm.contextFactorData).toMatchObject('{ "attributes": [ { "key": "foo", "value": "bar" } ], "name": "My Context Factor", "parentID": undefined }')
+      expect(cmp.vm.contextFactorData).toMatchObject({ 'attributes': [ { 'key': 'foo', 'value': 'bar' } ], 'name': 'My Context Factor', 'parentID': undefined })
     })
 
     it('has a save button', () => {

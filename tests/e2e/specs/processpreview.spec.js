@@ -30,12 +30,12 @@ describe('Process Preview Page', () => {
     cy.url().should('eq', Cypress.config().baseUrl + '/processes')
   })
   it('can navigate to edit page', () => {
-    cy.get('.el-col > .el-button').eq(0).click()
+    cy.get('.el-col .margin-left').click()
     cy.url().should('contain', Cypress.config().baseUrl + '/processes/')
     cy.url().should('contain', 'edit')
   })
   it('can delete a process', () => {
-    cy.get('.el-col > .el-button').eq(1).click()
+    cy.get('.el-col > .el-button').eq(0).click()
     cy.get('.el-message-box .el-button--danger').click()
 
     cy.get('.el-message').contains('Process deleted')

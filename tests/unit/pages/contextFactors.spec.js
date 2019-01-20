@@ -140,6 +140,19 @@ describe('Pages', () => {
       })
     })
 
+    it('double click works like edit button', () => {
+      cmp.vm.$refs.tree.getCurrentNode = jest.fn().mockImplementation(() => {
+        return store.getters['contextFactor/contextFactorsTree'][0]
+      })
+      cmp.vm.editDouble()
+      expect(router.push).toHaveBeenCalledWith({
+        name: 'context_factors.edit',
+        params: {
+          contextFactorID: '5c3c83a5a0983a6a94272513'
+        }
+      })
+    })
+
     it('renders the icon for a context Type', () => {
       expect(cmp.vm.getIconClasses({ contextFactor: { contextType: undefined } })).toEqual('fa fa-fw')
       expect(cmp.vm.getIconClasses({ contextFactor: { contextType: { icon: 'fa-heart' } } })).toEqual('fa fa-fw fa-heart')

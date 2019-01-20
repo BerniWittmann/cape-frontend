@@ -5,22 +5,29 @@ exports[`Dialogs Process Preview Dialog can be closed 1`] = `
   <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <elrow-stub tag="div" justify="start" align="top">
+      <elrow-stub tag="div" justify="start" align="top" class="margin-props">
         <elcol-stub span="24" tag="div">
+          process.edit.properties
+        </elcol-stub>
+      </elrow-stub>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div" class="margin-left">
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
       </elrow-stub>
       <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><span>My Description</span></elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 50px;"></iframe>
-      <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
-            <!----><i class="el-icon-edit"></i><span>process.edit.link
-      </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
+        <elcol-stub span="24" tag="div" class="margin-left"><span>My Description</span></elcol-stub>
+      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 55px;"></iframe>
+      <elrow-stub tag="div" gutter="20" justify="end" align="top" class="margin-top">
+        <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
-      </span></button> <a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a></elcol-stub>
+      </span></button></elcol-stub>
+        <elcol-stub span="8" tag="div" offset="10">
+          <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
+                <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
+              <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
+        </elcol-stub>
       </elrow-stub>
     </div>
     <!---->
@@ -33,22 +40,29 @@ exports[`Dialogs Process Preview Dialog can be deleted show as confirmation dial
   <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <elrow-stub tag="div" justify="start" align="top">
+      <elrow-stub tag="div" justify="start" align="top" class="margin-props">
         <elcol-stub span="24" tag="div">
+          process.edit.properties
+        </elcol-stub>
+      </elrow-stub>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div" class="margin-left">
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
       </elrow-stub>
       <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><span>My Description</span></elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 50px;"></iframe>
-      <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
-            <!----><i class="el-icon-edit"></i><span>process.edit.link
-      </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
+        <elcol-stub span="24" tag="div" class="margin-left"><span>My Description</span></elcol-stub>
+      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 55px;"></iframe>
+      <elrow-stub tag="div" gutter="20" justify="end" align="top" class="margin-top">
+        <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
-      </span></button> <a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a></elcol-stub>
+      </span></button></elcol-stub>
+        <elcol-stub span="8" tag="div" offset="10">
+          <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
+                <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
+              <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
+        </elcol-stub>
       </elrow-stub>
     </div>
     <!---->
@@ -61,22 +75,29 @@ exports[`Dialogs Process Preview Dialog can be edited 1`] = `
   <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <elrow-stub tag="div" justify="start" align="top">
+      <elrow-stub tag="div" justify="start" align="top" class="margin-props">
         <elcol-stub span="24" tag="div">
+          process.edit.properties
+        </elcol-stub>
+      </elrow-stub>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div" class="margin-left">
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
       </elrow-stub>
       <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><span>My Description</span></elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 50px;"></iframe>
-      <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
-            <!----><i class="el-icon-edit"></i><span>process.edit.link
-      </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
+        <elcol-stub span="24" tag="div" class="margin-left"><span>My Description</span></elcol-stub>
+      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 55px;"></iframe>
+      <elrow-stub tag="div" gutter="20" justify="end" align="top" class="margin-top">
+        <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
-      </span></button> <a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a></elcol-stub>
+      </span></button></elcol-stub>
+        <elcol-stub span="8" tag="div" offset="10">
+          <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
+                <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
+              <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
+        </elcol-stub>
       </elrow-stub>
     </div>
     <!---->
@@ -89,22 +110,29 @@ exports[`Dialogs Process Preview Dialog can render 1`] = `
   <div role="dialog" aria-modal="true" aria-label="My Process" class="el-dialog" style="margin-top: 15vh;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Process</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <elrow-stub tag="div" justify="start" align="top">
+      <elrow-stub tag="div" justify="start" align="top" class="margin-props">
         <elcol-stub span="24" tag="div">
+          process.edit.properties
+        </elcol-stub>
+      </elrow-stub>
+      <elrow-stub tag="div" justify="start" align="top">
+        <elcol-stub span="24" tag="div" class="margin-left">
           <tag-stub tag="[object Object]" size="small"></tag-stub>
           <tag-stub tag="[object Object]" size="small"></tag-stub>
         </elcol-stub>
       </elrow-stub>
       <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><span>My Description</span></elcol-stub>
-      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 50px;"></iframe>
-      <elrow-stub tag="div" justify="start" align="top" class="margin-top">
-        <elcol-stub span="24" tag="div"><button type="button" class="el-button el-button--default el-button--small">
-            <!----><i class="el-icon-edit"></i><span>process.edit.link
-      </span></button> <button type="button" class="el-button el-button--danger el-button--small is-plain">
+        <elcol-stub span="24" tag="div" class="margin-left"><span>My Description</span></elcol-stub>
+      </elrow-stub> <br> <iframe srcdoc="text height=&quot;30&quot; more text=&quot;even more Text&quot;" class="svg-view margin-top" style="height: 55px;"></iframe>
+      <elrow-stub tag="div" gutter="20" justify="end" align="top" class="margin-top">
+        <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
-      </span></button> <a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a></elcol-stub>
+      </span></button></elcol-stub>
+        <elcol-stub span="8" tag="div" offset="10">
+          <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
+                <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
+              <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
+        </elcol-stub>
       </elrow-stub>
     </div>
     <!---->

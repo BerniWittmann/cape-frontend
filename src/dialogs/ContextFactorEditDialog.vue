@@ -46,10 +46,10 @@
     </el-row>
     <el-row slot="footer" justify="end" :gutter="20">
       <el-col :span="8" id="left-align">
-          <el-button @click.native="$emit('reset-process')" type="danger" plain>
+          <el-button @click="reset" type="danger" plain>
             {{ $t('context_factor.edit.reset') }}
           </el-button>
-          <el-button @click.native="$emit('reset-process')" type="danger">
+          <el-button type="danger">
             {{ $t('context_factor.edit.delete') }}
           </el-button>
       </el-col>
@@ -65,7 +65,7 @@
  * Context Factor Edit Dialog
  * ============
  *
- * Allows Editing of a Context Factore
+ * Allows Editing of a Context Factors
  */
 import ContextFactorService from '@/services/contextFactor'
 import ContextFactor from '@/models/contextFactor'
@@ -137,6 +137,11 @@ export default {
       })
     },
 
+    reset() {
+      this.contextFactorData = this.$store.state.contextFactor.contextFactors[0]
+      this.resetAttributeForms()
+    },
+
     validateAttributes() {
       const count = this.contextFactorData.attributes.length
       let result = true
@@ -195,7 +200,7 @@ li {
 }
 
 .el-form-item {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   width: 35%;
 }
 

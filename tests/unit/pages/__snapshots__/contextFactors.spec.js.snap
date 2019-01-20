@@ -11,7 +11,7 @@ exports[`Pages ContextFactors.vue renders the tree 1`] = `
         <elbutton-stub type="default" icon="el-icon-plus" nativetype="button">context_factor.create_new</elbutton-stub>
       </elform-stub>
     </elcol-stub>
-    <elcol-stub span="6" tag="div" offset="8">
+    <elcol-stub span="4" tag="div" offset="10">
       <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" placeholder="context_factor.filter_placeholder"><i class="el-input__icon el-icon-search"></i></elinput-stub>
     </elcol-stub>
   </elrow-stub>
