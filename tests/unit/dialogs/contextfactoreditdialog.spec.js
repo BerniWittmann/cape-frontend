@@ -231,14 +231,12 @@ describe('Dialogs', () => {
     it('has a reset button', () => {
       const button = cmp.findAll('.el-button').at(0)
       expect(button.exists()).toBeTruthy()
-      cmp.vm.contextFactorData.id = '112'
       cmp.vm.contextFactorData.name = 'different'
       cmp.vm.contextFactorData.parentID = 'new'
       cmp.vm.contextFactorData.contextType = cmp.vm.$store.state.contextType.contextTypes[0]
       cmp.vm.contextFactorData.attributes = [new ContextAttribute({})]
       button.trigger('click')
       cmp.vm.reset()
-      // expect(cmp.vm.contextFactorData).toMatchObject('{ "attributes": [ { "key": "foo", "value": "bar" } ], "name": "My Context Factor", "parentID": undefined }')
       expect(cmp.vm.contextFactorData).toMatchObject({ 'attributes': [ { 'key': 'foo', 'value': 'bar' } ], 'name': 'My Context Factor', 'parentID': undefined })
     })
 
