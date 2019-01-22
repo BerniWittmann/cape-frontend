@@ -51,12 +51,12 @@
     </el-row>
     <el-row slot="footer" justify="end" :gutter="20">
       <el-col :span="8" id="left-align">
-        <el-button @click="reset" type="danger" plain>
-          {{ $t('context_factor.edit.reset') }}
-        </el-button>
-        <el-button type="danger">
-          {{ $t('context_factor.edit.delete') }}
-        </el-button>
+          <el-button @click="reset" type="danger" plain>
+            {{ $t('context_factor.edit.reset') }}
+          </el-button>
+          <el-button type="danger" @click="deleteContextFactor()">
+            {{ $t('context_factor.edit.delete') }}
+          </el-button>
       </el-col>
       <el-col :span="5" :offset="10">
         <el-button type="success" @click="save">{{ $t('context_factor.edit.save') }}</el-button>
@@ -152,6 +152,25 @@ export default {
     reset() {
       this.contextFactorData = this.$store.state.contextFactor.contextFactors.filter(cf => cf.id === this.contextFactorData.id)[0]
       this.resetAttributeForms()
+    },
+    deleteContextFactor() {
+      this.$confirm(this.$t('context_factor.delete.message'), this.$t('context_factor.delete.warning'), {
+        confirmButtonText: this.$t('context_factor.delete.ok'),
+        cancelButtonText: this.$t('context_factor.delete.cancel'),
+        type: 'warning',
+        cancelButtonClass: 'is-plain el-button--info',
+        confirmButtonClass: 'el-button--danger'
+      }).then(() => {
+        ContextFactorService.remove(this.activeContextFactor).then(() => {
+          this.$router.back()
+          ContextFactorService.getAll()
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: this.$t('context_factor.delete.cancellation')
+        })
+      })
     },
 
     validateAttributes() {

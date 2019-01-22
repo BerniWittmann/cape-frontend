@@ -17,11 +17,11 @@ describe('Services', () => {
       error: jest.fn(),
       success: jest.fn()
     }
-
     beforeEach(() => {
       moxios.install()
       notification.error = jest.fn()
       Vue.$notify = notification
+      Vue.$message = jest.fn()
       Vue.$http = axios
       Vue.i18n = {
         t: key => key
@@ -36,6 +36,7 @@ describe('Services', () => {
       expect(cFService.getAll).toEqual(expect.any(Function))
       expect(cFService.get).toEqual(expect.any(Function))
       expect(cFService.update).toEqual(expect.any(Function))
+      expect(cFService.remove).toEqual(expect.any(Function))
     })
 
     describe('getAll', () => {
@@ -237,6 +238,54 @@ describe('Services', () => {
           expect(notification.success).toHaveBeenCalledWith({
             title: 'notifications.context_factors.all.post.success.title',
             message: 'notifications.context_factors.all.post.success.message'
+          })
+          done()
+        })
+      })
+    })
+    describe('remove', () => {
+      it('should remove a contextFactor', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 200,
+          response: undefined
+        })
+        const onFulfilled = jest.fn()
+        cFService.remove({ id: '42', name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextFactor/remove', { id: '42', name: 'Test' })
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_factors/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cFService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_factors.single.delete.failed.title',
+            message: 'notifications.context_factors.single.delete.failed.message'
           })
           done()
         })

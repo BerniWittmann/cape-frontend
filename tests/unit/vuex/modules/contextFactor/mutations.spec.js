@@ -100,6 +100,14 @@ describe('Vuex', () => {
             expect(state.activeContextFactor).toEqual(undefined)
           })
         })
+        describe('REMOVE', () => {
+          it('removes a given context Factor', () => {
+            state.contextFactors = [{ id: 1 }, { id: 2 }, { id: 3 }]
+            cFMutations[mutationTypes.REMOVE](state, { id: 2 })
+
+            expect(state.contextFactors).toEqual([{ id: 1 }, { id: 3 }])
+          })
+        })
       })
     })
   })

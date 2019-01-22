@@ -354,6 +354,67 @@ describe('Dialogs', () => {
           context_type: store.state.contextType.contextTypes[1]
         }))
       })
+      describe('can be deleted', () => {
+        beforeEach(() => {
+          cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+            then: (arg) => {
+              return {
+                catch: () => {
+                }
+              }
+            }
+          }))
+          ContextFactorService.remove = jest.fn().mockImplementation(() => ({
+            then: (arg) => arg()
+          }))
+          cmp.vm.$message = jest.fn()
+        })
+        it('deletes the active Context Factor', () => {
+          ContextFactorService.getAll = jest.fn().mockImplementation(() => {
+          })
+          cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+            then: (arg) => {
+              arg()
+              return {
+                catch: () => {
+                }
+              }
+            }
+          }))
+          cmp.findAll('.el-button--danger').at(1).trigger('click')
+          expect(ContextFactorService.remove).toHaveBeenCalledWith(store.state.contextFactor.activeContextFactor)
+          expect(router.back).toHaveBeenCalled()
+          expect(ContextFactorService.getAll).toHaveBeenCalled()
+        })
+        it('show as confirmation dialog', () => {
+          expect(cmp.html()).toMatchSnapshot()
+          const button = cmp.findAll('.el-button--danger').at(1)
+          expect(button.exists()).toBeTruthy()
+          button.trigger('click')
+          expect(cmp.vm.$confirm).toHaveBeenCalledWith('context_factor.delete.message', 'context_factor.delete.warning',
+            {
+              'cancelButtonText': 'context_factor.delete.cancel',
+              'confirmButtonText': 'context_factor.delete.ok',
+              'type': 'warning',
+              'cancelButtonClass': 'is-plain el-button--info',
+              'confirmButtonClass': 'el-button--danger'
+            })
+        })
+        it('does not delete the process if canceled', () => {
+          cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+            then: () => {
+              return {
+                catch: (arg) => {
+                  arg()
+                }
+              }
+            }
+          }))
+          cmp.findAll('.el-button--danger').at(1).trigger('click')
+          expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'context_factor.delete.cancellation', 'type': 'info' })
+          expect(ContextFactorService.remove).not.toHaveBeenCalled()
+        })
+      })
     })
   })
 })

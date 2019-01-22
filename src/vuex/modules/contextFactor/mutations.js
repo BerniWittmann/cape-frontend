@@ -6,7 +6,8 @@
  * contextFactor  module.
  */
 
-import { STORE, UPDATE, ADD, SET_ACTIVE } from './mutation-types'
+import { STORE, UPDATE, ADD, SET_ACTIVE, REMOVE } from './mutation-types'
+import { removeByID } from '@/utils/helpers'
 import { update, setActive } from '@/vuex/common/mutations'
 
 export default {
@@ -21,5 +22,8 @@ export default {
   },
   [SET_ACTIVE](state, contextFactor) {
     setActive(state, 'contextFactors', 'activeContextFactor', contextFactor)
+  },
+  [REMOVE](state, contextFactor) {
+    state.contextFactors = removeByID(state.contextFactors, contextFactor.id)
   }
 }

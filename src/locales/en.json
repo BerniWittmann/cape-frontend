@@ -56,6 +56,15 @@
           }
         }
       }
+    },
+    "delete": {
+      "confirmation": "Context Factor deleted",
+      "message": "This will permanently delete the Context Factor. Continue?",
+      "ok": "Delete",
+      "cancel": "Cancel",
+      "warning": "Warning",
+      "delete_button": "Delete Context Factor",
+      "cancellation": "Delete cancelled"
     }
   },
   "process": {
@@ -208,6 +217,12 @@
             "message": "Loading the Context Factor failed"
           }
         },
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Context Factor failed"
+          }
+        },
         "put": {
           "failed": {
             "title": "Error",
@@ -217,6 +232,16 @@
             "title": "Success",
             "message": "The Context Factor got updated"
           }
+        }
+      },
+      "post": {
+        "failed": {
+          "title": "Error",
+          "message": "Creating the Context Factor failed"
+        },
+        "success": {
+          "title": "Success",
+          "message": "The Context Factor got created"
         }
       }
     },

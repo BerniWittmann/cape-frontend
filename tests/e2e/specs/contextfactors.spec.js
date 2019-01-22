@@ -45,4 +45,12 @@ describe('Context Factors Page', () => {
     cy.get('[style="padding-left: 0px;"] > .custom-tree-node > :nth-child(2)').contains('Pizza Donalds new')
     cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .fa').should('have.class', 'fa-thermometer-full')
   })
+  it('can remove a context factor', () => {
+    cy.get('.custom-tree-node').should('have.length', 8)
+    cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .align-right > .el-button > span').first().click()
+    cy.get('#left-align > :nth-child(2)').click()
+    cy.get('.el-button--primary > span').click()
+    cy.url().should('contain', Cypress.config().baseUrl + '/context_factors')
+    cy.get('.custom-tree-node').should('have.length', 7)
+  })
 })
