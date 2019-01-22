@@ -7,6 +7,7 @@
  */
 
 import { removeByID } from '@/utils/helpers'
+import { update, setActive } from '@/vuex/common/mutations'
 import { STORE, UPDATE, SET_ACTIVE, ADD, REMOVE } from './mutation-types'
 
 export default {
@@ -14,17 +15,10 @@ export default {
     state.processes = processes || []
   },
   [UPDATE](state, process) {
-    state.processes = [...state.processes.map((p) => p.id === process.id ? { ...process } : p)]
-    if (state.activeProcess && state.activeProcess.id === process.id) {
-      state.activeProcess = { ...process }
-    }
+    update(state, 'processes', 'activeProcess', process)
   },
   [SET_ACTIVE](state, process) {
-    if (!process || !process.id) {
-      state.activeProcess = undefined
-    } else {
-      state.activeProcess = state.processes.find((p) => p.id === process.id)
-    }
+    setActive(state, 'processes', 'activeProcess', process)
   },
   [ADD](state, process) {
     state.processes.push(process)

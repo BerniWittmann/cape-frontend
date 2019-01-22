@@ -1,4 +1,4 @@
-import { convertHexToRgba, getCookie, hasProcessModelerRulesEnabled, removeByID } from '@/utils/helpers'
+import { convertHexToRgba, getCookie, hasProcessModelerRulesEnabled, removeByID, updateAndSetActive } from '@/utils/helpers'
 
 describe('Helpers', () => {
   describe('convertHexToRgba', () => {
@@ -85,6 +85,32 @@ describe('Helpers', () => {
 
     it('returns array if nothing can be removed', () => {
       expect(removeByID([{ id: 1 }, { id: 2 }, { id: 3 }], 99)).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
+    })
+  })
+
+  describe('updateAndSetActive', () => {
+    class Test {
+      constructor({ _id }) {
+        this.id = _id
+        this.foo = 'bar'
+      }
+    }
+    let store = {}
+
+    beforeEach(() => {
+      store.dispatch = jest.fn().mockImplementation(() => ({
+        then: (arg) => arg()
+      }))
+    })
+
+    it('updates the data in the store', () => {
+      updateAndSetActive(store, { _id: 12 }, Test, 'test')
+      expect(store.dispatch).toHaveBeenCalledWith('test/update', new Test({ _id: 12 }))
+    })
+
+    it('sets the data active', () => {
+      updateAndSetActive(store, { _id: 42 }, Test, 'other_module')
+      expect(store.dispatch).toHaveBeenCalledWith('other_module/setActive', new Test({ _id: 42 }))
     })
   })
 })

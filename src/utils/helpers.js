@@ -17,3 +17,10 @@ export function hasProcessModelerRulesEnabled() {
 export function removeByID(arr, id) {
   return arr.filter(o => o.id !== id)
 }
+
+export function updateAndSetActive(store, data, Model, moduleName) {
+  data = new Model(data)
+  store.dispatch(`${moduleName}/update`, data).then(() => {
+    store.dispatch(`${moduleName}/setActive`, data)
+  })
+}
