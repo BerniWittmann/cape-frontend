@@ -159,102 +159,108 @@
   },
   "notifications": {
     "tags": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Tags failed"
-        }
-      }
-    },
-    "tag": {
-      "post": {
-        "failed": {
-          "title": "Error",
-          "message": "Creating the Tag failed"
+      "all": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Tags failed"
+          }
+        },
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Tag failed"
+          }
         }
       },
-      "delete": {
-        "failed": {
-          "title": "Error",
-          "message": "Deleting the Tag failed"
+      "single": {
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Tag failed"
+          }
         }
       }
     },
     "context_factors": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Context Factors failed"
-        }
-      }
-    },
-    "context_factor": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Context Factor failed"
+      "all": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Context Factors failed"
+          }
+        },
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Context Factor failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Context Factor got created"
+          }
         }
       },
-      "put": {
-        "failed": {
-          "title": "Error",
-          "message": "Updating the Context Factor failed"
+      "single": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Context Factor failed"
+          }
         },
-        "success": {
-          "title": "Success",
-          "message": "The Context Factor got updated"
-        }
-      },
-      "post": {
-        "failed": {
-          "title": "Error",
-          "message": "Creating the Context Factor failed"
-        },
-        "success": {
-          "title": "Success",
-          "message": "The Context Factor got created"
+        "put": {
+          "failed": {
+            "title": "Error",
+            "message": "Updating the Context Factor failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Context Factor got updated"
+          }
         }
       }
     },
     "processes": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Processes failed"
-        }
-      }
-    },
-    "process": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Process failed"
-        }
-      },
-      "put": {
-        "failed": {
-          "title": "Error",
-          "message": "Updating the Process failed"
+      "all": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Processes failed"
+          }
         },
-        "success": {
-          "title": "Success",
-          "message": "The Process got updated"
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Process failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Process got created"
+          }
         }
       },
-      "post": {
-        "failed": {
-          "title": "Error",
-          "message": "Creating the Process failed"
+      "single": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Process failed"
+          }
         },
-        "success": {
-          "title": "Success",
-          "message": "The Process got created"
-        }
-      },
-      "delete": {
-        "failed": {
-          "title": "Error",
-          "message": "Deleting the Process failed"
+        "put": {
+          "failed": {
+            "title": "Error",
+            "message": "Updating the Process failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Process got updated"
+          }
+        },
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Process failed"
+          }
         }
       },
       "tags": {
@@ -287,26 +293,28 @@
       }
     },
     "context_types": {
-      "get": {
-        "failed": {
-          "title": "Error",
-          "message": "Loading the Context Types failed"
-        }
-      }
-    },
-    "context_type": {
-      "post": {
-        "failed": {
-          "title": "Error",
-          "message": "Creating the Context Type failed"
+      "all": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Context Types failed"
+          }
+        },
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Context Type failed"
+          }
         }
       },
-      "delete": {
-        "failed": {
-          "title": "Error",
-          "message": "Deleting the Context Type failed"
-        },
-        "not_allowed": "This Context is in use"
+      "single": {
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Context Type failed"
+          },
+          "not_allowed": "This Context is in use"
+        }
       }
     }
   },

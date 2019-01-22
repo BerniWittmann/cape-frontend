@@ -1,11 +1,12 @@
 import Vue from 'vue'
+import getRoute from './routes'
 
 export default class Service {
   constructor({
-    method, endpoint, data = undefined, name, success = () => {}, failed = () => {}
+    method, endpoint, routeOverrides, data = undefined, name, success = () => {}, failed = () => {}
   }) {
     this.method = method
-    this.endpoint = endpoint
+    this.endpoint = endpoint || getRoute(name, routeOverrides)
     this.data = data
     this.name = name
     this.success = success
@@ -39,5 +40,26 @@ export default class Service {
 
   showSuccessNotification() {
     this.showNotification({ key: 'success', type: 'success' })
+  }
+
+  static builder({ name, success, failed }) {
+    function build(method, prefix, data = undefined) {
+      return new this({
+        name: name + '.' + prefix,
+        success,
+        failed,
+        data,
+        method,
+        routeOverrides: (prefix === 'single' && data) ? [data] : []
+      })
+    }
+
+    return {
+      getAll: build.bind(this, 'get', 'all'),
+      get: build.bind(this, 'get', 'single'),
+      create: build.bind(this, 'post', 'all'),
+      update: build.bind(this, 'put', 'single'),
+      remove: build.bind(this, 'delete', 'single')
+    }
   }
 }

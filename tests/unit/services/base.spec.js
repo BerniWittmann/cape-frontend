@@ -4,6 +4,7 @@ import moxios from 'moxios'
 import axios from 'axios'
 import Vue from 'vue'
 import store from '@/vuex/store'
+import getRoute from '@/services/routes'
 
 store.dispatch = jest.fn()
 
@@ -42,6 +43,49 @@ describe('BaseService', () => {
 
           moxios.wait(function () {
             let request = moxios.requests.mostRecent()
+            expect(request.config.method).toEqual(method)
+            request.respondWith({
+              status: 200,
+              response: {
+                foo: 'bar'
+              }
+            }).then(function () {
+              done()
+            })
+          })
+        })
+
+        it(`can make a ${method} request to an route name`, (done) => {
+          makeRequest({
+            method: method,
+            name: 'processes.all'
+          })
+
+          moxios.wait(function () {
+            let request = moxios.requests.mostRecent()
+            expect(request.config.url).toEqual('/processes')
+            expect(request.config.method).toEqual(method)
+            request.respondWith({
+              status: 200,
+              response: {
+                foo: 'bar'
+              }
+            }).then(function () {
+              done()
+            })
+          })
+        })
+
+        it(`can make a ${method} request to an route name with routeOverrides`, (done) => {
+          makeRequest({
+            method: method,
+            name: 'processes.single',
+            routeOverrides: [12]
+          })
+
+          moxios.wait(function () {
+            let request = moxios.requests.mostRecent()
+            expect(request.config.url).toEqual('/processes/12')
             expect(request.config.method).toEqual(method)
             request.respondWith({
               status: 200,
@@ -205,6 +249,105 @@ describe('BaseService', () => {
             name: 'test'
           })
           done()
+        })
+      })
+    })
+  })
+
+  describe('Builder', () => {
+    beforeEach(() => {
+      moxios.install()
+      Vue.$message = jest.fn()
+      Vue.$notification = {
+        error: jest.fn()
+      }
+      Vue.$http = axios
+      Vue.i18n = {
+        t: key => key
+      }
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+
+    it('provides a static builder method', () => {
+      expect(Service.builder).toEqual(expect.any(Function))
+    })
+
+    const routes = ['processes', 'context_factors', 'context_types', 'tags']
+    const actions = {
+      getAll: { method: 'get', prefix: 'all', sendData: false },
+      get: { method: 'get', prefix: 'single', sendData: false },
+      create: { method: 'post', prefix: 'all', sendData: true },
+      update: { method: 'put', prefix: 'single', sendData: true },
+      remove: { method: 'delete', prefix: 'single', sendData: false }
+    }
+
+    routes.forEach((route) => {
+      describe('it provides a builder function for route ' + route, () => {
+        Object.keys(actions).forEach((actionName) => {
+          const action = actions[actionName]
+          describe('it provides a builder function for action ' + actionName, () => {
+            let success, failed, builder
+            beforeEach(() => {
+              success = jest.fn()
+              failed = jest.fn()
+              builder = Service.builder({ name: route, success, failed })
+            })
+            it('has a function for it', () => {
+              expect(builder[actionName]).toEqual(expect.any(Function))
+            })
+            it('provides the correct config', (done) => {
+              builder[actionName]({ id: 99 })
+
+              moxios.wait(function () {
+                let request = moxios.requests.mostRecent()
+                expect(request.config.method).toEqual(action.method)
+                expect(request.config.url).toEqual(getRoute(route + '.' + action.prefix, [99]))
+                done()
+              })
+            })
+
+            if (action.sendData) {
+              it('provides the data', (done) => {
+                builder[actionName]({ id: 99, foo: 'bar' })
+
+                moxios.wait(function () {
+                  let request = moxios.requests.mostRecent()
+                  expect(request.config.data).toEqual(JSON.stringify({ id: 99, foo: 'bar' }))
+                  done()
+                })
+              })
+            }
+
+            it('provides the success function', (done) => {
+              builder[actionName]({ id: 99 })
+
+              moxios.wait(function () {
+                let request = moxios.requests.mostRecent()
+                request.respondWith({
+                  status: 200
+                }).then(function () {
+                  expect(success).toHaveBeenCalled()
+                  done()
+                })
+              })
+            })
+
+            it('provides the failed function', (done) => {
+              builder[actionName]({ id: 99 })
+
+              moxios.wait(function () {
+                let request = moxios.requests.mostRecent()
+                request.respondWith({
+                  status: 400
+                }).then(function () {
+                  expect(failed).toHaveBeenCalled()
+                  done()
+                })
+              })
+            })
+          })
         })
       })
     })

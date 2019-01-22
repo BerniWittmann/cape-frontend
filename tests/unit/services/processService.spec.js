@@ -105,8 +105,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.processes.get.failed.title',
-            message: 'notifications.processes.get.failed.message'
+            title: 'notifications.processes.all.get.failed.title',
+            message: 'notifications.processes.all.get.failed.message'
           })
           done()
         })
@@ -156,8 +156,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.get.failed.title',
-            message: 'notifications.process.get.failed.message'
+            title: 'notifications.processes.single.get.failed.title',
+            message: 'notifications.processes.single.get.failed.message'
           })
           done()
         })
@@ -206,8 +206,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.tags.post.failed.title',
-            message: 'notifications.process.tags.post.failed.message'
+            title: 'notifications.processes.tags.post.failed.title',
+            message: 'notifications.processes.tags.post.failed.message'
           })
           done()
         })
@@ -257,8 +257,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.tags.delete.failed.title',
-            message: 'notifications.process.tags.delete.failed.message'
+            title: 'notifications.processes.tags.delete.failed.title',
+            message: 'notifications.processes.tags.delete.failed.message'
           })
           done()
         })
@@ -307,8 +307,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.put.failed.title',
-            message: 'notifications.process.put.failed.message'
+            title: 'notifications.processes.single.put.failed.title',
+            message: 'notifications.processes.single.put.failed.message'
           })
           done()
         })
@@ -325,8 +325,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.success).toHaveBeenCalledWith({
-            title: 'notifications.process.put.success.title',
-            message: 'notifications.process.put.success.message'
+            title: 'notifications.processes.single.put.success.title',
+            message: 'notifications.processes.single.put.success.message'
           })
           done()
         })
@@ -375,8 +375,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.post.failed.title',
-            message: 'notifications.process.post.failed.message'
+            title: 'notifications.processes.all.post.failed.title',
+            message: 'notifications.processes.all.post.failed.message'
           })
           done()
         })
@@ -394,8 +394,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.success).toHaveBeenCalledWith({
-            title: 'notifications.process.post.success.title',
-            message: 'notifications.process.post.success.message'
+            title: 'notifications.processes.all.post.success.title',
+            message: 'notifications.processes.all.post.success.message'
           })
           done()
         })
@@ -445,8 +445,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.delete.failed.title',
-            message: 'notifications.process.delete.failed.message'
+            title: 'notifications.processes.single.delete.failed.title',
+            message: 'notifications.processes.single.delete.failed.message'
           })
           expect(message).not.toHaveBeenCalledWith()
           done()
@@ -464,8 +464,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.delete.failed.title',
-            message: 'notifications.process.delete.failed.message'
+            title: 'notifications.processes.single.delete.failed.title',
+            message: 'notifications.processes.single.delete.failed.message'
           })
           expect(message).toHaveBeenCalledWith({ 'message': 'process.delete.confirmation', 'type': 'success' })
           done()
@@ -517,8 +517,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.get.failed.title',
-            message: 'notifications.process.get.failed.message'
+            title: 'notifications.processes.single.get.failed.title',
+            message: 'notifications.processes.single.get.failed.message'
           })
           done()
         })
@@ -567,8 +567,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.reserve.post.failed.title',
-            message: 'notifications.process.reserve.post.failed.message'
+            title: 'notifications.processes.reserve.post.failed.title',
+            message: 'notifications.processes.reserve.post.failed.message'
           })
           done()
         })
@@ -617,8 +617,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.process.reserve.delete.failed.title',
-            message: 'notifications.process.reserve.delete.failed.message'
+            title: 'notifications.processes.reserve.delete.failed.title',
+            message: 'notifications.processes.reserve.delete.failed.message'
           })
           done()
         })

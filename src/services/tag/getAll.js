@@ -7,9 +7,7 @@ function success(tags) {
   store.dispatch('tag/store', tags.map(p => new Tag(p)))
 }
 
-export default () => new Service({
-  method: 'get',
-  endpoint: '/tags',
+export default () => Service.builder({
   name: 'tags',
   success
-})
+}).getAll()

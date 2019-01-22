@@ -7,10 +7,7 @@ const success = (contextType) => {
   store.dispatch('contextType/add', new ContextType(contextType))
 }
 
-export default (contextType) => new Service({
-  method: 'post',
-  endpoint: '/context_types',
-  data: contextType,
-  name: 'context_type',
+export default (contextType) => Service.builder({
+  name: 'context_types',
   success
-})
+}).create(contextType)

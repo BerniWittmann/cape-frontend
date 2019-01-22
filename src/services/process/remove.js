@@ -20,11 +20,8 @@ function failed(response) {
   }
 }
 
-export default (process) => new Service({
-  method: 'delete',
-  endpoint: `/processes/${process.id}`,
-  data: process,
-  name: 'process',
+export default (process) => Service.builder({
+  name: 'processes',
   success,
   failed
-})
+}).remove(process)

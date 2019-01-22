@@ -6,10 +6,7 @@ function success(response, { data }) {
   store.dispatch('tag/remove', data)
 }
 
-export default (tag) => new Service({
-  method: 'delete',
-  endpoint: `/tags/${tag.id}`,
-  data: tag,
-  name: 'tag',
+export default (tag) => Service.builder({
+  name: 'tags',
   success
-})
+}).remove(tag)

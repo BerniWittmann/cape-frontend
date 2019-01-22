@@ -24,3 +24,14 @@ export function updateAndSetActive(store, data, Model, moduleName) {
     store.dispatch(`${moduleName}/setActive`, data)
   })
 }
+
+export function getDeep(obj, path) {
+  if (!path || !obj) return undefined
+  const paths = path.split('.')
+  let current = obj
+  for (let i = 0; i < paths.length; i++) {
+    current = current[paths[i]]
+    if (current === undefined) return undefined
+  }
+  return current
+}

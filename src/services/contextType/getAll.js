@@ -7,9 +7,7 @@ const success = (contextTypes) => {
   store.dispatch('contextType/store', contextTypes.map(p => new ContextType(p)))
 }
 
-export default () => new Service({
-  method: 'get',
-  endpoint: '/context_types',
+export default () => Service.builder({
   name: 'context_types',
   success
-})
+}).getAll()

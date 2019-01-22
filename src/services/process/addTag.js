@@ -10,8 +10,8 @@ function success(process) {
 
 export default (process, tag) => new Service({
   method: 'post',
-  endpoint: `/processes/${process.id}/tags`,
-  name: 'process.tags',
+  name: 'processes.tags',
+  routeOverrides: [process],
   data: tag,
   success
 })

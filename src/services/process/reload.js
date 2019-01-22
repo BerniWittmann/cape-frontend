@@ -8,9 +8,7 @@ function success(process) {
   store.dispatch('process/update', process)
 }
 
-export default (process) => new Service({
-  method: 'get',
-  endpoint: `/processes/${process.id}`,
-  name: 'process',
+export default (process) => Service.builder({
+  name: 'processes',
   success
-})
+}).get(process)

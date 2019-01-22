@@ -9,15 +9,12 @@ const success = (response, { data }) => {
 
 const failed = (response) => {
   if (response.response.status === 418) {
-    Vue.$message.warning(Vue.i18n.t('notifications.context_type.delete.not_allowed'))
+    Vue.$message.warning(Vue.i18n.t('notifications.context_types.single.delete.not_allowed'))
   }
 }
 
-export default (contextType) => new Service({
-  method: 'delete',
-  endpoint: `/context_types/${contextType.id}`,
-  data: contextType,
-  name: 'context_type',
+export default (contextType) => Service.builder({
+  name: 'context_types',
   success,
   failed
-})
+}).remove(contextType)

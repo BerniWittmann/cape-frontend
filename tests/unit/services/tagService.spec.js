@@ -82,8 +82,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.tags.get.failed.title',
-            message: 'notifications.tags.get.failed.message'
+            title: 'notifications.tags.all.get.failed.title',
+            message: 'notifications.tags.all.get.failed.message'
           })
           done()
         })
@@ -132,8 +132,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.tag.post.failed.title',
-            message: 'notifications.tag.post.failed.message'
+            title: 'notifications.tags.all.post.failed.title',
+            message: 'notifications.tags.all.post.failed.message'
           })
           done()
         })
@@ -182,8 +182,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.tag.delete.failed.title',
-            message: 'notifications.tag.delete.failed.message'
+            title: 'notifications.tags.single.delete.failed.title',
+            message: 'notifications.tags.single.delete.failed.message'
           })
           done()
         })

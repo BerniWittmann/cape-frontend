@@ -8,10 +8,7 @@ function success(process) {
   this.showSuccessNotification()
 }
 
-export default (process) => new Service({
-  method: 'post',
-  endpoint: '/processes',
-  name: 'process',
-  data: process,
+export default (process) => Service.builder({
+  name: 'processes',
   success
-})
+}).create(process)

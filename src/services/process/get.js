@@ -8,9 +8,7 @@ function success(process) {
   updateAndSetActive(store, process, Process, 'process')
 }
 
-export default (process) => new Service({
-  method: 'get',
-  endpoint: `/processes/${process.id}`,
-  name: 'process',
+export default (process) => Service.builder({
+  name: 'processes',
   success
-})
+}).get(process)

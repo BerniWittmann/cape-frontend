@@ -8,10 +8,7 @@ function success(contextFactor) {
   this.showSuccessNotification()
 }
 
-export default (contextFactor) => new Service({
-  method: 'post',
-  endpoint: '/context_factors',
-  name: 'context_factor',
-  data: contextFactor,
+export default (contextFactor) => Service.builder({
+  name: 'context_factors',
   success
-})
+}).create(contextFactor)

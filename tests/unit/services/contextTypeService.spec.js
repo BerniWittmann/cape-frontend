@@ -86,8 +86,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.context_types.get.failed.title',
-            message: 'notifications.context_types.get.failed.message'
+            title: 'notifications.context_types.all.get.failed.title',
+            message: 'notifications.context_types.all.get.failed.message'
           })
           done()
         })
@@ -136,8 +136,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.context_type.post.failed.title',
-            message: 'notifications.context_type.post.failed.message'
+            title: 'notifications.context_types.all.post.failed.title',
+            message: 'notifications.context_types.all.post.failed.message'
           })
           done()
         })
@@ -186,8 +186,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.context_type.delete.failed.title',
-            message: 'notifications.context_type.delete.failed.message'
+            title: 'notifications.context_types.single.delete.failed.title',
+            message: 'notifications.context_types.single.delete.failed.message'
           })
           done()
         })
@@ -203,7 +203,7 @@ describe('Services', () => {
 
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
-          expect(message.warning).toHaveBeenCalledWith('notifications.context_type.delete.not_allowed')
+          expect(message.warning).toHaveBeenCalledWith('notifications.context_types.single.delete.not_allowed')
           done()
         })
       })

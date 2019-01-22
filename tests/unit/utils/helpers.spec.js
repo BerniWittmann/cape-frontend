@@ -1,4 +1,11 @@
-import { convertHexToRgba, getCookie, hasProcessModelerRulesEnabled, removeByID, updateAndSetActive } from '@/utils/helpers'
+import {
+  convertHexToRgba,
+  getCookie,
+  hasProcessModelerRulesEnabled,
+  removeByID,
+  updateAndSetActive,
+  getDeep
+} from '@/utils/helpers'
 
 describe('Helpers', () => {
   describe('convertHexToRgba', () => {
@@ -95,6 +102,7 @@ describe('Helpers', () => {
         this.foo = 'bar'
       }
     }
+
     let store = {}
 
     beforeEach(() => {
@@ -111,6 +119,56 @@ describe('Helpers', () => {
     it('sets the data active', () => {
       updateAndSetActive(store, { _id: 42 }, Test, 'other_module')
       expect(store.dispatch).toHaveBeenCalledWith('other_module/setActive', new Test({ _id: 42 }))
+    })
+  })
+
+  describe('getDeep', () => {
+    let obj = {
+      a: {
+        b: {
+          c: 42
+        },
+        d: {}
+      },
+      foo: 'bar'
+    }
+    it('can handle empty path', () => {
+      expect(getDeep(obj, '')).toBeUndefined()
+      expect(getDeep(obj, undefined)).toBeUndefined()
+    })
+    it('can handle empty object', () => {
+      expect(getDeep(undefined, 'a')).toBeUndefined()
+      expect(getDeep({}, 'a')).toBeUndefined()
+    })
+    it('can handle single depth path', () => {
+      expect(getDeep(obj, 'a')).toEqual({
+        b: { c: 42 },
+        d: {}
+      })
+      expect(getDeep({ foo: 'bar' }, 'foo')).toEqual('bar')
+    })
+    it('can handle undefined on first depth', () => {
+      expect(getDeep(obj, 'none')).toBeUndefined()
+      expect(getDeep(obj, 'none.test')).toBeUndefined()
+    })
+    it('can handle undefined on deeper depth', () => {
+      expect(getDeep(obj, 'a.none')).toBeUndefined()
+      expect(getDeep(obj, 'a.none.test')).toBeUndefined()
+      expect(getDeep(obj, 'foo.none')).toBeUndefined()
+    })
+    it('can find value on first depth', () => {
+      expect(getDeep(obj, 'a')).toEqual({
+        b: { c: 42 },
+        d: {}
+      })
+      expect(getDeep(obj, 'foo')).toEqual('bar')
+    })
+    it('can find value on second depth', () => {
+      expect(getDeep(obj, 'a.b')).toEqual({ c: 42 })
+      expect(getDeep(obj, 'a.d')).toEqual({})
+    })
+    it('can find value on deeper depth', () => {
+      expect(getDeep(obj, 'a.b.c')).toEqual(42)
     })
   })
 })

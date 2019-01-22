@@ -7,10 +7,7 @@ function success(tag) {
   store.dispatch('tag/add', new Tag(tag))
 }
 
-export default (tag) => new Service({
-  method: 'post',
-  endpoint: '/tags',
-  data: tag,
-  name: 'tag',
+export default (tag) => Service.builder({
+  name: 'tags',
   success
-})
+}).create(tag)

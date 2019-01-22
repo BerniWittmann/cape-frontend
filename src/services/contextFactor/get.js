@@ -8,9 +8,7 @@ function success(contextFactor) {
   updateAndSetActive(store, contextFactor, ContextFactor, 'contextFactor')
 }
 
-export default (contextFactor) => new Service({
-  method: 'get',
-  endpoint: `/context_factors/${contextFactor.id}`,
-  name: 'context_factor',
+export default (contextFactor) => Service.builder({
+  name: 'context_factors',
   success
-})
+}).get(contextFactor)

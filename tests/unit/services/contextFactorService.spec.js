@@ -98,8 +98,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.context_factor.get.failed.title',
-            message: 'notifications.context_factor.get.failed.message'
+            title: 'notifications.context_factors.single.get.failed.title',
+            message: 'notifications.context_factors.single.get.failed.message'
           })
           done()
         })
@@ -148,8 +148,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.context_factor.put.failed.title',
-            message: 'notifications.context_factor.put.failed.message'
+            title: 'notifications.context_factors.single.put.failed.title',
+            message: 'notifications.context_factors.single.put.failed.message'
           })
           done()
         })
@@ -166,8 +166,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.success).toHaveBeenCalledWith({
-            title: 'notifications.context_factor.put.success.title',
-            message: 'notifications.context_factor.put.success.message'
+            title: 'notifications.context_factors.single.put.success.title',
+            message: 'notifications.context_factors.single.put.success.message'
           })
           done()
         })
@@ -216,8 +216,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.error).toHaveBeenCalledWith({
-            title: 'notifications.context_factor.post.failed.title',
-            message: 'notifications.context_factor.post.failed.message'
+            title: 'notifications.context_factors.all.post.failed.title',
+            message: 'notifications.context_factors.all.post.failed.message'
           })
           done()
         })
@@ -235,8 +235,8 @@ describe('Services', () => {
         moxios.wait(() => {
           expect(onFulfilled).toHaveBeenCalled()
           expect(notification.success).toHaveBeenCalledWith({
-            title: 'notifications.context_factor.post.success.title',
-            message: 'notifications.context_factor.post.success.message'
+            title: 'notifications.context_factors.all.post.success.title',
+            message: 'notifications.context_factors.all.post.success.message'
           })
           done()
         })

@@ -8,10 +8,7 @@ function success(contextFactor) {
   this.showSuccessNotification()
 }
 
-export default (contextFactor) => new Service({
-  method: 'put',
-  endpoint: `/context_factors/${contextFactor.id}`,
-  name: 'context_factor',
-  data: contextFactor,
+export default (contextFactor) => Service.builder({
+  name: 'context_factors',
   success
-})
+}).update(contextFactor)

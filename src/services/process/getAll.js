@@ -7,9 +7,7 @@ function success(processes) {
   store.dispatch('process/store', processes.map(p => new Process(p)))
 }
 
-export default () => new Service({
-  method: 'get',
-  endpoint: '/processes',
+export default () => Service.builder({
   name: 'processes',
   success
-})
+}).getAll()

@@ -7,9 +7,7 @@ function success(contextFactors) {
   store.dispatch('contextFactor/store', contextFactors.map(p => new ContextFactor(p)))
 }
 
-export default () => new Service({
-  method: 'get',
-  endpoint: '/context_factors',
+export default () => Service.builder({
   name: 'context_factors',
   success
-})
+}).getAll()
