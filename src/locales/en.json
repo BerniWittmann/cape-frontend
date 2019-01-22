@@ -26,6 +26,7 @@
     "filter_placeholder": "Search Context Factors",
     "create_new": "New Context Factor",
     "new_context_factor_name": "New Context Factor Name",
+    "none": "None",
     "edit": {
       "link": "Edit",
       "cancel": "Cancel",

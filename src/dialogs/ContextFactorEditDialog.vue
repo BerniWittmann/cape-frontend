@@ -8,7 +8,9 @@
             <el-input v-model="contextFactorData.name"></el-input>
           </el-form-item>
           <el-form-item :label="$t('context_factor.edit.type')" prop="contextType">
-            <el-select v-model="contextFactorData.contextType" placeholder="Select" value-key="id" clearable>
+            <el-select v-model="contextFactorData.contextType" placeholder="Select" value-key="id" clearable
+                       @change="selectChange" ref="select">
+              <i :class="selectIconClass" slot="prefix" v-if="selectIconClass"></i>
               <el-option
                       v-for="contextType in contextTypes"
                       :value="contextType"
@@ -17,6 +19,9 @@
                 <i class="context-type-icon" :class="'fa ' + contextType.icon"></i>
                 <span>{{ contextType.name }}</span>
               </el-option>
+              <el-option
+                      :value="$t('context_factor.none')"
+                      :label="$t('context_factor.none')"></el-option>
             </el-select>
           </el-form-item>
           <br>
@@ -46,12 +51,12 @@
     </el-row>
     <el-row slot="footer" justify="end" :gutter="20">
       <el-col :span="8" id="left-align">
-          <el-button @click="reset" type="danger" plain>
-            {{ $t('context_factor.edit.reset') }}
-          </el-button>
-          <el-button type="danger">
-            {{ $t('context_factor.edit.delete') }}
-          </el-button>
+        <el-button @click="reset" type="danger" plain>
+          {{ $t('context_factor.edit.reset') }}
+        </el-button>
+        <el-button type="danger">
+          {{ $t('context_factor.edit.delete') }}
+        </el-button>
       </el-col>
       <el-col :span="5" :offset="10">
         <el-button type="success" @click="save">{{ $t('context_factor.edit.save') }}</el-button>
@@ -109,6 +114,13 @@ export default {
     },
     contextTypes() {
       return this.$store.state.contextType.contextTypes
+    },
+
+    selectIconClass() {
+      if (!this.contextFactorData.contextType) return ''
+      const result = ['el-input__icon', 'fa', 'fa-fw']
+      result.push(this.contextFactorData.contextType.icon)
+      return result
     }
   },
 
@@ -171,6 +183,10 @@ export default {
     removeAttribute(idx) {
       this.contextFactorData.attributes.splice(idx, 1)
       this.resetAttributeForms()
+    },
+
+    selectChange(selected) {
+      if (selected === this.$t('context_factor.none')) this.contextFactorData.contextType = undefined
     }
   },
 
@@ -209,7 +225,11 @@ li {
 }
 
 .less-margin-top {
- margin-top: -20px;
+  margin-top: -20px;
+}
+
+.el-input__icon.fa {
+  margin-left: 5px;
 }
 
 </style>

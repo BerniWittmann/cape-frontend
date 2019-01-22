@@ -126,7 +126,25 @@ describe('Dialogs', () => {
 
         it('renders the options', () => {
           const input = cmp.findAll('.select-context-type-option')
-          expect(input.length).toEqual(2)
+          expect(input.length).toEqual(3)
+        })
+
+        it('has a none option to clear the select', () => {
+          const input = cmp.findAll('.select-context-type-option')
+          expect(input.at(2).exists()).toBeTruthy()
+          cmp.vm.contextFactorData.contextType = cmp.vm.$store.state.contextType.contextTypes[0]
+          cmp.vm.selectChange(cmp.vm.contextFactorData.contextType)
+          expect(cmp.vm.contextFactorData.contextType).toMatchObject({ 'icon': 'fa-heart', 'name': 'Context Type 1' })
+          expect(input.at(2).attributes('value')).toBe('context_factor.none')
+          cmp.vm.selectChange(input.at(2).attributes('value'))
+          expect(cmp.vm.contextFactorData.contextType).toBeUndefined()
+        })
+
+        it('shows correct icon class for context type', () => {
+          cmp.vm.contextFactorData.contextType = cmp.vm.$store.state.contextType.contextTypes[0]
+          expect(cmp.vm.selectIconClass).toEqual(['el-input__icon', 'fa', 'fa-fw', 'fa-heart'])
+          cmp.vm.contextFactorData.contextType = undefined
+          expect(cmp.vm.selectIconClass).toEqual('')
         })
       })
 
@@ -237,7 +255,11 @@ describe('Dialogs', () => {
       cmp.vm.contextFactorData.attributes = [new ContextAttribute({})]
       button.trigger('click')
       cmp.vm.reset()
-      expect(cmp.vm.contextFactorData).toMatchObject({ 'attributes': [ { 'key': 'foo', 'value': 'bar' } ], 'name': 'My Context Factor', 'parentID': undefined })
+      expect(cmp.vm.contextFactorData).toMatchObject({
+        'attributes': [{ 'key': 'foo', 'value': 'bar' }],
+        'name': 'My Context Factor',
+        'parentID': undefined
+      })
     })
 
     it('has a save button', () => {
