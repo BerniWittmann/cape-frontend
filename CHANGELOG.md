@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.10.0 - (2019-01-22)
+---
+
+* added websocket support
+* added multi user handling of processes
+* added ability to create Context Factors
+* Design Fixes
+
 ## 0.9.0 - (2019-01-17)
 ---
 
