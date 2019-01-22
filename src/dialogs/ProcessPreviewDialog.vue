@@ -99,10 +99,6 @@ export default {
         cancelButtonClass: 'is-plain el-button--info',
         confirmButtonClass: 'el-button--danger'
       }).then(() => {
-        this.$message({
-          type: 'success',
-          message: this.$t('process.delete.confirmation')
-        })
         processService.remove(this.activeProcess)
         this.$router.back()
       }).catch(() => {

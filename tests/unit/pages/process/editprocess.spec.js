@@ -202,6 +202,19 @@ describe('Pages', () => {
       expect(cmp.vm.$message.error).toHaveBeenCalledWith('process.edit.process_validation_errors.my_error')
     })
 
+    it('does free the process on route Leave', () => {
+      ProcessService.free = jest.fn().mockImplementation(() => ({
+        then: (arg) => arg()
+      }))
+      const next = jest.fn()
+
+      expect(cmp.vm.$options.beforeRouteLeave).toEqual(expect.any(Function))
+      cmp.vm.$options.beforeRouteLeave.bind({ process: { id: 12 } })({}, {}, next)
+
+      expect(ProcessService.free).toHaveBeenCalledWith({ id: 12 })
+      expect(next).toHaveBeenCalled()
+    })
+
     describe('it can create a new process', () => {
       beforeEach(() => {
         route.name = 'process.new'
@@ -312,6 +325,19 @@ describe('Pages', () => {
         expect(cmp.vm.processData.xml).toEqual('<xml>My Process!</xml>')
         expect(cmp.vm.process.name).toEqual('My Name!')
         expect(cmp.vm.process.xml).toEqual('<xml>My Process!</xml>')
+      })
+
+      it('does not free the process on route Leave', () => {
+        ProcessService.free = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        const next = jest.fn()
+
+        expect(cmp.vm.$options.beforeRouteLeave).toEqual(expect.any(Function))
+        cmp.vm.$options.beforeRouteLeave.bind({ process: {} })({}, {}, next)
+
+        expect(ProcessService.free).not.toHaveBeenCalled()
+        expect(next).toHaveBeenCalled()
       })
     })
   })

@@ -108,7 +108,8 @@
       "warning": "Warning",
       "delete_button": "Delete Process",
       "confirmation": "Process deleted",
-      "cancellation": "Delete cancelled"
+      "cancellation": "Delete cancelled",
+      "forbidden": "Somebody is editing the process right now"
     }
   },
   "settings": {
@@ -266,6 +267,20 @@
           "failed": {
             "title": "Error",
             "message": "Removing the Tag from the Process failed"
+          }
+        }
+      },
+      "reserve": {
+        "post": {
+          "failed": {
+            "title": "Editing the Process not possible",
+            "message": "Someone is editing the Process right now"
+          }
+        },
+        "delete": {
+          "failed": {
+            "title": "The Process Write Lock could not be freed",
+            "message": "Please contact an Administrator"
           }
         }
       }

@@ -5,6 +5,9 @@ import removeTag from './removeTag'
 import update from './update'
 import create from './create'
 import remove from './remove'
+import reserve from './reserve'
+import free from './free'
+import reload from './reload'
 
 export default {
   getAll,
@@ -13,5 +16,8 @@ export default {
   removeTag,
   update,
   create,
-  remove
+  remove,
+  reserve,
+  free,
+  reload
 }

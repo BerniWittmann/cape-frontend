@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import reloadProcesses from './reloadProcesses'
+import reloadProcess from './reloadProcess'
 import pong from './pong'
 
 const MAX_RECONNECT_INTERVAL = 30000
@@ -10,6 +11,7 @@ export default class WebSocketService {
   constructor() {
     this.messageHandlers = {
       'reload_processes': reloadProcesses,
+      'reload_process': reloadProcess,
       'ping': pong
     }
     this.reconnectInterval = START_RECONNECT_INTERVAL

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import pong from '@/services/websocket/pong'
 
 describe('WebSocketService', () => {
@@ -11,6 +12,7 @@ describe('WebSocketService', () => {
       const send = jest.fn()
       let handler
       beforeEach(() => {
+        axios.defaults.headers.common['Websocket-Client-ID'] = undefined
         handler = pong.bind({
           send
         })
@@ -36,6 +38,11 @@ describe('WebSocketService', () => {
 
           expect(sessionStorage.getItem('websocket_client_id')).toEqual('a1b2c3')
         })
+        it('sets the http header', () => {
+          handler(message)
+
+          expect(axios.defaults.headers.common['Websocket-Client-ID']).toEqual('a1b2c3')
+        })
       })
 
       describe('it does already have a client id', () => {
@@ -58,6 +65,12 @@ describe('WebSocketService', () => {
 
           expect(sessionStorage.getItem('websocket_client_id')).not.toEqual('a1b2c3')
           expect(sessionStorage.getItem('websocket_client_id')).toEqual('z99_old_id')
+        })
+
+        it('sets the http header', () => {
+          handler(message)
+
+          expect(axios.defaults.headers.common['Websocket-Client-ID']).toEqual('z99_old_id')
         })
       })
     })

@@ -89,7 +89,10 @@ const routes = [
       children: [{
         path: 'edit',
         name: 'process.edit',
-        component: EditProcess
+        component: EditProcess,
+        beforeEnter: (to, from, next) => {
+          ProcessService.reserve({ id: to.params.processID }).then(next)
+        }
       }, {
         path: 'preview',
         name: 'process.preview',

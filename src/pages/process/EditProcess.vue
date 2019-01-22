@@ -118,6 +118,11 @@ export default {
     this.name = this.process.name
     this.processData.xml = this.process.xml
     this.processData.svg = this.process.svg
+  },
+
+  beforeRouteLeave(to, from, next) {
+    if (!this.process.id) return next()
+    ProcessService.free({ id: this.process.id }).then(() => next())
   }
 }
 </script>

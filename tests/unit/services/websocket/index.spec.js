@@ -9,6 +9,7 @@ const listeners = ['onopen', 'onmessage', 'onclose', 'onerror']
 let messageHandlerContext
 const messageHandlers = {
   'reload_processes': jest.fn().mockImplementation(function () { messageHandlerContext = this }),
+  'reload_process': jest.fn().mockImplementation(function () { messageHandlerContext = this }),
   'ping': jest.fn().mockImplementation(function () { messageHandlerContext = this })
 }
 

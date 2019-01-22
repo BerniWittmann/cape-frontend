@@ -300,7 +300,6 @@ describe('Dialogs', () => {
         }))
         cmp.findAll('elrow-stub button').at(0).trigger('click')
         expect(ProcessService.remove).toHaveBeenCalledWith(store.state.process.activeProcess)
-        expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'process.delete.confirmation', 'type': 'success' })
         expect(router.back).toHaveBeenCalled()
       })
       it('does not delete the process if canceled', () => {
@@ -315,6 +314,7 @@ describe('Dialogs', () => {
         }))
         cmp.findAll('elrow-stub button').at(0).trigger('click')
         expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'process.delete.cancellation', 'type': 'info' })
+        expect(ProcessService.remove).not.toHaveBeenCalled()
       })
     })
   })
