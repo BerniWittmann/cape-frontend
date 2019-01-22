@@ -19,7 +19,7 @@ export default class WebSocketService {
   }
 
   connect() {
-    this.connection = new WebSocket(process.env.VUE_APP_API_LOCATION.replace(/https?:\/\//, 'ws://'))
+    this.connection = new WebSocket(process.env.VUE_APP_API_LOCATION.replace(/http/, 'ws'))
 
     this.connection.onopen = this.onopen.bind(this)
     this.connection.onmessage = this.onmessage.bind(this)
