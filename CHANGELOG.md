@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.10.3 - (2019-01-22)
+---
+
+* Improved Context Type Picker on Context Factor Edit Dialog
+* Refactored Services
+* Resolved CodeClimate Issues with duplicate code in vuex mutations
+
 ## 0.10.2 - (2019-01-22)
 ---
 
