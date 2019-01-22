@@ -213,7 +213,7 @@ li {
 }
 
 </style>
-<!-- if this is in the scoped style it does not work -> TODO: better solutions? -->
+<!-- if this is in the scoped style it does not work -->
 <style>
 .el-form-item__content {
   width: 100%;

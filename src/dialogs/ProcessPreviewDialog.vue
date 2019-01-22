@@ -23,7 +23,7 @@
           $t('process.delete.delete_button') }}
         </el-button>
       </el-col>
-      <el-col :span="8" :offset="10">
+      <el-col :span="12" :offset="6">
         <div style="float: right">
         <a :href="fileContent" :download="fileName" class="download-link">
           <el-button plain icon="el-icon-download">{{$t('process.edit.download')}}</el-button>

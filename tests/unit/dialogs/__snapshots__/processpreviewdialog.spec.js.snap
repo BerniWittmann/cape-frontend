@@ -23,7 +23,7 @@ exports[`Dialogs Process Preview Dialog can be closed 1`] = `
         <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
       </span></button></elcol-stub>
-        <elcol-stub span="8" tag="div" offset="10">
+        <elcol-stub span="12" tag="div" offset="6">
           <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
                 <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
               <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
@@ -58,7 +58,7 @@ exports[`Dialogs Process Preview Dialog can be deleted show as confirmation dial
         <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
       </span></button></elcol-stub>
-        <elcol-stub span="8" tag="div" offset="10">
+        <elcol-stub span="12" tag="div" offset="6">
           <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
                 <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
               <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
@@ -93,7 +93,7 @@ exports[`Dialogs Process Preview Dialog can be edited 1`] = `
         <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
       </span></button></elcol-stub>
-        <elcol-stub span="8" tag="div" offset="10">
+        <elcol-stub span="12" tag="div" offset="6">
           <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
                 <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
               <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
@@ -128,7 +128,7 @@ exports[`Dialogs Process Preview Dialog can render 1`] = `
         <elcol-stub span="6" tag="div"><button type="button" class="el-button el-button--danger">
             <!----><i class="el-icon-delete"></i><span>process.delete.delete_button
       </span></button></elcol-stub>
-        <elcol-stub span="8" tag="div" offset="10">
+        <elcol-stub span="12" tag="div" offset="6">
           <div style="float: right;"><a href="data:text/xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Cbpmn%3AProcess%3ETest%20Process%3C%2Fbpmn%3AProcess%3E" download="My_Process.bpmn" class="download-link"><button type="button" class="el-button el-button--default is-plain">
                 <!----><i class="el-icon-download"></i><span>process.edit.download</span></button></a> <button type="button" class="el-button margin-left el-button--default">
               <!----><i class="el-icon-edit"></i><span>process.edit.link</span></button></div>
