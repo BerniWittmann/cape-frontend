@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.11.0 - (2019-01-28)
+---
+
+* Allow Context Factors to be removed
+
 ## 0.10.3 - (2019-01-22)
 ---
 
