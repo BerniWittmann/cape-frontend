@@ -75,8 +75,15 @@ export default {
 
     updateValues(event) {
       if (!this.modeler) return
+      const elementRegistry = this.modeler.get('elementRegistry')
+      if (!elementRegistry) return
+
       const s = this.modeler.get('selection').get()
       this.modeler.get('selection').select(null)
+
+      this.value.extensionAreas = elementRegistry
+        .filter(obj => obj.type === 'cape:ExtensionArea')
+        .map(o => o.businessObject)
       this.getXML(() => {
         this.getSVG(() => {
           this.$emit('input', this.value)
@@ -154,6 +161,7 @@ export default {
     .toggle {
       font-family: element-icons !important;
     }
+
     &.open .toggle:before {
       content: "\E621";
     }

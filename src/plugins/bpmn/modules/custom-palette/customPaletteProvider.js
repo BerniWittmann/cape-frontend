@@ -14,6 +14,12 @@ function createSubProcessListener(event) {
   this.create.start(event, shape)
 }
 
+function createExtensionAreaListener(event) {
+  const shape = this.elementFactory.createShape(assign({ type: 'cape:ExtensionArea' }))
+
+  this.create.start(event, shape)
+}
+
 /**
  * Customizes the Palette which shows the available Elements on the left side
  *
@@ -27,7 +33,8 @@ export default function CustomPaletteProvider(injector) {
 
   this.cached = bind(this.getPaletteEntries, this)
 
-  const actionLister = createSubProcessListener.bind(this)
+  const subProcessListener = createSubProcessListener.bind(this)
+  const extensionAreaListener = createExtensionAreaListener.bind(this)
 
   this.getPaletteEntries = function (element) {
     const actions = this.cached(element)
@@ -41,10 +48,20 @@ export default function CustomPaletteProvider(injector) {
       className: 'bpmn-icon-subprocess-collapsed',
       title: this.translate('Create collapsed SubProcess'),
       action: {
-        dragstart: actionLister,
-        click: actionLister
+        dragstart: subProcessListener,
+        click: subProcessListener
       }
     }
+    actions['create.extension-area'] = {
+      group: 'custom',
+      className: 'bpmn-icon-extension-area',
+      title: this.translate('Create Extension Area'),
+      action: {
+        dragstart: extensionAreaListener,
+        click: extensionAreaListener
+      }
+    }
+
     delete actions['create.subprocess-expanded']
 
     return actions

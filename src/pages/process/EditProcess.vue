@@ -61,7 +61,8 @@ export default {
       name: undefined,
       processData: {
         xml: undefined,
-        svg: undefined
+        svg: undefined,
+        extensionAreas: []
       }
     }
   },
