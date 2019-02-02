@@ -3,10 +3,13 @@ import loadedModules, { getModules } from '@/plugins/bpmn/modules'
 jest.mock('bpmn-js-properties-panel', () => ({ name: 'properties-panel' }))
 jest.mock('bpmn-js-properties-panel/lib/provider/camunda', () => ({ name: 'camunda-properties-panel' }))
 jest.mock('diagram-js-minimap', () => ({ name: 'diagram-js-minimap' }))
-jest.mock('@/plugins/bpmn/modules/custom-rules', () => ({ name: 'custom-rules' }))
+jest.mock('@/plugins/bpmn/modules/custom-bpmn-factory', () => ({ name: 'custom-bpmn-factory' }))
 jest.mock('@/plugins/bpmn/modules/custom-context-pad', () => ({ name: 'custom-context-pad' }))
+jest.mock('@/plugins/bpmn/modules/custom-extension-area-rules', () => ({ name: 'custom-extension-area-rules' }))
 jest.mock('@/plugins/bpmn/modules/custom-palette', () => ({ name: 'custom-palette' }))
+jest.mock('@/plugins/bpmn/modules/custom-renderer', () => ({ name: 'custom-renderer' }))
 jest.mock('@/plugins/bpmn/modules/custom-replace-menu', () => ({ name: 'custom-replace-menu' }))
+jest.mock('@/plugins/bpmn/modules/custom-rules', () => ({ name: 'custom-rules' }))
 
 const customModules = ['custom-rules', 'custom-context-pad', 'custom-palette', 'custom-replace-menu']
 

@@ -22,7 +22,35 @@ jest.mock('bpmn-js/lib/Modeler', () => {
         return cb(undefined, '<svg></svg>')
       }),
       get: jest.fn().mockImplementation(() => {
-        return { zoom: jest.fn(), get: jest.fn(), select: jest.fn(), undo: jest.fn(), eventBus: jest.fn() }
+        return {
+          zoom: jest.fn(),
+          get: jest.fn(),
+          select: jest.fn(),
+          undo: jest.fn(),
+          eventBus: jest.fn(),
+          filter: jest.fn().mockImplementation(fn => [{
+            id: 1,
+            type: 'bpmn:Process',
+            businessObject: {
+              id: 1,
+              $type: 'bpmn:Process'
+            }
+          }, {
+            id: 2,
+            type: 'cape:ExtensionArea',
+            businessObject: {
+              id: 2,
+              $type: 'cape:ExtensionArea'
+            }
+          }, {
+            id: 3,
+            type: 'cape:ExtensionArea',
+            businessObject: {
+              id: 3,
+              $type: 'cape:ExtensionArea'
+            }
+          }].filter(fn))
+        }
       })
     }
   })
@@ -42,9 +70,7 @@ describe('Components', () => {
       error: jest.fn()
     }
     const route = {
-      params: {
-
-      }
+      params: {}
     }
 
     beforeEach(() => {
@@ -102,6 +128,20 @@ describe('Components', () => {
       expect(cmp.emitted('input')).toBeTruthy()
       expect(cmp.emitted('input')[0][0].xml).toEqual('<xml></xml>')
     })
+    it('updates the extension Areas on change event', () => {
+      const fn = cmp.vm.modeler.on.mock.calls[0][1]
+      fn()
+      const expected = [{
+        $type: 'cape:ExtensionArea',
+        id: 2
+      }, {
+        $type: 'cape:ExtensionArea',
+        id: 3
+      }]
+      expect(cmp.vm.value.extensionAreas).toEqual(expected)
+      expect(cmp.emitted('input')).toBeTruthy()
+      expect(cmp.emitted('input')[0][0].extensionAreas).toEqual(expected)
+    })
     it('handles errors in change event for svg', () => {
       cmp.vm.modeler.saveSVG = jest.fn().mockImplementation((cb) => {
         return cb(new Error('Test Error'))
@@ -129,6 +169,12 @@ describe('Components', () => {
     it('handles not setup modeler in change event for xml', () => {
       const fn = cmp.vm.modeler.on.mock.calls[0][1]
       cmp.vm.modeler = undefined
+      fn()
+      expect(cmp.emitted('input')).not.toBeTruthy()
+    })
+    it('handles not available elementRegistry in change event', () => {
+      const fn = cmp.vm.modeler.on.mock.calls[0][1]
+      cmp.vm.modeler = { get: jest.fn().mockReturnValue(undefined) }
       fn()
       expect(cmp.emitted('input')).not.toBeTruthy()
     })
@@ -229,7 +275,8 @@ describe('Components', () => {
         })
 
         it('throws no error if the validation succeeds', () => {
-          eventFireFn = jest.fn().mockImplementation(() => {})
+          eventFireFn = jest.fn().mockImplementation(() => {
+          })
           cmp.vm.modeler.get = jest.fn().mockReturnValue({ fire: eventFireFn })
 
           expect(cmp.vm.validate).not.toThrow()

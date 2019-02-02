@@ -118,6 +118,33 @@ describe('Plugins', () => {
             })
           })
 
+          it('adds the create.extension-area option', () => {
+            const cpp = CustomPaletteProvider.call({}, injector)
+            const entries = cpp.getPaletteEntries({})
+            const option = entries['create.extension-area']
+            expect(option).not.toBeFalsy()
+            expect(option).toEqual({
+              group: 'custom',
+              className: 'bpmn-icon-extension-area',
+              title: 'translated: Create Extension Area',
+              action: option.action
+            })
+            expect(option.action.click).toEqual(expect.any(Function))
+            expect(option.action.dragstart).toEqual(expect.any(Function))
+            expect(option.action.click).toEqual(option.action.dragstart)
+
+            const event = { event: true, foo: 'bar' }
+            option.action.click(event)
+
+            expect(create.start).toHaveBeenCalledWith(event, {
+              isShape: true,
+              businessObject: {
+                type: 'cape:ExtensionArea',
+                di: {}
+              }
+            })
+          })
+
           it('keeps all the other options', () => {
             const cpp = CustomPaletteProvider.call({}, injector)
             const entries = cpp.getPaletteEntries({})

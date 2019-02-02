@@ -8,7 +8,6 @@ import customRules from './custom-rules'
 import customContextPad from './custom-context-pad'
 import customPalette from './custom-palette'
 import customReplaceMenu from './custom-replace-menu'
-import customElementFactory from './custom-element-factory'
 import customRenderer from './custom-renderer'
 import customExtensionAreaRules from './custom-extension-area-rules'
 import customBPMNFactory from './custom-bpmn-factory'
@@ -24,7 +23,6 @@ let baseModules = [
   propertiesPanelModule,
   propertiesPanelProvider,
   minimapModule,
-  customElementFactory,
   customRenderer,
   customExtensionAreaRules,
   customBPMNFactory

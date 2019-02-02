@@ -11,6 +11,15 @@ Array [
   Object {
     "name": "diagram-js-minimap",
   },
+  Object {
+    "name": "custom-renderer",
+  },
+  Object {
+    "name": "custom-extension-area-rules",
+  },
+  Object {
+    "name": "custom-bpmn-factory",
+  },
 ]
 `;
 
@@ -24,6 +33,15 @@ Array [
   },
   Object {
     "name": "diagram-js-minimap",
+  },
+  Object {
+    "name": "custom-renderer",
+  },
+  Object {
+    "name": "custom-extension-area-rules",
+  },
+  Object {
+    "name": "custom-bpmn-factory",
   },
   Object {
     "name": "custom-rules",

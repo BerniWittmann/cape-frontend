@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins BPMN Modules Custom Extension Area Rules has the correct modules injected 1`] = `
+Array [
+  "eventBus",
+]
+`;

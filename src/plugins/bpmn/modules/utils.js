@@ -67,3 +67,7 @@ export function getStartEventCount(elementRegistry) {
 export function getEndEventCount(elementRegistry) {
   return getElementsByType(elementRegistry, END_EVENT_TYPE).length
 }
+
+export function isCustomElement(element) {
+  return element && /^cape:/.test(element.$type)
+}

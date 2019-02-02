@@ -5,5 +5,24 @@ Object {
   "camunda": Object {
     "name": "camunda",
   },
+  "cape": Object {
+    "associations": Array [],
+    "emumerations": Array [],
+    "name": "CaPE",
+    "prefix": "cape",
+    "types": Array [
+      Object {
+        "name": "ExtensionArea",
+        "properties": Array [],
+        "superClass": Array [
+          "bpmn:Task",
+        ],
+      },
+    ],
+    "uri": "http://uni-ulm/schema/bpmn/cape",
+    "xml": Object {
+      "tagAlias": "lowerCase",
+    },
+  },
 }
 `;

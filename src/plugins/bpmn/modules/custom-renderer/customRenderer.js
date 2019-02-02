@@ -25,56 +25,10 @@ import extensionArea from '@/assets/extensionArea'
 export default function CustomRenderer(eventBus, styles, textRenderer) {
   BaseRenderer.call(this, eventBus, 2000)
 
-  const computeStyle = styles.computeStyle
+  this.computeStyle = styles.computeStyle
+  this.textRenderer = textRenderer
 
-  function renderLabel(parentGfx, label, options) {
-    options = assign({
-      size: {
-        width: 100
-      }
-    }, options)
-
-    const text = textRenderer.createText(label || '', options)
-
-    svgClasses(text).add('djs-label')
-
-    svgAppend(parentGfx, text)
-
-    return text
-  }
-
-  function renderEmbeddedLabel(parentGfx, element, align) {
-    const semantic = getSemantic(element)
-
-    return renderLabel(parentGfx, semantic.name, {
-      box: element,
-      align: align,
-      padding: 5,
-      style: {
-        fill: 'black'
-      }
-    })
-  }
-
-  this.drawExtensionArea = function (p, element) {
-    let attrs
-
-    attrs = computeStyle(attrs, {
-      stroke: 'black',
-      strokeWidth: 5,
-      fill: '#3CAA82'
-    })
-
-    const polygon = svgCreate(extensionArea)
-
-    svgAttr(polygon, attrs)
-
-    svgAppend(p, polygon)
-
-    renderEmbeddedLabel(p, element, 'center-middle')
-
-    return polygon
-  }
+  this.drawExtensionArea = drawExtensionArea.bind(this)
 }
 
 inherits(CustomRenderer, BaseRenderer)
@@ -91,4 +45,53 @@ CustomRenderer.prototype.drawShape = function (p, element) {
   if (type === 'cape:ExtensionArea') {
     return this.drawExtensionArea(p, element)
   }
+}
+
+function renderLabel(parentGfx, label, options) {
+  options = assign({
+    size: {
+      width: 100
+    }
+  }, options)
+
+  const text = this.textRenderer.createText(label || '', options)
+
+  svgClasses(text).add('djs-label')
+
+  svgAppend(parentGfx, text)
+
+  return text
+}
+
+function renderEmbeddedLabel(parentGfx, element, align) {
+  const semantic = getSemantic(element)
+
+  return renderLabel.call(this, parentGfx, semantic.name, {
+    box: element,
+    align: align,
+    padding: 5,
+    style: {
+      fill: 'black'
+    }
+  })
+}
+
+function drawExtensionArea(p, element) {
+  let attrs
+
+  attrs = this.computeStyle(attrs, {
+    stroke: 'black',
+    strokeWidth: 5,
+    fill: '#3CAA82'
+  })
+
+  const polygon = svgCreate(extensionArea)
+
+  svgAttr(polygon, attrs)
+
+  svgAppend(p, polygon)
+
+  renderEmbeddedLabel.call(this, p, element, 'center-middle')
+
+  return polygon
 }

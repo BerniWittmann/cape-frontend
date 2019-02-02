@@ -20,6 +20,37 @@ function createExtensionAreaListener(event) {
   this.create.start(event, shape)
 }
 
+function getPaletteEntries(element) {
+  const actions = this.cached(element)
+
+  delete actions['create.participant-expanded']
+  delete actions['create.start-event']
+  delete actions['create.end-event']
+
+  actions['create.subprocess-collapsed'] = {
+    ...actions['create.subprocess-expanded'],
+    className: 'bpmn-icon-subprocess-collapsed',
+    title: this.translate('Create collapsed SubProcess'),
+    action: {
+      dragstart: this.subProcessListener,
+      click: this.subProcessListener
+    }
+  }
+  actions['create.extension-area'] = {
+    group: 'custom',
+    className: 'bpmn-icon-extension-area',
+    title: this.translate('Create Extension Area'),
+    action: {
+      dragstart: this.extensionAreaListener,
+      click: this.extensionAreaListener
+    }
+  }
+
+  delete actions['create.subprocess-expanded']
+
+  return actions
+}
+
 /**
  * Customizes the Palette which shows the available Elements on the left side
  *
@@ -33,39 +64,10 @@ export default function CustomPaletteProvider(injector) {
 
   this.cached = bind(this.getPaletteEntries, this)
 
-  const subProcessListener = createSubProcessListener.bind(this)
-  const extensionAreaListener = createExtensionAreaListener.bind(this)
+  this.subProcessListener = createSubProcessListener.bind(this)
+  this.extensionAreaListener = createExtensionAreaListener.bind(this)
 
-  this.getPaletteEntries = function (element) {
-    const actions = this.cached(element)
-
-    delete actions['create.participant-expanded']
-    delete actions['create.start-event']
-    delete actions['create.end-event']
-
-    actions['create.subprocess-collapsed'] = {
-      ...actions['create.subprocess-expanded'],
-      className: 'bpmn-icon-subprocess-collapsed',
-      title: this.translate('Create collapsed SubProcess'),
-      action: {
-        dragstart: subProcessListener,
-        click: subProcessListener
-      }
-    }
-    actions['create.extension-area'] = {
-      group: 'custom',
-      className: 'bpmn-icon-extension-area',
-      title: this.translate('Create Extension Area'),
-      action: {
-        dragstart: extensionAreaListener,
-        click: extensionAreaListener
-      }
-    }
-
-    delete actions['create.subprocess-expanded']
-
-    return actions
-  }
+  this.getPaletteEntries = getPaletteEntries.bind(this)
 
   return this
 }

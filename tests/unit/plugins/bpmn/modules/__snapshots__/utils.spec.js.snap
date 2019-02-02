@@ -9,5 +9,6 @@ Array [
   "hasExceedingConnectionCountElements",
   "getStartEventCount",
   "getEndEventCount",
+  "isCustomElement",
 ]
 `;

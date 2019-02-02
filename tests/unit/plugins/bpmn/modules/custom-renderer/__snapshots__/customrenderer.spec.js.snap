@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins BPMN Modules Custom Renderer has the correct modules injected 1`] = `
+Array [
+  "eventBus",
+  "styles",
+  "textRenderer",
+]
+`;
+
+exports[`Plugins BPMN Modules Custom Renderer it draws the extension Area renders the svg 1`] = `
+Object {
+  "attributes": Object {
+    "fill": "#3CAA82",
+    "stroke": "black",
+    "strokeWidth": 5,
+  },
+  "svg": true,
+}
+`;

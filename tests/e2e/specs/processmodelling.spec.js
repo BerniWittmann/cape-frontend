@@ -39,4 +39,7 @@ describe('Process Modelling', () => {
       .trigger('mousemove', { clientX: 500, clientY: 200 })
     cy.get('.djs-drag-group').trigger('mouseup', { force: true })
   })
+  it('can render extension areas', () => {
+    cy.get('[data-group="custom"] > .entry').should('exist')
+  })
 })

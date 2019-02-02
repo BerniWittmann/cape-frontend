@@ -1,16 +1,10 @@
-import { reduce } from 'min-dash'
-
 import inherits from 'inherits'
 
-import { is } from 'bpmn-js/lib/util/ModelUtil'
+import { shapeHasType, isCustomElement } from '../utils'
 
 import RuleProvider from 'diagram-js/lib/features/rules/RuleProvider'
 
-const HIGH_PRIORITY = 9500
-
-function isCustom(element) {
-  return element && /^cape:/.test(element.type)
-}
+const HIGH_PRIORITY = 1500
 
 /**
  * Specific rules for custom elements
@@ -29,36 +23,13 @@ CustomRules.prototype.init = function () {
    */
   function canCreate(shape, target) {
     // only judge about custom elements
-    if (!isCustom(shape)) {
+    if (!isCustomElement(shape)) {
       return
     }
 
     // allow creation on processes
-    return is(target, 'bpmn:Process') || is(target, 'bpmn:Participant') || is(target, 'bpmn:Collaboration') || is(target, 'bpmn:SequenceFlow')
+    return shapeHasType(target, ['bpmn:Process', 'bpmn:Participant', 'bpmn:Collaboration', 'bpmn:SequenceFlow'])
   }
-
-  this.addRule('elements.move', HIGH_PRIORITY, context => {
-    const target = context.target
-    const shapes = context.shapes
-
-    let type
-
-    // do not allow mixed movements of custom / BPMN shapes
-    // if any shape cannot be moved, the group cannot be moved, too
-    // reject, if we have at least one
-    // custom element that cannot be moved
-    return reduce(shapes, function (result, s) {
-      if (type === undefined) {
-        type = isCustom(s)
-      }
-
-      if (type !== isCustom(s) || result === false) {
-        return false
-      }
-
-      return canCreate(s, target)
-    }, undefined)
-  })
 
   this.addRule('shape.create', HIGH_PRIORITY, context => {
     const target = context.target
@@ -70,7 +41,7 @@ CustomRules.prototype.init = function () {
   this.addRule('shape.resize', HIGH_PRIORITY, context => {
     const shape = context.shape
 
-    if (isCustom(shape)) {
+    if (isCustomElement(shape)) {
       // cannot resize custom elements
       return false
     }

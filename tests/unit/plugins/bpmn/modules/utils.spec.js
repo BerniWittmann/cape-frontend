@@ -60,6 +60,29 @@ describe('Plugins', () => {
           })
         })
 
+        describe('isCustomElement', () => {
+          it('returns false for empty element', () => {
+            expect(utils.isCustomElement(undefined)).toBeFalsy()
+            expect(utils.isCustomElement(null)).toBeFalsy()
+            expect(utils.isCustomElement({})).toBeFalsy()
+          })
+
+          it('returns false for non custom Element', () => {
+            expect(utils.isCustomElement({ $type: 'bpmn:Process' })).toBeFalsy()
+            expect(utils.isCustomElement({ $type: 'bpmn:Task' })).toBeFalsy()
+            expect(utils.isCustomElement({ $type: 'camunda:Property' })).toBeFalsy()
+            expect(utils.isCustomElement({ $type: 'other:Property' })).toBeFalsy()
+            expect(utils.isCustomElement({ $type: 'Test' })).toBeFalsy()
+          })
+
+          it('returns true for custom Element', () => {
+            expect(utils.isCustomElement({ $type: 'cape:Process' })).toBeTruthy()
+            expect(utils.isCustomElement({ $type: 'cape:ExtensionArea' })).toBeTruthy()
+            expect(utils.isCustomElement({ $type: 'cape:Task' })).toBeTruthy()
+            expect(utils.isCustomElement({ $type: 'cape:Property' })).toBeTruthy()
+          })
+        })
+
         describe('getStartEventCount', () => {
           it('returns 0 if no start event is available', () => {
             const arr = [{ businessObject: { $type: 'my-type' } }, { businessObject: { $type: 'bpmn:EndEvent' } }, { businessObject: { $type: 'my-type' } }]
