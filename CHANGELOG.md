@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 0.12.0 - (2019-02-04)
+---
+
+* Added Extension Areas to Process Modeler
+
 ## 0.11.0 - (2019-01-28)
 ---
 
