@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ContextSituationCard it is active renders 1`] = `
+<elcard-stub shadow="always" class="context-situation-card is-active">
+  <div class="clearfix"><span>My Context Situation</span></div>
+  <div class="rules">
+    <p>The Rules String</p>
+  </div>
+  <div class="tags">
+    <tag-stub tag="[object Object]" size="normal"></tag-stub>
+    <tag-stub tag="[object Object]" size="normal"></tag-stub>
+  </div>
+</elcard-stub>
+`;
+
+exports[`Components ContextSituationCard it is not active renders 1`] = `
+<elcard-stub shadow="hover" class="context-situation-card">
+  <div class="clearfix" slot="header"><span>My Context Situation</span></div>
+  <div class="rules" style="display: none;">
+    <p>The Rules String</p>
+  </div>
+  <div class="tags">
+    <tag-stub tag="[object Object]" size="small"></tag-stub>
+    <tag-stub tag="[object Object]" size="small"></tag-stub>
+  </div>
+</elcard-stub>
+`;

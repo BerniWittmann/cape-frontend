@@ -52,4 +52,15 @@ describe('Navigations', () => {
     buttons.eq(0).click()
     cy.url().should('eq', Cypress.config().baseUrl + '/processes/new')
   })
+  it('Navigates to the context factors page', () => {
+    cy.visit('/')
+    cy.get('.nav .el-menu-item').eq(1).click()
+    cy.url().should('eq', Cypress.config().baseUrl + '/context_factors/')
+  })
+  it('Navigates to the context situations page', () => {
+    cy.visit('/')
+    cy.get('.nav .el-menu-item').eq(2).click()
+    cy.get('.el-card')
+    cy.url().should('eq', Cypress.config().baseUrl + '/context_situations/')
+  })
 })

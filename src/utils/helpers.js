@@ -35,3 +35,25 @@ export function getDeep(obj, path) {
   }
   return current
 }
+
+export function scrollToTop() {
+  try {
+    const el = document.getElementById('app')
+    el.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  } catch (e) {}
+}
+
+export function hasCommonElement(arr1, arr2) {
+  let result = false
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      result = true
+      break
+    }
+  }
+  return result
+}

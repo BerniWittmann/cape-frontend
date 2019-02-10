@@ -1,7 +1,8 @@
 {
   "nav": {
     "processes": "Process Overview",
-    "context_factors": "Context Factors"
+    "context_factors": "Context Factors",
+    "context_situations": "Context Situations"
   },
   "footer": {
     "about": "@:about.title",
@@ -20,6 +21,11 @@
   },
   "home": {
     "greeting": "Welcome to the CaPE-Project"
+  },
+  "context_situation": {
+    "filter_placeholder": "Search Context Situations",
+    "select_placeholder": "Filter By Tag",
+    "none_found": "No Context Situations Available"
   },
   "context_factor": {
     "title": "Context Factors",
@@ -242,6 +248,60 @@
         "success": {
           "title": "Success",
           "message": "The Context Factor got created"
+        }
+      }
+    },
+    "context_situations": {
+      "all": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Context Situations failed"
+          }
+        },
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Context Situation failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Context Situation got created"
+          }
+        }
+      },
+      "single": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Context Situation failed"
+          }
+        },
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Context Situation failed"
+          }
+        },
+        "put": {
+          "failed": {
+            "title": "Error",
+            "message": "Updating the Context Situation failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Context Situation got updated"
+          }
+        }
+      },
+      "post": {
+        "failed": {
+          "title": "Error",
+          "message": "Creating the Context Situation failed"
+        },
+        "success": {
+          "title": "Success",
+          "message": "The Context Situation got created"
         }
       }
     },

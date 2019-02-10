@@ -11,6 +11,10 @@ const routes = {
     all: '/context_factors',
     single: '/context_factors/<id>'
   },
+  context_situations: {
+    all: '/context_situations',
+    single: '/context_situations/<id>'
+  },
   context_types: {
     all: '/context_types',
     single: '/context_types/<id>'

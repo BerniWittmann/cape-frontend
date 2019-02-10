@@ -15,11 +15,13 @@ import EditProcess from '@/pages/process/EditProcess.vue'
 import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog.vue'
 import ContextFactors from '@/pages/ContextFactors.vue'
 import ContextFactorEditDialog from '@/dialogs/ContextFactorEditDialog.vue'
+import ContextSituations from '@/pages/ContextSituations.vue'
 
 import ProcessService from '@/services/process'
 import TagService from '@/services/tag'
 import ContextTypeService from '@/services/contextType'
 import ContextFactorService from '@/services/contextFactor'
+import ContextSituationService from '@/services/contextSituation'
 
 const routes = [
   {
@@ -104,6 +106,28 @@ const routes = [
     }]
   },
   {
+    path: '/context_situations',
+    component: EmptyRouterView,
+    beforeEnter: (to, from, next) => {
+      Promise.all([
+        TagService.getAll(),
+        ContextSituationService.getAll()
+      ]).then(() => { next() }).catch(next)
+    },
+    children: [{
+      path: '',
+      name: 'context_situations',
+      component: ContextSituations
+    }, {
+      path: ':contextSituationID',
+      name: 'context_situations.single',
+      component: ContextSituations,
+      beforeEnter: (to, from, next) => {
+        ContextSituationService.get({ id: to.params.contextSituationID }).then(next)
+      }
+    }]
+  },
+  {
     path: '/settings',
     name: 'settings',
     component: Settings,
@@ -115,8 +139,10 @@ const routes = [
     }
   },
   {
-    path: '/*',
-    redirect: '/'
+    path: '*',
+    redirect: {
+      name: 'home'
+    }
   }
 ]
 

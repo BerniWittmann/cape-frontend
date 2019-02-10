@@ -4,7 +4,9 @@ import {
   hasProcessModelerRulesEnabled,
   removeByID,
   updateAndSetActive,
-  getDeep
+  getDeep,
+  scrollToTop,
+  hasCommonElement
 } from '@/utils/helpers'
 
 describe('Helpers', () => {
@@ -169,6 +171,55 @@ describe('Helpers', () => {
     })
     it('can find value on deeper depth', () => {
       expect(getDeep(obj, 'a.b.c')).toEqual(42)
+    })
+  })
+
+  describe('scrollToTop', () => {
+    it('scrolls to top', () => {
+      const scrollTo = jest.fn()
+      document.getElementById = jest.fn().mockReturnValue({
+        scrollTo
+      })
+
+      scrollToTop()
+
+      expect(document.getElementById).toHaveBeenCalledWith('app')
+      expect(scrollTo).toHaveBeenCalledWith({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    })
+
+    it('does not scroll if element not found', () => {
+      const scrollTo = jest.fn()
+      document.getElementById = jest.fn().mockReturnValue(undefined)
+
+      scrollToTop()
+
+      expect(document.getElementById).toHaveBeenCalledWith('app')
+      expect(scrollTo).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('hasCommonElement', () => {
+    it('returns false if any array is empty', () => {
+      expect(hasCommonElement([], [])).toBeFalsy()
+      expect(hasCommonElement([1, 2, 3], [])).toBeFalsy()
+      expect(hasCommonElement([], [1, 2, 3])).toBeFalsy()
+    })
+
+    it('returns false if arrays dont have elements in common', () => {
+      expect(hasCommonElement([1, 2, 3], [4, 5, 6])).toBeFalsy()
+      expect(hasCommonElement([1, 5, 10], [3, 7])).toBeFalsy()
+      expect(hasCommonElement(['a', 'c', 'e'], ['b', 'd', 'f'])).toBeFalsy()
+    })
+
+    it('returns true if arrays have elements in common', () => {
+      expect(hasCommonElement([1, 2, 3], [1, 2, 3])).toBeTruthy()
+      expect(hasCommonElement([1, 5, 10], [3, 7, 99, 42, 1])).toBeTruthy()
+      expect(hasCommonElement([1, 7, 10], [7])).toBeTruthy()
+      expect(hasCommonElement(['a', 'c', 'e'], ['b', 'd', 'e', 'f'])).toBeTruthy()
     })
   })
 })

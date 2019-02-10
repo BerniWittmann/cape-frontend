@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages ContextSituations.vue renders 1`] = `
+<vlayout-stub>
+  <elrow-stub tag="div" gutter="20" justify="end" align="top">
+    <elcol-stub span="4" tag="div" offset="16">
+      <elselect-stub value="" autocomplete="off" clearable="true" multiple="true" multiplelimit="0" placeholder="context_situation.select_placeholder" valuekey="value" collapsetags="true" popperappendtobody="true"><i class="el-input__icon el-icon-view"></i>
+        <eloption-stub value="101" label="Tag 1">
+          <tag-stub tag="[object Object]" size="mini"></tag-stub>
+        </eloption-stub>
+        <eloption-stub value="102" label="Tag 2">
+          <tag-stub tag="[object Object]" size="mini"></tag-stub>
+        </eloption-stub>
+        <eloption-stub value="103" label="Tag 3">
+          <tag-stub tag="[object Object]" size="mini"></tag-stub>
+        </eloption-stub>
+        <eloption-stub value="104" label="Tag 4">
+          <tag-stub tag="[object Object]" size="mini"></tag-stub>
+        </eloption-stub>
+      </elselect-stub>
+    </elcol-stub>
+    <elcol-stub span="4" tag="div">
+      <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" placeholder="context_situation.filter_placeholder"><i class="el-input__icon el-icon-search"></i></elinput-stub>
+    </elcol-stub>
+  </elrow-stub>
+  <elrow-stub tag="div" gutter="20" justify="start" align="top">
+    <elcol-stub span="24" tag="div"><span tag="div" name="context-situation-cards" class="context-situation-cards"><contextsituationcard-stub contextsituation="[object Object]"></contextsituationcard-stub><contextsituationcard-stub contextsituation="[object Object]"></contextsituationcard-stub><contextsituationcard-stub contextsituation="[object Object]"></contextsituationcard-stub><contextsituationcard-stub contextsituation="[object Object]"></contextsituationcard-stub><contextsituationcard-stub contextsituation="[object Object]"></contextsituationcard-stub><contextsituationcard-stub contextsituation="[object Object]"></contextsituationcard-stub></span>
+      <!---->
+    </elcol-stub>
+  </elrow-stub>
+</vlayout-stub>
+`;

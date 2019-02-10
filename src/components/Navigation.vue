@@ -9,6 +9,7 @@
     </router-link>
     <el-menu-item :route="{ name: 'processes' }" index="processes">{{ $t('nav.processes') }}</el-menu-item>
     <el-menu-item :route="{ name: 'context_factors'}" index="context_factors">{{$t('nav.context_factors')}}</el-menu-item>
+    <el-menu-item :route="{ name: 'context_situations'}" index="context_situations">{{$t('nav.context_situations')}}</el-menu-item>
   </el-menu>
 </template>
 <script>

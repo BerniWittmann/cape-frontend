@@ -6,5 +6,6 @@ exports[`Components Navigation renders 1`] = `
   </a>
   <elmenuitem-stub index="processes" route="[object Object]">nav.processes</elmenuitem-stub>
   <elmenuitem-stub index="context_factors" route="[object Object]">nav.context_factors</elmenuitem-stub>
+  <elmenuitem-stub index="context_situations" route="[object Object]">nav.context_situations</elmenuitem-stub>
 </elmenu-stub>
 `;
