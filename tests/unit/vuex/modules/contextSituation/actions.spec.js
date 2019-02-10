@@ -39,6 +39,12 @@ describe('Vuex', () => {
             expect(store.commit).toHaveBeenCalledWith(mutationTypes.SET_ACTIVE, undefined)
           })
         })
+        describe('add', () => {
+          it('adds a context situation', () => {
+            csActions.add(store, { id: 1 })
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.ADD, { id: 1 })
+          })
+        })
       })
     })
   })

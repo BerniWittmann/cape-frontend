@@ -91,6 +91,15 @@ describe('Vuex', () => {
             expect(state.activeContextSituation).toEqual(undefined)
           })
         })
+        describe('ADD', () => {
+          beforeEach(() => {
+            state.contextSituations = []
+          })
+          it('adds a context Situation to the store', () => {
+            cSMutations[mutationTypes.ADD](state, { id: 1, foo: 'bar' })
+            expect(state.contextSituations).toEqual([{ id: 1, foo: 'bar' }])
+          })
+        })
       })
     })
   })

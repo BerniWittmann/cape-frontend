@@ -25,7 +25,17 @@
   "context_situation": {
     "filter_placeholder": "Search Context Situations",
     "select_placeholder": "Filter By Tag",
-    "none_found": "No Context Situations Available"
+    "none_found": "No Context Situations Available",
+    "create_new": "New Context Situation",
+    "new_context_situation_name": "New Context Situation Name",
+    "edit": {
+      "validation": {
+        "name": {
+          "required": "Please input a name"
+        }
+      }
+    }
+
   },
   "context_factor": {
     "title": "Context Factors",

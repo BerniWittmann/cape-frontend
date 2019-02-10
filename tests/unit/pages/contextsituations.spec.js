@@ -234,11 +234,41 @@ describe('Pages', () => {
         expect(situations.at(4).props('contextSituation')).toEqual(store.state.contextSituation.contextSituations[1])
       })
     })
+    describe('creating new context factors', () => {
+      it('can create new context factor', () => {
+        cmp.vm.newContextSituation.name = 'New CS'
+        cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
+          valid(true)
+        })
+        ContextSituationService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        ContextSituationService.getAll = jest.fn()
+        cmp.vm.createNew()
+        expect(ContextSituationService.create).toHaveBeenCalledWith({
+          '_id': undefined,
+          'tags': [],
+          'rules': undefined,
+          'name': 'New CS'
+        })
+      })
+
+      it('cannot create new context Situation if validation failed', () => {
+        cmp.vm.newContextSituation.name = 'New CS'
+        cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
+          valid(false)
+        })
+        ContextSituationService.create = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.createNew()
+        expect(ContextSituationService.create).not.toHaveBeenCalled()
+      })
+    })
 
     describe('it can filter by search Text', () => {
       it('renders a input for the text', () => {
-        const input = cmp.find('elinput-stub')
-
+        const input = cmp.findAll('elinput-stub').at(1)
         expect(input.exists()).toBeTruthy()
         expect(input.attributes('clearable')).toEqual('true')
       })

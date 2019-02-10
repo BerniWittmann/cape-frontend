@@ -6,7 +6,7 @@
  * contextSituation  module.
  */
 
-import { STORE, UPDATE, SET_ACTIVE } from './mutation-types'
+import { STORE, UPDATE, SET_ACTIVE, ADD } from './mutation-types'
 import { update, setActive } from '@/vuex/common/mutations'
 
 export default {
@@ -18,5 +18,8 @@ export default {
   },
   [SET_ACTIVE](state, contextSituation) {
     setActive(state, 'contextSituations', 'activeContextSituation', contextSituation)
+  },
+  [ADD](state, contextSituation) {
+    state.contextSituations.push(contextSituation)
   }
 }

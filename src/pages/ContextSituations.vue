@@ -1,7 +1,19 @@
 <template>
   <v-layout>
     <el-row justify="end" :gutter="20">
-      <el-col :span="4" :offset="16">
+      <el-col :span="16">
+        <el-form ref='newFactorForm' :model="newContextSituation" label-position="top" :rules="rules" status-icon inline
+                 @submit.native.prevent>
+          <el-form-item prop="name">
+            <el-input
+                    :placeholder="$t('context_situation.new_context_situation_name')"
+                    v-model="newContextSituation.name">
+            </el-input>
+          </el-form-item>
+          <el-button icon="el-icon-plus" @click="createNew">{{ $t('context_situation.create_new') }}</el-button>
+        </el-form>
+      </el-col>
+      <el-col :span="3">
         <el-select v-if="tags.length > 0"
                 :placeholder="$t('context_situation.select_placeholder')"
                 v-model="selectedTags" clearable multiple collapse-tags>
@@ -11,7 +23,7 @@
           </el-option>
         </el-select>
       </el-col>
-      <el-col :span="4">
+      <el-col :span="5">
         <el-input
                 :placeholder="$t('context_situation.filter_placeholder')"
                 v-model="filterText" clearable>
@@ -38,6 +50,7 @@ import DefaultLayout from '@/layouts/Default.vue'
 import ContextSituationCard from '@/components/context-situation/ContextSituationCard.vue'
 import ContextSituationService from '@/services/contextSituation'
 import Tag from '@/components/Tag'
+import ContextSituation from '@/models/contextSituation'
 
 export default {
   components: {
@@ -49,7 +62,15 @@ export default {
   data() {
     return {
       filterText: undefined,
-      selectedTags: []
+      selectedTags: [],
+      newContextSituation: {
+        name: undefined
+      },
+      rules: {
+        name: [
+          { required: true, message: this.$t('context_situation.edit.validation.name.required'), trigger: 'blur' }
+        ]
+      }
     }
   },
 
@@ -95,6 +116,17 @@ export default {
   },
 
   methods: {
+    createNew() {
+      this.$refs.newFactorForm.validate((valid) => {
+        if (valid) {
+          let data = new ContextSituation({ name: this.newContextSituation.name })
+          ContextSituationService.create(data).then(() => {
+            // TODO Push router to edit page once its implemented
+            ContextSituationService.getAll()
+          })
+        }
+      })
+    },
     unsetActiveContextSituation() {
       this.$router.push({
         name: 'context_situations'

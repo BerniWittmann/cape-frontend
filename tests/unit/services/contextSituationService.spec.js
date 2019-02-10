@@ -36,6 +36,74 @@ describe('Services', () => {
       expect(cSService.getAll).toEqual(expect.any(Function))
       expect(cSService.get).toEqual(expect.any(Function))
     })
+    describe('create', () => {
+      it('should create a context situation', (done) => {
+        moxios.stubRequest('/context_situations', {
+          status: 200,
+          response: cSData
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.create({ name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextSituation/add', new ContextSituation(cSData))
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_situations', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_situations', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_situations.all.post.failed.title',
+            message: 'notifications.context_situations.all.post.failed.message'
+          })
+          done()
+        })
+      })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/context_situations', {
+          status: 200,
+          response: cSData
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.create({ name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.context_situations.all.post.success.title',
+            message: 'notifications.context_situations.all.post.success.message'
+          })
+          done()
+        })
+      })
+    })
 
     describe('getAll', () => {
       it('should load all Context Situations', (done) => {

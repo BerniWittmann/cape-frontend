@@ -3,7 +3,15 @@
 exports[`Pages ContextSituations.vue renders 1`] = `
 <vlayout-stub>
   <elrow-stub tag="div" gutter="20" justify="end" align="top">
-    <elcol-stub span="4" tag="div" offset="16">
+    <elcol-stub span="16" tag="div">
+      <elform-stub model="[object Object]" rules="[object Object]" labelposition="top" labelsuffix="" inline="true" statusicon="true" showmessage="true" validateonrulechange="true">
+        <elformitem-stub prop="name" inlinemessage="" showmessage="true">
+          <elinput-stub type="text" autocomplete="off" validateevent="true" placeholder="context_situation.new_context_situation_name"></elinput-stub>
+        </elformitem-stub>
+        <elbutton-stub type="default" icon="el-icon-plus" nativetype="button">context_situation.create_new</elbutton-stub>
+      </elform-stub>
+    </elcol-stub>
+    <elcol-stub span="3" tag="div">
       <elselect-stub value="" autocomplete="off" clearable="true" multiple="true" multiplelimit="0" placeholder="context_situation.select_placeholder" valuekey="value" collapsetags="true" popperappendtobody="true"><i class="el-input__icon el-icon-view"></i>
         <eloption-stub value="101" label="Tag 1">
           <tag-stub tag="[object Object]" size="mini"></tag-stub>
@@ -19,7 +27,7 @@ exports[`Pages ContextSituations.vue renders 1`] = `
         </eloption-stub>
       </elselect-stub>
     </elcol-stub>
-    <elcol-stub span="4" tag="div">
+    <elcol-stub span="5" tag="div">
       <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" placeholder="context_situation.filter_placeholder"><i class="el-input__icon el-icon-search"></i></elinput-stub>
     </elcol-stub>
   </elrow-stub>
