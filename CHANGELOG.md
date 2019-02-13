@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
+## 0.13.0 - (2019-02-13)
+---
+
+* Added Basic Context Situations
 
 ## 0.12.0 - (2019-02-04)
 ---
