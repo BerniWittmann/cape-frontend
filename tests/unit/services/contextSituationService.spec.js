@@ -204,5 +204,122 @@ describe('Services', () => {
         })
       })
     })
+
+    describe('update', () => {
+      it('should update a single context Situation', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 200,
+          response: cSData
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextSituation/update', new ContextSituation(cSData))
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_situations.single.put.failed.title',
+            message: 'notifications.context_situations.single.put.failed.message'
+          })
+          done()
+        })
+      })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 200
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.update({ id: 42, foo: 'bar' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.context_situations.single.put.success.title',
+            message: 'notifications.context_situations.single.put.success.message'
+          })
+          done()
+        })
+      })
+    })
+
+    describe('remove', () => {
+      it('should remove a contextSituation', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 200,
+          response: undefined
+        })
+        const onFulfilled = jest.fn()
+        cSService.remove({ id: '42', name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('contextSituation/remove', { id: '42', name: 'Test' })
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/context_situations/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        cSService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.context_situations.single.delete.failed.title',
+            message: 'notifications.context_situations.single.delete.failed.message'
+          })
+          done()
+        })
+      })
+    })
   })
 })

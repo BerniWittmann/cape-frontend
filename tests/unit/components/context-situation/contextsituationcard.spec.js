@@ -1,8 +1,10 @@
-import { shallowMount } from '@vue/test-utils'
+import { config, mount, TransitionStub } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 
 import Tag from '@/components/Tag.vue'
+import TagEditor from '@/components/TagEditor.vue'
 import ContextSituationCard from '@/components/context-situation/ContextSituationCard.vue'
+import ContextSituationService from '@/services/contextSituation'
 
 describe('Components', () => {
   describe('ContextSituationCard', () => {
@@ -10,8 +12,11 @@ describe('Components', () => {
     let cmp
     let router
     let store
+    config.stubs.transition = false
+    console.warn = jest.fn()
 
-    beforeEach(() => {
+    beforeEach((done) => {
+      jest.useRealTimers()
       propsData = {
         contextSituation: {
           id: '142',
@@ -62,20 +67,24 @@ describe('Components', () => {
         }))
       }
       router = {
-        push: jest.fn()
+        push: jest.fn(),
+        back: jest.fn()
       }
-      render()
+      render(done)
     })
 
-    function render() {
-      cmp = shallowMount(ContextSituationCard, {
+    function render(done = () => {}) {
+      config.stubs.transition = TransitionStub
+      cmp = mount(ContextSituationCard, {
         i18n,
         propsData,
         mocks: {
           $store: store,
           $router: router
-        }
+        },
+        sync: false
       })
+      cmp.vm.$nextTick(done)
     }
 
     describe('it is not active', () => {
@@ -104,10 +113,8 @@ describe('Components', () => {
       })
 
       it('does not display the rules', () => {
-        const rules = cmp.find('.rules')
-        expect(rules.exists()).toBeTruthy()
-        expect(rules.isVisible()).toBeFalsy()
-        expect(rules.text()).toEqual('The Rules String')
+        const rules = cmp.find('contextsituationrules-stub')
+        expect(rules.exists()).toBeFalsy()
       })
 
       it('displays the tags', () => {
@@ -116,17 +123,17 @@ describe('Components', () => {
         expect(tags.length).toEqual(2)
         expect(tags.at(0).props('tag')).toEqual(store.state.tag.tags[1])
         expect(tags.at(1).props('tag')).toEqual(store.state.tag.tags[2])
-        expect(tags.at(0).props('size')).toEqual('small')
-        expect(tags.at(1).props('size')).toEqual('small')
+        expect(tags.at(0).props('size')).toEqual('medium')
+        expect(tags.at(1).props('size')).toEqual('medium')
       })
 
       it('displays a shadow on hover', () => {
-        const card = cmp.find('elcard-stub')
-        expect(card.attributes('shadow')).toEqual('hover')
+        expect(cmp.find('.el-card')).toBeTruthy()
+        expect(cmp.find('is-hover-shadow')).toBeTruthy()
       })
 
       it('navigates to route when clicked', () => {
-        cmp.find('elcard-stub').trigger('click')
+        cmp.find('.el-card').trigger('click')
 
         expect(router.push).toHaveBeenCalledWith({
           name: 'context_situations.single',
@@ -151,35 +158,182 @@ describe('Components', () => {
       })
 
       it('does display the rules', () => {
-        const rules = cmp.find('.rules')
+        const rules = cmp.find('.context-situation-rules')
         expect(rules.exists()).toBeTruthy()
-        expect(rules.isVisible()).toBeTruthy()
-        expect(rules.text()).toEqual('The Rules String')
       })
 
       it('displays the tags', () => {
         const tags = cmp.findAll(Tag)
-
         expect(tags.length).toEqual(2)
         expect(tags.at(0).props('tag')).toEqual(store.state.tag.tags[1])
         expect(tags.at(1).props('tag')).toEqual(store.state.tag.tags[2])
-        expect(tags.at(0).props('size')).toEqual('normal')
-        expect(tags.at(1).props('size')).toEqual('normal')
       })
 
       it('displays a shadow', () => {
-        const card = cmp.find('elcard-stub')
-        expect(card.attributes('shadow')).toEqual('always')
+        expect(cmp.find('.el-card')).toBeTruthy()
+        expect(cmp.find('.is-always-shadow')).toBeTruthy()
       })
 
-      it('navigates to route when clicked', () => {
-        cmp.find('elcard-stub').trigger('click')
+      it('doesnt navigate to route when clicked and active', () => {
+        cmp.find('.el-card').trigger('click')
+        expect(router.push).not.toHaveBeenCalled()
+      })
 
-        expect(router.push).toHaveBeenCalledWith({
-          name: 'context_situations.single',
-          params: {
-            contextSituationID: '142'
-          }
+      describe('allows to edit the name of the context situation', () => {
+        it('allows to edit the input for the title', (done) => {
+          const editTitleButton = cmp.find('button.black-color')
+          expect(cmp.vm.nameInputVisible).not.toBeTruthy()
+          expect(editTitleButton.exists).toBeTruthy()
+          editTitleButton.trigger('click')
+          expect(cmp.vm.nameInputVisible).toBeTruthy()
+          cmp.vm.$nextTick(() => {
+            expect(cmp.html()).toMatchSnapshot()
+            expect(cmp.find('.el-input__inner').exists).toBeTruthy()
+            done()
+          })
+        })
+
+        it('hides the input after editing title', (done) => {
+          cmp.vm.$refs.csForm.validate = jest.fn().mockImplementation(arg => arg(true))
+          const editTitleButton = cmp.find('button.black-color')
+          expect(editTitleButton.exists).toBeTruthy()
+          editTitleButton.trigger('click')
+          cmp.vm.$nextTick(() => {
+            expect(cmp.html()).toMatchSnapshot()
+            const input = cmp.find('.el-input__inner')
+            input.setValue('My new Context Situation Name')
+            expect(cmp.vm.contextSituationData.name).toEqual('My new Context Situation Name')
+            expect(cmp.vm.nameInputVisible).toBeTruthy()
+            input.trigger('keyup', { key: 'Enter' })
+            expect(cmp.vm.$refs.csForm.validate).toHaveBeenCalled()
+            expect(cmp.vm.nameInputVisible).not.toBeTruthy()
+            done()
+          })
+        })
+
+        it('does not hide the input after editing title if its invalid', (done) => {
+          cmp.vm.$refs.csForm.validate = jest.fn().mockImplementation(arg => arg(false))
+          const editTitleButton = cmp.find('button.black-color')
+          expect(editTitleButton.exists).toBeTruthy()
+          editTitleButton.trigger('click')
+          cmp.vm.$nextTick(() => {
+            expect(cmp.html()).toMatchSnapshot()
+            const input = cmp.find('.el-input__inner')
+            input.setValue('My new Context Situation Name')
+            expect(cmp.vm.contextSituationData.name).toEqual('My new Context Situation Name')
+            expect(cmp.vm.nameInputVisible).toBeTruthy()
+            input.trigger('keyup', { key: 'Enter' })
+            expect(cmp.vm.$refs.csForm.validate).toHaveBeenCalled()
+            expect(cmp.vm.nameInputVisible).toBeTruthy()
+            done()
+          })
+        })
+
+        it('checks the input to not be empty', (done) => {
+          const editTitleButton = cmp.find('button.black-color')
+          editTitleButton.trigger('click')
+          cmp.vm.$nextTick(() => {
+            expect(cmp.html()).toMatchSnapshot()
+            const input = cmp.find('.el-input__inner')
+            input.setValue('')
+            input.trigger('keypress', { key: 'Enter' })
+            expect(cmp.html()).toMatchSnapshot()
+            expect(cmp.find('.el-input__inner').exists).toBeTruthy()
+            done()
+          })
+        })
+      })
+
+      it('renders the tag editor', () => {
+        expect(cmp.contains(TagEditor)).toBeTruthy()
+      })
+
+      it('allows to reset the context situation', () => {
+        expect(cmp.find('.el-button--danger.is-plain').exists()).toBeTruthy()
+        cmp.vm.contextSituationData.name = 'Different'
+        cmp.vm.resetCS()
+        expect(cmp.vm.contextSituationData.name).toBe(propsData.contextSituation.name)
+      })
+
+      it('allows to submit the context situation', () => {
+        expect(cmp.find('.el-button--success').exists()).toBeTruthy()
+        ContextSituationService.update = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.saveCS()
+        expect(ContextSituationService.update).toHaveBeenCalled()
+      })
+
+      it('emits a deactivate event after submitting the context situation', () => {
+        expect(cmp.find('.el-button--success').exists()).toBeTruthy()
+        ContextSituationService.update = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg(true)
+        }))
+        cmp.vm.saveCS()
+        expect(cmp.emitted().deactivate).toBeTruthy()
+      })
+
+      describe('allows to delete the context situation', () => {
+        describe('can be deleted', () => {
+          beforeEach(() => {
+            cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+              then: (arg) => {
+                return {
+                  catch: () => {
+                  }
+                }
+              }
+            }))
+            ContextSituationService.remove = jest.fn().mockImplementation(() => ({
+              then: (arg) => arg()
+            }))
+            cmp.vm.$message = jest.fn()
+          })
+          it('deletes the active Context Situation', () => {
+            ContextSituationService.getAll = jest.fn().mockImplementation(() => {
+            })
+            cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+              then: (arg) => {
+                arg()
+                return {
+                  catch: () => {
+                  }
+                }
+              }
+            }))
+            cmp.findAll('.el-button--danger').at(1).trigger('click')
+            expect(ContextSituationService.remove).toHaveBeenCalledWith(store.state.contextSituation.activeContextSituation)
+            expect(router.back).toHaveBeenCalled()
+            expect(ContextSituationService.getAll).toHaveBeenCalled()
+          })
+          it('show as confirmation dialog', () => {
+            expect(cmp.html()).toMatchSnapshot()
+            const button = cmp.findAll('.el-button--danger').at(1)
+            expect(button.exists()).toBeTruthy()
+            button.trigger('click')
+            expect(cmp.vm.$confirm).toHaveBeenCalledWith('context_situation.delete.message', 'context_situation.delete.warning',
+              {
+                'cancelButtonText': 'context_situation.delete.cancel',
+                'confirmButtonText': 'context_situation.delete.ok',
+                'type': 'warning',
+                'cancelButtonClass': 'is-plain el-button--info',
+                'confirmButtonClass': 'el-button--danger'
+              })
+          })
+          it('does not delete the process if canceled', () => {
+            cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+              then: () => {
+                return {
+                  catch: (arg) => {
+                    arg()
+                  }
+                }
+              }
+            }))
+            cmp.findAll('.el-button--danger').at(1).trigger('click')
+            expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'context_situation.delete.cancellation', 'type': 'info' })
+            expect(ContextSituationService.remove).not.toHaveBeenCalled()
+          })
         })
       })
     })

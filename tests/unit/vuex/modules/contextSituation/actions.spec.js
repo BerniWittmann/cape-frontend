@@ -45,6 +45,13 @@ describe('Vuex', () => {
             expect(store.commit).toHaveBeenCalledWith(mutationTypes.ADD, { id: 1 })
           })
         })
+        describe('remove', () => {
+          it('removes a single context situation', () => {
+            csActions.remove(store, { id: 1 })
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.REMOVE, { id: 1 })
+          })
+        })
       })
     })
   })

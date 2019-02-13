@@ -31,9 +31,9 @@
                   <span>{{ node.label }}</span>
                   <span class="align-right">
                     <el-button
-                            type="text"
+                            circle size="mini"
+                            icon="el-icon-edit"
                             @click="edit(data)">
-                      {{ $t('context_factor.edit.link')}}
                     </el-button>
                   </span>
                 </span>
@@ -179,4 +179,10 @@ export default {
   margin-left: -20px;
 }
 
+</style>
+<style>
+.el-tree-node__content {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
 </style>

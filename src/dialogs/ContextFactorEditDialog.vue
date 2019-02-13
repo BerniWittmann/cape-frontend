@@ -150,7 +150,7 @@ export default {
     },
 
     reset() {
-      this.contextFactorData = this.$store.state.contextFactor.contextFactors.filter(cf => cf.id === this.contextFactorData.id)[0]
+      this.contextFactorData = { ...this.$store.state.contextFactor.contextFactors.filter(cf => cf.id === this.contextFactorData.id)[0] }
       this.resetAttributeForms()
     },
     deleteContextFactor() {

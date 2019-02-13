@@ -26,16 +26,33 @@
     "filter_placeholder": "Search Context Situations",
     "select_placeholder": "Filter By Tag",
     "none_found": "No Context Situations Available",
-    "create_new": "New Context Situation",
-    "new_context_situation_name": "New Context Situation Name",
     "edit": {
+      "save": "Save",
+      "reset": "Reset",
+      "delete": "Delete",
+      "name": "Name",
+      "rules": "Context Situation Rules",
+      "add_tag": "Add Tag",
       "validation": {
         "name": {
           "required": "Please input a name"
+        },
+        "rules": {
+          "required": "Please input rules"
         }
       }
+    },
+    "create_new": "New Context Situation",
+    "new_context_situation_name": "New Context Situation Name",
+    "delete": {
+      "confirmation": "Context Situation deleted",
+      "message": "This will permanently delete the Context Situation. Continue?",
+      "ok": "Delete",
+      "cancel": "Cancel",
+      "warning": "Warning",
+      "delete_button": "Delete Context Situation",
+      "cancellation": "Delete cancelled"
     }
-
   },
   "context_factor": {
     "title": "Context Factors",

@@ -31,7 +31,7 @@ describe('Context Factors Page', () => {
     cy.get('[style="padding-left: 0px;"] > .custom-tree-node > :nth-child(2)').contains('New CF')
   })
   it('can edit a context factor', () => {
-    cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .align-right > .el-button > span').first().click()
+    cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .align-right > .el-button').first().click()
     cy.url().should('contain', Cypress.config().baseUrl + '/context_factors/')
     cy.url().should('contain', 'edit')
     cy.get('.el-dialog__body > .el-row > .el-col > .el-form > .is-required > .el-form-item__content > .el-input > .el-input__inner').type(' new')
@@ -47,7 +47,7 @@ describe('Context Factors Page', () => {
   })
   it('can remove a context factor', () => {
     cy.get('.custom-tree-node').should('have.length', 8)
-    cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .align-right > .el-button > span').first().click()
+    cy.get('[style="padding-left: 0px;"] > .custom-tree-node > .align-right > .el-button').first().click()
     cy.get('#left-align > :nth-child(2)').click()
     cy.get('.el-button--primary > span').click()
     cy.url().should('contain', Cypress.config().baseUrl + '/context_factors')

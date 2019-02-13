@@ -46,29 +46,7 @@
       <el-collapse v-model="activeProperty">
         <el-collapse-item :title="$t('process.edit.properties')" name="1">
           <el-form-item prop="tags" class="use-space">
-            <tag v-for="tag in data.tags" :tag="tag" :key="tag.id" closable @close="removeTag(tag)"></tag>
-            <el-select
-                    v-if="tagInputVisible"
-                    v-model="newTag"
-                    size="small"
-                    ref="tagSelect"
-                    @keyup.enter.native="addTag"
-                    @change="addTag"
-                    @blur="hideTagInput"
-                    filterable
-                    class="tag-space"
-            >
-              <el-option
-                      v-for="tag in availableTags"
-                      :key="tag.id"
-                      :label="tag.name"
-                      :value="tag">
-                <tag :tag="tag" size="mini"></tag>
-              </el-option>
-            </el-select>
-            <el-button v-if="!tagInputVisible && availableTags.length > 0" class="tag-space" size="small"
-                       @click="showTagInput" icon="el-icon-plus">{{$t('process.edit.add_tag') }}
-            </el-button>
+            <tag-editor  v-model="data.tags" @change="() => {}"></tag-editor>
           </el-form-item>
           <br>
           <el-form-item class="use-space">
@@ -98,11 +76,11 @@
  *    reset - if reset is pressed
  */
 
-import TagComponent from '@/components/Tag.vue'
+import TagEditor from '@/components/TagEditor.vue'
 
 export default {
   components: {
-    Tag: TagComponent
+    TagEditor
   },
 
   props: {
@@ -140,25 +118,9 @@ export default {
           { required: true, message: this.$t('process.edit.validation.name.required'), trigger: 'blur' }
         ]
       },
-      newTag: undefined,
-      tagInputVisible: false,
       nameInputVisible: false,
       description: undefined,
       activeProperty: [] // ['1'] - in case that it should be open
-    }
-  },
-
-  computed: {
-    allTags() {
-      return this.$store.state.tag.tags
-    },
-
-    usedTagIDs() {
-      return this.data.tags.map((t) => t.id)
-    },
-
-    availableTags() {
-      return this.allTags.filter(t => !this.usedTagIDs.includes(t.id))
     }
   },
 
@@ -190,30 +152,6 @@ export default {
           this.nameInputVisible = false
         }
       })
-    },
-
-    removeTag(tag) {
-      this.data.tags = this.data.tags.filter((t) => t.id !== tag.id)
-    },
-
-    addTag() {
-      if (this.data.tags.indexOf(this.newTag) < 0) {
-        this.data.tags.push(this.newTag)
-      }
-    },
-
-    showTagInput() {
-      this.tagInputVisible = true
-      this.$nextTick(() => {
-        this.$refs.tagSelect.focus()
-      })
-    },
-
-    hideTagInput() {
-      setTimeout(() => {
-        this.tagInputVisible = false
-        this.newTag = undefined
-      }, 100)
     }
   },
 
@@ -256,10 +194,6 @@ export default {
 .title {
   font-size: large;
   font-weight: bold;
-}
-
-.tag-space {
-  margin-left: 5px;
 }
 
 .submit-button {

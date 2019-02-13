@@ -1,27 +1,385 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components ContextSituationCard it is active allows to delete the context situation can be deleted show as confirmation dialog 1`] = `
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span class="title">My Context Situation</span> <button type="button" class="el-button black-color tag-space el-button--text">
+              <!----><i class="el-icon-edit"></i>
+              <!----></button></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
+  </div>
+</div>
+`;
+
+exports[`Components ContextSituationCard it is active allows to edit the name of the context situation allows to edit the input for the title 1`] = `
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+            <!----></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
+  </div>
+</div>
+`;
+
+exports[`Components ContextSituationCard it is active allows to edit the name of the context situation checks the input to not be empty 1`] = `
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+            <!----></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
+  </div>
+</div>
+`;
+
+exports[`Components ContextSituationCard it is active allows to edit the name of the context situation checks the input to not be empty 2`] = `
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+            <!----></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
+  </div>
+</div>
+`;
+
+exports[`Components ContextSituationCard it is active allows to edit the name of the context situation does not hide the input after editing title if its invalid 1`] = `
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+            <!----></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
+  </div>
+</div>
+`;
+
+exports[`Components ContextSituationCard it is active allows to edit the name of the context situation hides the input after editing title 1`] = `
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+            <!----></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
+  </div>
+</div>
+`;
+
 exports[`Components ContextSituationCard it is active renders 1`] = `
-<elcard-stub shadow="always" class="context-situation-card is-active">
-  <div class="clearfix"><span>My Context Situation</span></div>
-  <div class="rules">
-    <p>The Rules String</p>
+<div class="el-card is-always-shadow context-situation-card is-active">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span class="title">My Context Situation</span> <button type="button" class="el-button black-color tag-space el-button--text">
+              <!----><i class="el-icon-edit"></i>
+              <!----></button></span> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-close"></i>
+              <!----></button>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="tags">
-    <tag-stub tag="[object Object]" size="normal"></tag-stub>
-    <tag-stub tag="[object Object]" size="normal"></tag-stub>
+  <div class="el-card__body">
+    <div class="tags">
+      <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag<i class="el-tag__close el-icon-close"></i></span>
+        <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+          <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+    </div>
+    <form class="el-form context-situation-rules top-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></span>
+          <!---->
+        </div>
+      </div>
+    </form>
+    <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
+        <!---->
+        <!----><span>
+      context_situation.edit.reset
+    </span></button> <button type="button" class="el-button el-button--danger el-button--medium">
+        <!---->
+        <!----><span>
+      context_situation.edit.delete
+    </span></button> <button type="button" class="el-button el-button--success el-button--medium" style="float: right;">
+        <!---->
+        <!----><span>context_situation.edit.save
+    </span></button></div>
   </div>
-</elcard-stub>
+</div>
 `;
 
 exports[`Components ContextSituationCard it is not active renders 1`] = `
-<elcard-stub shadow="hover" class="context-situation-card">
-  <div class="clearfix" slot="header"><span>My Context Situation</span></div>
-  <div class="rules" style="display: none;">
-    <p>The Rules String</p>
+<div class="el-card is-hover-shadow context-situation-card">
+  <div class="el-card__header">
+    <div class="clearfix">
+      <form class="el-form el-form--label-top el-form--inline">
+        <div class="el-form-item use-space el-form-item--feedback">
+          <!---->
+          <div class="el-form-item__content"><span><span class="title">My Context Situation</span></span>
+            <!----> <button type="button" class="el-button el-button--text" style="float: right;">
+              <!----><i class="el-icon-arrow-right"></i>
+              <!----></button>
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="tags">
-    <tag-stub tag="[object Object]" size="small"></tag-stub>
-    <tag-stub tag="[object Object]" size="small"></tag-stub>
+  <div class="el-card__body">
+    <div class="tags"><span class="tag el-tag el-tag--info el-tag--medium" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);" name="el-zoom-in-center">Second Tag</span><span class="tag el-tag el-tag--info el-tag--medium" style="background-color: rgba(15, 255, 0, 0.1); color: rgb(15, 255, 0);" name="el-zoom-in-center">Third Tag</span></div>
+    <!---->
+    <!---->
   </div>
-</elcard-stub>
+</div>
 `;

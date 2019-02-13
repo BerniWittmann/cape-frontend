@@ -1,9 +1,9 @@
 import moment from 'moment'
-import { mount, config, TransitionStub } from '@vue/test-utils'
+import { mount, config } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 
 import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
-import Tag from '@/components/Tag.vue'
+import TagEditor from '@/components/TagEditor.vue'
 
 describe('Components', () => {
   describe('ProcessInfoForm', () => {
@@ -84,20 +84,6 @@ describe('Components', () => {
       })
     }
 
-    function renderWithoutSelect() {
-      config.stubs.transition = TransitionStub
-      cmp = mount(ProcessInfoForm, {
-        i18n,
-        propsData,
-        stubs: {
-          'el-select': '<div></div>'
-        },
-        mocks: {
-          $store: store
-        }
-      })
-    }
-
     it('renders', () => {
       expect(cmp.html()).toMatchSnapshot()
     })
@@ -111,11 +97,8 @@ describe('Components', () => {
       input.setValue('My new Name')
       expect(cmp.vm.data.description).toEqual('My new Name')
     })
-    it('renders the tags', () => {
-      const tags = cmp.findAll(Tag)
-      expect(tags.length).toEqual(2)
-      expect(tags.at(0).props('tag')).toEqual(propsData.process.tags[0])
-      expect(tags.at(1).props('tag')).toEqual(propsData.process.tags[1])
+    it('renders the tag editor', () => {
+      expect(cmp.contains(TagEditor)).toBeTruthy()
     })
     it('allows to edit the input for the title', (done) => {
       // cmp.setMethods({ showInput: jest.fn() })
@@ -144,6 +127,26 @@ describe('Components', () => {
         expect(cmp.vm.nameInputVisible).toBeTruthy()
         input.trigger('keyup', { key: 'Enter' })
         expect(cmp.vm.nameInputVisible).not.toBeTruthy()
+        done()
+      })
+    })
+    it('does not the input after editing the title to an invalid state', (done) => {
+      cmp.vm.$refs.processForm.validate = jest.fn().mockImplementation((cb) => {
+        // eslint-disable-next-line standard/no-callback-literal
+        cb(false)
+      })
+      const editTitleButton = cmp.find('button.black-color')
+      expect(editTitleButton.exists).toBeTruthy()
+
+      editTitleButton.trigger('click')
+      cmp.vm.$nextTick(() => {
+        expect(cmp.html()).toMatchSnapshot()
+        const input = cmp.find('.el-input__inner')
+        input.setValue('My new Process Name')
+        expect(cmp.vm.data.name).toEqual('My new Process Name')
+        expect(cmp.vm.nameInputVisible).toBeTruthy()
+        input.trigger('keyup', { key: 'Enter' })
+        expect(cmp.vm.nameInputVisible).toBeTruthy()
         done()
       })
     })
@@ -198,67 +201,6 @@ describe('Components', () => {
 
         expect(buttons.at(0).text()).toContain('back')
         expect(buttons.at(1).text()).toContain('save')
-      })
-    })
-    describe('it can add a tag', () => {
-      it('has a addTag Button', () => {
-        const addButton = cmp.find('.tag-space')
-        expect(addButton.exists()).toBeTruthy()
-      })
-      it('can shows the option on new tag button click', (done) => {
-        cmp.findAll('.tag-space').at(1).trigger('click')
-        cmp.vm.$nextTick(() => {
-          expect(cmp.html()).toMatchSnapshot()
-          const options = cmp.findAll('.el-select-dropdown li')
-          expect(options.length).toEqual(2)
-          expect(options.at(0).text()).toEqual(store.state.tag.tags[2].name)
-          expect(options.at(1).text()).toEqual(store.state.tag.tags[3].name)
-          done()
-        })
-      })
-      it('adds the new tag on click', (done) => {
-        cmp.findAll('.tag-space').at(1).trigger('click')
-        cmp.vm.$nextTick(() => {
-          cmp.find('.el-select-dropdown li').trigger('click')
-          expect(propsData.process.tags.length).toEqual(3)
-          expect(propsData.process.tags[2]).toEqual(store.state.tag.tags[2])
-          done()
-        })
-      })
-      it('adds a tag just once', () => {
-        expect(cmp.vm.process.tags.length).toEqual(2)
-        cmp.vm.newTag = cmp.vm.process.tags[0]
-        cmp.vm.addTag()
-        expect(cmp.vm.process.tags.length).toEqual(2)
-      })
-      it('closes the dropdown after adding A Tag', (done) => {
-        cmp.vm.tagInputVisible = true
-        cmp.vm.$nextTick(() => {
-          jest.useFakeTimers()
-
-          cmp.vm.hideTagInput()
-
-          jest.runOnlyPendingTimers()
-
-          cmp.vm.$nextTick(() => {
-            expect(cmp.html()).toMatchSnapshot()
-            done()
-          })
-        })
-      })
-    })
-    it('can remove a tag', () => {
-      renderWithoutSelect()
-      const tag = cmp.findAll(Tag).at(1)
-      tag.vm.$emit('close')
-
-      expect(cmp.vm.data.tags.length).toEqual(1)
-    })
-    it('hides the add tag button if no tags are available', (done) => {
-      store.state.tag.tags = [store.state.tag.tags[0], store.state.tag.tags[1]]
-      render(() => {
-        expect(cmp.html()).toMatchSnapshot()
-        done()
       })
     })
     describe('has a function to validate the form', () => {

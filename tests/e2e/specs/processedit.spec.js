@@ -24,19 +24,19 @@ describe('Process Edit Page', () => {
   })
   it('can add a tag', () => {
     cy.get('.el-collapse').click()
-    cy.get('.el-collapse-item__content > :nth-child(1) > .el-form-item__content > .el-button').click()
+    cy.get('.el-collapse-item__content > :nth-child(1) > .el-form-item__content .el-button').click()
     cy.wait(200)
-    cy.get('.el-form-item__content > .el-select').click()
+    cy.get('.el-form-item__content .el-select').click()
     cy.wait(200)
     cy.get('.el-scrollbar__view > :nth-child(1)').click()
 
-    const tags = cy.get('.el-form-item__content > .el-tag')
+    const tags = cy.get('.el-form-item__content .el-tag')
     tags.should('have.length', 2)
     tags.contains('Payment')
   })
   it('can remove a tag', () => {
     cy.get('.el-tag__close').first().click()
-    const tags = cy.get('.el-form-item__content > .el-tag')
+    const tags = cy.get('.el-form-item__content .el-tag')
     tags.should('have.length', 1)
     tags.contains('Payment')
   })

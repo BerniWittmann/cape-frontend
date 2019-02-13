@@ -9,6 +9,7 @@ export const ADD = 'ADD'
 export const STORE = 'STORE'
 export const UPDATE = 'UPDATE'
 export const SET_ACTIVE = 'SET_ACTIVE'
+export const REMOVE = 'REMOVE'
 
 export default {
   ADD,

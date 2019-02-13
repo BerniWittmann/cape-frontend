@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components TagEditor it can add a tag adds a tag 1`] = `
+<div>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <!---->
+  <elbutton-stub type="default" size="small" icon="el-icon-plus" nativetype="button" class="tag-space">process.edit.add_tag
+  </elbutton-stub>
+</div>
+`;
+
+exports[`Components TagEditor it can add a tag adds the new tag on click 1`] = `
+<div>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <div class="el-select tag-space el-select--small">
+    <!---->
+    <div class="el-input el-input--small el-input--suffix is-focus">
+      <!----><input type="text" autocomplete="off" placeholder="请选择" class="el-input__inner">
+      <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up is-reverse"></i><!----><!----></span>
+      <!----></span>
+      <!---->
+    </div>
+    <div class="el-select-dropdown el-popper" style="" name="el-zoom-in-top">
+      <div class="el-scrollbar" style="">
+        <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+          <ul class="el-scrollbar__view el-select-dropdown__list">
+            <!---->
+            <li class="el-select-dropdown__item selected" style="">
+              <tag-stub tag="[object Object]" size="mini"></tag-stub>
+            </li>
+            <li class="el-select-dropdown__item selected">
+              <tag-stub tag="[object Object]" size="mini"></tag-stub>
+            </li>
+          </ul>
+        </div>
+        <div class="el-scrollbar__bar is-horizontal">
+          <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+        </div>
+        <div class="el-scrollbar__bar is-vertical">
+          <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Components TagEditor it can add a tag can show the option on new tag button click 1`] = `
+<div>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <div class="el-select tag-space el-select--small">
+    <!---->
+    <div class="el-input el-input--small el-input--suffix">
+      <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+      <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span>
+      <!----></span>
+      <!---->
+    </div>
+    <div class="el-select-dropdown el-popper" style="display: none;" name="el-zoom-in-top">
+      <div class="el-scrollbar" style="">
+        <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+          <ul class="el-scrollbar__view el-select-dropdown__list">
+            <!---->
+            <li class="el-select-dropdown__item">
+              <tag-stub tag="[object Object]" size="mini"></tag-stub>
+            </li>
+            <li class="el-select-dropdown__item">
+              <tag-stub tag="[object Object]" size="mini"></tag-stub>
+            </li>
+          </ul>
+        </div>
+        <div class="el-scrollbar__bar is-horizontal">
+          <div class="el-scrollbar__thumb" style="width: 0px; transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+        </div>
+        <div class="el-scrollbar__bar is-vertical">
+          <div class="el-scrollbar__thumb" style="height: 0px; transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Components TagEditor it can add a tag closes the dropdown after adding A Tag 1`] = `
+<div>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <!---->
+  <elbutton-stub type="default" size="small" icon="el-icon-plus" nativetype="button" class="tag-space">process.edit.add_tag
+  </elbutton-stub>
+</div>
+`;
+
+exports[`Components TagEditor renders 1`] = `
+<div>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <tag-stub tag="[object Object]" closable="true"></tag-stub>
+  <!---->
+  <elbutton-stub type="default" size="small" icon="el-icon-plus" nativetype="button" class="tag-space">process.edit.add_tag
+  </elbutton-stub>
+</div>
+`;

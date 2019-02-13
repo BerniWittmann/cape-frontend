@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation checks the input to not be empty 1`] = `
+<form class="el-form context-situation-rules el-form--label-top el-form--inline">
+  <div class="el-form-item use-space el-form-item--feedback">
+    <!---->
+    <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+      <!----></span>
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation checks the input to not be empty 2`] = `
+<form class="el-form context-situation-rules el-form--label-top el-form--inline">
+  <div class="el-form-item use-space el-form-item--feedback">
+    <!---->
+    <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+      <!----></span>
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation does not hid the input after editing the rules if its invalid 1`] = `
+<form class="el-form context-situation-rules el-form--label-top el-form--inline">
+  <div class="el-form-item use-space el-form-item--feedback">
+    <!---->
+    <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+      <!----></span>
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation hides the input after editing the rules 1`] = `
+<form class="el-form context-situation-rules el-form--label-top el-form--inline">
+  <div class="el-form-item use-space el-form-item--feedback">
+    <!---->
+    <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+      <!----></span>
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation open input for the rules 1`] = `
+<form class="el-form context-situation-rules el-form--label-top el-form--inline">
+  <div class="el-form-item use-space el-form-item--feedback">
+    <!---->
+    <div class="el-form-item__content"><span><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
+      <!----></span>
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Components ContextSituationRules context situation rules management renders 1`] = `
+<form class="el-form context-situation-rules el-form--label-top el-form--inline">
+  <div class="el-form-item use-space el-form-item--feedback">
+    <!---->
+    <div class="el-form-item__content"><span><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
+        <!----><i class="el-icon-edit"></i>
+        <!----></button></span>
+      <!---->
+    </div>
+  </div>
+</form>
+`;

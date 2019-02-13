@@ -100,6 +100,14 @@ describe('Vuex', () => {
             expect(state.contextSituations).toEqual([{ id: 1, foo: 'bar' }])
           })
         })
+        describe('REMOVE', () => {
+          it('removes a given context Situation', () => {
+            state.contextSituations = [{ id: 1 }, { id: 2 }, { id: 3 }]
+            cSMutations[mutationTypes.REMOVE](state, { id: 2 })
+
+            expect(state.contextSituations).toEqual([{ id: 1 }, { id: 3 }])
+          })
+        })
       })
     })
   })

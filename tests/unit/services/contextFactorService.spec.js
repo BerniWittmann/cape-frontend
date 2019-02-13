@@ -243,6 +243,7 @@ describe('Services', () => {
         })
       })
     })
+
     describe('remove', () => {
       it('should remove a contextFactor', (done) => {
         moxios.stubRequest('/context_factors/42', {

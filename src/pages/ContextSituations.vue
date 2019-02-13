@@ -34,7 +34,10 @@
     <el-row :gutter="20" @click.native="unsetActiveContextSituation" ref="context-situation-cards">
       <el-col :span="24">
         <transition-group tag="div" name="context-situation-cards" class="context-situation-cards">
-          <context-situation-card v-for="situation in contextSituations" :key="situation.id" :context-situation="situation"></context-situation-card>
+          <context-situation-card v-for="situation in contextSituations"
+                                  :key="situation.id"
+                                  :context-situation="situation"
+                                  v-on:deactivate="unsetActiveContextSituation"></context-situation-card>
         </transition-group>
         <transition name="el-fade-in">
           <p v-if="contextSituations.length === 0">{{ $t('context_situation.none_found') }}</p>
@@ -121,12 +124,18 @@ export default {
         if (valid) {
           let data = new ContextSituation({ name: this.newContextSituation.name })
           ContextSituationService.create(data).then(() => {
-            // TODO Push router to edit page once its implemented
-            ContextSituationService.getAll()
+            this.$router.push({
+              name: 'context_situations.single',
+              params: {
+                contextSituationID: this.$store.state.contextSituation.contextSituations[this.$store.state.contextSituation.contextSituations.length - 1].id
+              }
+            })
           })
         }
       })
+      this.$refs.newFactorForm.resetFields()
     },
+
     unsetActiveContextSituation() {
       this.$router.push({
         name: 'context_situations'

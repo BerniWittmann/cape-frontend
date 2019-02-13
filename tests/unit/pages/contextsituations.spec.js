@@ -234,9 +234,10 @@ describe('Pages', () => {
         expect(situations.at(4).props('contextSituation')).toEqual(store.state.contextSituation.contextSituations[1])
       })
     })
-    describe('creating new context factors', () => {
-      it('can create new context factor', () => {
+    describe('creating new context Situation', () => {
+      it('can create new context Situation', () => {
         cmp.vm.newContextSituation.name = 'New CS'
+        cmp.vm.$refs.newFactorForm.resetFields = jest.fn()
         cmp.vm.$refs.newFactorForm.validate = jest.fn().mockImplementation((valid) => {
           valid(true)
         })
@@ -261,6 +262,7 @@ describe('Pages', () => {
         ContextSituationService.create = jest.fn().mockImplementation(() => ({
           then: (arg) => arg()
         }))
+        cmp.vm.$refs.newFactorForm.resetFields = jest.fn()
         cmp.vm.createNew()
         expect(ContextSituationService.create).not.toHaveBeenCalled()
       })
