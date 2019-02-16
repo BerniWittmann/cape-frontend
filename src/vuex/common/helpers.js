@@ -12,3 +12,17 @@ export function setActive(state, key, activeKey, data) {
     state[activeKey] = state[key].find((p) => p.id === data.id)
   }
 }
+
+export function getGraphNodes(objects, type, routeName, routeID) {
+  return objects.map((o) => ({
+    id: o.id,
+    name: o.name,
+    type: type,
+    route: {
+      name: routeName,
+      params: {
+        [routeID]: o.id
+      }
+    }
+  }))
+}

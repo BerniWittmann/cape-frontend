@@ -8,7 +8,7 @@
 
 import { STORE, UPDATE, ADD, SET_ACTIVE, REMOVE } from './mutation-types'
 import { removeByID } from '@/utils/helpers'
-import { update, setActive } from '@/vuex/common/mutations'
+import { update, setActive } from '@/vuex/common/helpers'
 
 export default {
   [STORE](state, contextFactors) {

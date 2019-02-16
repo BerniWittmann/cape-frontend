@@ -373,7 +373,9 @@ describe('Components', () => {
       it('centers the graph on render', () => {
         expect(d3.default._attrs).toEqual({
           height: 940,
-          transform: 'translate(-512, 20)'
+          transform: 'translate(-512, 20)',
+          'marker-end': '',
+          'stroke-linecap': 'round'
         })
       })
 

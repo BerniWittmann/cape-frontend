@@ -5,6 +5,7 @@
  * The getters that are available on the
  * contextFactor  module.
  */
+import { getGraphNodes } from '@/vuex/common/helpers'
 
 function getRoots(state) {
   return state.contextFactors.filter(cF => !cF.parentID)
@@ -32,16 +33,6 @@ export default {
   },
 
   contextFactorGraphNodes(state) {
-    return state.contextFactors.map((cF) => ({
-      id: cF.id,
-      name: cF.name,
-      type: 'factor',
-      route: {
-        name: 'context_factors.edit',
-        params: {
-          contextFactorID: cF.id
-        }
-      }
-    }))
+    return getGraphNodes(state.contextFactors, 'factor', 'context_factors.edit', 'contextFactorID')
   }
 }

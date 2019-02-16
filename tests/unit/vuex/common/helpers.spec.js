@@ -1,8 +1,8 @@
-import { update, setActive } from '@/vuex/common/mutations'
+import { update, setActive, getGraphNodes } from '@/vuex/common/helpers'
 
 describe('Vuex', () => {
   describe('Common', () => {
-    describe('Mutations', () => {
+    describe('Helpers', () => {
       describe('update', () => {
         let store
         let obj
@@ -75,6 +75,53 @@ describe('Vuex', () => {
           setActive(store, 'objects', 'activeObject', { id: 91 })
 
           expect(store.activeObject).toBeUndefined()
+        })
+      })
+
+      describe('getGraphNodes', () => {
+        let objs
+        beforeEach(() => {
+          objs = [{ id: 1, name: 'Eins' }, { id: 2, name: 'Zwei', foo: 'bar' }, { id: 3, name: 'Drei' }]
+        })
+
+        it('if no data given it returns an empty array', () => {
+          objs = []
+          expect(getGraphNodes(objs, 'my_type', 'router_name', 'route_ID_key')).toEqual([])
+        })
+        it('returns the formatted data', () => {
+          expect(getGraphNodes(objs, 'my_type', 'router_name', 'route_ID_key')).toEqual([
+            {
+              id: 1,
+              name: 'Eins',
+              type: 'my_type',
+              route: {
+                name: 'router_name',
+                params: {
+                  'route_ID_key': 1
+                }
+              }
+            }, {
+              id: 2,
+              name: 'Zwei',
+              type: 'my_type',
+              route: {
+                name: 'router_name',
+                params: {
+                  'route_ID_key': 2
+                }
+              }
+            }, {
+              id: 3,
+              name: 'Drei',
+              type: 'my_type',
+              route: {
+                name: 'router_name',
+                params: {
+                  'route_ID_key': 3
+                }
+              }
+            }
+          ])
         })
       })
     })

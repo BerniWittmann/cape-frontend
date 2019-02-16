@@ -61,6 +61,7 @@ export default {
       nodesep: 30,
       ranksep: 100,
       rankdir: 'LR',
+      align: 'UL',
       marginx: 20,
       marginy: 20
     })
@@ -126,6 +127,7 @@ export default {
     this.labels.on('click', (id) => {
       this.$router.push(this.g.node(id).route)
     })
+    this.svg.selectAll('.edgePath path').attr('marker-end', '').attr('stroke-linecap', 'round')
   }
 }
 

@@ -7,7 +7,7 @@
  */
 
 import { removeByID } from '@/utils/helpers'
-import { update, setActive } from '@/vuex/common/mutations'
+import { update, setActive } from '@/vuex/common/helpers'
 import { STORE, UPDATE, SET_ACTIVE, ADD, REMOVE } from './mutation-types'
 
 export default {

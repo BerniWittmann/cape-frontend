@@ -6,18 +6,10 @@
  * contextSituation  module.
  */
 
+import { getGraphNodes } from '@/vuex/common/helpers'
+
 export default {
   contextSituationGraphNodes(state) {
-    return state.contextSituations.map((cS) => ({
-      id: cS.id,
-      name: cS.name,
-      type: 'situation',
-      route: {
-        name: 'context_situations.single',
-        params: {
-          contextSituationID: cS.id
-        }
-      }
-    }))
+    return getGraphNodes(state.contextSituations, 'situation', 'context_situations.single', 'contextSituationID')
   }
 }
