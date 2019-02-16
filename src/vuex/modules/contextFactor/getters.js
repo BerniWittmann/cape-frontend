@@ -29,5 +29,19 @@ export default {
       label: root.name,
       children: constructChildren(state, root)
     }))
+  },
+
+  contextFactorGraphNodes(state) {
+    return state.contextFactors.map((cF) => ({
+      id: cF.id,
+      name: cF.name,
+      type: 'factor',
+      route: {
+        name: 'context_factors.edit',
+        params: {
+          contextFactorID: cF.id
+        }
+      }
+    }))
   }
 }

@@ -83,5 +83,6 @@ Array [
 exports[`Vuex Modules contextFactor Getters returns all getters 1`] = `
 Array [
   "contextFactorsTree",
+  "contextFactorGraphNodes",
 ]
 `;

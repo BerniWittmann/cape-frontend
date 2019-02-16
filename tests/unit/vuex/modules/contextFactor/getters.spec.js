@@ -114,6 +114,69 @@ describe('Vuex', () => {
             }])
           })
         })
+
+        describe('contextFactorGraphNodes', () => {
+          const contextFactorGraphNodes = contextFactorGetters.contextFactorGraphNodes
+          let state
+          beforeEach(() => {
+            state = {
+              contextFactors: [{
+                id: '1',
+                name: 'First Context Factor',
+                data: { foo: 'bar' }
+              }, {
+                id: '2',
+                name: 'Second Context Factor',
+                data: { foo: 'bar' }
+              }, {
+                id: '3',
+                name: 'Third Context Factor',
+                data: { foo: 'bar' }
+              }]
+            }
+          })
+
+          it('returns the contextFactors modified for the graphs', () => {
+            expect(contextFactorGraphNodes(state)).toEqual([
+              {
+                id: '1',
+                name: 'First Context Factor',
+                type: 'factor',
+                route: {
+                  name: 'context_factors.edit',
+                  params: {
+                    contextFactorID: '1'
+                  }
+                }
+              }, {
+                id: '2',
+                name: 'Second Context Factor',
+                type: 'factor',
+                route: {
+                  name: 'context_factors.edit',
+                  params: {
+                    contextFactorID: '2'
+                  }
+                }
+              }, {
+                id: '3',
+                name: 'Third Context Factor',
+                type: 'factor',
+                route: {
+                  name: 'context_factors.edit',
+                  params: {
+                    contextFactorID: '3'
+                  }
+                }
+              }
+            ])
+          })
+
+          it('empty if no contextFactors are available', () => {
+            state.contextFactors = []
+            expect(contextFactorGraphNodes(state)).toEqual([])
+          })
+        })
       })
     })
   })

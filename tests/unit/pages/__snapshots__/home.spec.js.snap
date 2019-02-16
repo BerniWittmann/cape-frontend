@@ -4,6 +4,7 @@ exports[`Pages Home.vue renders 1`] = `
 <div>
   <div class="home"><img alt="CaPE logo" src="../assets/logo.png" class="logo">
     <h3>home.greeting</h3>
+    <graphvisualization-stub></graphvisualization-stub>
   </div>
 </div>
 `;

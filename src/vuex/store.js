@@ -8,6 +8,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import getters from './common/getters'
+
 import process from './modules/process'
 import tag from './modules/tag'
 import contextType from './modules/contextType'
@@ -23,7 +25,8 @@ const store = new Vuex.Store({
     contextType,
     contextFactor,
     contextSituation
-  }
+  },
+  getters
 })
 
 export default store

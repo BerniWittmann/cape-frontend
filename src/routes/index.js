@@ -27,7 +27,14 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    beforeEnter: (to, from, next) => {
+      Promise.all([
+        ProcessService.getAll(),
+        ContextSituationService.getAll(),
+        ContextFactorService.getAll()
+      ]).then(next)
+    }
   },
   {
     path: '/about',
