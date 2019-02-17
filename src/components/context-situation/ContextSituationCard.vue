@@ -2,43 +2,10 @@
   <el-card :class="{ 'context-situation-card': true, 'is-active': isActive }"
            @click.native.stop="navigateToContextSituation" :shadow="shadowMode">
     <div slot="header" class="clearfix">
-      <el-form ref="csForm" :model="contextSituationData" label-position="top" :rules="rules" status-icon inline
-               @submit.native.prevent>
-        <el-form-item class="use-space">
-          <span v-if="!isActive">
-            <span class="title">{{ contextSituation.name }}</span>
-          </span>
-          <span v-else>
-            <span class="title" v-if="!nameInputVisible">{{ contextSituationData.name }}</span>
-            <span v-else>
-              <el-form-item prop="name">
-                <el-input
-                        v-model="contextSituationData.name"
-                        ref="nameInput"
-                        size="mini"
-                        :placeholder="$t('context_situation.edit.name')"
-                        @blur="hideInput"
-                        @keyup.enter.native="hideInput"
-                        @submit.native.prevent="hideInput"
-                        class="input"
-                ></el-input>
-              </el-form-item>
-            </span>
-            <el-button
-                    type="text"
-                    icon="el-icon-edit"
-                    @click="showInput"
-                    v-show="isActive"
-                    v-if="!nameInputVisible"
-                    class="black-color tag-space"
-            ></el-button>
-          </span>
-          <el-button v-if="isActive" style="float: right" type="text" icon="el-icon-close"
-                     @click.native.stop="$emit('deactivate')"></el-button>
-          <el-button v-if="!isActive" style="float: right" type="text"
-                     icon="el-icon-arrow-right"></el-button>
-        </el-form-item>
-      </el-form>
+      <input-edit
+              :value="contextSituationData.name" :rules="rules.name"
+              :placeholder="$t('context_situation.edit.name')"
+      ></input-edit>
     </div>
     <div class="tags" v-if="isActive">
         <tag-editor v-model="contextSituationData.tags" @change="() => {}"></tag-editor>
@@ -75,12 +42,14 @@ import Tag from '@/components/Tag'
 import TagEditor from '@/components/TagEditor'
 import ContextSituationRules from './ContextSituationRules'
 import ContextSituationService from '@/services/contextSituation'
+import InputEdit from '@/components/InputEdit.vue'
 
 export default {
   components: {
     ContextSituationRules,
     Tag,
-    TagEditor
+    TagEditor,
+    InputEdit
   },
 
   props: {
@@ -93,7 +62,6 @@ export default {
   data() {
     return {
       contextSituationData: {},
-      nameInputVisible: false,
       rules: {
         name: [
           { required: true, message: this.$t('context_situation.edit.validation.name.required'), trigger: 'blur' }
@@ -129,21 +97,6 @@ export default {
       }
     },
 
-    showInput() {
-      this.nameInputVisible = true
-      this.$nextTick(_ => {
-        this.$refs.nameInput.$refs.input.focus()
-      })
-    },
-
-    hideInput() {
-      this.$refs.csForm.validate((valid) => {
-        if (valid) {
-          this.nameInputVisible = false
-        }
-      })
-    },
-
     saveCS() {
       // validation is done because of the way the input works, need to be updated if rules are no input anymore
       const data = { ...this.contextSituationData }
@@ -156,7 +109,6 @@ export default {
 
     resetCS() {
       this.contextSituationData = { ...this.contextSituation }
-      this.$refs.csForm.resetFields()
     },
 
     deleteCS() {
@@ -224,19 +176,6 @@ export default {
 .el-form-item {
   margin-top: -10px;
   margin-bottom: -10px;
-}
-
-.input {
-  width: 300px;
-  margin-top: 10px;
-}
-
-.use-space {
-  width: 100%;
-}
-
-.black-color {
-  color: #000000;
 }
 
 </style>

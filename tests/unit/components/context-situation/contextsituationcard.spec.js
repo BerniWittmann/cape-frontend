@@ -3,6 +3,7 @@ import { i18n } from '../../setupPlugins'
 
 import Tag from '@/components/Tag.vue'
 import TagEditor from '@/components/TagEditor.vue'
+import InputEdit from '@/components/InputEdit.vue'
 import ContextSituationCard from '@/components/context-situation/ContextSituationCard.vue'
 import ContextSituationService from '@/services/contextSituation'
 
@@ -180,12 +181,14 @@ describe('Components', () => {
       })
 
       describe('allows to edit the name of the context situation', () => {
+        it('renders the input edit component for the name', () => {
+          const input = cmp.find(InputEdit)
+          expect(input.exists()).toBeTruthy()
+        })
         it('allows to edit the input for the title', (done) => {
           const editTitleButton = cmp.find('button.black-color')
-          expect(cmp.vm.nameInputVisible).not.toBeTruthy()
           expect(editTitleButton.exists).toBeTruthy()
           editTitleButton.trigger('click')
-          expect(cmp.vm.nameInputVisible).toBeTruthy()
           cmp.vm.$nextTick(() => {
             expect(cmp.html()).toMatchSnapshot()
             expect(cmp.find('.el-input__inner').exists).toBeTruthy()
@@ -194,7 +197,6 @@ describe('Components', () => {
         })
 
         it('hides the input after editing title', (done) => {
-          cmp.vm.$refs.csForm.validate = jest.fn().mockImplementation(arg => arg(true))
           const editTitleButton = cmp.find('button.black-color')
           expect(editTitleButton.exists).toBeTruthy()
           editTitleButton.trigger('click')
@@ -202,30 +204,27 @@ describe('Components', () => {
             expect(cmp.html()).toMatchSnapshot()
             const input = cmp.find('.el-input__inner')
             input.setValue('My new Context Situation Name')
-            expect(cmp.vm.contextSituationData.name).toEqual('My new Context Situation Name')
-            expect(cmp.vm.nameInputVisible).toBeTruthy()
             input.trigger('keyup', { key: 'Enter' })
-            expect(cmp.vm.$refs.csForm.validate).toHaveBeenCalled()
-            expect(cmp.vm.nameInputVisible).not.toBeTruthy()
-            done()
+            cmp.vm.$nextTick(() => {
+              expect(cmp.html()).toMatchSnapshot()
+              done()
+            })
           })
         })
 
         it('does not hide the input after editing title if its invalid', (done) => {
-          cmp.vm.$refs.csForm.validate = jest.fn().mockImplementation(arg => arg(false))
           const editTitleButton = cmp.find('button.black-color')
           expect(editTitleButton.exists).toBeTruthy()
           editTitleButton.trigger('click')
           cmp.vm.$nextTick(() => {
             expect(cmp.html()).toMatchSnapshot()
             const input = cmp.find('.el-input__inner')
-            input.setValue('My new Context Situation Name')
-            expect(cmp.vm.contextSituationData.name).toEqual('My new Context Situation Name')
-            expect(cmp.vm.nameInputVisible).toBeTruthy()
+            input.setValue('')
             input.trigger('keyup', { key: 'Enter' })
-            expect(cmp.vm.$refs.csForm.validate).toHaveBeenCalled()
-            expect(cmp.vm.nameInputVisible).toBeTruthy()
-            done()
+            cmp.vm.$nextTick(() => {
+              expect(cmp.html()).toMatchSnapshot()
+              done()
+            })
           })
         })
 

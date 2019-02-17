@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components InputEdit it can edit the text can change the text 1`] = `
+<div class="input-edit"><span>My New Text</span> <button type="button" class="el-button black-color tag-space el-button--text">
+    <!----><i class="el-icon-edit"></i>
+    <!----></button></div>
+`;
+
+exports[`Components InputEdit it can edit the text does not validate the input if no rule given 1`] = `
+<div class="input-edit"><span></span> <button type="button" class="el-button black-color tag-space el-button--text">
+    <!----><i class="el-icon-edit"></i>
+    <!----></button></div>
+`;
+
+exports[`Components InputEdit it can edit the text hides the input on blur 1`] = `
+<div class="input-edit"><span>My New Text</span> <button type="button" class="el-button black-color tag-space el-button--text">
+    <!----><i class="el-icon-edit"></i>
+    <!----></button></div>
+`;
+
+exports[`Components InputEdit it can edit the text shows an input field  1`] = `
+<div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
+  <!---->
+</div>
+`;
+
+exports[`Components InputEdit it can edit the text validates the input 1`] = `
+<div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-error is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+  <!---->
+</div>
+<div class="el-form-item__error" name="el-zoom-in-top">
+  Text is required!
+</div>
+</div>
+</div>
+</form></span>
+<!---->
+</div>
+`;
+
+exports[`Components InputEdit renders 1`] = `
+<div class="input-edit"><span>Test Text</span> <button type="button" class="el-button black-color tag-space el-button--text">
+    <!----><i class="el-icon-edit"></i>
+    <!----></button></div>
+`;

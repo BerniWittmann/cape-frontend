@@ -13,44 +13,45 @@ exports[`Components ProcessInfoForm allows to edit the input for the title 1`] =
             <!---->
             <!----><span>
         process.edit.reset
-      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
-          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+        </div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -67,44 +68,45 @@ exports[`Components ProcessInfoForm checks the input to not be empty 1`] = `
             <!---->
             <!----><span>
         process.edit.reset
-      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
-          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+        </div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -121,44 +123,100 @@ exports[`Components ProcessInfoForm checks the input to not be empty 2`] = `
             <!---->
             <!----><span>
         process.edit.reset
-      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
-          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+        </div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm checks the input to not be empty 3`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>
+        process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
+          <!---->
+        </div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -175,44 +233,100 @@ exports[`Components ProcessInfoForm does not the input after editing the title t
             <!---->
             <!----><span>
         process.edit.reset
-      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
-          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+        </div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm does not the input after editing the title to an invalid state 2`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>
+        process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span>My new Process Name</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -229,44 +343,100 @@ exports[`Components ProcessInfoForm hides the input after editing title 1`] = `
             <!---->
             <!----><span>
         process.edit.reset
-      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
-          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+        </div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
+</div>
+`;
+
+exports[`Components ProcessInfoForm hides the input after editing title 2`] = `
+<div class="el-card process-info is-always-shadow">
+  <!---->
+  <div class="el-card__body" style="width: 100%;">
+    <form class="el-form use-space el-form--label-top el-form--inline">
+      <div class="el-form-item use-space el-form-item--feedback">
+        <!---->
+        <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
+            <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
+      </span></button> <button type="button" class="el-button right-space el-button--danger is-plain">
+            <!---->
+            <!----><span>
+        process.edit.reset
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span>My new Process Name</span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></div></span> <button type="button" class="el-button submit-button right-space el-button--success">
+          <!---->
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+  </span></button></div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -283,45 +453,45 @@ exports[`Components ProcessInfoForm renders 1`] = `
             <!---->
             <!----><span>
         process.edit.reset
-      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+      </span></button> <span class="title left-space right-space"><span>process.edit.title </span></span> <span class="right-space"><div class="input-edit title"><span>My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
             <!----><i class="el-icon-edit"></i>
-            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+            <!----></button></div></span> <button type="button" class="el-button submit-button right-space el-button--success">
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -335,45 +505,45 @@ exports[`Components ProcessInfoForm works in new process as expected has back an
         <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
             <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
       </span></button>
-          <!----> <span class="title left-space right-space"><span>process.add.title</span></span> <span class="right-space"><span class="title">My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
+          <!----> <span class="title left-space right-space"><span>process.add.title</span></span> <span class="right-space"><div class="input-edit title"><span>My Process</span> <button type="button" class="el-button black-color tag-space el-button--text">
             <!----><i class="el-icon-edit"></i>
-            <!----></button></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+            <!----></button></div></span> <button type="button" class="el-button submit-button right-space el-button--success">
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
 </div>
 `;
 
@@ -387,43 +557,44 @@ exports[`Components ProcessInfoForm works in new process as expected renders cor
         <div class="el-form-item__content"><button type="button" class="el-button right-space el-button--text">
             <!----><i class="el-icon-arrow-left"></i><span>process.edit.back
       </span></button>
-          <!----> <span class="title left-space right-space"><span>process.add.title</span></span> <span class="right-space"><span><div class="el-form-item el-form-item--feedback is-required"><!----><div class="el-form-item__content"><div class="use-space input-width el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="process.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></span>
-          <!----></span> <button type="button" class="el-button submit-button right-space el-button--success">
-            <!---->
-            <!----><span>process.edit.save
-      </span></button>
+          <!----> <span class="title left-space right-space"><span>process.add.title</span></span> <span class="right-space"><div class="input-edit title"><span></span> <button type="button" class="el-button black-color tag-space el-button--text">
+            <!----><i class="el-icon-edit"></i>
+            <!----></button></div></span> <button type="button" class="el-button submit-button right-space el-button--success">
           <!---->
-        </div>
-      </div> <br>
-      <div role="tablist" aria-multiselectable="true" class="el-collapse">
-        <div class="el-collapse-item">
-          <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
-            <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
-          </div>
-          <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
-            <div class="el-collapse-item__content">
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
-                    <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
-                      <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
+          <!----><span>process.edit.save
+      </span></button>
+        <!---->
+      </div>
+  </div> <br>
+  <div role="tablist" aria-multiselectable="true" class="el-collapse">
+    <div class="el-collapse-item">
+      <div role="tab" aria-controls="el-collapse-content-5000" aria-describedby="el-collapse-content-5000">
+        <div role="button" id="el-collapse-head-5000" tabindex="0" class="el-collapse-item__header">process.edit.properties<i class="el-collapse-item__arrow el-icon-arrow-right"></i></div>
+      </div>
+      <div role="tabpanel" aria-hidden="true" aria-labelledby="el-collapse-head-5000" id="el-collapse-content-5000" class="el-collapse-item__wrap" style="display: none;">
+        <div class="el-collapse-item__content">
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 0, 0, 0.1); color: rgb(255, 0, 0);">First Tag<i class="el-tag__close el-icon-close"></i></span><span class="tag el-tag el-tag--info" style="background-color: rgba(255, 255, 0, 0.1); color: rgb(255, 255, 0);">Second Tag<i class="el-tag__close el-icon-close"></i></span>
+                <!----> <button type="button" class="el-button tag-space el-button--default el-button--small">
+                  <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
-                  <!---->
-                </div>
-              </div> <br>
-              <div class="el-form-item use-space el-form-item--feedback">
-                <!---->
-                <div class="el-form-item__content">
-                  <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
-                  <!---->
-                </div>
-              </div>
+              <!---->
+            </div>
+          </div> <br>
+          <div class="el-form-item use-space el-form-item--feedback">
+            <!---->
+            <div class="el-form-item__content">
+              <div class="el-textarea"><textarea autocomplete="off" placeholder="process.edit.description" class="el-textarea__inner" style="min-height: -8px; height: 0px;"></textarea></div>
+              <!---->
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  </form>
+</div>
 </div>
 `;

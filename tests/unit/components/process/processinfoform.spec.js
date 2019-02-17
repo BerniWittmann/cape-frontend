@@ -2,6 +2,7 @@ import moment from 'moment'
 import { mount, config } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 
+import InputEdit from '@/components/InputEdit.vue'
 import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
 import TagEditor from '@/components/TagEditor.vue'
 
@@ -100,14 +101,14 @@ describe('Components', () => {
     it('renders the tag editor', () => {
       expect(cmp.contains(TagEditor)).toBeTruthy()
     })
+    it('renders the input edit component for the name', () => {
+      const input = cmp.find(InputEdit)
+      expect(input.exists()).toBeTruthy()
+    })
     it('allows to edit the input for the title', (done) => {
-      // cmp.setMethods({ showInput: jest.fn() })
       const editTitleButton = cmp.find('button.black-color')
-      expect(cmp.vm.nameInputVisible).not.toBeTruthy()
       expect(editTitleButton.exists).toBeTruthy()
       editTitleButton.trigger('click')
-      expect(cmp.vm.nameInputVisible).toBeTruthy()
-      // expect(cmp.vm.showInput).toHaveBeenCalled()
       cmp.vm.$nextTick(() => {
         expect(cmp.html()).toMatchSnapshot()
         expect(cmp.find('.el-input__inner').exists).toBeTruthy()
@@ -123,18 +124,14 @@ describe('Components', () => {
         expect(cmp.html()).toMatchSnapshot()
         const input = cmp.find('.el-input__inner')
         input.setValue('My new Process Name')
-        expect(cmp.vm.data.name).toEqual('My new Process Name')
-        expect(cmp.vm.nameInputVisible).toBeTruthy()
         input.trigger('keyup', { key: 'Enter' })
-        expect(cmp.vm.nameInputVisible).not.toBeTruthy()
-        done()
+        cmp.vm.$nextTick(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
       })
     })
     it('does not the input after editing the title to an invalid state', (done) => {
-      cmp.vm.$refs.processForm.validate = jest.fn().mockImplementation((cb) => {
-        // eslint-disable-next-line standard/no-callback-literal
-        cb(false)
-      })
       const editTitleButton = cmp.find('button.black-color')
       expect(editTitleButton.exists).toBeTruthy()
 
@@ -143,11 +140,11 @@ describe('Components', () => {
         expect(cmp.html()).toMatchSnapshot()
         const input = cmp.find('.el-input__inner')
         input.setValue('My new Process Name')
-        expect(cmp.vm.data.name).toEqual('My new Process Name')
-        expect(cmp.vm.nameInputVisible).toBeTruthy()
         input.trigger('keyup', { key: 'Enter' })
-        expect(cmp.vm.nameInputVisible).toBeTruthy()
-        done()
+        cmp.vm.$nextTick(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
       })
     })
     it('checks the input to not be empty', (done) => {
@@ -161,7 +158,10 @@ describe('Components', () => {
         input.trigger('keypress', { key: 'Enter' })
         expect(cmp.html()).toMatchSnapshot()
         expect(cmp.find('.el-input__inner').exists).toBeTruthy()
-        done()
+        cmp.vm.$nextTick(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
       })
     })
     describe('works in edit mode as expected', () => {
@@ -180,7 +180,7 @@ describe('Components', () => {
     })
     describe('works in new process as expected', () => {
       it('renders correct title prefix', (done) => {
-        propsData.process.name = undefined
+        propsData.process.name = ''
         propsData.isNewProcess = true
         render(() => {
           expect(cmp.html()).toMatchSnapshot()

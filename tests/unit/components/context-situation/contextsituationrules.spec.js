@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 
+import InputEdit from '@/components/InputEdit.vue'
 import ContextSituationRules from '@/components/context-situation/ContextSituationRules.vue'
 
 describe('Components', () => {
@@ -72,12 +73,14 @@ describe('Components', () => {
       })
 
       describe('allows to edit the rules of the context situation', () => {
+        it('renders the input edit component for the name', () => {
+          const input = cmp.find(InputEdit)
+          expect(input.exists()).toBeTruthy()
+        })
         it('open input for the rules', (done) => {
           const editRulesButton = cmp.find('button.black-color')
-          expect(cmp.vm.rulesInputVisible).not.toBeTruthy()
           expect(editRulesButton.exists).toBeTruthy()
           editRulesButton.trigger('click')
-          expect(cmp.vm.rulesInputVisible).toBeTruthy()
           cmp.vm.$nextTick(() => {
             expect(cmp.html()).toMatchSnapshot()
             expect(cmp.find('.el-input__inner').exists).toBeTruthy()
@@ -86,7 +89,6 @@ describe('Components', () => {
         })
 
         it('hides the input after editing the rules', (done) => {
-          cmp.vm.$refs.csRulesForm.validate = jest.fn().mockImplementation(arg => arg(true))
           const editRulesButton = cmp.find('button.black-color')
           expect(editRulesButton.exists).toBeTruthy()
 
@@ -95,17 +97,15 @@ describe('Components', () => {
             expect(cmp.html()).toMatchSnapshot()
             const input = cmp.find('.el-input__inner')
             input.setValue('My new Rule')
-            expect(cmp.vm.contextSituation.rules).toEqual('My new Rule')
-            expect(cmp.vm.rulesInputVisible).toBeTruthy()
             input.trigger('keyup', { key: 'Enter' })
-            expect(cmp.vm.$refs.csRulesForm.validate).toHaveBeenCalled()
-            expect(cmp.vm.rulesInputVisible).not.toBeTruthy()
-            done()
+            cmp.vm.$nextTick(() => {
+              expect(cmp.html()).toMatchSnapshot()
+              done()
+            })
           })
         })
 
         it('does not hid the input after editing the rules if its invalid', (done) => {
-          cmp.vm.$refs.csRulesForm.validate = jest.fn().mockImplementation(arg => arg(false))
           const editRulesButton = cmp.find('button.black-color')
           expect(editRulesButton.exists).toBeTruthy()
 
@@ -114,12 +114,11 @@ describe('Components', () => {
             expect(cmp.html()).toMatchSnapshot()
             const input = cmp.find('.el-input__inner')
             input.setValue('My new Rule')
-            expect(cmp.vm.contextSituation.rules).toEqual('My new Rule')
-            expect(cmp.vm.rulesInputVisible).toBeTruthy()
             input.trigger('keyup', { key: 'Enter' })
-            expect(cmp.vm.$refs.csRulesForm.validate).toHaveBeenCalled()
-            expect(cmp.vm.rulesInputVisible).toBeTruthy()
-            done()
+            cmp.vm.$nextTick(() => {
+              expect(cmp.html()).toMatchSnapshot()
+              done()
+            })
           })
         })
 
@@ -133,8 +132,10 @@ describe('Components', () => {
             input.trigger('keypress', { key: 'Enter' })
             expect(cmp.html()).toMatchSnapshot()
             expect(cmp.find('.el-input__inner').exists).toBeTruthy()
-            expect(cmp.vm.rulesInputVisible).toBeTruthy()
-            done()
+            cmp.vm.$nextTick(() => {
+              expect(cmp.html()).toMatchSnapshot()
+              done()
+            })
           })
         })
       })

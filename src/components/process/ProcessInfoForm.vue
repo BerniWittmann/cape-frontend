@@ -14,29 +14,10 @@
           <span v-else>{{ $t('process.edit.title')}} </span>
         </span>
         <span class="right-space">
-          <span class="title" v-if="!nameInputVisible">{{ data.name }}</span>
-          <span v-else>
-            <el-form-item prop="name">
-              <el-input
-                      v-model="data.name"
-                      ref="nameInput"
-                      size="mini"
-                      :placeholder="$t('process.edit.name')"
-                      @blur="hideInput"
-                      @keyup.enter.native="hideInput"
-                      @submit.native.prevent="hideInput"
-                      class="use-space input-width"
-              >
-              </el-input>
-            </el-form-item>
-          </span>
-          <el-button
-                  type="text"
-                  icon="el-icon-edit"
-                  @click="showInput"
-                  v-if="!nameInputVisible"
-                  class="black-color tag-space"
-          ></el-button>
+          <input-edit class="title"
+                :value="data.name" :rules="rules.name" size="mini"
+                :placeholder="$t('process.edit.name')"
+          ></input-edit>
         </span>
         <el-button type="success" @click.native="$emit('submit-process')" class="submit-button right-space">{{
           $t('process.edit.save') }}
@@ -77,10 +58,12 @@
  */
 
 import TagEditor from '@/components/TagEditor.vue'
+import InputEdit from '@/components/InputEdit.vue'
 
 export default {
   components: {
-    TagEditor
+    TagEditor,
+    InputEdit
   },
 
   props: {
@@ -110,7 +93,7 @@ export default {
   data() {
     return {
       data: {
-        name: undefined,
+        name: '',
         tags: []
       },
       rules: {
@@ -118,7 +101,6 @@ export default {
           { required: true, message: this.$t('process.edit.validation.name.required'), trigger: 'blur' }
         ]
       },
-      nameInputVisible: false,
       description: undefined,
       activeProperty: [] // ['1'] - in case that it should be open
     }
@@ -137,21 +119,6 @@ export default {
 
     setFormPristine() {
       this.$refs.processForm.resetFields()
-    },
-
-    showInput() {
-      this.nameInputVisible = true
-      this.$nextTick(_ => {
-        this.$refs.nameInput.$refs.input.focus()
-      })
-    },
-
-    hideInput() {
-      this.$refs.processForm.validate((valid) => {
-        if (valid) {
-          this.nameInputVisible = false
-        }
-      })
     }
   },
 
