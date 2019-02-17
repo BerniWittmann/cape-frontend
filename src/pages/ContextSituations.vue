@@ -137,6 +137,7 @@ export default {
     },
 
     unsetActiveContextSituation() {
+      this.$store.dispatch('contextSituation/unsetActive')
       this.$router.push({
         name: 'context_situations'
       })

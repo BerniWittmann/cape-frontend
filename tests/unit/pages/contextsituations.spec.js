@@ -329,6 +329,7 @@ describe('Pages', () => {
       expect(router.push).toHaveBeenCalledWith({
         name: 'context_situations'
       })
+      expect(store.dispatch).toHaveBeenCalledWith('contextSituation/unsetActive')
     })
 
     describe('navigation Guards', () => {
