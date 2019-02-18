@@ -114,6 +114,9 @@ export default {
       this.$refs.textForm.validate((valid) => {
         if (valid) {
           this.isEditing = false
+          // Fired when the text changes
+          // @arg The new text
+          this.$emit('change', this.data.text)
         }
       })
     }

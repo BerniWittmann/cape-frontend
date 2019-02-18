@@ -2,8 +2,7 @@
   <el-card :class="{ 'context-situation-card': true, 'is-active': isActive }"
            @click.native.stop="navigateToContextSituation" :shadow="shadowMode">
     <div slot="header" class="clearfix">
-      <input-edit
-              :value="contextSituationData.name" :rules="rules.name"
+      <input-edit v-model="contextSituationData.name" @change="() => {}" :rules="rules.name"
               :placeholder="$t('context_situation.edit.name')"
       ></input-edit>
       <el-button v-if="isActive" style="float: right" type="text" icon="el-icon-close"

@@ -27,7 +27,7 @@ describe('Context Situations Page', () => {
     const card = cy.get('.el-card')
     card.click()
 
-    cy.get('.clearfix > .el-form > .el-form-item > .el-form-item__content > :nth-child(1) > .el-button > .el-icon-edit').click()
+    cy.get('.clearfix > .input-edit > .el-button > .el-icon-edit').click()
     cy.get('.input > .el-input__inner').type('{selectall}{backspace}New Name')
     cy.get('.el-button--success').click()
     cy.get('.el-card').should(($div) => {
@@ -41,13 +41,14 @@ describe('Context Situations Page', () => {
     const card = cy.get('.el-card')
     card.click()
 
-    cy.get('.el-card__body > .el-form > .el-form-item > .el-form-item__content > :nth-child(1) > .el-button > .el-icon-edit').click()
+    cy.get('.el-card__body .input-edit > .el-button > .el-icon-edit').click()
     cy.get('.input > .el-input__inner').type('{selectall}{backspace}New Rules')
     cy.get('.el-button--success').click()
     cy.wait(500)
 
     cy.get('.el-notification').contains('Success')
-    cy.get('.el-card__body > .el-form > .el-form-item > .el-form-item__content > :nth-child(1) > span').contains('New Rules')
+    cy.get('.el-card').click()
+    cy.get('.el-card__body .input-edit').contains('New Rules')
   })
 
   it('can add a tag', () => {
@@ -70,19 +71,19 @@ describe('Context Situations Page', () => {
 
     cy.get('.el-tag__close').first().click()
     const tags = cy.get('.el-tag__close')
-    tags.should('have.length', 2)
+    tags.should('have.length', 1)
   })
 
   it('can reset the process', () => {
     const card = cy.get('.el-card')
     card.click()
 
-    cy.get('.el-card__body > .el-form > .el-form-item > .el-form-item__content > :nth-child(1) > .el-button > .el-icon-edit').click()
+    cy.get('.el-card__body .input-edit > .el-button > .el-icon-edit').click()
     cy.get('.input > .el-input__inner').type('{selectall}{backspace}New Rules')
 
     cy.get('.el-button--danger').first().click()
     cy.wait(200)
-    cy.get('.el-card__body > .el-form > .el-form-item > .el-form-item__content > :nth-child(1) > span').contains('New Rules')
+    cy.get('.el-card__body .input-edit').contains('New Rules')
   })
 
   it('can add a context situation', () => {
@@ -90,7 +91,7 @@ describe('Context Situations Page', () => {
     cy.get('.el-form > .el-button').click()
     cy.get('.el-notification').contains('Success')
     cy.get('.el-card').should('have.length', 2)
-    cy.get('.is-always-shadow > .el-card__header > .clearfix > .el-form > .el-form-item > .el-form-item__content > :nth-child(1) > .title').contains('New Context Situation')
+    cy.get('.is-always-shadow > .el-card__header > .clearfix > .input-edit > span').contains('New Context Situation')
   })
 
   it('can remove a context situation', () => {

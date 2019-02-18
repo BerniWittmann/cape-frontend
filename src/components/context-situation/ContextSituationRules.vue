@@ -1,6 +1,6 @@
 <template>
   <input-edit class="context-situation-rules"
-          :value="contextSituation.rules" size="mini" :rules="validationRules"
+          v-model="contextSituation.rules" @change="() => {}" size="mini" :rules="validationRules"
           :placeholder="$t('context_situation.edit.rules')"
   ></input-edit>
 </template>

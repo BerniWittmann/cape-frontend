@@ -15,7 +15,7 @@
         </span>
         <span class="right-space">
           <input-edit class="title" ref="nameInput"
-                :value="data.name" :rules="rules.name" size="mini"
+                v-model="data.name" @change="() => {}" :rules="rules.name" size="mini"
                 :placeholder="$t('process.edit.name')"
           ></input-edit>
         </span>

@@ -7,6 +7,7 @@ describe('Process Create Page', () => {
   })
   it('can update the name', () => {
     cy.get('.el-input__inner').type('New Name')
+    cy.get('.el-collapse').click()
     cy.get('.el-button--success').click()
     cy.wait(500)
 
