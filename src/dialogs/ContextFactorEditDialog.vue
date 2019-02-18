@@ -66,17 +66,18 @@
 </template>
 
 <script>
-/* ============
- * Context Factor Edit Dialog
- * ============
- *
- * Allows Editing of a Context Factors
- */
 import ContextFactorService from '@/services/contextFactor'
 import ContextFactor from '@/models/contextFactor'
 import ContextAttribute from '@/models/contextAttribute'
 
+/*
+ * @vuese
+ * @group Dialogs
+ *
+ * A Dialog to edit a Context Factor
+ */
 export default {
+  name: 'ContextFactorEditDialog',
   data() {
     return {
       contextFactorData: {},

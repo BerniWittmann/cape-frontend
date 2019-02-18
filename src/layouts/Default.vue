@@ -4,6 +4,7 @@
       <v-navigation></v-navigation>
     </el-header>
     <el-main>
+      <!-- Page Content -->
       <slot></slot>
     </el-main>
     <el-footer>
@@ -13,19 +14,16 @@
 </template>
 
 <script>
-/* ============
- * Default Layout
- * ============
- *
- * Shows a pages content with a navigation bar
- *
- * Layouts are used to store a lot of shared code.
- * This way the app stays clean.
- */
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-
+/*
+ * @vuese
+ * @group Layouts
+ *
+ * Shows the page content with a navigation bar and footer
+ */
 export default {
+  name: 'DefaultLayout',
   components: {
     VNavigation: Navigation,
     VFooter: Footer

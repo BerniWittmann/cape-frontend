@@ -21,18 +21,19 @@
 </template>
 
 <script>
-/* ============
- * Settings Page
- * ============
- *
- * The Settings Page
- */
 import DefaultLayout from '@/layouts/Default.vue'
 import TagSettings from '@/components/settings/TagSettings.vue'
 import ProcessModelerSettings from '@/components/settings/ProcessModelerSettings.vue'
 import ContextTypeSettings from '@/components/settings/ContextTypeSettings.vue'
 
+/*
+ * @vuese
+ * @group Pages
+ *
+ * A page which where general settings can be edited
+ */
 export default {
+  name: 'SettingsPage',
   components: {
     VLayout: DefaultLayout,
     TagSettings,

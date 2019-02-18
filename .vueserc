@@ -1,0 +1,6 @@
+{
+    "outDir": "docs",
+    "title": "CaPE Components",
+    "genType": "docute",
+    "include": "src/**/*.vue"
+}

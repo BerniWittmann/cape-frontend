@@ -6,14 +6,15 @@
 </template>
 
 <script>
-/* ============
- * Empty Router View
- * ============
+/*
+ * @vuese
+ * @group Layouts
  *
- * Renders an empty Router View
+ * Renders an Empty Router View
  */
-
-export default {}
+export default {
+  name: 'EmptyRouterViewLayout'
+}
 
 </script>
 

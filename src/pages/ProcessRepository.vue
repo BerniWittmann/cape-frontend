@@ -78,17 +78,18 @@
 </template>
 
 <script>
-/* ============
- * Process Repository Page
- * ============
- *
- * The Process Repository Page
- */
 import { DATE_TIME_FORMAT } from '@/utils/constants'
 import DefaultLayout from '@/layouts/Default.vue'
 import Tag from '@/components/Tag.vue'
 
+/*
+ * @vuese
+ * @group Pages
+ *
+ * A page which shows all Processes
+ */
 export default {
+  name: 'ProcessRepositoryPage',
   components: {
     VLayout: DefaultLayout,
     Tag

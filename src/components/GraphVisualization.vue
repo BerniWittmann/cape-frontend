@@ -7,18 +7,18 @@
 </template>
 
 <script>
-/* ============
- * Graph Visualization Component
- * ============
- *
- * A Component which visualizes the connection between Processes, Context Situations and Context Factors
- */
-
 import * as d3 from 'd3'
 import dagreD3 from 'dagre-d3'
 import { mapGetters } from 'vuex'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Component which visualizes the connection between Processes, Context Situations and Context Factors
+ */
 export default {
+  name: 'GraphVisualization',
   computed: {
     ...mapGetters({
       'processes': 'process/processGraphNodes',

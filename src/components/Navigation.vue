@@ -13,16 +13,14 @@
   </el-menu>
 </template>
 <script>
-/* ============
- * Navigation Component
- * ============
+/*
+ * @vuese
+ * @group Components
  *
- * Navigation Bar component.
- *port DefaultLayout from '@/layouts/Default.vue'
- * Renders the navigation Bar.
+ * Renders the Navigation Bar
  */
-
 export default {
+  name: 'Navigation',
   computed: {
     activeRoute() {
       return this.$route.name

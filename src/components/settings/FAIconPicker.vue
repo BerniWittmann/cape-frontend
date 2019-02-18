@@ -20,17 +20,16 @@
 </template>
 
 <script>
-/* ============
- * FontAwesomeIconChooser
- * ============
- *
- *  A component to choose an icon from all available FontAwesome Icons.
- *  Used in a popover
- */
-
 import FontAwesomeIcons from '@/utils/fontAwesomeIcons'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Component to choose an icon from all available FontAwesome Icons. This is used in a popover
+ */
 export default {
+  name: 'FAIconPicker',
   data() {
     return {
       search: ''
@@ -49,11 +48,15 @@ export default {
     },
 
     emitIcon(icon) {
+      // Fired when an icon was selected
+      // @arg The selected Icon name
       this.$emit('click', icon)
+      // Fired when the Picker should be closed
       this.$emit('close')
     },
 
     emitClose() {
+      // Fired when the Picker should be closed
       this.$emit('close')
     }
   }

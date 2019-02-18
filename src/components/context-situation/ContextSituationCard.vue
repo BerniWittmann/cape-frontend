@@ -6,6 +6,10 @@
               :value="contextSituationData.name" :rules="rules.name"
               :placeholder="$t('context_situation.edit.name')"
       ></input-edit>
+      <el-button v-if="isActive" style="float: right" type="text" icon="el-icon-close"
+                 @click.native.stop="$emit('deactivate')"></el-button>
+      <el-button v-if="!isActive" style="float: right" type="text"
+                 icon="el-icon-arrow-right"></el-button>
     </div>
     <div class="tags" v-if="isActive">
         <tag-editor v-model="contextSituationData.tags" @change="() => {}"></tag-editor>
@@ -44,7 +48,14 @@ import ContextSituationRules from './ContextSituationRules'
 import ContextSituationService from '@/services/contextSituation'
 import InputEdit from '@/components/InputEdit.vue'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Card to view and edit a single Context Situation
+ */
 export default {
+  name: 'ContextSituationCard',
   components: {
     ContextSituationRules,
     Tag,
@@ -53,6 +64,7 @@ export default {
   },
 
   props: {
+    // The ContextSituation Object
     contextSituation: {
       type: Object,
       required: true
@@ -102,6 +114,7 @@ export default {
       const data = { ...this.contextSituationData }
       ContextSituationService.update(data).then(result => {
         if (result) {
+          // Fired when the Card should be closed
           this.$emit('deactivate')
         }
       })

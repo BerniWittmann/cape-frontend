@@ -71,14 +71,6 @@
 </template>
 
 <script>
-/* ============
- * ContextTypeSettings
- * ============
- *
- *  A component to edit the Context Types
- *
- */
-
 import ContextType from '@/models/contextType'
 import contextTypeService from '@/services/contextType'
 
@@ -86,7 +78,14 @@ import ContextTypeComponent from '@/components/ContextType'
 import FAIconPicker from '@/components/settings/FAIconPicker'
 import { DEFAULT_ICON } from '@/utils/constants'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * The Settings Tab to edit the Context Types
+ */
 export default {
+  name: 'ContextTypeSettings',
   components: {
     ContextType: ContextTypeComponent,
     FAIconPicker: FAIconPicker
@@ -123,6 +122,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // Update the Table Layout
     updateLayoutTable() {
       // necessary to update the layout and fit the ContextTypes right, doLayout() not working
       // resets deletable back to false

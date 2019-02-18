@@ -55,7 +55,14 @@ import ContextSituationService from '@/services/contextSituation'
 import Tag from '@/components/Tag'
 import ContextSituation from '@/models/contextSituation'
 
+/*
+ * @vuese
+ * @group Pages
+ *
+ * A page which shows the Context Situations
+ */
 export default {
+  name: 'ContextSituationsPage',
   components: {
     VLayout: DefaultLayout,
     ContextSituationCard,

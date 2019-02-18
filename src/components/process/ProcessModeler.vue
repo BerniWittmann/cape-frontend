@@ -15,26 +15,27 @@
 </template>
 
 <script>
-/* ============
- * Process Modeler Component
- * ============
- *
- * A component to model a process. This component is a wrapper for the bpmn-io library
- */
-
 import Modeler from 'bpmn-js/lib/Modeler'
 import BPMNModules from '@/plugins/bpmn/modules'
 import BPMNModdleExtensions from '@/plugins/bpmn/moddleExtensions'
 
 import defaultProcessTemplate from '@/assets/defaultProcessTemplate'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Component which allows the process itself to be edited. This is a wrapper for the bpmn-io library
+ */
 export default {
+  name: 'ProcessModeler',
   model: {
     prop: 'value',
     event: 'input'
   },
 
   props: {
+    // The value object containing the keys `xml`, `svg`, `extensionAreas`
     value: {
       type: Object,
       required: true
@@ -86,6 +87,8 @@ export default {
         .map(o => o.businessObject)
       this.getXML(() => {
         this.getSVG(() => {
+          // Fired when the data changed
+          // @arg The new value object with `svg`, `xml`and `extensionAreas`
           this.$emit('input', this.value)
         })
       })
@@ -99,11 +102,15 @@ export default {
       }
     },
 
+    // @vuese
+    // Validate the Process Model
     validate() {
       const error = this.modeler.get('eventBus').fire('validate')
       if (error) throw error
     },
 
+    // @vuese
+    // Reload the XML data into the modeler
     reloadXML() {
       if (!this.modeler) return
       this.modeler.importXML(this.value.xml, (err) => {

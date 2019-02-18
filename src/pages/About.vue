@@ -19,16 +19,15 @@
 </template>
 
 <script>
-/* ============
- * About Page
- * ============
+import DefaultLayout from '@/layouts/Default.vue'
+/*
+ * @vuese
+ * @group Pages
  *
  * A page which explains the project and has other additional information
  */
-
-import DefaultLayout from '@/layouts/Default.vue'
-
 export default {
+  name: 'AboutPage',
   components: {
     VLayout: DefaultLayout
   }

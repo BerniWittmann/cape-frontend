@@ -29,36 +29,42 @@
 </template>
 
 <script>
-/* ============
- * Input Edit Component
- * ============
+/*
+ * @vuese
+ * @group Components
  *
- * A component to edit aa text but hidden behind a text with an edit button
+ * A component to edit a text but hidden behind a text with an edit button
  */
-
 export default {
+  name: 'InputEdit',
   model: {
     prop: 'value',
     event: 'change'
   },
 
   props: {
+    // The Value of the input field
     value: {
       type: String,
       required: true
     },
+    // The Rules array that the input field should be validated against
     rules: {
       type: Array,
       default: () => []
     },
+    // Size of the controls
     size: {
+      // `'medium'` / `'small'` / `'mini'`
       type: String,
       default: 'normal'
     },
+    // The Placeholder for the input field
     placeholder: {
       type: String,
       default: undefined
     },
+    // The name the field should be referenced with within the form
     propName: {
       type: String,
       default: 'text'
@@ -93,6 +99,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // shows the Input field
     showInput() {
       this.isEditing = true
       this.$nextTick(() => {

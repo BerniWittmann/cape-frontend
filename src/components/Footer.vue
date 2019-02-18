@@ -68,16 +68,16 @@
 }
 </style>
 <script>
-/* ============
- * Footer Component
- * ============
- *
- * A footer component.
- */
-
 import packageInfo from '@/../package.json'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * Renders the Footer
+ */
 export default {
+  name: 'Footer',
   computed: {
     version() {
       return packageInfo.version

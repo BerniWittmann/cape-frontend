@@ -62,20 +62,20 @@
 </template>
 
 <script>
-/* ============
- * Tag Settings Component
- * ============
- *
- * A component to edit the Tags
- */
-
 import { DEFAULT_TAG_COLOR } from '@/utils/constants'
 import Tag from '@/models/tag'
 import tagService from '@/services/tag'
 
 import TagComponent from '@/components/Tag.vue'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Settings Tab to edit the tags
+ */
 export default {
+  name: 'TagSettings',
   components: {
     Tag: TagComponent
   },
@@ -100,6 +100,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // Update the Table Layout
     updateLayoutTable() {
       // necessary to update the layout and fit the ContextTypes right, doLayout() not working
       // resets deletable back to false

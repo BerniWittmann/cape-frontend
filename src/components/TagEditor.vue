@@ -27,22 +27,23 @@
 </template>
 
 <script>
-/* ============
- * Tag Editor Component
- * ============
- *
- * A component to edit a list of tags
- */
-
 import Tag from '@/components/Tag.vue'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Component to edit a list of tags
+ */
 export default {
+  name: 'TagEditor',
   model: {
     prop: 'tags',
     event: 'change'
   },
 
   props: {
+    // The Array of Tag Objects
     tags: {
       type: Array,
       required: true
@@ -88,12 +89,16 @@ export default {
   methods: {
     removeTag(tag) {
       this.selectedTags = this.selectedTags.filter((t) => t.id !== tag.id)
+      // Fired when the tag array changes
+      // @arg The new tag array
       this.$emit('change', this.selectedTags)
     },
 
     addTag() {
       if (!this.selectedTags.includes(this.newTag)) {
         this.selectedTags.push(this.newTag)
+        // Fired when the tag array changes
+        // @arg The new tag array
         this.$emit('change', this.selectedTags)
         this.$refs.tagSelect.blur()
       }

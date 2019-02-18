@@ -6,7 +6,10 @@ exports[`Components ContextSituationCard it is active allows to delete the conte
     <div class="clearfix">
       <div class="input-edit"><span>My Context Situation</span> <button type="button" class="el-button black-color tag-space el-button--text">
           <!----><i class="el-icon-edit"></i>
-          <!----></button></div>
+          <!----></button></div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -41,7 +44,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
     <div class="clearfix">
       <div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
         <!---->
-      </div>
+      </div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -76,7 +82,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
     <div class="clearfix">
       <div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
         <!---->
-      </div>
+      </div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -111,7 +120,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
     <div class="clearfix">
       <div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
         <!---->
-      </div>
+      </div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -146,7 +158,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
     <div class="clearfix">
       <div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
         <!---->
-      </div>
+      </div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -189,7 +204,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
   </div>
   </form></span>
   <!---->
-</div>
+</div> <button type="button" class="el-button el-button--text" style="float: right;">
+  <!----><i class="el-icon-close"></i>
+  <!----></button>
+<!---->
 </div>
 </div>
 <div class="el-card__body">
@@ -224,7 +242,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
     <div class="clearfix">
       <div class="input-edit"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--normal"><!----><div class="el-form-item__content"><div class="input el-input el-input--normal"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.name" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
         <!---->
-      </div>
+      </div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -259,7 +280,10 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
     <div class="clearfix">
       <div class="input-edit"><span>My new Context Situation Name</span> <button type="button" class="el-button black-color tag-space el-button--text">
           <!----><i class="el-icon-edit"></i>
-          <!----></button></div>
+          <!----></button></div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -294,7 +318,10 @@ exports[`Components ContextSituationCard it is active renders 1`] = `
     <div class="clearfix">
       <div class="input-edit"><span>My Context Situation</span> <button type="button" class="el-button black-color tag-space el-button--text">
           <!----><i class="el-icon-edit"></i>
-          <!----></button></div>
+          <!----></button></div> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-close"></i>
+        <!----></button>
+      <!---->
     </div>
   </div>
   <div class="el-card__body">
@@ -330,6 +357,9 @@ exports[`Components ContextSituationCard it is not active renders 1`] = `
       <div class="input-edit"><span>My Context Situation</span> <button type="button" class="el-button black-color tag-space el-button--text">
           <!----><i class="el-icon-edit"></i>
           <!----></button></div>
+      <!----> <button type="button" class="el-button el-button--text" style="float: right;">
+        <!----><i class="el-icon-arrow-right"></i>
+        <!----></button>
     </div>
   </div>
   <div class="el-card__body">

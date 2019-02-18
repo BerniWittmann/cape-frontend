@@ -36,16 +36,17 @@
 </template>
 
 <script>
-/* ============
-    * Process Preview Dialog
-    * ============
-    *
-    * Shows a preview of the Dialog
-    */
 import Tag from '@/components/Tag.vue'
 import processService from '@/services/process'
 
+/*
+ * @vuese
+ * @group Dialogs
+ *
+ * A Dialog to preview a Process
+ */
 export default {
+  name: 'ProcessPreviewDialog',
   components: {
     Tag
   },

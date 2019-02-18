@@ -9,16 +9,17 @@
 </template>
 
 <script>
-/* ============
- * Home Page
- * ============
- *
- * The Home Page
- */
 import DefaultLayout from '@/layouts/Default.vue'
 import GraphVisualization from '@/components/GraphVisualization.vue'
 
+/*
+ * @vuese
+ * @group Pages
+ *
+ * The Landing Page
+ */
 export default {
+  name: 'HomePage',
   components: {
     VLayout: DefaultLayout,
     GraphVisualization

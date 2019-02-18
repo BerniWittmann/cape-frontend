@@ -177,6 +177,13 @@ describe('Components', () => {
         expect(buttons.at(1).text()).toContain('reset')
         expect(buttons.at(2).text()).toContain('save')
       })
+      it('does not open the name input directly', (done) => {
+        cmp.vm.$refs.nameInput.showInput = jest.fn()
+        render(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
+      })
     })
     describe('works in new process as expected', () => {
       it('renders correct title prefix', (done) => {
@@ -186,9 +193,16 @@ describe('Components', () => {
           expect(cmp.html()).toMatchSnapshot()
           done()
         })
-        expect(cmp.vm.nameInputVisible).toBeTruthy()
         expect(cmp.find('.title span').find('span').exists()).toBeTruthy()
         expect(cmp.find('.title span').find('span').text()).toEqual('process.add.title')
+      })
+      it('opens the name input directly', (done) => {
+        propsData.process.name = ''
+        propsData.isNewProcess = true
+        render(() => {
+          expect(cmp.html()).toMatchSnapshot()
+          done()
+        })
       })
       it('has back and save button but no reset button', (done) => {
         propsData.isNewProcess = true
@@ -201,6 +215,18 @@ describe('Components', () => {
 
         expect(buttons.at(0).text()).toContain('back')
         expect(buttons.at(1).text()).toContain('save')
+      })
+      it('updates the name correctly', (done) => {
+        cmp.setProps({
+          process: {
+            ...propsData.process,
+            name: undefined
+          }
+        })
+        cmp.vm.$nextTick(() => {
+          expect(cmp.find(InputEdit).props('value')).toEqual('')
+          done()
+        })
       })
     })
     describe('has a function to validate the form', () => {

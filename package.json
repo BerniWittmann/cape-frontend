@@ -11,10 +11,10 @@
     "test:e2e": "vue-cli-service test:e2e --env TESTING_BACKEND_URL=https://cape-backend-testing.herokuapp.com/api/ --mode testing",
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "docs": "vuese gen && cp public/docs_readme.md docs/README.md"
   },
   "dependencies": {
-    "@solgenomics/d3-pedigree-tree": "^1.1.1",
     "axios": "^0.18.0",
     "bpmn-js": "^3.0.2",
     "bpmn-js-properties-panel": "^0.28.2",
@@ -40,6 +40,7 @@
     "@vue/cli-service": "^3.0.3",
     "@vue/eslint-config-standard": "^3.0.5",
     "@vue/test-utils": "^1.0.0-beta.25",
+    "@vuese/cli": "^2.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
     "electron": "^3.0.0",

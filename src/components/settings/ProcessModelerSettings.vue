@@ -17,7 +17,14 @@
 
 import { hasProcessModelerRulesEnabled } from '@/utils/helpers'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * The Settings Tag to edit the settings for the Process Modeler
+ */
 export default {
+  name: 'ProcessModelerSettings',
   data() {
     return {
       enableValidation: false

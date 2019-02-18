@@ -14,7 +14,7 @@
           <span v-else>{{ $t('process.edit.title')}} </span>
         </span>
         <span class="right-space">
-          <input-edit class="title"
+          <input-edit class="title" ref="nameInput"
                 :value="data.name" :rules="rules.name" size="mini"
                 :placeholder="$t('process.edit.name')"
           ></input-edit>
@@ -42,35 +42,29 @@
 </template>
 
 <script>
-/* ============
- * Process Info Form
- * ============
- *
- * A Form which shows information's about a process and allows to edit them
- * Requires:
- *  props:
- *    process - The Process to show and edit
- *    isNewProcess - Boolean, whether it's for a new Process
- *  methods which are emitted:
- *    router-back - if back is pressed
- *    submit - if submit is pressed
- *    reset - if reset is pressed
- */
-
 import TagEditor from '@/components/TagEditor.vue'
 import InputEdit from '@/components/InputEdit.vue'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Form to show and edit basic information about a process
+ */
 export default {
+  name: 'ProcessInfoForm',
   components: {
     TagEditor,
     InputEdit
   },
 
   props: {
+    // The Process Object
     process: {
       type: Object,
       required: true
     },
+    // Option whether this process needs to be created or updated
     isNewProcess: {
       type: Boolean,
       required: true
@@ -82,7 +76,7 @@ export default {
       deep: true,
       handler: function () {
         this.data = {
-          name: this.process.name,
+          name: this.process.name || '',
           tags: this.process.tags,
           description: this.process.description
         }
@@ -107,6 +101,9 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // @arg callback with data on success or undefined if invalid
+    // Submits the form and returns result on successful validation
     submit(cb) {
       this.$refs.processForm.validate((valid) => {
         if (valid) {
@@ -117,6 +114,8 @@ export default {
       })
     },
 
+    // @vuese
+    // Sets the Form Pristine
     setFormPristine() {
       this.$refs.processForm.resetFields()
     }
@@ -124,11 +123,14 @@ export default {
 
   beforeMount() {
     this.data = {
-      name: this.process.name,
+      name: this.process.name || '',
       tags: this.process.tags,
       description: this.process.description
     }
-    if (!this.data.name) this.nameInputVisible = true
+  },
+
+  mounted() {
+    if (!this.data.name) this.$refs.nameInput.showInput()
   }
 }
 

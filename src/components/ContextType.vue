@@ -9,20 +9,22 @@
 </template>
 
 <script>
-/* ============
- * Context Type Component
- * ============
+/*
+ * @vuese
+ * @group Components
  *
- * A component to view a single Context Type
+ * Renders a Single Context Type
  */
-
 export default {
+  name: 'ContextType',
   props: {
+    // The Context Type Object
     contextType: {
       type: Object,
       required: true
     },
 
+    // Option whether the Context Type can be deleted or not
     closable: {
       type: Boolean,
       default: false
@@ -33,6 +35,7 @@ export default {
 
   methods: {
     emitClose() {
+      // Fired when the close button of the Context Type was clicked
       this.$emit('close')
     }
   }

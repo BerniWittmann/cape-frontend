@@ -20,13 +20,6 @@
 </template>
 
 <script>
-/* ============
- * Edit Process Page
- * ============
- *
- * A page where a process can be edited
- */
-
 import DefaultLayout from '@/layouts/Default.vue'
 import ProcessInfoForm from '@/components/process/ProcessInfoForm.vue'
 import ProcessModeler from '@/components/process/ProcessModeler.vue'
@@ -34,7 +27,14 @@ import ProcessModeler from '@/components/process/ProcessModeler.vue'
 import ProcessService from '@/services/process'
 import Process from '@/models/process'
 
+/*
+ * @vuese
+ * @group Pages
+ *
+ * A page where a process can be edited
+ */
 export default {
+  name: 'EditProcessPage',
   components: {
     VLayout: DefaultLayout,
     ProcessInfoForm,

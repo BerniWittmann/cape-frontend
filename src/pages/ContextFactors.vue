@@ -48,7 +48,14 @@ import DefaultLayout from '@/layouts/Default.vue'
 import ContextFactor from '@/models/contextFactor'
 import ContextFactorService from '@/services/contextFactor'
 
+/*
+ * @vuese
+ * @group Pages
+ *
+ * A page which shows the Context Factors
+ */
 export default {
+  name: 'ContextFactorsPage',
   components: {
     VLayout: DefaultLayout
   },

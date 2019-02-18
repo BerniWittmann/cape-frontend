@@ -6,20 +6,22 @@
 </template>
 
 <script>
-/* ============
- * ContextSituationRules
- * ============
- *
- *
- */
 import InputEdit from '@/components/InputEdit.vue'
 
+/*
+ * @vuese
+ * @group Components
+ *
+ * A Component for modelling the Rules of a Context Situation
+ */
 export default {
+  name: 'ContextSituationRules',
   components: {
     InputEdit
   },
 
   props: {
+    // The Context Situation Object
     contextSituation: {
       type: Object,
       required: true
