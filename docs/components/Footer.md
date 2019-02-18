@@ -1,0 +1,4 @@
+# Footer
+
+Renders the Footer
+
