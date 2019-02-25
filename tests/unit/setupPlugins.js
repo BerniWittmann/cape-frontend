@@ -17,3 +17,16 @@ Vue.use(Element)
 export const i18n = new VueI18N({
   silentTranslationWarn: true
 })
+
+export function monkeyPatchTransitions() {
+  const { getComputedStyle } = window
+  window.getComputedStyle = function getComputedStyleStub(el) {
+    return {
+      ...getComputedStyle(el),
+      transitionDelay: '',
+      transitionDuration: '',
+      animationDelay: '',
+      animationDuration: ''
+    }
+  }
+}

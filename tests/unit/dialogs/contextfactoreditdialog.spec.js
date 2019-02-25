@@ -6,6 +6,7 @@ import ContextFactorService from '@/services/contextFactor'
 import ContextFactor from '@/models/contextFactor'
 import ContextType from '@/models/contextType'
 import ContextAttribute from '@/models/contextAttribute'
+import InputType from '@/components/InputType'
 
 describe('Dialogs', () => {
   describe('Context Factor Edit Dialog', () => {
@@ -42,7 +43,8 @@ describe('Dialogs', () => {
               attributes: [{
                 id: 'ca1',
                 key: 'foo',
-                value: 'bar'
+                value: 'bar',
+                type: 'String'
               }]
             })]
           },
@@ -125,7 +127,7 @@ describe('Dialogs', () => {
         })
 
         it('renders the options', () => {
-          const input = cmp.findAll('.select-context-type-option')
+          const input = cmp.find('#select-context-type').findAll('.select-context-type-option')
           expect(input.length).toEqual(3)
         })
 
@@ -176,25 +178,14 @@ describe('Dialogs', () => {
           })
         })
 
-        it('it has a key input', () => {
+        it('has an input for the type and value', () => {
           const form = cmp.findAll('.el-form--inline').at(1)
-          const input = form.findAll('input').at(1)
+          const input = form.find(InputType)
           expect(input.exists()).toBeTruthy()
-          input.setValue('new Value')
-          expect(cmp.vm.contextFactorData.attributes[0].value).toEqual('new Value')
-        })
 
-        it('shows error on empty value input', (done) => {
-          const form = cmp.findAll('.el-form--inline').at(1)
-          const input = form.findAll('input').at(1)
-          expect(input.exists()).toBeTruthy()
-          expect(form.html()).not.toContain('context_factor.edit.validation.attribute.value.required')
-          input.setValue('')
-          input.trigger('blur')
-          cmp.vm.$nextTick(() => {
-            expect(form.html()).toContain('context_factor.edit.validation.attribute.value.required')
-            done()
-          })
+          input.vm.$emit('change', { value: '123', type: 'Number' })
+          expect(cmp.vm.contextFactorData.attributes[0].value).toEqual('123')
+          expect(cmp.vm.contextFactorData.attributes[0].type).toEqual('Number')
         })
 
         it('can add an attribute', (done) => {
@@ -286,16 +277,21 @@ describe('Dialogs', () => {
         })
       })
 
-      it('validates the attribute forms on submit', (done) => {
+      it('validates the attribute inputs on submit', (done) => {
         cmp.vm.contextFactorData.attributes.push(new ContextAttribute({}))
-
         cmp.vm.$nextTick(() => {
-          expect(cmp.html()).not.toContain('context_factor.edit.validation.attribute.key.required')
-          cmp.find('.el-button--success').trigger('click')
-          cmp.vm.$nextTick(() => {
-            expect(cmp.html()).toContain('context_factor.edit.validation.attribute.key.required')
-            done()
+          const inputs = cmp.findAll(InputType)
+
+          inputs.wrappers.forEach((input) => {
+            input.vm.validate = jest.fn()
           })
+
+          cmp.find('.el-button--success').trigger('click')
+
+          inputs.wrappers.forEach((input) => {
+            expect(input.vm.validate).toHaveBeenCalled()
+          })
+          done()
         })
       })
 
@@ -411,7 +407,10 @@ describe('Dialogs', () => {
             }
           }))
           cmp.findAll('.el-button--danger').at(1).trigger('click')
-          expect(cmp.vm.$message).toHaveBeenCalledWith({ 'message': 'context_factor.delete.cancellation', 'type': 'info' })
+          expect(cmp.vm.$message).toHaveBeenCalledWith({
+            'message': 'context_factor.delete.cancellation',
+            'type': 'info'
+          })
           expect(ContextFactorService.remove).not.toHaveBeenCalled()
         })
       })
