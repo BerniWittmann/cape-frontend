@@ -34,7 +34,9 @@
                     <el-input v-model="attr.key" :placeholder="$t('context_factor.edit.attribute.key')"></el-input>
                   </el-form-item>
                   <el-form-item prop="value">
-                    <el-input v-model="attr.value" :placeholder="$t('context_factor.edit.attribute.value')"></el-input>
+                    <input-type :value="attr.value" :type="attr.type" @change="data => handleAttributeChange(data, idx)"
+                                :placeholder="$t('context_factor.edit.attribute.value')" :ref="'contextAttributeValue' + idx"
+                                :type-placeholder="$t('context_factor.edit.attribute.type')"></input-type>
                   </el-form-item>
                   <el-tooltip :content="$t('context_factor.edit.attribute.remove')">
                     <el-button plain type="info" icon="el-icon-close" @click="removeAttribute(idx)"></el-button>
@@ -51,12 +53,12 @@
     </el-row>
     <el-row slot="footer" justify="end" :gutter="20">
       <el-col :span="8" id="left-align">
-          <el-button @click="reset" type="danger" plain>
-            {{ $t('context_factor.edit.reset') }}
-          </el-button>
-          <el-button type="danger" @click="deleteContextFactor()">
-            {{ $t('context_factor.edit.delete') }}
-          </el-button>
+        <el-button @click="reset" type="danger" plain>
+          {{ $t('context_factor.edit.reset') }}
+        </el-button>
+        <el-button type="danger" @click="deleteContextFactor()">
+          {{ $t('context_factor.edit.delete') }}
+        </el-button>
       </el-col>
       <el-col :span="5" :offset="10">
         <el-button type="success" @click="save">{{ $t('context_factor.edit.save') }}</el-button>
@@ -69,7 +71,7 @@
 import ContextFactorService from '@/services/contextFactor'
 import ContextFactor from '@/models/contextFactor'
 import ContextAttribute from '@/models/contextAttribute'
-
+import InputType from '@/components/InputType'
 /*
  * @vuese
  * @group Dialogs
@@ -78,6 +80,9 @@ import ContextAttribute from '@/models/contextAttribute'
  */
 export default {
   name: 'ContextFactorEditDialog',
+  components: {
+    InputType
+  },
   data() {
     return {
       contextFactorData: {},
@@ -90,13 +95,6 @@ export default {
       attributeRules: {
         key: [
           { required: true, message: this.$t('context_factor.edit.validation.attribute.key.required'), trigger: 'blur' }
-        ],
-        value: [
-          {
-            required: true,
-            message: this.$t('context_factor.edit.validation.attribute.value.required'),
-            trigger: 'blur'
-          }
         ]
       }
     }
@@ -177,14 +175,18 @@ export default {
     validateAttributes() {
       const count = this.contextFactorData.attributes.length
       let result = true
+      const forms = []
       for (let i = 0; i < count; i++) {
-        const form = this.$refs['contextAttributeForm' + i][0]
+        forms.push(this.$refs['contextAttributeForm' + i][0])
+        forms.push(this.$refs['contextAttributeValue' + i][0])
+      }
+      forms.forEach((form) => {
         form.validate((valid) => {
           if (!valid) {
             result = false
           }
         })
-      }
+      })
       return result
     },
 
@@ -207,6 +209,13 @@ export default {
 
     selectChange(selected) {
       if (selected === this.$t('context_factor.none')) this.contextFactorData.contextType = undefined
+    },
+
+    handleAttributeChange(data, idx) {
+      this.contextFactorData.attributes[idx] = {
+        ...this.contextFactorData.attributes[idx],
+        ...data
+      }
     }
   },
 

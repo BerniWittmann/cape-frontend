@@ -4,6 +4,11 @@
     "context_factors": "Context Factors",
     "context_situations": "Context Situations"
   },
+  "types": {
+    "string": "String",
+    "boolean": "Boolean",
+    "number": "Number"
+  },
   "footer": {
     "about": "@:about.title",
     "version": "Version: {version}",
@@ -72,6 +77,7 @@
       "attribute": {
         "key": "Key",
         "value": "Value",
+        "type": "Type",
         "add": "Add Attribute",
         "remove": "Remove Attribute"
       },
@@ -432,5 +438,10 @@
   },
   "websocket": {
     "connection_closed": "No Connection to WebSocket. Reconnecting..."
+  },
+  "input_type": {
+    "required": "This field is required",
+    "number": "This field needs to be a Number",
+    "boolean": "This field needs to be a Boolean (TRUE, FALSE)"
   }
 }
