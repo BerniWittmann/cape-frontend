@@ -104,6 +104,8 @@ export default {
     handleChange() {
       this.$refs.inputTypeForm.validate((valid) => {
         if (valid) {
+          // Emitted when the input value or type is changed
+          // @arg data object with value and type
           this.$emit('change', this.data)
         }
       })
