@@ -10,3 +10,12 @@ export const PROCESS_VALIDATION_ERRORS = {
   TOO_MANY_END_EVENTS: 'too_many_end_events',
   ELEMENT_CONNECTIONS_EXCEEDED: 'element_connections_exceeded'
 }
+
+export const CONTEXT_SITUATION_RULES_CONNECTORS = {
+  AND: 'AND',
+  OR: 'OR'
+}
+export const CONTEXT_SITUATION_RULES_PART_TYPES = {
+  ARG: 'argument',
+  CON: 'connector'
+}

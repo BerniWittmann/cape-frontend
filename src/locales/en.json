@@ -57,6 +57,18 @@
       "warning": "Warning",
       "delete_button": "Delete Context Situation",
       "cancellation": "Delete cancelled"
+    },
+    "rules": {
+      "title": "Occurrence Rule",
+      "connectors": {
+        "and": "AND",
+        "or": "OR"
+      },
+      "add_condition": "Add Condition",
+      "remove_condition": "Remove Condition",
+      "negated": "Negated",
+      "not_negated": "Default",
+      "required": "This field is required"
     }
   },
   "context_factor": {

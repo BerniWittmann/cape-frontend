@@ -17,7 +17,7 @@
       <tag v-for="tag in contextSituation.tags" :tag="tag" size="medium" :key="tag.id"></tag>
     </div>
 
-    <ContextSituationRules v-if="isActive" :context-situation="contextSituationData"
+    <ContextSituationRules v-if="isActive" v-model="contextSituationData.rules"
                            class="top-space"></ContextSituationRules>
 
     <div v-if="isActive" class="top-space">

@@ -118,7 +118,8 @@ const routes = [
     beforeEnter: (to, from, next) => {
       Promise.all([
         TagService.getAll(),
-        ContextSituationService.getAll()
+        ContextSituationService.getAll(),
+        ContextFactorService.getAll()
       ]).then(() => { next() }).catch(next)
     },
     children: [{
