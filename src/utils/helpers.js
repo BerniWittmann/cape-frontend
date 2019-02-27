@@ -1,4 +1,5 @@
 import { CONTEXT_SITUATION_RULES_CONNECTORS, CONTEXT_SITUATION_RULES_PART_TYPES } from '@/utils/constants'
+const contextSituationRuleStringRegex = /^!?([a-z]|[0-9]){24}.([a-z]|[0-9]){24}( ((&&)|(\|\|)) !?([a-z]|[0-9]){24}.([a-z]|[0-9]){24})*$/
 
 export function convertHexToRgba(color, opacity = 1) {
   const c = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color)
@@ -62,6 +63,7 @@ export function hasCommonElement(arr1, arr2) {
 
 // Transforms a Context Situation Rule String to an Array that can be edited
 export function decodeContextSituationRuleString(str) {
+  if (!str || !str.match(contextSituationRuleStringRegex)) return []
   return str.split(' ').map((obj) => {
     if (obj === '&&') {
       return {
@@ -89,15 +91,16 @@ export function decodeContextSituationRuleString(str) {
 
 // Transforms a Context Situation Rule Array to a logical String
 export function encodeContextSituationRuleString(parts) {
+  if (!parts || !Array.isArray(parts) || parts.length === 0) return ''
   return parts.map((obj) => {
     if (obj.type === CONTEXT_SITUATION_RULES_PART_TYPES.ARG && obj.data && obj.data.length > 0) {
       return (obj.data[2] ? '!' : '') + obj.data[0] + '.' + obj.data[1]
     } else if (obj.type === CONTEXT_SITUATION_RULES_PART_TYPES.CON && obj.data) {
       if (obj.data === CONTEXT_SITUATION_RULES_CONNECTORS.AND) return '&&'
       if (obj.data === CONTEXT_SITUATION_RULES_CONNECTORS.OR) return '||'
-      return ''
+      return '##Invalid##'
     } else {
-      return ''
+      return '##Invalid##'
     }
-  }).join(' ')
+  }).filter((s) => s !== '##Invalid##').join(' ')
 }

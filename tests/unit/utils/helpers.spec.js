@@ -6,8 +6,11 @@ import {
   updateAndSetActive,
   getDeep,
   scrollToTop,
-  hasCommonElement
+  hasCommonElement,
+  decodeContextSituationRuleString,
+  encodeContextSituationRuleString
 } from '@/utils/helpers'
+import { CONTEXT_SITUATION_RULES_CONNECTORS, CONTEXT_SITUATION_RULES_PART_TYPES } from '@/utils/constants'
 
 describe('Helpers', () => {
   describe('convertHexToRgba', () => {
@@ -220,6 +223,206 @@ describe('Helpers', () => {
       expect(hasCommonElement([1, 5, 10], [3, 7, 99, 42, 1])).toBeTruthy()
       expect(hasCommonElement([1, 7, 10], [7])).toBeTruthy()
       expect(hasCommonElement(['a', 'c', 'e'], ['b', 'd', 'e', 'f'])).toBeTruthy()
+    })
+  })
+
+  describe('decodeContextSituationRuleString', () => {
+    it('returns empty array if invalid string', () => {
+      expect(decodeContextSituationRuleString(undefined)).toEqual([])
+      expect(decodeContextSituationRuleString('')).toEqual([])
+      expect(decodeContextSituationRuleString('Invalid String')).toEqual([])
+      expect(decodeContextSituationRuleString('&& 5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6')).toEqual([])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6 5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e7')).toEqual([])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6 - 5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e7')).toEqual([])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5 && 5c758838bcf6fd47f203a8e7')).toEqual([])
+    })
+    it('parses a single argument', () => {
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e5', '5c758838bcf6fd47f203a8e6', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+      expect(decodeContextSituationRuleString('!5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+    })
+    it('parses multiple arguments connected with connectors', () => {
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e1 && 5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e1', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.AND,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+      expect(decodeContextSituationRuleString('!5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e1 && !5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e1', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.AND,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e1 || 5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e1', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.OR,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+      expect(decodeContextSituationRuleString('!5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e1 || !5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e1', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.OR,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+    })
+  })
+
+  describe('encodeContextSituationRuleString', () => {
+    it('returns an empty string if invalid array given', () => {
+      expect(encodeContextSituationRuleString(undefined)).toEqual('')
+      expect(encodeContextSituationRuleString([])).toEqual('')
+      expect(encodeContextSituationRuleString({ foo: 'bar' })).toEqual('')
+      expect(encodeContextSituationRuleString('invalid')).toEqual('')
+    })
+    it('can parse single arguments', () => {
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')
+    })
+    it('can handle negations', () => {
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('!5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')
+    })
+    it('can parse multiple arguments connected with connectors', () => {
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.AND,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 && !5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.OR,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', true
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 || !5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.AND,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 && 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.OR,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 || 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+    })
+    it('can handle undefined types', () => {
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: CONTEXT_SITUATION_RULES_CONNECTORS.AND,
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: { foo: 'bar' },
+        type: 'invalid'
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 && 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      expect(encodeContextSituationRuleString([{
+        data: [
+          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }, {
+        data: 'other_connector',
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
+      }, {
+        data: [
+          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
     })
   })
 })

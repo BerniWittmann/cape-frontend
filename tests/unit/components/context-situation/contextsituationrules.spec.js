@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 
-import InputEdit from '@/components/InputEdit.vue'
 import ContextSituationRules from '@/components/context-situation/ContextSituationRules.vue'
 
 describe('Components', () => {
@@ -13,29 +12,29 @@ describe('Components', () => {
 
     beforeEach(() => {
       propsData = {
-        contextSituation: {
-          id: '142',
-          name: 'My Context Situation',
-          rules: 'The Rules String',
-          tags: [{
-            id: '43',
-            name: 'Second Tag',
-            color: '#FFFF00'
-          }, {
-            id: '44',
-            name: 'Third Tag',
-            color: '#0FFF00'
-          }]
-        }
+        value: 'aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1 && !aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb2 || aaaaaaaaaaaaaaaaaaaaaaa2.bbbbbbbbbbbbbbbbbbbbbbb3'
       }
       store = {
         state: {
-          contextSituation: {
-            activeContextSituation: {
-              id: '142',
-              name: 'My Context Situation',
-              rules: 'The Rules String'
-            }
+          contextFactor: {
+            contextFactors: [{
+              id: 'aaaaaaaaaaaaaaaaaaaaaaa1',
+              name: 'CF 1',
+              attributes: [{
+                id: 'bbbbbbbbbbbbbbbbbbbbbbb1',
+                key: 'Attr 1'
+              }, {
+                id: 'bbbbbbbbbbbbbbbbbbbbbbb2',
+                key: 'Attr 2'
+              }]
+            }, {
+              id: 'aaaaaaaaaaaaaaaaaaaaaaa2',
+              name: 'CF 2',
+              attributes: [{
+                id: 'bbbbbbbbbbbbbbbbbbbbbbb3',
+                key: 'Attr 3'
+              }]
+            }]
           }
         },
         dispatch: jest.fn().mockImplementation(() => ({
@@ -52,6 +51,10 @@ describe('Components', () => {
       cmp = mount(ContextSituationRules, {
         i18n,
         propsData,
+        stubs: {
+          transition: false,
+          ElTooltip: '<div class="tooltip"><slot></slot></div>'
+        },
         mocks: {
           $store: store,
           $router: router
@@ -59,86 +62,176 @@ describe('Components', () => {
       })
     }
 
-    describe('context situation rules management', () => {
+    it('renders', () => {
+      expect(cmp.html()).toMatchSnapshot()
+    })
+
+    it('renders a cascader for the arguments', () => {
+      const cascaders = cmp.findAll('.select--argument')
+      expect(cascaders.length).toEqual(3)
+      expect(cascaders.at(0).text()).toEqual('CF 1 - Attr 1')
+      expect(cascaders.at(1).text()).toEqual('! CF 1 - Attr 2')
+      expect(cascaders.at(2).text()).toEqual('CF 2 - Attr 3')
+    })
+
+    it('marks the negated cascaders', () => {
+      const cascaders = cmp.findAll('.select--argument')
+      expect(cascaders.at(0).classes('select--argument--negated')).toBeFalsy()
+      expect(cascaders.at(1).classes('select--argument--negated')).toBeTruthy()
+      expect(cascaders.at(2).classes('select--argument--negated')).toBeFalsy()
+    })
+
+    it('marks the non-negated cascaders', () => {
+      const cascaders = cmp.findAll('.select--argument')
+      expect(cascaders.at(0).classes('select--argument--not-negated')).toBeTruthy()
+      expect(cascaders.at(1).classes('select--argument--not-negated')).toBeFalsy()
+      expect(cascaders.at(2).classes('select--argument--not-negated')).toBeTruthy()
+    })
+
+    it('renders a select for the connectors', () => {
+      const selects = cmp.findAll('.select--connector')
+      expect(selects.length).toEqual(2)
+      expect(selects.at(0).find('.el-input__inner').element.value).toEqual('context_situation.rules.connectors.and')
+      expect(selects.at(1).find('.el-input__inner').element.value).toEqual('context_situation.rules.connectors.or')
+    })
+
+    it('does not render cascaders or selects if empty rule', () => {
+      cmp.setProps({ value: '' })
+      const cascaders = cmp.findAll('.select--argument')
+      expect(cascaders.length).toEqual(0)
+      const selects = cmp.findAll('.select--connector')
+      expect(selects.length).toEqual(0)
+    })
+
+    describe('it can remove a condition', () => {
+      it('has a button', () => {
+        expect(cmp.contains('.el-button--danger')).toBeTruthy()
+      })
+
+      it('removes a connector and an argument', () => {
+        const btn = cmp.find('.el-button--danger')
+        btn.trigger('click')
+
+        const cascaders = cmp.findAll('.select--argument')
+        expect(cascaders.length).toEqual(2)
+        expect(cascaders.at(0).text()).toEqual('CF 1 - Attr 1')
+        expect(cascaders.at(1).text()).toEqual('! CF 1 - Attr 2')
+        const selects = cmp.findAll('.select--connector')
+        expect(selects.length).toEqual(1)
+        expect(selects.at(0).find('.el-input__inner').element.value).toEqual('context_situation.rules.connectors.and')
+      })
+
+      it('only removes the condition if it is first condition', () => {
+        cmp.setProps({ value: 'aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1' })
+        const btn = cmp.find('.el-button--danger')
+        btn.trigger('click')
+
+        const cascaders = cmp.findAll('.select--argument')
+        expect(cascaders.length).toEqual(0)
+        const selects = cmp.findAll('.select--connector')
+        expect(selects.length).toEqual(0)
+      })
+
+      it('does not display button if no conditions', () => {
+        cmp.setProps({ value: '' })
+
+        const btn = cmp.find('.el-button--danger')
+        expect(btn.exists()).toBeFalsy()
+      })
+    })
+
+    describe('it can add a condition', () => {
       beforeEach(() => {
-        store.state.contextSituation.activeContextSituation = undefined
+        cmp.setProps({ value: 'aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1' })
+      })
+      it('has a button', () => {
+        expect(cmp.contains('.el-button--success')).toBeTruthy()
       })
 
-      it('renders', () => {
-        expect(cmp.html()).toMatchSnapshot()
+      it('adds a connector and an argument', () => {
+        const btn = cmp.find('.el-button--success')
+        btn.trigger('click')
+
+        let cascaders = cmp.findAll('.select--argument')
+        expect(cascaders.length).toEqual(2)
+        let selects = cmp.findAll('.select--connector')
+        expect(selects.length).toEqual(1)
+
+        btn.trigger('click')
+
+        cascaders = cmp.findAll('.select--argument')
+        expect(cascaders.length).toEqual(3)
+        selects = cmp.findAll('.select--connector')
+        expect(selects.length).toEqual(2)
       })
 
-      it('shows the rules of the context situation', () => {
-        expect(cmp.text()).toContain('The Rules String')
+      it('only adds an argument if is first condition', () => {
+        cmp.setProps({ value: '' })
+        const btn = cmp.find('.el-button--success')
+        btn.trigger('click')
+
+        let cascaders = cmp.findAll('.select--argument')
+        expect(cascaders.length).toEqual(1)
+        let selects = cmp.findAll('.select--connector')
+        expect(selects.length).toEqual(0)
+      })
+    })
+
+    describe('it can update values', () => {
+      it('validates form if value is changed', () => {
+        cmp.vm.$refs.contextSituationRuleForm.validate = jest.fn()
+        const cascader = cmp.find('.select--argument')
+        cascader.vm.$emit('change')
+
+        expect(cmp.vm.$refs.contextSituationRuleForm.validate).toHaveBeenCalled()
       })
 
-      describe('allows to edit the rules of the context situation', () => {
-        it('renders the input edit component for the name', () => {
-          const input = cmp.find(InputEdit)
-          expect(input.exists()).toBeTruthy()
-        })
-        it('open input for the rules', (done) => {
-          const editRulesButton = cmp.find('button.black-color')
-          expect(editRulesButton.exists).toBeTruthy()
-          editRulesButton.trigger('click')
-          cmp.vm.$nextTick(() => {
-            expect(cmp.html()).toMatchSnapshot()
-            expect(cmp.find('.el-input__inner').exists).toBeTruthy()
-            done()
-          })
-        })
+      it('emits change event if valid value is changed', () => {
+        const cascader = cmp.find('.select--argument')
+        cascader.vm.$emit('change')
 
-        it('hides the input after editing the rules', (done) => {
-          const editRulesButton = cmp.find('button.black-color')
-          expect(editRulesButton.exists).toBeTruthy()
+        expect(cmp.emitted().change[0][0]).toEqual('aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1 && !aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb2 || aaaaaaaaaaaaaaaaaaaaaaa2.bbbbbbbbbbbbbbbbbbbbbbb3')
+      })
 
-          editRulesButton.trigger('click')
-          cmp.vm.$nextTick(() => {
-            expect(cmp.html()).toMatchSnapshot()
-            const input = cmp.find('.el-input__inner')
-            input.setValue('My new Rule')
-            input.trigger('keyup', { key: 'Enter' })
-            cmp.vm.$nextTick(() => {
-              expect(cmp.html()).toMatchSnapshot()
-              done()
-            })
-          })
-        })
+      it('does not emit change event if invalid value is changed', (done) => {
+        const btn = cmp.find('.el-button--success')
+        btn.trigger('click')
+        const cascader = cmp.find('.select--argument')
+        cascader.vm.$emit('change')
 
-        it('does not hid the input after editing the rules if its invalid', (done) => {
-          const editRulesButton = cmp.find('button.black-color')
-          expect(editRulesButton.exists).toBeTruthy()
+        cmp.vm.$nextTick(() => {
+          expect(cmp.emitted().change).toBeFalsy()
+          expect(cmp.html()).toMatchSnapshot()
 
-          editRulesButton.trigger('click')
-          cmp.vm.$nextTick(() => {
-            expect(cmp.html()).toMatchSnapshot()
-            const input = cmp.find('.el-input__inner')
-            input.setValue('My new Rule')
-            input.trigger('keyup', { key: 'Enter' })
-            cmp.vm.$nextTick(() => {
-              expect(cmp.html()).toMatchSnapshot()
-              done()
-            })
-          })
-        })
+          const err = cmp.find('.el-form-item__error')
+          expect(err.exists()).toBeTruthy()
+          expect(err.text()).toEqual('context_situation.rules.required')
 
-        it('checks the input to not be empty', (done) => {
-          const editRulesButton = cmp.find('button.black-color')
-          editRulesButton.trigger('click')
-          cmp.vm.$nextTick(() => {
-            expect(cmp.html()).toMatchSnapshot()
-            const input = cmp.find('.el-input__inner')
-            input.setValue('')
-            input.trigger('keypress', { key: 'Enter' })
-            expect(cmp.html()).toMatchSnapshot()
-            expect(cmp.find('.el-input__inner').exists).toBeTruthy()
-            cmp.vm.$nextTick(() => {
-              expect(cmp.html()).toMatchSnapshot()
-              done()
-            })
-          })
+          done()
         })
       })
+    })
+
+    it('can reset the form', () => {
+      cmp.vm.$refs.contextSituationRuleForm.resetFields = jest.fn()
+      const btn = cmp.find('.el-button--success')
+      btn.trigger('click')
+      btn.trigger('click')
+
+      let cascaders = cmp.findAll('.select--argument')
+      expect(cascaders.length).toEqual(5)
+      let selects = cmp.findAll('.select--connector')
+      expect(selects.length).toEqual(4)
+
+      expect(cmp.vm.reset).toEqual(expect.any(Function))
+
+      cmp.vm.reset()
+
+      cascaders = cmp.findAll('.select--argument')
+      expect(cascaders.length).toEqual(3)
+      selects = cmp.findAll('.select--connector')
+      expect(selects.length).toEqual(2)
+      expect(cmp.vm.$refs.contextSituationRuleForm.resetFields).toHaveBeenCalled()
     })
   })
 })

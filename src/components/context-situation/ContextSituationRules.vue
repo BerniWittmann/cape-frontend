@@ -6,7 +6,7 @@
         <span v-for="(part, idx) in data.parts" :key="'part_' + idx">
           <template v-if="isArgument(part)">
             <el-form-item :prop="'parts.' + idx + '.data'" :rules="rulesArg">
-              <el-cascader
+              <el-cascader popper-class="select--argument__cascader"
                       expand-trigger="hover" :class="selectArgumentClass(part.data)"
                       :options="availableArguments" :show-all-levels="false" filterable
                       v-model="part.data" @change="handleChange">
@@ -177,6 +177,13 @@ export default {
           this.$emit('change', this.evaluationString)
         }
       })
+    },
+
+    // @vuese
+    // Resets the Rules to the Rule String
+    reset() {
+      this.data.parts = decodeContextSituationRuleString(this.value)
+      this.$refs.contextSituationRuleForm.resetFields()
     }
   }
 }

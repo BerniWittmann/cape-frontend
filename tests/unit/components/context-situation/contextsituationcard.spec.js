@@ -4,6 +4,7 @@ import { i18n } from '../../setupPlugins'
 import Tag from '@/components/Tag.vue'
 import TagEditor from '@/components/TagEditor.vue'
 import InputEdit from '@/components/InputEdit.vue'
+import ContextSituationRules from '@/components/context-situation/ContextSituationRules.vue'
 import ContextSituationCard from '@/components/context-situation/ContextSituationCard.vue'
 import ContextSituationService from '@/services/contextSituation'
 
@@ -83,6 +84,9 @@ describe('Components', () => {
           $store: store,
           $router: router
         },
+        stubs: {
+          ContextSituationRules: '<div id="context-situation-rules"></div>'
+        },
         sync: false
       })
       cmp.vm.$nextTick(done)
@@ -114,7 +118,7 @@ describe('Components', () => {
       })
 
       it('does not display the rules', () => {
-        const rules = cmp.find('contextsituationrules-stub')
+        const rules = cmp.find('#context-situation-rules')
         expect(rules.exists()).toBeFalsy()
       })
 
@@ -159,8 +163,9 @@ describe('Components', () => {
       })
 
       it('does display the rules', () => {
-        const rules = cmp.find('.context-situation-rules')
+        const rules = cmp.find('#context-situation-rules')
         expect(rules.exists()).toBeTruthy()
+        expect(rules.is(ContextSituationRules)).toBeTruthy()
       })
 
       it('displays the tags', () => {
@@ -248,10 +253,12 @@ describe('Components', () => {
       })
 
       it('allows to reset the context situation', () => {
+        cmp.vm.$refs.contextSituationRules.reset = jest.fn()
         expect(cmp.find('.el-button--danger.is-plain').exists()).toBeTruthy()
         cmp.vm.contextSituationData.name = 'Different'
         cmp.vm.resetCS()
         expect(cmp.vm.contextSituationData.name).toBe(propsData.contextSituation.name)
+        expect(cmp.vm.$refs.contextSituationRules.reset).toHaveBeenCalled()
       })
 
       it('allows to submit the context situation', () => {

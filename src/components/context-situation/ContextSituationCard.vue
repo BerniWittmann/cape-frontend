@@ -17,7 +17,7 @@
       <tag v-for="tag in contextSituation.tags" :tag="tag" size="medium" :key="tag.id"></tag>
     </div>
 
-    <ContextSituationRules v-if="isActive" v-model="contextSituationData.rules"
+    <ContextSituationRules ref="contextSituationRules" v-if="isActive" v-model="contextSituationData.rules"
                            class="top-space"></ContextSituationRules>
 
     <div v-if="isActive" class="top-space">
@@ -121,6 +121,7 @@ export default {
 
     resetCS() {
       this.contextSituationData = { ...this.contextSituation }
+      this.$refs.contextSituationRules.reset()
     },
 
     deleteCS() {

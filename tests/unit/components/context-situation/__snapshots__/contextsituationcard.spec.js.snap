@@ -19,9 +19,7 @@ exports[`Components ContextSituationCard it is active allows to delete the conte
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -57,9 +55,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -95,9 +91,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -133,9 +127,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -171,9 +163,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -217,9 +207,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
         <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
   </div>
-  <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-      <!----><i class="el-icon-edit"></i>
-      <!----></button></div>
+  <div id="context-situation-rules" class="top-space"></div>
   <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
       <!---->
       <!----><span>
@@ -255,9 +243,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -293,9 +279,7 @@ exports[`Components ContextSituationCard it is active allows to edit the name of
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>
@@ -331,9 +315,7 @@ exports[`Components ContextSituationCard it is active renders 1`] = `
           <!----><i class="el-icon-plus"></i><span>process.edit.add_tag
   </span></button></div>
     </div>
-    <div class="input-edit context-situation-rules top-space"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-        <!----><i class="el-icon-edit"></i>
-        <!----></button></div>
+    <div id="context-situation-rules" class="top-space"></div>
     <div class="top-space"><button type="button" class="el-button el-button--danger el-button--medium is-plain">
         <!---->
         <!----><span>

@@ -1,55 +1,219 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation checks the input to not be empty 1`] = `
-<div class="input-edit context-situation-rules"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
+exports[`Components ContextSituationRules it can update values does not emit change event if invalid value is changed 1`] = `
+<div>
+  <p>context_situation.rules.title</p>
+  <form class="el-form el-form--inline">
+    <div><span><div class="el-form-item is-success"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--not-negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
+      <!---->
+    </div><span class="el-cascader__label">
+      CF 1 - Attr 1
+    </span></span>
+    <!---->
+</div>
+</div></span><span><div class="el-form-item is-success is-required"><!----><div class="el-form-item__content"><div class="el-select select--connector"><!----><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+<!---->
+</div>
+<div class="el-select-dropdown el-popper" style="display: none;">
+  <div class="el-scrollbar" style="">
+    <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+      <ul class="el-scrollbar__view el-select-dropdown__list">
+        <!---->
+        <li class="el-select-dropdown__item selected">context_situation.rules.connectors.and</li>
+        <li class="el-select-dropdown__item">context_situation.rules.connectors.or</li>
+      </ul>
+    </div>
+    <div class="el-scrollbar__bar is-horizontal">
+      <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+    </div>
+    <div class="el-scrollbar__bar is-vertical">
+      <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+    </div>
+  </div>
   <!---->
+</div>
+</div>
+<!---->
+</div>
+</div></span><span><div class="el-form-item is-success"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
+<!---->
+</div><span class="el-cascader__label">
+      ! CF 1 - Attr 2
+    </span></span>
+<!---->
+</div>
+</div></span><span><div class="el-form-item is-success is-required"><!----><div class="el-form-item__content"><div class="el-select select--connector"><!----><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+<!---->
+</div>
+<div class="el-select-dropdown el-popper" style="display: none;">
+  <div class="el-scrollbar" style="">
+    <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+      <ul class="el-scrollbar__view el-select-dropdown__list">
+        <!---->
+        <li class="el-select-dropdown__item">context_situation.rules.connectors.and</li>
+        <li class="el-select-dropdown__item selected">context_situation.rules.connectors.or</li>
+      </ul>
+    </div>
+    <div class="el-scrollbar__bar is-horizontal">
+      <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+    </div>
+    <div class="el-scrollbar__bar is-vertical">
+      <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+    </div>
+  </div>
+  <!---->
+</div>
+</div>
+<!---->
+</div>
+</div></span><span><div class="el-form-item is-success"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--not-negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
+<!---->
+</div><span class="el-cascader__label">
+      CF 2 - Attr 3
+    </span></span>
+<!---->
+</div>
+</div></span><span><div class="el-form-item is-success is-required"><!----><div class="el-form-item__content"><div class="el-select select--connector"><!----><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+<!---->
+</div>
+<div class="el-select-dropdown el-popper" style="display: none;">
+  <div class="el-scrollbar" style="">
+    <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+      <ul class="el-scrollbar__view el-select-dropdown__list">
+        <!---->
+        <li class="el-select-dropdown__item selected">context_situation.rules.connectors.and</li>
+        <li class="el-select-dropdown__item">context_situation.rules.connectors.or</li>
+      </ul>
+    </div>
+    <div class="el-scrollbar__bar is-horizontal">
+      <div class="el-scrollbar__thumb" style="width: 0px; transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+    </div>
+    <div class="el-scrollbar__bar is-vertical">
+      <div class="el-scrollbar__thumb" style="height: 0px; transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+    </div>
+  </div>
+  <!---->
+</div>
+</div>
+<!---->
+</div>
+</div></span><span><div class="el-form-item is-error"><!----><div class="el-form-item__content"><span class="el-cascader select--argument"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+<!---->
+</div><span class="el-cascader__label">
+
+    </span></span>
+<div class="el-form-item__error el-zoom-in-top-enter el-zoom-in-top-enter-active">
+  context_situation.rules.required
+</div>
+</div>
+</div></span></div>
+<div class="el-form-item">
+  <!---->
+  <div class="el-form-item__content">
+    <div class="tooltip" content="Remove Last Condition"><button type="button" class="el-button el-button--danger el-button--mini is-plain">
+        <!----><i class="el-icon-minus"></i>
+        <!----></button></div>
+    <div class="tooltip" content="Add Condition"><button type="button" class="el-button el-button--success el-button--mini is-plain">
+        <!----><i class="el-icon-plus"></i>
+        <!----></button></div>
+    <!---->
+  </div>
+</div>
+</form>
 </div>
 `;
 
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation checks the input to not be empty 2`] = `
-<div class="input-edit context-situation-rules"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
+exports[`Components ContextSituationRules renders 1`] = `
+<div>
+  <p>context_situation.rules.title</p>
+  <form class="el-form el-form--inline">
+    <div><span><div class="el-form-item"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--not-negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+      <!----></span>
+      <!---->
+    </div><span class="el-cascader__label">
+      CF 1 - Attr 1
+    </span></span>
+    <!---->
+</div>
+</div></span><span><div class="el-form-item is-required"><!----><div class="el-form-item__content"><div class="el-select select--connector"><!----><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span>
+<!----></span>
+<!---->
+</div>
+<div class="el-select-dropdown el-popper" style="display: none;">
+  <div class="el-scrollbar" style="">
+    <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+      <ul class="el-scrollbar__view el-select-dropdown__list">
+        <!---->
+        <li class="el-select-dropdown__item selected">context_situation.rules.connectors.and</li>
+        <li class="el-select-dropdown__item">context_situation.rules.connectors.or</li>
+      </ul>
+    </div>
+    <div class="el-scrollbar__bar is-horizontal">
+      <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+    </div>
+    <div class="el-scrollbar__bar is-vertical">
+      <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+    </div>
+  </div>
   <!---->
 </div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation checks the input to not be empty 3`] = `
-<div class="input-edit context-situation-rules"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
+</div>
+<!---->
+</div>
+</div></span><span><div class="el-form-item"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+<!----></span>
+<!---->
+</div><span class="el-cascader__label">
+      ! CF 1 - Attr 2
+    </span></span>
+<!---->
+</div>
+</div></span><span><div class="el-form-item is-required"><!----><div class="el-form-item__content"><div class="el-select select--connector"><!----><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span>
+<!----></span>
+<!---->
+</div>
+<div class="el-select-dropdown el-popper" style="display: none;">
+  <div class="el-scrollbar" style="">
+    <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+      <ul class="el-scrollbar__view el-select-dropdown__list">
+        <!---->
+        <li class="el-select-dropdown__item">context_situation.rules.connectors.and</li>
+        <li class="el-select-dropdown__item selected">context_situation.rules.connectors.or</li>
+      </ul>
+    </div>
+    <div class="el-scrollbar__bar is-horizontal">
+      <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+    </div>
+    <div class="el-scrollbar__bar is-vertical">
+      <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+    </div>
+  </div>
   <!---->
 </div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation does not hid the input after editing the rules if its invalid 1`] = `
-<div class="input-edit context-situation-rules"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
-  <!---->
 </div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation does not hid the input after editing the rules if its invalid 2`] = `
-<div class="input-edit context-situation-rules"><span>My new Rule</span> <button type="button" class="el-button black-color tag-space el-button--text">
-    <!----><i class="el-icon-edit"></i>
-    <!----></button></div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation hides the input after editing the rules 1`] = `
-<div class="input-edit context-situation-rules"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
-  <!---->
+<!---->
 </div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation hides the input after editing the rules 2`] = `
-<div class="input-edit context-situation-rules"><span>My new Rule</span> <button type="button" class="el-button black-color tag-space el-button--text">
-    <!----><i class="el-icon-edit"></i>
-    <!----></button></div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management allows to edit the rules of the context situation open input for the rules 1`] = `
-<div class="input-edit context-situation-rules"><span><form class="el-form form el-form--label-top el-form--inline"><div class="el-form-item el-form-item--feedback is-required el-form-item--mini"><!----><div class="el-form-item__content"><div class="input el-input el-input--mini"><!----><input type="text" autocomplete="off" placeholder="context_situation.edit.rules" class="el-input__inner"><!----><!----><!----></div><!----></div></div></form></span>
-  <!---->
+</div></span><span><div class="el-form-item"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--not-negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+<!----></span>
+<!---->
+</div><span class="el-cascader__label">
+      CF 2 - Attr 3
+    </span></span>
+<!---->
 </div>
-`;
-
-exports[`Components ContextSituationRules context situation rules management renders 1`] = `
-<div class="input-edit context-situation-rules"><span>The Rules String</span> <button type="button" class="el-button black-color tag-space el-button--text">
-    <!----><i class="el-icon-edit"></i>
-    <!----></button></div>
+</div></span></div>
+<div class="el-form-item">
+  <!---->
+  <div class="el-form-item__content">
+    <div class="tooltip" content="Remove Last Condition"><button type="button" class="el-button el-button--danger el-button--mini is-plain">
+        <!----><i class="el-icon-minus"></i>
+        <!----></button></div>
+    <div class="tooltip" content="Add Condition"><button type="button" class="el-button el-button--success el-button--mini is-plain">
+        <!----><i class="el-icon-plus"></i>
+        <!----></button></div>
+    <!---->
+  </div>
+</div>
+</form>
+</div>
 `;
