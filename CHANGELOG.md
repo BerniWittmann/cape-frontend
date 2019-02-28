@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
+
+## 0.14.0 - (2019-02-28)
+---
+
+* Added Context Situation Rule Modelling
+* Added a Type to Context Factor Attributes
+
 ## 0.13.0 - (2019-02-13)
 ---
 
