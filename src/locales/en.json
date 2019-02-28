@@ -31,7 +31,6 @@
     "filter_placeholder": "Search Context Situations",
     "select_placeholder": "Filter By Tag",
     "none_found": "No Context Situations Available",
-    "untagged": "Untagged",
     "edit": {
       "save": "Save",
       "reset": "Reset",
@@ -82,6 +81,7 @@
       "link": "Edit",
       "cancel": "Cancel",
       "save": "Save",
+      "apply": "Apply",
       "reset": "Reset",
       "delete": "Delete",
       "name": "Name",
@@ -93,6 +93,23 @@
         "type": "Type",
         "add": "Add Attribute",
         "remove": "Remove Attribute"
+      },
+      "state": "State",
+      "states_tab": "States",
+      "data_tab": "Data",
+      "states": {
+        "name": "State Name",
+        "add": "Add State",
+        "no_attributes": "Attributes must be added as they are required to add states!",
+        "delete": {
+          "message": "This will permanently delete this state. Continue?",
+          "ok": "Delete",
+          "cancel": "Cancel",
+          "warning": "Warning",
+          "delete_button": "Delete State",
+          "confirmation": "State deleted",
+          "cancellation": "Delete cancelled"
+        }
       },
       "validation": {
         "name": {
@@ -106,6 +123,9 @@
           "value": {
             "required": "Please input a Value"
           }
+        },
+        "stateName": {
+          "required": "State name required"
         }
       }
     },
@@ -173,9 +193,6 @@
       "cancellation": "Delete cancelled",
       "forbidden": "Somebody is editing the process right now"
     }
-  },
-  "extension_area": {
-    "title": "Extension Area"
   },
   "settings": {
     "title": "Settings",
@@ -354,51 +371,6 @@
         }
       }
     },
-
-    "injection_mappings": {
-      "all": {
-        "get": {
-          "failed": {
-            "title": "Error",
-            "message": "Loading the Injection Mappings failed"
-          }
-        },
-        "post": {
-          "failed": {
-            "title": "Error",
-            "message": "Creating the Injection Mapping failed"
-          },
-          "success": {
-            "title": "Success",
-            "message": "The Injection Mapping got created"
-          }
-        }
-      },
-      "single": {
-        "get": {
-          "failed": {
-            "title": "Error",
-            "message": "Loading the Injection Mapping failed"
-          }
-        },
-        "delete": {
-          "failed": {
-            "title": "Error",
-            "message": "Deleting the Injection Mapping failed"
-          }
-        },
-        "put": {
-          "failed": {
-            "title": "Error",
-            "message": "Updating the Injection Mapping failed"
-          },
-          "success": {
-            "title": "Success",
-            "message": "The Injection Mapping got updated"
-          }
-        }
-      }
-    },
     "processes": {
       "all": {
         "get": {
@@ -504,35 +476,5 @@
     "required": "This field is required",
     "number": "This field needs to be a Number",
     "boolean": "This field needs to be a Boolean (TRUE, FALSE)"
-  },
-  "injection_mapping": {
-    "context_situation": "Context Situation",
-    "injected_process": "Injected Process",
-    "save": "Save",
-    "edit": {
-      "delete": "Delete"
-    },
-    "delete": {
-      "confirmation": "Injection Mapping deleted",
-      "message": "This will permanently delete the Injection Mapping. Continue?",
-      "ok": "Delete",
-      "cancel": "Cancel",
-      "warning": "Warning",
-      "delete_button": "Delete Injection Mapping",
-      "cancellation": "Delete cancelled"
-    },
-    "add": "Add Injection Mapping",
-    "undefined_injectedProcess": "Undefined Process",
-    "undefined_contextSituation": "Undefined Situation",
-    "if": "if",
-    "then": "then",
-    "validation": {
-      "context_situation": {
-        "required": "Context Situation is required"
-      },
-      "injected_process": {
-        "required": "Injected Process is required"
-      }
-    }
   }
 }

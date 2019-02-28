@@ -1,6 +1,7 @@
 import ContextFactor from '@/models/contextFactor'
 import ContextAttribute from '@/models/contextAttribute'
 import ContextType from '@/models/contextType'
+import ContextRule from '@/models/contextRule'
 
 describe('Models', () => {
   describe('Context Factor', () => {
@@ -70,6 +71,46 @@ describe('Models', () => {
       }])
     })
 
+    it('can have multiple ContextRules', () => {
+      const p = new ContextFactor({
+        _id: '42',
+        name: 'My ContextFactor',
+        context_rules: [{
+          _id: '1',
+          state: 'foo',
+          rule: 'bar'
+        }, {
+          _id: '2',
+          state: 'other',
+          rule: 'attr'
+        }]
+      })
+      expect(p.id).toEqual('42')
+      expect(p.name).toEqual('My ContextFactor')
+      expect(p.parentID).toEqual(undefined)
+      expect(p.contextRules).toEqual([
+        new ContextRule({
+          _id: '1',
+          state: 'foo',
+          rule: 'bar'
+        }),
+        new ContextRule({
+          _id: '2',
+          state: 'other',
+          rule: 'attr'
+        })
+      ])
+      expect(p.toJSON().context_rules).toEqual([{
+        _id: '1',
+        state: 'foo',
+        rule: 'bar'
+      }, {
+        _id: '2',
+        state: 'other',
+        rule: 'attr'
+      }])
+    })
+
     it('can have a ContextType', () => {
       const p = new ContextFactor({
         _id: '42',
@@ -109,7 +150,8 @@ describe('Models', () => {
         name: 'My ContextFactor',
         parentID: '19',
         attributes: [],
-        context_factor: undefined
+        context_factor: undefined,
+        context_rules: []
       })
     })
   })

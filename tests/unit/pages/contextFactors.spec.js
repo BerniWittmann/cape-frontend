@@ -3,6 +3,7 @@ import { i18n } from '../setupPlugins'
 
 import ContextFactors from '@/pages/ContextFactors.vue'
 import ContextFactorService from '@/services/contextFactor'
+import ContextFactor from '@/models/contextFactor'
 
 describe('Pages', () => {
   describe('ContextFactors.vue', () => {
@@ -270,13 +271,14 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
         cmp.vm.createNew()
-        expect(ContextFactorService.create).toHaveBeenCalledWith({
+        expect(ContextFactorService.create).toHaveBeenCalledWith(new ContextFactor({
           '_id': undefined,
           'attributes': [],
           'context_type': undefined,
+          'context_rules': [],
           'name': 'New CF',
           'parentID': '12'
-        })
+        }))
       })
       it('can create new context factor as root', () => {
         cmp.vm.newContextFactor.name = 'New CF'
@@ -290,13 +292,14 @@ describe('Pages', () => {
           then: (arg) => arg()
         }))
         cmp.vm.createNew()
-        expect(ContextFactorService.create).toHaveBeenCalledWith({
+        expect(ContextFactorService.create).toHaveBeenCalledWith(new ContextFactor({
           '_id': undefined,
           'attributes': [],
           'context_type': undefined,
+          'context_rules': [],
           'name': 'New CF',
           'parentID': undefined
-        })
+        }))
       })
 
       it('cannot create new context factor if validation failed', () => {

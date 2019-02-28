@@ -34,6 +34,11 @@ describe('Dialogs', () => {
                 id: 'ca1',
                 key: 'foo',
                 value: 'bar'
+              }],
+              contextRules: [{
+                id: 'cr1',
+                state: 'State',
+                rule: ''
               }]
             }),
             contextFactors: [new ContextFactor({
@@ -64,6 +69,11 @@ describe('Dialogs', () => {
       jest.clearAllMocks()
       render()
       cmp.vm.$nextTick(() => {
+        cmp.vm.$refs.attributeRules = {
+          convertToTableData: jest.fn(),
+          reRender: jest.fn(),
+          convertFromTableData: jest.fn()
+        }
         done()
       })
     })
@@ -78,7 +88,8 @@ describe('Dialogs', () => {
         stubs: {
           ElTooltip: '<div><slot></slot></div>',
           ElSelect: '<div id="select-context-type"><slot></slot></div>',
-          ElOption: '<div class="select-context-type-option"><slot></slot></div>'
+          ElOption: '<div class="select-context-type-option"><slot></slot></div>',
+          AttributeRules: '<div id="attribute-rules"></div>'
         }
       })
     }
@@ -319,7 +330,7 @@ describe('Dialogs', () => {
         const input = cmp.findAll('input').at(0)
         expect(input.exists()).toBeTruthy()
         input.setValue('New Name')
-        cmp.find('.el-button--success').trigger('click')
+        cmp.findAll('.el-button--success').at(1).trigger('click')
         const data = store.state.contextFactor.activeContextFactor
         expect(ContextFactorService.update).toHaveBeenCalledWith(new ContextFactor({
           ...data,
@@ -413,6 +424,21 @@ describe('Dialogs', () => {
           })
           expect(ContextFactorService.remove).not.toHaveBeenCalled()
         })
+      })
+
+      it('can update the contextFactor States type in case of change', () => {
+        cmp.vm.contextFactorData.attributes[0].type = 'String'
+        cmp.vm.contextFactorStatesData.attributes[0].type = 'Number'
+        cmp.find('.el-button--success').trigger('click')
+        expect(cmp.vm.contextFactorStatesData.attributes[0].type).toEqual('String')
+      })
+
+      it('updates the States', () => {
+        cmp.vm.updateStates({ label: 'context_factor.edit.data_tab' })
+        expect(cmp.vm.$refs.attributeRules.convertFromTableData).toHaveBeenCalled()
+
+        cmp.vm.updateStates({ label: 'context_factor.edit.states_tab' })
+        expect(cmp.vm.$refs.attributeRules.convertToTableData).toHaveBeenCalled()
       })
     })
   })

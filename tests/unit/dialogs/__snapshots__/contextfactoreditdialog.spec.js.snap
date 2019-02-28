@@ -2,43 +2,29 @@
 
 exports[`Dialogs Context Factor Edit Dialog can render 1`] = `
 <div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2001;">
-  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 80%;">
+  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 70%;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Context Factor</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <div class="less-margin-top el-row">
-        <div class="el-col el-col-24">
-          <form class="el-form el-form--label-top el-form--inline">
-            <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
-              <div class="el-form-item__content">
-                <div class="el-input">
-                  <!----><input type="text" autocomplete="off" class="el-input__inner">
-                  <!---->
-                  <!---->
-                  <!---->
-                </div>
-                <!---->
+      <div class="el-tabs el-tabs--top el-tabs--border-card">
+        <div class="el-tabs__header is-top">
+          <div class="el-tabs__nav-wrap is-top">
+            <div class="el-tabs__nav-scroll">
+              <div role="tablist" class="el-tabs__nav is-top" style="transform: translateX(-0px);">
+                <div id="tab-0" aria-controls="pane-0" role="tab" aria-selected="true" tabindex="0" class="el-tabs__item is-top is-active">context_factor.edit.data_tab</div>
+                <div id="tab-1" aria-controls="pane-1" role="tab" tabindex="-1" class="el-tabs__item is-top">context_factor.edit.states_tab</div>
               </div>
             </div>
-            <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
-              <div class="el-form-item__content">
-                <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
-                  <!---->
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
-                  <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
-                </div>
-                <!---->
-              </div>
-            </div> <br>
-            <h4>context_factor.edit.attributes</h4>
-            <ul>
-              <li>
-                <form class="el-form el-form--inline">
-                  <div class="el-form-item is-required">
-                    <!---->
+          </div>
+        </div>
+        <div class="el-tabs__content">
+          <div role="tabpanel" id="pane-0" aria-labelledby="tab-0" class="el-tab-pane" style="">
+            <div class="less-margin-top el-row">
+              <div class="el-col el-col-24">
+                <form class="el-form el-form--label-top el-form--inline">
+                  <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
                     <div class="el-form-item__content">
                       <div class="el-input">
-                        <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
+                        <!----><input type="text" autocomplete="off" class="el-input__inner">
                         <!---->
                         <!---->
                         <!---->
@@ -46,21 +32,26 @@ exports[`Dialogs Context Factor Edit Dialog can render 1`] = `
                       <!---->
                     </div>
                   </div>
-                  <div class="el-form-item">
-                    <!---->
+                  <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
                     <div class="el-form-item__content">
-                      <form class="el-form">
-                        <div class="el-form-item el-form-item--normal">
+                      <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
+                        <!---->
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
+                        <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div> <br>
+                  <h4>context_factor.edit.attributes</h4>
+                  <ul>
+                    <li>
+                      <form class="el-form el-form--inline">
+                        <div class="el-form-item is-required">
                           <!---->
                           <div class="el-form-item__content">
-                            <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
-                              <div class="el-input-group__prepend">
-                                <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
-                                  <div class="select-context-type-option" label="types.string" value="String"></div>
-                                  <div class="select-context-type-option" label="types.number" value="Number"></div>
-                                  <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
-                                </div>
-                              </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
+                            <div class="el-input">
+                              <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
                               <!---->
                               <!---->
                               <!---->
@@ -68,20 +59,52 @@ exports[`Dialogs Context Factor Edit Dialog can render 1`] = `
                             <!---->
                           </div>
                         </div>
+                        <div class="el-form-item">
+                          <!---->
+                          <div class="el-form-item__content">
+                            <form class="el-form">
+                              <div class="el-form-item el-form-item--normal">
+                                <!---->
+                                <div class="el-form-item__content">
+                                  <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
+                                    <div class="el-input-group__prepend">
+                                      <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
+                                        <div class="select-context-type-option" label="types.string" value="String"></div>
+                                        <div class="select-context-type-option" label="types.number" value="Number"></div>
+                                        <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
+                                      </div>
+                                    </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                  </div>
+                                  <!---->
+                                </div>
+                              </div>
+                            </form>
+                            <!---->
+                          </div>
+                        </div>
+                        <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
+                            <!----><i class="el-icon-close"></i>
+                            <!----></button></div>
                       </form>
-                      <!---->
-                    </div>
-                  </div>
-                  <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
-                      <!----><i class="el-icon-close"></i>
-                      <!----></button></div>
+                    </li>
+                  </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
+                    <!----><i class="el-icon-plus"></i><span>
+              context_factor.edit.attribute.add
+            </span></button>
                 </form>
-              </li>
-            </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-plus"></i><span>
-          context_factor.edit.attribute.add
-        </span></button>
-          </form>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" aria-hidden="true" id="pane-1" aria-labelledby="tab-1" class="el-tab-pane" style="display: none;">
+            <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
+              <div class="el-col el-col-24" style="padding-left: 10px; padding-right: 10px;">
+                <div id="attribute-rules"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -96,9 +119,13 @@ exports[`Dialogs Context Factor Edit Dialog can render 1`] = `
             <!----><span>
         context_factor.edit.delete
       </span></button></div>
-        <div class="el-col el-col-5 el-col-offset-10" style="padding-left: 10px; padding-right: 10px;"><button type="button" class="el-button el-button--success">
-            <!---->
-            <!----><span>context_factor.edit.save</span></button></div>
+        <div class="el-col el-col-8 el-col-offset-8" style="padding-left: 10px; padding-right: 10px;">
+          <div class="el-button-group"><button type="button" class="el-button el-button--success is-plain">
+              <!---->
+              <!----><span>context_factor.edit.apply</span></button> <button type="button" class="el-button el-button--success">
+              <!---->
+              <!----><span>context_factor.edit.save</span></button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -107,43 +134,29 @@ exports[`Dialogs Context Factor Edit Dialog can render 1`] = `
 
 exports[`Dialogs Context Factor Edit Dialog it can be saved can be deleted show as confirmation dialog 1`] = `
 <div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2055;">
-  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 80%;">
+  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 70%;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Context Factor</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <div class="less-margin-top el-row">
-        <div class="el-col el-col-24">
-          <form class="el-form el-form--label-top el-form--inline">
-            <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
-              <div class="el-form-item__content">
-                <div class="el-input">
-                  <!----><input type="text" autocomplete="off" class="el-input__inner">
-                  <!---->
-                  <!---->
-                  <!---->
-                </div>
-                <!---->
+      <div class="el-tabs el-tabs--top el-tabs--border-card">
+        <div class="el-tabs__header is-top">
+          <div class="el-tabs__nav-wrap is-top">
+            <div class="el-tabs__nav-scroll">
+              <div role="tablist" class="el-tabs__nav is-top" style="transform: translateX(-0px);">
+                <div id="tab-0" aria-controls="pane-0" role="tab" aria-selected="true" tabindex="0" class="el-tabs__item is-top is-active">context_factor.edit.data_tab</div>
+                <div id="tab-1" aria-controls="pane-1" role="tab" tabindex="-1" class="el-tabs__item is-top">context_factor.edit.states_tab</div>
               </div>
             </div>
-            <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
-              <div class="el-form-item__content">
-                <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
-                  <!---->
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
-                  <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
-                </div>
-                <!---->
-              </div>
-            </div> <br>
-            <h4>context_factor.edit.attributes</h4>
-            <ul>
-              <li>
-                <form class="el-form el-form--inline">
-                  <div class="el-form-item is-required">
-                    <!---->
+          </div>
+        </div>
+        <div class="el-tabs__content">
+          <div role="tabpanel" id="pane-0" aria-labelledby="tab-0" class="el-tab-pane" style="">
+            <div class="less-margin-top el-row">
+              <div class="el-col el-col-24">
+                <form class="el-form el-form--label-top el-form--inline">
+                  <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
                     <div class="el-form-item__content">
                       <div class="el-input">
-                        <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
+                        <!----><input type="text" autocomplete="off" class="el-input__inner">
                         <!---->
                         <!---->
                         <!---->
@@ -151,21 +164,26 @@ exports[`Dialogs Context Factor Edit Dialog it can be saved can be deleted show 
                       <!---->
                     </div>
                   </div>
-                  <div class="el-form-item">
-                    <!---->
+                  <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
                     <div class="el-form-item__content">
-                      <form class="el-form">
-                        <div class="el-form-item el-form-item--normal">
+                      <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
+                        <!---->
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
+                        <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div> <br>
+                  <h4>context_factor.edit.attributes</h4>
+                  <ul>
+                    <li>
+                      <form class="el-form el-form--inline">
+                        <div class="el-form-item is-required">
                           <!---->
                           <div class="el-form-item__content">
-                            <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
-                              <div class="el-input-group__prepend">
-                                <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
-                                  <div class="select-context-type-option" label="types.string" value="String"></div>
-                                  <div class="select-context-type-option" label="types.number" value="Number"></div>
-                                  <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
-                                </div>
-                              </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
+                            <div class="el-input">
+                              <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
                               <!---->
                               <!---->
                               <!---->
@@ -173,20 +191,52 @@ exports[`Dialogs Context Factor Edit Dialog it can be saved can be deleted show 
                             <!---->
                           </div>
                         </div>
+                        <div class="el-form-item">
+                          <!---->
+                          <div class="el-form-item__content">
+                            <form class="el-form">
+                              <div class="el-form-item el-form-item--normal">
+                                <!---->
+                                <div class="el-form-item__content">
+                                  <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
+                                    <div class="el-input-group__prepend">
+                                      <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
+                                        <div class="select-context-type-option" label="types.string" value="String"></div>
+                                        <div class="select-context-type-option" label="types.number" value="Number"></div>
+                                        <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
+                                      </div>
+                                    </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                  </div>
+                                  <!---->
+                                </div>
+                              </div>
+                            </form>
+                            <!---->
+                          </div>
+                        </div>
+                        <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
+                            <!----><i class="el-icon-close"></i>
+                            <!----></button></div>
                       </form>
-                      <!---->
-                    </div>
-                  </div>
-                  <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
-                      <!----><i class="el-icon-close"></i>
-                      <!----></button></div>
+                    </li>
+                  </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
+                    <!----><i class="el-icon-plus"></i><span>
+              context_factor.edit.attribute.add
+            </span></button>
                 </form>
-              </li>
-            </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-plus"></i><span>
-          context_factor.edit.attribute.add
-        </span></button>
-          </form>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" aria-hidden="true" id="pane-1" aria-labelledby="tab-1" class="el-tab-pane" style="display: none;">
+            <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
+              <div class="el-col el-col-24" style="padding-left: 10px; padding-right: 10px;">
+                <div id="attribute-rules"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -201,9 +251,13 @@ exports[`Dialogs Context Factor Edit Dialog it can be saved can be deleted show 
             <!----><span>
         context_factor.edit.delete
       </span></button></div>
-        <div class="el-col el-col-5 el-col-offset-10" style="padding-left: 10px; padding-right: 10px;"><button type="button" class="el-button el-button--success">
-            <!---->
-            <!----><span>context_factor.edit.save</span></button></div>
+        <div class="el-col el-col-8 el-col-offset-8" style="padding-left: 10px; padding-right: 10px;">
+          <div class="el-button-group"><button type="button" class="el-button el-button--success is-plain">
+              <!---->
+              <!----><span>context_factor.edit.apply</span></button> <button type="button" class="el-button el-button--success">
+              <!---->
+              <!----><span>context_factor.edit.save</span></button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -221,131 +275,154 @@ exports[`Dialogs Context Factor Edit Dialog it renders the form it has a field f
 
 exports[`Dialogs Context Factor Edit Dialog it renders the form it renders the attributes can add an attribute 1`] = `
 <div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2027;">
-  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 80%;">
+  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 70%;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Context Factor</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <div class="less-margin-top el-row">
-        <div class="el-col el-col-24">
-          <form class="el-form el-form--label-top el-form--inline">
-            <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
-              <div class="el-form-item__content">
-                <div class="el-input">
-                  <!----><input type="text" autocomplete="off" class="el-input__inner">
-                  <!---->
-                  <!---->
-                  <!---->
-                </div>
-                <!---->
+      <div class="el-tabs el-tabs--top el-tabs--border-card">
+        <div class="el-tabs__header is-top">
+          <div class="el-tabs__nav-wrap is-top">
+            <div class="el-tabs__nav-scroll">
+              <div role="tablist" class="el-tabs__nav is-top" style="transform: translateX(-0px);">
+                <div id="tab-0" aria-controls="pane-0" role="tab" aria-selected="true" tabindex="0" class="el-tabs__item is-top is-active">context_factor.edit.data_tab</div>
+                <div id="tab-1" aria-controls="pane-1" role="tab" tabindex="-1" class="el-tabs__item is-top">context_factor.edit.states_tab</div>
               </div>
             </div>
-            <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
-              <div class="el-form-item__content">
-                <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
-                  <!---->
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
-                  <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
-                </div>
-                <!---->
+          </div>
+        </div>
+        <div class="el-tabs__content">
+          <div role="tabpanel" id="pane-0" aria-labelledby="tab-0" class="el-tab-pane" style="">
+            <div class="less-margin-top el-row">
+              <div class="el-col el-col-24">
+                <form class="el-form el-form--label-top el-form--inline">
+                  <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
+                    <div class="el-form-item__content">
+                      <div class="el-input">
+                        <!----><input type="text" autocomplete="off" class="el-input__inner">
+                        <!---->
+                        <!---->
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
+                    <div class="el-form-item__content">
+                      <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
+                        <!---->
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
+                        <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div> <br>
+                  <h4>context_factor.edit.attributes</h4>
+                  <ul>
+                    <li>
+                      <form class="el-form el-form--inline">
+                        <div class="el-form-item is-required">
+                          <!---->
+                          <div class="el-form-item__content">
+                            <div class="el-input">
+                              <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
+                              <!---->
+                              <!---->
+                              <!---->
+                            </div>
+                            <!---->
+                          </div>
+                        </div>
+                        <div class="el-form-item">
+                          <!---->
+                          <div class="el-form-item__content">
+                            <form class="el-form">
+                              <div class="el-form-item el-form-item--normal">
+                                <!---->
+                                <div class="el-form-item__content">
+                                  <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
+                                    <div class="el-input-group__prepend">
+                                      <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
+                                        <div class="select-context-type-option" label="types.string" value="String"></div>
+                                        <div class="select-context-type-option" label="types.number" value="Number"></div>
+                                        <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
+                                      </div>
+                                    </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                  </div>
+                                  <!---->
+                                </div>
+                              </div>
+                            </form>
+                            <!---->
+                          </div>
+                        </div>
+                        <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
+                            <!----><i class="el-icon-close"></i>
+                            <!----></button></div>
+                      </form>
+                    </li>
+                    <li>
+                      <form class="el-form el-form--inline">
+                        <div class="el-form-item is-required">
+                          <!---->
+                          <div class="el-form-item__content">
+                            <div class="el-input">
+                              <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
+                              <!---->
+                              <!---->
+                              <!---->
+                            </div>
+                            <!---->
+                          </div>
+                        </div>
+                        <div class="el-form-item">
+                          <!---->
+                          <div class="el-form-item__content">
+                            <form class="el-form">
+                              <div class="el-form-item el-form-item--normal">
+                                <!---->
+                                <div class="el-form-item__content">
+                                  <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
+                                    <div class="el-input-group__prepend">
+                                      <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
+                                        <div class="select-context-type-option" label="types.string" value="String"></div>
+                                        <div class="select-context-type-option" label="types.number" value="Number"></div>
+                                        <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
+                                      </div>
+                                    </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                  </div>
+                                  <!---->
+                                </div>
+                              </div>
+                            </form>
+                            <!---->
+                          </div>
+                        </div>
+                        <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
+                            <!----><i class="el-icon-close"></i>
+                            <!----></button></div>
+                      </form>
+                    </li>
+                  </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
+                    <!----><i class="el-icon-plus"></i><span>
+              context_factor.edit.attribute.add
+            </span></button>
+                </form>
               </div>
-            </div> <br>
-            <h4>context_factor.edit.attributes</h4>
-            <ul>
-              <li>
-                <form class="el-form el-form--inline">
-                  <div class="el-form-item is-required">
-                    <!---->
-                    <div class="el-form-item__content">
-                      <div class="el-input">
-                        <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
-                        <!---->
-                        <!---->
-                        <!---->
-                      </div>
-                      <!---->
-                    </div>
-                  </div>
-                  <div class="el-form-item">
-                    <!---->
-                    <div class="el-form-item__content">
-                      <form class="el-form">
-                        <div class="el-form-item el-form-item--normal">
-                          <!---->
-                          <div class="el-form-item__content">
-                            <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
-                              <div class="el-input-group__prepend">
-                                <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
-                                  <div class="select-context-type-option" label="types.string" value="String"></div>
-                                  <div class="select-context-type-option" label="types.number" value="Number"></div>
-                                  <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
-                                </div>
-                              </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
-                              <!---->
-                              <!---->
-                              <!---->
-                            </div>
-                            <!---->
-                          </div>
-                        </div>
-                      </form>
-                      <!---->
-                    </div>
-                  </div>
-                  <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
-                      <!----><i class="el-icon-close"></i>
-                      <!----></button></div>
-                </form>
-              </li>
-              <li>
-                <form class="el-form el-form--inline">
-                  <div class="el-form-item is-required">
-                    <!---->
-                    <div class="el-form-item__content">
-                      <div class="el-input">
-                        <!----><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.key" class="el-input__inner">
-                        <!---->
-                        <!---->
-                        <!---->
-                      </div>
-                      <!---->
-                    </div>
-                  </div>
-                  <div class="el-form-item">
-                    <!---->
-                    <div class="el-form-item__content">
-                      <form class="el-form">
-                        <div class="el-form-item el-form-item--normal">
-                          <!---->
-                          <div class="el-form-item__content">
-                            <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
-                              <div class="el-input-group__prepend">
-                                <div id="select-context-type" placeholder="context_factor.edit.attribute.type" size="normal">
-                                  <div class="select-context-type-option" label="types.string" value="String"></div>
-                                  <div class="select-context-type-option" label="types.number" value="Number"></div>
-                                  <div class="select-context-type-option" label="types.boolean" value="Boolean"></div>
-                                </div>
-                              </div><input type="text" autocomplete="off" placeholder="context_factor.edit.attribute.value" class="el-input__inner">
-                              <!---->
-                              <!---->
-                              <!---->
-                            </div>
-                            <!---->
-                          </div>
-                        </div>
-                      </form>
-                      <!---->
-                    </div>
-                  </div>
-                  <div content="context_factor.edit.attribute.remove"><button type="button" class="el-button el-button--info is-plain">
-                      <!----><i class="el-icon-close"></i>
-                      <!----></button></div>
-                </form>
-              </li>
-            </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-plus"></i><span>
-          context_factor.edit.attribute.add
-        </span></button>
-          </form>
+            </div>
+          </div>
+          <div role="tabpanel" aria-hidden="true" id="pane-1" aria-labelledby="tab-1" class="el-tab-pane" style="display: none;">
+            <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
+              <div class="el-col el-col-24" style="padding-left: 10px; padding-right: 10px;">
+                <div id="attribute-rules"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -360,9 +437,13 @@ exports[`Dialogs Context Factor Edit Dialog it renders the form it renders the a
             <!----><span>
         context_factor.edit.delete
       </span></button></div>
-        <div class="el-col el-col-5 el-col-offset-10" style="padding-left: 10px; padding-right: 10px;"><button type="button" class="el-button el-button--success">
-            <!---->
-            <!----><span>context_factor.edit.save</span></button></div>
+        <div class="el-col el-col-8 el-col-offset-8" style="padding-left: 10px; padding-right: 10px;">
+          <div class="el-button-group"><button type="button" class="el-button el-button--success is-plain">
+              <!---->
+              <!----><span>context_factor.edit.apply</span></button> <button type="button" class="el-button el-button--success">
+              <!---->
+              <!----><span>context_factor.edit.save</span></button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -371,40 +452,63 @@ exports[`Dialogs Context Factor Edit Dialog it renders the form it renders the a
 
 exports[`Dialogs Context Factor Edit Dialog it renders the form it renders the attributes can remove an attribute 1`] = `
 <div class="el-dialog__wrapper" name="dialog-fade" style="z-index: 2029;">
-  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 80%;">
+  <div role="dialog" aria-modal="true" aria-label="My Context Factor" class="el-dialog" style="margin-top: 15vh; width: 70%;">
     <div class="el-dialog__header"><span class="el-dialog__title">My Context Factor</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div>
     <div class="el-dialog__body">
-      <div class="less-margin-top el-row">
-        <div class="el-col el-col-24">
-          <form class="el-form el-form--label-top el-form--inline">
-            <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
-              <div class="el-form-item__content">
-                <div class="el-input">
-                  <!----><input type="text" autocomplete="off" class="el-input__inner">
-                  <!---->
-                  <!---->
-                  <!---->
-                </div>
-                <!---->
+      <div class="el-tabs el-tabs--top el-tabs--border-card">
+        <div class="el-tabs__header is-top">
+          <div class="el-tabs__nav-wrap is-top">
+            <div class="el-tabs__nav-scroll">
+              <div role="tablist" class="el-tabs__nav is-top" style="transform: translateX(-0px);">
+                <div id="tab-0" aria-controls="pane-0" role="tab" aria-selected="true" tabindex="0" class="el-tabs__item is-top is-active">context_factor.edit.data_tab</div>
+                <div id="tab-1" aria-controls="pane-1" role="tab" tabindex="-1" class="el-tabs__item is-top">context_factor.edit.states_tab</div>
               </div>
             </div>
-            <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
-              <div class="el-form-item__content">
-                <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
-                  <!---->
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
-                  <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
-                  <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
-                </div>
-                <!---->
+          </div>
+        </div>
+        <div class="el-tabs__content">
+          <div role="tabpanel" id="pane-0" aria-labelledby="tab-0" class="el-tab-pane" style="">
+            <div class="less-margin-top el-row">
+              <div class="el-col el-col-24">
+                <form class="el-form el-form--label-top el-form--inline">
+                  <div class="el-form-item is-required"><label for="name" class="el-form-item__label">context_factor.edit.name</label>
+                    <div class="el-form-item__content">
+                      <div class="el-input">
+                        <!----><input type="text" autocomplete="off" class="el-input__inner">
+                        <!---->
+                        <!---->
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="el-form-item"><label for="contextType" class="el-form-item__label">context_factor.edit.type</label>
+                    <div class="el-form-item__content">
+                      <div id="select-context-type" placeholder="Select" value-key="id" clearable="">
+                        <!---->
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 1"><i class="context-type-icon fa fa-heart"></i> <span>Context Type 1</span></div>
+                        <div class="select-context-type-option" value="[object Object]" label="Context Type 2"><i class="context-type-icon fa fa-gear"></i> <span>Context Type 2</span></div>
+                        <div class="select-context-type-option" value="context_factor.none" label="context_factor.none"></div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div> <br>
+                  <h4>context_factor.edit.attributes</h4>
+                  <ul></ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
+                    <!----><i class="el-icon-plus"></i><span>
+              context_factor.edit.attribute.add
+            </span></button>
+                </form>
               </div>
-            </div> <br>
-            <h4>context_factor.edit.attributes</h4>
-            <ul></ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
-              <!----><i class="el-icon-plus"></i><span>
-          context_factor.edit.attribute.add
-        </span></button>
-          </form>
+            </div>
+          </div>
+          <div role="tabpanel" aria-hidden="true" id="pane-1" aria-labelledby="tab-1" class="el-tab-pane" style="display: none;">
+            <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
+              <div class="el-col el-col-24" style="padding-left: 10px; padding-right: 10px;">
+                <div id="attribute-rules"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -419,9 +523,13 @@ exports[`Dialogs Context Factor Edit Dialog it renders the form it renders the a
             <!----><span>
         context_factor.edit.delete
       </span></button></div>
-        <div class="el-col el-col-5 el-col-offset-10" style="padding-left: 10px; padding-right: 10px;"><button type="button" class="el-button el-button--success">
-            <!---->
-            <!----><span>context_factor.edit.save</span></button></div>
+        <div class="el-col el-col-8 el-col-offset-8" style="padding-left: 10px; padding-right: 10px;">
+          <div class="el-button-group"><button type="button" class="el-button el-button--success is-plain">
+              <!---->
+              <!----><span>context_factor.edit.apply</span></button> <button type="button" class="el-button el-button--success">
+              <!---->
+              <!----><span>context_factor.edit.save</span></button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -501,7 +609,7 @@ exports[`Dialogs Context Factor Edit Dialog it renders the form it renders the a
     </li>
   </ul> <button type="button" class="el-button el-button--default el-button--small is-plain">
     <!----><i class="el-icon-plus"></i><span>
-          context_factor.edit.attribute.add
-        </span></button>
+              context_factor.edit.attribute.add
+            </span></button>
 </form>
 `;

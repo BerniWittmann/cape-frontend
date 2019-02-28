@@ -159,6 +159,7 @@ export default {
         }
       })
     },
+
     nameCompare(a, b) {
       if (!a || !a.name || !b || !b.name) return 0
       const lca = a.name.toLowerCase()

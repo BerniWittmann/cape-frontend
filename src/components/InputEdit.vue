@@ -137,10 +137,6 @@ export default {
   color: #000000;
 }
 
-.input {
-  width: 300px;
-}
-
 .tag-space {
   margin-left: 5px;
 }

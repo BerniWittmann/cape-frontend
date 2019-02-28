@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components AttributeRules can add a new rule 1`] = `
+<div class="attr-rules-margin">
+  <div>
+    <elrow-stub tag="div" gutter="20" justify="start" align="top">
+      <elform-stub model="[object Object]" rules="[object Object]" labelposition="top" labelsuffix="" inline="true" statusicon="true" showmessage="true" validateonrulechange="true">
+        <elformitem-stub prop="stateName" inlinemessage="" showmessage="true">
+          <elinput-stub size="small" type="text" validateevent="true" placeholder="context_factor.edit.states.name" class="input" value=""></elinput-stub>
+        </elformitem-stub>
+        <elformitem-stub inlinemessage="" showmessage="true">
+          <elbutton-stub type="default" size="small" icon="el-icon-plus" nativetype="button" class="b-margin">
+            context_factor.edit.states.add
+          </elbutton-stub>
+        </elformitem-stub>
+      </elform-stub>
+    </elrow-stub>
+    <elrow-stub tag="div" gutter="20" justify="start" align="top">
+      <eltable-stub data="[object Object],[object Object]" fit="true" border="true" showheader="true" selectonindeterminate="true">
+        <eltablecolumn-stub type="default" prop="ca1" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" prop="ca2" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" prop="ca3" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="context_factor.edit.state" classname="state-column" minwidth="150" sortable="" sortmethod="function () { [native code] }" align="center" fixed="right" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+      </eltable-stub>
+    </elrow-stub>
+  </div>
+</div>
+`;
+
+exports[`Components AttributeRules does not add new rule on invalid input 1`] = `
+<div class="attr-rules-margin">
+  <div>
+    <elrow-stub tag="div" gutter="20" justify="start" align="top">
+      <elform-stub model="[object Object]" rules="[object Object]" labelposition="top" labelsuffix="" inline="true" statusicon="true" showmessage="true" validateonrulechange="true">
+        <elformitem-stub prop="stateName" inlinemessage="" showmessage="true">
+          <elinput-stub size="small" type="text" autocomplete="off" validateevent="true" placeholder="context_factor.edit.states.name" class="input"></elinput-stub>
+        </elformitem-stub>
+        <elformitem-stub inlinemessage="" showmessage="true">
+          <elbutton-stub type="default" size="small" icon="el-icon-plus" nativetype="button" class="b-margin">
+            context_factor.edit.states.add
+          </elbutton-stub>
+        </elformitem-stub>
+      </elform-stub>
+    </elrow-stub>
+    <elrow-stub tag="div" gutter="20" justify="start" align="top">
+      <eltable-stub data="[object Object],[object Object]" fit="true" border="true" showheader="true" selectonindeterminate="true">
+        <eltablecolumn-stub type="default" prop="ca1" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" prop="ca2" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" prop="ca3" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="context_factor.edit.state" classname="state-column" minwidth="150" sortable="" sortmethod="function () { [native code] }" align="center" fixed="right" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+      </eltable-stub>
+    </elrow-stub>
+  </div>
+</div>
+`;
+
+exports[`Components AttributeRules does not render a table if no attributes exist 1`] = `
+<div class="attr-rules-margin">
+  <div><i class="el-icon-warning"></i> <span>context_factor.edit.states.no_attributes</span></div>
+</div>
+`;
+
+exports[`Components AttributeRules renders 1`] = `
+<div class="attr-rules-margin">
+  <div>
+    <elrow-stub tag="div" gutter="20" justify="start" align="top">
+      <elform-stub model="[object Object]" rules="[object Object]" labelposition="top" labelsuffix="" inline="true" statusicon="true" showmessage="true" validateonrulechange="true">
+        <elformitem-stub prop="stateName" inlinemessage="" showmessage="true">
+          <elinput-stub size="small" type="text" autocomplete="off" validateevent="true" placeholder="context_factor.edit.states.name" class="input"></elinput-stub>
+        </elformitem-stub>
+        <elformitem-stub inlinemessage="" showmessage="true">
+          <elbutton-stub type="default" size="small" icon="el-icon-plus" nativetype="button" class="b-margin">
+            context_factor.edit.states.add
+          </elbutton-stub>
+        </elformitem-stub>
+      </elform-stub>
+    </elrow-stub>
+    <elrow-stub tag="div" gutter="20" justify="start" align="top">
+      <eltable-stub data="[object Object],[object Object]" fit="true" border="true" showheader="true" selectonindeterminate="true">
+        <eltablecolumn-stub type="default" prop="ca1" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" prop="ca2" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" prop="ca3" minwidth="200" align="center" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+        <eltablecolumn-stub type="default" label="context_factor.edit.state" classname="state-column" minwidth="150" sortable="" sortmethod="function () { [native code] }" align="center" fixed="right" filtermultiple="true" sortorders="ascending,descending,"></eltablecolumn-stub>
+      </eltable-stub>
+    </elrow-stub>
+  </div>
+</div>
+`;

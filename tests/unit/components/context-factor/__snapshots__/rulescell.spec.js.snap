@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components RulesCell its of type Boolean renders 1`] = `
+<div id="attribute_cell">
+  <div>
+    <elselect-stub clearable="true" multiplelimit="0" placeholder="请选择" valuekey="value" popperappendtobody="true" class="fill">
+      <eloption-stub value="TRUE" label="TRUE"></eloption-stub>
+      <eloption-stub value="FALSE" label="FALSE"></eloption-stub>
+      <eloption-stub value="context_factor.none" label="context_factor.none"></eloption-stub>
+    </elselect-stub>
+  </div>
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Components RulesCell its of type Number can switch number mode 1`] = `
+<div id="attribute_cell">
+  <!---->
+  <!---->
+  <!---->
+  <div class="n-in">
+    <elbutton-stub type="default" size="mini" icon="el-icon-d-caret" nativetype="button" plain="true" class="switchButton"></elbutton-stub>
+    <elinputnumber-stub step="1" max="Infinity" min="-Infinity" controlsposition="" clearable="" class="n-input" value="undefined"></elinputnumber-stub> <span class="separator"> - </span>
+    <elinputnumber-stub step="1" max="Infinity" min="-Infinity" controlsposition="" clearable="" class="n-input"></elinputnumber-stub>
+  </div>
+</div>
+`;
+
+exports[`Components RulesCell its of type Number is in interval mode can switch number mode 1`] = `
+<div id="attribute_cell">
+  <!---->
+  <!---->
+  <div class="n-in">
+    <elbutton-stub type="default" size="mini" icon="el-icon-d-caret" nativetype="button" plain="true" class="switchButton"></elbutton-stub>
+    <elinputnumber-stub step="1" max="Infinity" min="-Infinity" controlsposition="" clearable="" class="n_input fill" value="undefined"></elinputnumber-stub>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Components RulesCell its of type Number renders 1`] = `
+<div id="attribute_cell">
+  <!---->
+  <!---->
+  <div class="n-in">
+    <elbutton-stub type="default" size="mini" icon="el-icon-d-caret" nativetype="button" plain="true" class="switchButton"></elbutton-stub>
+    <elinputnumber-stub step="1" max="Infinity" min="-Infinity" controlsposition="" clearable="" class="n_input fill"></elinputnumber-stub>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Components RulesCell its of type String renders 1`] = `
+<div id="attribute_cell">
+  <!---->
+  <div>
+    <elinput-stub type="text" autocomplete="off" validateevent="true" clearable="true" class="fill"></elinput-stub>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
