@@ -16,6 +16,7 @@ import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog.vue'
 import ContextFactors from '@/pages/ContextFactors.vue'
 import ContextFactorEditDialog from '@/dialogs/ContextFactorEditDialog.vue'
 import ContextSituations from '@/pages/ContextSituations.vue'
+import ExtensionAreaEditDialog from '@/dialogs/ExtensionAreaEditDialog.vue'
 
 import ProcessService from '@/services/process'
 import TagService from '@/services/tag'
@@ -97,11 +98,22 @@ const routes = [
       },
       children: [{
         path: 'edit',
-        name: 'process.edit',
-        component: EditProcess,
+        component: EmptyRouterView,
         beforeEnter: (to, from, next) => {
           ProcessService.reserve({ id: to.params.processID }).then(next)
-        }
+        },
+        children: [{
+          path: '',
+          name: 'process.edit',
+          component: EditProcess
+        }, {
+          path: 'extension-area/:extensionAreaID',
+          name: 'process.edit.extension-area',
+          components: {
+            default: EditProcess,
+            dialog: ExtensionAreaEditDialog
+          }
+        }]
       }, {
         path: 'preview',
         name: 'process.preview',
@@ -120,7 +132,9 @@ const routes = [
         TagService.getAll(),
         ContextSituationService.getAll(),
         ContextFactorService.getAll()
-      ]).then(() => { next() }).catch(next)
+      ]).then(() => {
+        next()
+      }).catch(next)
     },
     children: [{
       path: '',

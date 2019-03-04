@@ -9,8 +9,8 @@ describe('Process Modelling', () => {
   it('can rename tasks', () => {
     cy.get('.djs-palette-entries')
 
-    cy.get(':nth-child(6) > .djs-element .djs-label').contains('Call')
-    cy.get(':nth-child(6) > .djs-element > .djs-hit').dblclick({ force: true })
+    cy.get(':nth-child(7) > .djs-element .djs-label').contains('Call')
+    cy.get(':nth-child(7) > .djs-element > .djs-hit').dblclick({ force: true })
     cy.get('.djs-direct-editing-content').type('{selectall}{backspace}Call them')
     cy.get('.djs-palette-entries').click()
 
@@ -19,7 +19,7 @@ describe('Process Modelling', () => {
     cy.wait(500)
 
     cy.reload()
-    cy.get(':nth-child(6) > .djs-element .djs-label').contains('Call them')
+    cy.get(':nth-child(7) > .djs-element .djs-label').contains('Call them')
   })
   it('validates the process', () => {
     cy.get(':nth-child(6) > .djs-element > .djs-hit').click()
@@ -30,7 +30,7 @@ describe('Process Modelling', () => {
   it('prevents dropping tasks somewhere where they are unconnected', () => {
     cy.get('#app').scrollTo('top')
     cy.get('.bpmn-icon-task').click().trigger('mousemove', { clientX: 300, clientY: 30 }).trigger('mouseup')
-    cy.get('.djs-element').should('have.length', 7)
+    cy.get('.djs-element').should('have.length', 9)
   })
   it('can move objects around', () => {
     cy.get('#app').scrollTo('top')
@@ -41,5 +41,13 @@ describe('Process Modelling', () => {
   })
   it('can render extension areas', () => {
     cy.get('[data-group="custom"] > .entry').should('exist')
+  })
+  it('opens the extension area dialog on click', () => {
+    cy.get(':nth-child(9) > .djs-element > .djs-hit').click()
+    cy.get('.bpmn-icon-screw-wrench').click()
+    cy.get('.el-dialog')
+    cy.get('.el-dialog__header').should('have.text', 'Call EA')
+    cy.url().should('contain', 'extension-area')
+    cy.url().should('contain', 'ExtensionArea_000000')
   })
 })

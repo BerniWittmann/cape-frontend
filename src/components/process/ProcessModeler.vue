@@ -119,6 +119,17 @@ export default {
         const canvas = this.modeler.get('canvas')
         canvas.zoom('fit-viewport')
       })
+    },
+
+    openExtensionArea(event, extensionArea) {
+      this.$router.push({
+        name: 'process.edit.extension-area',
+        params: {
+          ...this.$route.params,
+          extensionAreaID: extensionArea.id,
+          title: extensionArea.name
+        }
+      })
     }
   },
 
@@ -150,6 +161,9 @@ export default {
     this.modeler.on('element.changed', this.updateValues)
     this.modeler.on('commandStack.changed', this.updateValues)
     this.modeler.on('element.out', this.updateValues)
+
+    const eventBus = this.modeler.get('eventBus')
+    eventBus.on('extensionAreaEdit', this.openExtensionArea)
 
     // Listen for Undo Keycode
     document.onkeypress = this.handleKeyPress

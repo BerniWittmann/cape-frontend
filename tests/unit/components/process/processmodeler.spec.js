@@ -27,7 +27,10 @@ jest.mock('bpmn-js/lib/Modeler', () => {
           get: jest.fn(),
           select: jest.fn(),
           undo: jest.fn(),
-          eventBus: jest.fn(),
+          eventBus: jest.fn().mockReturnValue({
+            on: jest.fn()
+          }),
+          on: jest.fn(),
           filter: jest.fn().mockImplementation(fn => [{
             id: 1,
             type: 'bpmn:Process',
@@ -64,7 +67,8 @@ describe('Components', () => {
     let propsData
     let cmp
     const router = {
-      back: jest.fn()
+      back: jest.fn(),
+      push: jest.fn()
     }
     const message = {
       error: jest.fn()
@@ -74,7 +78,9 @@ describe('Components', () => {
     }
 
     beforeEach(() => {
-      route.params = {}
+      route.params = {
+        processID: '42'
+      }
       propsData = {
         value: {
           xml: undefined,
@@ -113,6 +119,21 @@ describe('Components', () => {
       expect(cmp.vm.modeler.on).toHaveBeenCalledWith('element.changed', expect.any(Function))
       expect(cmp.vm.modeler.on).toHaveBeenCalledWith('commandStack.changed', expect.any(Function))
       expect(cmp.vm.modeler.on).toHaveBeenCalledWith('element.out', expect.any(Function))
+    })
+    it('sets up a listener for the extensionArea Edit event', () => {
+      expect(cmp.vm.modeler.get).toHaveBeenCalledWith('eventBus')
+      expect(cmp.vm.modeler.get.mock.results[1].value.on).toHaveBeenCalledWith('extensionAreaEdit', cmp.vm.openExtensionArea)
+    })
+    it('navigates to Extension Area on edit event', () => {
+      cmp.vm.openExtensionArea({}, { id: '99', name: 'My Name' })
+      expect(router.push).toHaveBeenCalledWith({
+        name: 'process.edit.extension-area',
+        params: {
+          processID: '42',
+          extensionAreaID: '99',
+          title: 'My Name'
+        }
+      })
     })
     it('updates the svg on change event', () => {
       const fn = cmp.vm.modeler.on.mock.calls[0][1]
@@ -222,7 +243,7 @@ describe('Components', () => {
           ctrlKey: true
         })
         expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
-        expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+        expect(cmp.vm.modeler.get.mock.results[2].value.undo).toHaveBeenCalled()
       })
       it('reverts a modelling step on Meta Z', () => {
         const handler = document.onkeypress
@@ -232,7 +253,7 @@ describe('Components', () => {
           metaKey: true
         })
         expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
-        expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+        expect(cmp.vm.modeler.get.mock.results[2].value.undo).toHaveBeenCalled()
       })
       it('does not revert a modelling step on another combination', () => {
         const handler = document.onkeypress
@@ -254,7 +275,7 @@ describe('Components', () => {
         }
         handler()
         expect(cmp.vm.modeler.get).toHaveBeenCalledWith('commandStack')
-        expect(cmp.vm.modeler.get.mock.results[1].value.undo).toHaveBeenCalled()
+        expect(cmp.vm.modeler.get.mock.results[2].value.undo).toHaveBeenCalled()
       })
 
       describe('it has a validation method', () => {

@@ -23,8 +23,12 @@ describe('Plugins', () => {
     describe('Modules', () => {
       describe('Custom Context Pad', () => {
         describe('CustomContextPadProvider', () => {
+          const eventBus = {
+            fire: jest.fn()
+          }
           const injector = {
-            invoke: jest.fn()
+            invoke: jest.fn(),
+            get: jest.fn().mockReturnValue(eventBus)
           }
           it('can be instantiated', () => {
             expect(CustomContextPadProvider).toEqual(expect.any(Function))
@@ -61,6 +65,25 @@ describe('Plugins', () => {
             expect(Object.keys(entries)).not.toContain('append.end-event')
             expect(Object.keys(entries)).not.toContain('delete')
             expect(Object.keys(entries)).not.toContain('remove')
+          })
+
+          it('replaces the replace option for extension Areas', () => {
+            const ccpp = CustomContextPadProvider.call({}, injector)
+            const obj = {
+              id: 1,
+              name: 'EA 1'
+            }
+            const entries = ccpp.getContextPadEntries({
+              type: 'cape:ExtensionArea',
+              businessObject: obj
+            })
+            expect(Object.keys(entries)).toContain('replace')
+            const option = entries['replace']
+            expect(option).toEqual(expect.any(Object))
+            expect(option.action).toEqual({ click: expect.any(Function) })
+            option.action.click()
+
+            expect(eventBus.fire).toHaveBeenCalledWith('extensionAreaEdit', obj)
           })
 
           it('keeps all the other options', () => {

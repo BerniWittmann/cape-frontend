@@ -173,6 +173,9 @@
       "forbidden": "Somebody is editing the process right now"
     }
   },
+  "extension_area": {
+    "title": "Extension Area"
+  },
   "settings": {
     "title": "Settings",
     "tags": "Tags",
