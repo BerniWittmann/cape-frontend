@@ -113,7 +113,7 @@ describe('Components', () => {
 
       describe('it can change the type to a boolean', () => {
         it('can change the type to boolean', () => {
-          propsData.type = 'Number'
+          propsData.type = 'String'
           render()
 
           expect(cmp.vm.data.type).not.toEqual('Boolean')
@@ -123,22 +123,42 @@ describe('Components', () => {
           expect(cmp.vm.data.type).toEqual('Boolean')
         })
 
+        it('renders a select field', () => {
+          propsData.type = 'Boolean'
+          render()
+
+          expect(cmp.html()).toMatchSnapshot()
+          const selectGroup = cmp.find('.select-group')
+          expect(selectGroup.exists()).toBeTruthy()
+          expect(selectGroup.findAll('.el-select').length).toEqual(2)
+          const select = selectGroup.findAll('.el-select').at(1)
+          expect(select.exists()).toBeTruthy()
+          const options = select.findAll('.el-select-dropdown__item')
+          expect(options.length).toEqual(2)
+          expect(options.at(0).props('value')).toEqual('TRUE')
+          expect(options.at(0).props('label')).toEqual('TRUE')
+          expect(options.at(0).text()).toEqual('TRUE')
+          expect(options.at(1).props('value')).toEqual('FALSE')
+          expect(options.at(1).props('label')).toEqual('FALSE')
+          expect(options.at(1).text()).toEqual('FALSE')
+        })
+
         describe('validates the field on change', () => {
           beforeEach(() => {
             propsData.type = 'Boolean'
             render()
           })
           it('shows no error if no input given', (done) => {
-            const input = cmp.findAll('input').at(1)
+            const input = cmp.findAll('.el-select').at(1)
             expect(input.exists()).toBeTruthy()
-            input.setValue('')
-            input.trigger('blur')
-            input.trigger('change')
+            cmp.vm.data.value = ''
+            input.vm.$emit('change')
 
             cmp.vm.$nextTick(() => {
               expect(cmp.html()).toMatchSnapshot()
               const err = cmp.find('.el-form-item__error')
               expect(err.exists()).toBeFalsy()
+              expect(cmp.emitted().change).toBeTruthy()
               expect(cmp.emitted().change[0][0]).toEqual({
                 type: 'Boolean',
                 value: ''
@@ -148,11 +168,10 @@ describe('Components', () => {
           })
           it('shows error if invalid input', (done) => {
             render()
-            const input = cmp.findAll('input').at(1)
+            const input = cmp.findAll('.el-select').at(1)
             expect(input.exists()).toBeTruthy()
-            input.setValue('F4LsE')
-            input.trigger('blur')
-            input.trigger('change')
+            cmp.vm.data.value = 'F4LsE'
+            input.vm.$emit('change')
 
             cmp.vm.$nextTick(() => {
               expect(cmp.html()).toMatchSnapshot()
@@ -164,10 +183,10 @@ describe('Components', () => {
             })
           })
           it('emits change event if value is FALSE', () => {
-            const input = cmp.findAll('input').at(1)
+            const input = cmp.findAll('.el-select').at(1)
             expect(input.exists()).toBeTruthy()
-            input.setValue('FALSE')
-            input.trigger('change')
+            cmp.vm.data.value = 'FALSE'
+            input.vm.$emit('change')
 
             expect(cmp.emitted().change[0][0]).toEqual({
               type: 'Boolean',
@@ -175,10 +194,10 @@ describe('Components', () => {
             })
           })
           it('emits change event if value is TRUE', () => {
-            const input = cmp.findAll('input').at(1)
+            const input = cmp.findAll('.el-select').at(1)
             expect(input.exists()).toBeTruthy()
-            input.setValue('TRUE')
-            input.trigger('change')
+            cmp.vm.data.value = 'TRUE'
+            input.vm.$emit('change')
 
             expect(cmp.emitted().change[0][0]).toEqual({
               type: 'Boolean',

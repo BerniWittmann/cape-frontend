@@ -65,44 +65,133 @@ exports[`Components InputType has a prop to hide the type select 1`] = `
 </form>
 `;
 
-exports[`Components InputType it can change the type it can change the type to a boolean validates the field on change shows error if invalid input 1`] = `
+exports[`Components InputType it can change the type it can change the type to a boolean renders a select field 1`] = `
 <form class="el-form">
-  <div class="el-form-item is-error el-form-item--normal">
+  <div class="el-form-item select-group el-form-item--normal">
     <!---->
     <div class="el-form-item__content">
-      <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
-        <div class="el-input-group__prepend">
-          <div class="el-select el-select--normal">
-            <!---->
-            <div class="el-input el-input--normal el-input--suffix">
-              <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
-              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
-              <!---->
+      <div class="el-select el-select--normal">
+        <!---->
+        <div class="el-input el-input--normal el-input--suffix">
+          <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+          <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span>
+          <!----></span>
+          <!---->
+        </div>
+        <div class="el-select-dropdown el-popper" style="display: none;">
+          <div class="el-scrollbar" style="display: none;">
+            <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+              <ul class="el-scrollbar__view el-select-dropdown__list">
+                <!---->
+                <li class="el-select-dropdown__item"><span>types.string</span></li>
+                <li class="el-select-dropdown__item"><span>types.number</span></li>
+                <li class="el-select-dropdown__item selected"><span>types.boolean</span></li>
+              </ul>
             </div>
-            <div class="el-select-dropdown el-popper" style="display: none;">
-              <div class="el-scrollbar" style="">
-                <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
-                  <ul class="el-scrollbar__view el-select-dropdown__list">
-                    <!---->
-                    <li class="el-select-dropdown__item"><span>types.string</span></li>
-                    <li class="el-select-dropdown__item"><span>types.number</span></li>
-                    <li class="el-select-dropdown__item selected"><span>types.boolean</span></li>
-                  </ul>
-                </div>
-                <div class="el-scrollbar__bar is-horizontal">
-                  <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="el-scrollbar__bar is-vertical">
-                  <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
-                </div>
-              </div>
-              <!---->
+            <div class="el-scrollbar__bar is-horizontal">
+              <div class="el-scrollbar__thumb" style="width: 0px; transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical">
+              <div class="el-scrollbar__thumb" style="height: 0px; transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
             </div>
           </div>
-        </div><input type="text" autocomplete="off" class="el-input__inner">
+          <p class="el-select-dropdown__empty">
+            无数据
+          </p>
+        </div>
+      </div>
+      <div class="el-select el-select--normal">
         <!---->
+        <div class="el-input el-input--normal el-input--suffix">
+          <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+          <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span>
+          <!----></span>
+          <!---->
+        </div>
+        <div class="el-select-dropdown el-popper" style="display: none;">
+          <div class="el-scrollbar" style="display: none;">
+            <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+              <ul class="el-scrollbar__view el-select-dropdown__list">
+                <!---->
+                <li class="el-select-dropdown__item">TRUE</li>
+                <li class="el-select-dropdown__item">FALSE</li>
+              </ul>
+            </div>
+            <div class="el-scrollbar__bar is-horizontal">
+              <div class="el-scrollbar__thumb" style="width: 0px; transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical">
+              <div class="el-scrollbar__thumb" style="height: 0px; transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+          <p class="el-select-dropdown__empty">
+            无数据
+          </p>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Components InputType it can change the type it can change the type to a boolean validates the field on change shows error if invalid input 1`] = `
+<form class="el-form">
+  <div class="el-form-item select-group is-error el-form-item--normal">
+    <!---->
+    <div class="el-form-item__content">
+      <div class="el-select el-select--normal">
         <!---->
+        <div class="el-input el-input--normal el-input--suffix">
+          <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+          <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+          <!---->
+        </div>
+        <div class="el-select-dropdown el-popper" style="display: none;">
+          <div class="el-scrollbar" style="">
+            <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+              <ul class="el-scrollbar__view el-select-dropdown__list">
+                <!---->
+                <li class="el-select-dropdown__item"><span>types.string</span></li>
+                <li class="el-select-dropdown__item"><span>types.number</span></li>
+                <li class="el-select-dropdown__item selected"><span>types.boolean</span></li>
+              </ul>
+            </div>
+            <div class="el-scrollbar__bar is-horizontal">
+              <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical">
+              <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div class="el-select el-select--normal">
         <!---->
+        <div class="el-input el-input--normal el-input--suffix">
+          <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+          <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+          <!---->
+        </div>
+        <div class="el-select-dropdown el-popper" style="display: none;">
+          <div class="el-scrollbar" style="">
+            <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+              <ul class="el-scrollbar__view el-select-dropdown__list">
+                <!---->
+                <li class="el-select-dropdown__item">TRUE</li>
+                <li class="el-select-dropdown__item">FALSE</li>
+              </ul>
+            </div>
+            <div class="el-scrollbar__bar is-horizontal">
+              <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical">
+              <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+          <!---->
+        </div>
       </div>
       <div class="el-form-item__error el-zoom-in-top-enter el-zoom-in-top-enter-active">
         input_type.boolean
@@ -114,42 +203,61 @@ exports[`Components InputType it can change the type it can change the type to a
 
 exports[`Components InputType it can change the type it can change the type to a boolean validates the field on change shows no error if no input given 1`] = `
 <form class="el-form">
-  <div class="el-form-item is-success el-form-item--normal">
+  <div class="el-form-item select-group is-success el-form-item--normal">
     <!---->
     <div class="el-form-item__content">
-      <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
-        <div class="el-input-group__prepend">
-          <div class="el-select el-select--normal">
-            <!---->
-            <div class="el-input el-input--normal el-input--suffix">
-              <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
-              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
-              <!---->
+      <div class="el-select el-select--normal">
+        <!---->
+        <div class="el-input el-input--normal el-input--suffix">
+          <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+          <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+          <!---->
+        </div>
+        <div class="el-select-dropdown el-popper" style="display: none;">
+          <div class="el-scrollbar" style="">
+            <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+              <ul class="el-scrollbar__view el-select-dropdown__list">
+                <!---->
+                <li class="el-select-dropdown__item"><span>types.string</span></li>
+                <li class="el-select-dropdown__item"><span>types.number</span></li>
+                <li class="el-select-dropdown__item selected"><span>types.boolean</span></li>
+              </ul>
             </div>
-            <div class="el-select-dropdown el-popper" style="display: none;">
-              <div class="el-scrollbar" style="">
-                <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
-                  <ul class="el-scrollbar__view el-select-dropdown__list">
-                    <!---->
-                    <li class="el-select-dropdown__item"><span>types.string</span></li>
-                    <li class="el-select-dropdown__item"><span>types.number</span></li>
-                    <li class="el-select-dropdown__item selected"><span>types.boolean</span></li>
-                  </ul>
-                </div>
-                <div class="el-scrollbar__bar is-horizontal">
-                  <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="el-scrollbar__bar is-vertical">
-                  <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
-                </div>
-              </div>
-              <!---->
+            <div class="el-scrollbar__bar is-horizontal">
+              <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical">
+              <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
             </div>
           </div>
-        </div><input type="text" autocomplete="off" class="el-input__inner">
+          <!---->
+        </div>
+      </div>
+      <div class="el-select el-select--normal">
         <!---->
-        <!---->
-        <!---->
+        <div class="el-input el-input--normal el-input--suffix">
+          <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+          <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+          <!---->
+        </div>
+        <div class="el-select-dropdown el-popper" style="display: none;">
+          <div class="el-scrollbar" style="">
+            <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+              <ul class="el-scrollbar__view el-select-dropdown__list">
+                <!---->
+                <li class="el-select-dropdown__item">TRUE</li>
+                <li class="el-select-dropdown__item">FALSE</li>
+              </ul>
+            </div>
+            <div class="el-scrollbar__bar is-horizontal">
+              <div class="el-scrollbar__thumb" style="transform: translateX(0%); -webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical">
+              <div class="el-scrollbar__thumb" style="transform: translateY(0%); -webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+          <!---->
+        </div>
       </div>
       <!---->
     </div>

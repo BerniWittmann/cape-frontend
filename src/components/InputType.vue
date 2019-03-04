@@ -1,6 +1,16 @@
 <template>
   <el-form :model="data" :rules="rules" ref="inputTypeForm" :size="size">
-    <el-form-item prop="value">
+    <el-form-item prop="value" v-if="isBoolean" class="select-group">
+      <el-select v-model="data.type" :placeholder="typePlaceholder" @change="handleChange" v-if="showTypeSelect" :size="size">
+        <el-option v-for="option in typeOptions" :key="option.value" :label="option.label"
+                   :value="option.value"></el-option>
+      </el-select>
+      <el-select v-model="data.value" :placeholder="placeholder" @change="handleChange" :size="size">
+        <el-option label="TRUE" value="TRUE">TRUE</el-option>
+        <el-option label="FALSE" value="FALSE">FALSE</el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item prop="value" v-else>
       <el-input :placeholder="placeholder" v-model="data.value" class="input-with-select" @change="handleChange" :size="size">
         <el-select v-model="data.type" slot="prepend" :placeholder="typePlaceholder" @change="handleChange" v-if="showTypeSelect" :size="size">
           <el-option v-for="option in typeOptions" :key="option.value" :label="option.label"
@@ -100,6 +110,12 @@ export default {
     }
   },
 
+  computed: {
+    isBoolean() {
+      return this.data.type === 'Boolean'
+    }
+  },
+
   methods: {
     handleChange() {
       this.$refs.inputTypeForm.validate((valid) => {
@@ -137,6 +153,37 @@ export default {
 .input-with-select {
   .el-select .el-input {
     width: 100px;
+  }
+}
+
+.select-group {
+  .el-form-item__content {
+    display: flex !important;
+  }
+  .el-select:first-of-type {
+    width: 100px;
+    flex-basis: 100px;
+    flex-shrink: 0;
+    .el-input__inner {
+      background-color: #f5f7fa;
+      color: #909399;
+      vertical-align: middle;
+      display: table-cell;
+      position: relative;
+      border: 1px solid #dcdfe6;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+  }
+  .el-select:last-of-type {
+    .el-input__inner {
+      vertical-align: middle;
+      display: table-cell;
+      position: relative;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
 </style>

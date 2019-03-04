@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :title="activeContextFactor.name" :visible.sync="showContextFactorEdit">
+  <el-dialog :title="activeContextFactor.name" :visible.sync="showContextFactorEdit" width="80%">
     <el-row class="less-margin-top">
       <el-col>
         <el-form :model="contextFactorData" :rules="rules" ref="contextFactorForm" label-position="top"

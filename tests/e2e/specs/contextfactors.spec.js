@@ -40,7 +40,7 @@ describe('Context Factors Page', () => {
     cy.get(':nth-child(4) > .el-form > :nth-child(2) > :nth-child(1) > .el-form > .el-form-item > .el-form-item__content > .input-with-select > [placeholder="Value"]').type('Bar')
     const select = cy.get('.el-select').first()
     select.find('.el-input > .el-input__inner').click()
-    cy.get('.el-select-dropdown .el-scrollbar__view').eq(4).find(':nth-child(2) > span').click()
+    cy.get('.el-select-dropdown .el-scrollbar__view').eq(5).find(':nth-child(2) > span').click()
     cy.get('.el-button--success').click()
     cy.url().should('eq', Cypress.config().baseUrl + '/context_factors')
     cy.get('[style="padding-left: 0px;"] > .custom-tree-node > :nth-child(2)').contains('Pizza Donalds new')
