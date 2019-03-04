@@ -112,9 +112,9 @@ exports[`Components InputType it can change the type it can change the type to a
 </form>
 `;
 
-exports[`Components InputType it can change the type it can change the type to a boolean validates the field on change shows error if no input given 1`] = `
+exports[`Components InputType it can change the type it can change the type to a boolean validates the field on change shows no error if no input given 1`] = `
 <form class="el-form">
-  <div class="el-form-item is-error el-form-item--normal">
+  <div class="el-form-item is-success el-form-item--normal">
     <!---->
     <div class="el-form-item__content">
       <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
@@ -123,7 +123,7 @@ exports[`Components InputType it can change the type it can change the type to a
             <!---->
             <div class="el-input el-input--normal el-input--suffix">
               <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
-              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
               <!---->
             </div>
             <div class="el-select-dropdown el-popper" style="display: none;">
@@ -151,9 +151,7 @@ exports[`Components InputType it can change the type it can change the type to a
         <!---->
         <!---->
       </div>
-      <div class="el-form-item__error el-zoom-in-top-enter el-zoom-in-top-enter-active">
-        input_type.required
-      </div>
+      <!---->
     </div>
   </div>
 </form>
@@ -206,9 +204,9 @@ exports[`Components InputType it can change the type it can change the type to a
 </form>
 `;
 
-exports[`Components InputType it can change the type it can change the type to a number validates the field on change shows error if no input given 1`] = `
+exports[`Components InputType it can change the type it can change the type to a number validates the field on change shows no error if no input given 1`] = `
 <form class="el-form">
-  <div class="el-form-item is-error el-form-item--normal">
+  <div class="el-form-item is-success el-form-item--normal">
     <!---->
     <div class="el-form-item__content">
       <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
@@ -217,7 +215,7 @@ exports[`Components InputType it can change the type it can change the type to a
             <!---->
             <div class="el-input el-input--normal el-input--suffix">
               <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
-              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
               <!---->
             </div>
             <div class="el-select-dropdown el-popper" style="display: none;">
@@ -245,17 +243,15 @@ exports[`Components InputType it can change the type it can change the type to a
         <!---->
         <!---->
       </div>
-      <div class="el-form-item__error el-zoom-in-top-enter el-zoom-in-top-enter-active">
-        input_type.required
-      </div>
+      <!---->
     </div>
   </div>
 </form>
 `;
 
-exports[`Components InputType it can change the type it can change the type to a string validates the field on change shows error if no input given 1`] = `
+exports[`Components InputType it can change the type it can change the type to a string validates the field on change shows no error if no input given 1`] = `
 <form class="el-form">
-  <div class="el-form-item is-error el-form-item--normal">
+  <div class="el-form-item is-success el-form-item--normal">
     <!---->
     <div class="el-form-item__content">
       <div class="input-with-select el-input el-input--normal el-input-group el-input-group--prepend">
@@ -264,7 +260,7 @@ exports[`Components InputType it can change the type it can change the type to a
             <!---->
             <div class="el-input el-input--normal el-input--suffix">
               <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
-              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-close"></i></span>
+              <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
               <!---->
             </div>
             <div class="el-select-dropdown el-popper" style="display: none;">
@@ -292,9 +288,7 @@ exports[`Components InputType it can change the type it can change the type to a
         <!---->
         <!---->
       </div>
-      <div class="el-form-item__error el-zoom-in-top-enter el-zoom-in-top-enter-active">
-        input_type.required
-      </div>
+      <!---->
     </div>
   </div>
 </form>

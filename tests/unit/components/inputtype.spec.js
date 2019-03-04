@@ -79,7 +79,7 @@ describe('Components', () => {
             propsData.type = 'String'
             render()
           })
-          it('shows error if no input given', (done) => {
+          it('shows no error if no input given', (done) => {
             const input = cmp.findAll('input').at(1)
             expect(input.exists()).toBeTruthy()
             input.setValue('')
@@ -89,9 +89,11 @@ describe('Components', () => {
             cmp.vm.$nextTick(() => {
               expect(cmp.html()).toMatchSnapshot()
               const err = cmp.find('.el-form-item__error')
-              expect(err.exists()).toBeTruthy()
-              expect(err.text()).toEqual('input_type.required')
-              expect(cmp.emitted().change).toEqual(undefined)
+              expect(err.exists()).toBeFalsy()
+              expect(cmp.emitted().change[0][0]).toEqual({
+                type: 'String',
+                value: ''
+              })
               done()
             })
           })
@@ -126,7 +128,7 @@ describe('Components', () => {
             propsData.type = 'Boolean'
             render()
           })
-          it('shows error if no input given', (done) => {
+          it('shows no error if no input given', (done) => {
             const input = cmp.findAll('input').at(1)
             expect(input.exists()).toBeTruthy()
             input.setValue('')
@@ -136,9 +138,11 @@ describe('Components', () => {
             cmp.vm.$nextTick(() => {
               expect(cmp.html()).toMatchSnapshot()
               const err = cmp.find('.el-form-item__error')
-              expect(err.exists()).toBeTruthy()
-              expect(err.text()).toEqual('input_type.required')
-              expect(cmp.emitted().change).toEqual(undefined)
+              expect(err.exists()).toBeFalsy()
+              expect(cmp.emitted().change[0][0]).toEqual({
+                type: 'Boolean',
+                value: ''
+              })
               done()
             })
           })
@@ -201,7 +205,7 @@ describe('Components', () => {
             propsData.type = 'Number'
             render()
           })
-          it('shows error if no input given', (done) => {
+          it('shows no error if no input given', (done) => {
             cmp.destroy()
             render()
 
@@ -214,9 +218,11 @@ describe('Components', () => {
             cmp.vm.$nextTick(() => {
               expect(cmp.html()).toMatchSnapshot()
               const err = cmp.find('.el-form-item__error')
-              expect(err.exists()).toBeTruthy()
-              expect(err.text()).toEqual('input_type.required')
-              expect(cmp.emitted().change).toEqual(undefined)
+              expect(err.exists()).toBeFalsy()
+              expect(cmp.emitted().change[0][0]).toEqual({
+                type: 'Number',
+                value: ''
+              })
               done()
             })
           })

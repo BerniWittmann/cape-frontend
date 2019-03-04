@@ -119,11 +119,9 @@ export default {
     },
 
     validateValue(rule, value, callback) {
-      if (!value || value.length === 0) return callback(new Error(this.$t('input_type.required')))
-
-      if (this.data.type === 'Number') {
+      if (value && this.data.type === 'Number') {
         if (isNaN(value)) return callback(new Error(this.$t('input_type.number')))
-      } else if (this.data.type === 'Boolean') {
+      } else if (value && this.data.type === 'Boolean') {
         if (!['TRUE', 'FALSE'].includes(value)) return callback(new Error(this.$t('input_type.boolean')))
       }
 
