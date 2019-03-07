@@ -23,6 +23,7 @@ import TagService from '@/services/tag'
 import ContextTypeService from '@/services/contextType'
 import ContextFactorService from '@/services/contextFactor'
 import ContextSituationService from '@/services/contextSituation'
+import InjectionMappingService from '@/services/injectionMapping'
 
 const routes = [
   {
@@ -112,6 +113,9 @@ const routes = [
           components: {
             default: EditProcess,
             dialog: ExtensionAreaEditDialog
+          },
+          beforeEnter: (to, from, next) => {
+            InjectionMappingService.getByExtensionArea(to.params.processID, to.params.extensionAreaID).then(next)
           }
         }]
       }, {

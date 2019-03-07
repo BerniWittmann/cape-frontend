@@ -15,6 +15,7 @@ import tag from './modules/tag'
 import contextType from './modules/contextType'
 import contextFactor from './modules/contextFactor'
 import contextSituation from './modules/contextSituation'
+import injectionMapping from './modules/injectionMapping'
 
 Vue.use(Vuex)
 
@@ -24,7 +25,8 @@ const store = new Vuex.Store({
     tag,
     contextType,
     contextFactor,
-    contextSituation
+    contextSituation,
+    injectionMapping
   },
   getters
 })

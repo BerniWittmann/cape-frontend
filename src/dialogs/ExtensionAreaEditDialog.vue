@@ -1,10 +1,12 @@
 <template>
   <el-dialog :title="title" :visible.sync="showExtensionArea" width="70%">
-    <p>TODO Injection Mapping</p>
+    <injection-mapping v-for="injectionMapping in injectionMappings" :key="injectionMapping.id" :injection-mapping="injectionMapping"></injection-mapping>
   </el-dialog>
 </template>
 
 <script>
+
+import InjectionMapping from '@/components/InjectionMapping.vue'
 
 /*
  * @vuese
@@ -14,7 +16,9 @@
  */
 export default {
   name: 'ExtensionAreaEditDialog',
-  components: {},
+  components: {
+    InjectionMapping
+  },
 
   computed: {
     activeProcess() {
@@ -31,6 +35,10 @@ export default {
 
     title() {
       return this.$route.params.title || this.$t('extension_area.title')
+    },
+
+    injectionMappings() {
+      return this.$store.getters['injectionMapping/getInjectionMappings'](this.$route.params.processID, this.$route.params.extensionAreaID)
     }
   },
 

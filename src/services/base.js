@@ -3,12 +3,13 @@ import getRoute from './routes'
 
 export default class Service {
   constructor({
-    method, endpoint, routeOverrides, data = undefined, name, success = () => {}, failed = () => {}
+    method, endpoint, routeOverrides, data = undefined, params = {}, name, success = () => {}, failed = () => {}
   }) {
     this.method = method
     this.endpoint = endpoint || getRoute(name, routeOverrides)
     this.data = data
     this.name = name
+    this.params = params
     this.success = success
     this.failed = failed
 
@@ -16,7 +17,20 @@ export default class Service {
   }
 
   makeRequest() {
-    return Vue.$http[this.method](this.endpoint, this.data)
+    const config = {
+      params: this.params
+    }
+    let firstParam = config
+    let secondParam = this.data
+    if (['post', 'put', 'patch'].includes(this.method)) {
+      firstParam = this.data
+      secondParam = config
+    }
+    console.log(this.method + ' ' + this.endpoint + ' params: ', {
+      firstParam,
+      secondParam
+    })
+    return Vue.$http[this.method](this.endpoint, firstParam, secondParam)
       .then((response) => {
         this.success(response.data, this)
         return true

@@ -22,6 +22,10 @@ const routes = {
   tags: {
     all: '/tags',
     single: '/tags/<id>'
+  },
+  injection_mappings: {
+    all: '/injection_mappings',
+    single: '/injection_mappings/<id>'
   }
 }
 
