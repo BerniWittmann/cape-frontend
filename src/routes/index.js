@@ -115,7 +115,12 @@ const routes = [
             dialog: ExtensionAreaEditDialog
           },
           beforeEnter: (to, from, next) => {
-            InjectionMappingService.getByExtensionArea(to.params.processID, to.params.extensionAreaID).then(next)
+            Promise.all([
+              ContextSituationService.getAll(),
+              InjectionMappingService.getByExtensionArea(to.params.processID, to.params.extensionAreaID)
+            ]).then(() => {
+              next()
+            }).catch(next)
           }
         }]
       }, {

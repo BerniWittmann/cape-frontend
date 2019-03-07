@@ -1,6 +1,13 @@
 <template>
   <el-dialog :title="title" :visible.sync="showExtensionArea" width="70%">
-    <injection-mapping v-for="injectionMapping in injectionMappings" :key="injectionMapping.id" :injection-mapping="injectionMapping"></injection-mapping>
+    <el-collapse v-model="activeInjection" accordion>
+      <el-collapse-item v-for="injectionMapping in injectionMappings" :key="injectionMapping.id" :name="injectionMapping.id">
+        <template slot="title">
+          {{ getTitlePart(injectionMapping, 'contextSituation') }} <i class="title-icon el-icon-back"></i> {{ getTitlePart(injectionMapping, 'injectedProcess') }}
+        </template>
+        <injection-mapping  :injection-mapping="injectionMapping"></injection-mapping>
+      </el-collapse-item>
+    </el-collapse>
   </el-dialog>
 </template>
 
@@ -18,6 +25,12 @@ export default {
   name: 'ExtensionAreaEditDialog',
   components: {
     InjectionMapping
+  },
+
+  data() {
+    return {
+      activeInjection: ''
+    }
   },
 
   computed: {
@@ -45,6 +58,11 @@ export default {
   methods: {
     closeDialog() {
       this.$router.back()
+    },
+
+    getTitlePart(injectionMapping, name) {
+      if (!injectionMapping[name]) return this.$t('injection_mapping.undefined_' + name)
+      return injectionMapping[name].name
     }
   }
 
@@ -52,5 +70,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.title-icon {
+  transform: rotate(180deg);
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

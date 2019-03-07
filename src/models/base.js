@@ -1,5 +1,6 @@
 export function toSnakeCase(str) {
   if (!str || typeof str !== 'string') return ''
+  if (str === 'id') return '_id'
   // Handle Special substrings
   str = str.replace(/ID/g, 'Id')
   str = str.replace(/URL/g, 'Url')

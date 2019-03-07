@@ -1,4 +1,4 @@
-import Base from './base'
+import Base, { convertObjectToSnakeCaseKeys } from './base'
 import ContextSituation from './contextSituation'
 import Process from './process'
 
@@ -20,5 +20,13 @@ export default class InjectionMapping extends Base {
       'injected_process': this.injectedProcess ? this.injectedProcess.toJSON() : undefined,
       'context_situation': this.contextSituation ? this.contextSituation.toJSON() : undefined
     }
+  }
+
+  static create(data) {
+    // Call constructor, but with snake_case converted parameters
+    const obj = new this(convertObjectToSnakeCaseKeys(data))
+    obj.contextSituation = ContextSituation.create(data.contextSituation)
+    obj.injectedProcess = Process.create(data.injectedProcess)
+    return obj
   }
 }

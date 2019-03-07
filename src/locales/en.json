@@ -31,6 +31,7 @@
     "filter_placeholder": "Search Context Situations",
     "select_placeholder": "Filter By Tag",
     "none_found": "No Context Situations Available",
+    "untagged": "Untagged",
     "edit": {
       "save": "Save",
       "reset": "Reset",
@@ -503,5 +504,16 @@
     "required": "This field is required",
     "number": "This field needs to be a Number",
     "boolean": "This field needs to be a Boolean (TRUE, FALSE)"
+  },
+  "injection_mapping": {
+    "context_situation": "Context Situation",
+    "save": "Speichern",
+    "undefined_injectedProcess": "Undefined Process",
+    "undefined_contextSituation": "Undefined Situation",
+    "validation": {
+      "context_situation": {
+        "required": "Context Situation is required"
+      }
+    }
   }
 }
