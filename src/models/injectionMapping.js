@@ -17,8 +17,8 @@ export default class InjectionMapping extends Base {
       '_id': this.id,
       'process_id': this.processID,
       'extension_area_id': this.extensionAreaID,
-      'injected_process': this.injectedProcess,
-      'context_situation': this.contextSituation
+      'injected_process': this.injectedProcess ? this.injectedProcess.toJSON() : undefined,
+      'context_situation': this.contextSituation ? this.contextSituation.toJSON() : undefined
     }
   }
 }

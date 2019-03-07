@@ -353,6 +353,51 @@
         }
       }
     },
+
+    "injection_mappings": {
+      "all": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Injection Mappings failed"
+          }
+        },
+        "post": {
+          "failed": {
+            "title": "Error",
+            "message": "Creating the Injection Mapping failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Injection Mapping got created"
+          }
+        }
+      },
+      "single": {
+        "get": {
+          "failed": {
+            "title": "Error",
+            "message": "Loading the Injection Mapping failed"
+          }
+        },
+        "delete": {
+          "failed": {
+            "title": "Error",
+            "message": "Deleting the Injection Mapping failed"
+          }
+        },
+        "put": {
+          "failed": {
+            "title": "Error",
+            "message": "Updating the Injection Mapping failed"
+          },
+          "success": {
+            "title": "Success",
+            "message": "The Injection Mapping got updated"
+          }
+        }
+      }
+    },
     "processes": {
       "all": {
         "get": {

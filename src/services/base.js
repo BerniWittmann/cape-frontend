@@ -26,10 +26,6 @@ export default class Service {
       firstParam = this.data
       secondParam = config
     }
-    console.log(this.method + ' ' + this.endpoint + ' params: ', {
-      firstParam,
-      secondParam
-    })
     return Vue.$http[this.method](this.endpoint, firstParam, secondParam)
       .then((response) => {
         this.success(response.data, this)

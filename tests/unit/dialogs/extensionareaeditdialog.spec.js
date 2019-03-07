@@ -5,6 +5,7 @@ import moment from 'moment'
 import { Button, Dialog } from 'element-ui'
 
 import ExtensionAreaEditDialog from '@/dialogs/ExtensionAreaEditDialog.vue'
+import InjectionMapping from '@/components/InjectionMapping'
 
 describe('Dialogs', () => {
   describe('Extension Area Edit Dialog', () => {
@@ -19,6 +20,7 @@ describe('Dialogs', () => {
     const route = {
       params: {
         processID: 42,
+        extensionAreaID: 'EA_1',
         title: 'My Title'
       }
     }
@@ -45,6 +47,19 @@ describe('Dialogs', () => {
               }]
             }
           }
+        },
+        getters: {
+          'injectionMapping/getInjectionMappings': jest.fn().mockReturnValue([{
+            id: '1',
+            processID: '1',
+            extensionAreaID: 'EA_1',
+            foo: 'bar'
+          }, {
+            id: '2',
+            processID: '1',
+            extensionAreaID: 'EA_1',
+            foo: 'bar2'
+          }])
         }
       }
       render()
@@ -84,6 +99,24 @@ describe('Dialogs', () => {
       render()
       expect(cmp.html()).toMatchSnapshot()
       expect(cmp.find('.el-dialog__title').text()).toEqual('extension_area.title')
+    })
+
+    it('renders the injection mappings', () => {
+      expect(store.getters['injectionMapping/getInjectionMappings']).toHaveBeenCalledWith(42, 'EA_1')
+      const ims = cmp.findAll(InjectionMapping)
+      expect(ims.length).toEqual(2)
+      expect(ims.at(0).props('injectionMapping')).toEqual({
+        id: '1',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar'
+      })
+      expect(ims.at(1).props('injectionMapping')).toEqual({
+        id: '2',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar2'
+      })
     })
   })
 })

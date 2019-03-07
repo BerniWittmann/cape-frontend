@@ -12,7 +12,13 @@
  */
 export default {
   name: 'InjectionMapping',
-  props: {}
+  props: {
+    // the Injection Mapping
+    injectionMapping: {
+      type: Object,
+      required: true
+    }
+  }
 }
 
 </script>

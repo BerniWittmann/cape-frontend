@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vuex Modules injectionMapping Getters returns all getters 1`] = `
+Array [
+  "getInjectionMappings",
+]
+`;

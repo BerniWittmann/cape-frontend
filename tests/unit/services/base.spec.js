@@ -166,6 +166,66 @@ describe('BaseService', () => {
       })
     })
 
+    describe('it can pass params', () => {
+      let methods = ['get', 'delete']
+      methods.forEach((method) => {
+        it(`can make a ${method} request to an endpoint with params`, (done) => {
+          makeRequest({
+            method: method,
+            endpoint: '/test',
+            name: 'test',
+            params: {
+              foo: 'bar',
+              id: 42
+            }
+          })
+
+          moxios.wait(function () {
+            let request = moxios.requests.mostRecent()
+            expect(request.config.method).toEqual(method)
+            expect(request.config.params).toEqual({
+              foo: 'bar',
+              id: 42
+            })
+            done()
+          })
+        })
+      })
+
+      methods = ['post', 'put', 'patch']
+      methods.forEach((method) => {
+        it(`can make a ${method} request to an endpoint with params and data`, (done) => {
+          makeRequest({
+            method: method,
+            endpoint: '/test',
+            name: 'test',
+            params: {
+              process: 'bar',
+              new: 42
+            },
+            data: {
+              foo: 'bar',
+              id: 42
+            }
+          })
+
+          moxios.wait(function () {
+            let request = moxios.requests.mostRecent()
+            expect(request.config.method).toEqual(method)
+            expect(request.config.data).toEqual(JSON.stringify({
+              foo: 'bar',
+              id: 42
+            }))
+            expect(request.config.params).toEqual({
+              process: 'bar',
+              new: 42
+            })
+            done()
+          })
+        })
+      })
+    })
+
     it(`can pass a success function`, (done) => {
       const success = jest.fn()
       makeRequest({
@@ -189,7 +249,8 @@ describe('BaseService', () => {
             failed: expect.any(Function),
             method: 'get',
             endpoint: '/test',
-            name: 'test'
+            name: 'test',
+            params: {}
           })
           done()
         })
@@ -219,7 +280,8 @@ describe('BaseService', () => {
             failed: expect.any(Function),
             method: 'get',
             endpoint: '/test',
-            name: 'test'
+            name: 'test',
+            params: {}
           })
           done()
         })
@@ -246,7 +308,8 @@ describe('BaseService', () => {
             failed: expect.any(Function),
             method: 'get',
             endpoint: '/test',
-            name: 'test'
+            name: 'test',
+            params: {}
           })
           done()
         })
