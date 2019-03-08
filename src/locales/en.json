@@ -507,12 +507,18 @@
   },
   "injection_mapping": {
     "context_situation": "Context Situation",
+    "injected_process": "Injected Process",
     "save": "Speichern",
     "undefined_injectedProcess": "Undefined Process",
     "undefined_contextSituation": "Undefined Situation",
+    "if": "if",
+    "then": "then",
     "validation": {
       "context_situation": {
         "required": "Context Situation is required"
+      },
+      "injected_process": {
+        "required": "Injected Process is required"
       }
     }
   }

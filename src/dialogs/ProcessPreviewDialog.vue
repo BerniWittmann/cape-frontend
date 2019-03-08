@@ -16,7 +16,7 @@
       </el-col>
     </el-row>
     <br>
-    <iframe v-bind:style="{ height: svgHeightAdjust }" :srcdoc="processSVG" class="svg-view margin-top"></iframe>
+    <process-preview class="margin-top" :process="activeProcess"></process-preview>
     <el-row class="margin-top" justify="end" :gutter="20">
       <el-col :span="6">
         <el-button icon="el-icon-delete" type="danger" @click="deleteProcess">{{
@@ -37,6 +37,7 @@
 
 <script>
 import Tag from '@/components/Tag.vue'
+import ProcessPreview from '@/components/ProcessPreview.vue'
 import processService from '@/services/process'
 
 /*
@@ -48,7 +49,8 @@ import processService from '@/services/process'
 export default {
   name: 'ProcessPreviewDialog',
   components: {
-    Tag
+    Tag,
+    ProcessPreview
   },
 
   computed: {
@@ -63,21 +65,11 @@ export default {
         this.closeDialog()
       }
     },
-    svgHeightAdjust() {
-      if (!this.activeProcess.svg) return 'auto'
-      const maxHeight = 500
-      const heightPos = this.activeProcess.svg.indexOf('height="') + 8
-      const height = parseInt(this.activeProcess.svg.substring(heightPos, this.activeProcess.svg.indexOf('"', heightPos)))
-      return height <= maxHeight ? height + 25 + 'px' : maxHeight + 'px'
-    },
     fileContent() {
       return 'data:text/xml,' + encodeURIComponent(this.activeProcess.xml)
     },
     fileName() {
       return this.activeProcess.name.replace(/ /g, '_') + '.bpmn'
-    },
-    processSVG() {
-      return !this.activeProcess.svg ? this.$t('process.error_svg_preview') : this.activeProcess.svg
     }
   },
 
@@ -115,13 +107,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-.svg-view {
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  border: none;
-}
 
 .margin-top {
   margin-top: 25px;
