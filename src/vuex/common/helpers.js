@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 function pushToChildren(tagMap, id, data) {
   const tag = tagMap.get(id)
+  if (!tag) return
   tag.children.push(data)
   tagMap.set(id, tag)
 }

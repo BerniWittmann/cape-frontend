@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ProcessPreview renders 1`] = `<iframe srcdoc="<svg height=&quot;256px&quot;><path d=&quot;1&quot;></path></svg>" class="svg-view margin-top" style="height: 281px;"></iframe>`;

@@ -1,63 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components InjectionMapping can change the context situation 1`] = `
-<div>
-  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
-    <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
-      <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
-        <!----></span>
-        <!---->
-      </div><span class="el-cascader__label">
+exports[`Components InjectionMapping it can handle a context situation can change the context situation 1`] = `
+<div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+  <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
+    <!----></span>
+    <!---->
+  </div><span class="el-cascader__label">
       My Context Situation 1
     </span></span>
-      <!---->
-    </div>
-</div>
-</form> <button type="button" class="el-button el-button--success">
   <!---->
-  <!----><span>injection_mapping.save</span></button></div>
+</div>
+</div>
 `;
 
-exports[`Components InjectionMapping can change the context situation 2`] = `
-<div>
-  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
-    <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
-      <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true" value="My Context Situation 2"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
-        <!----></span>
-        <!---->
-      </div><span class="el-cascader__label">
+exports[`Components InjectionMapping it can handle a context situation can change the context situation 2`] = `
+<div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+  <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true" value="My Context Situation 2"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
+    <!----></span>
+    <!---->
+  </div><span class="el-cascader__label">
       My Context Situation 2
     </span></span>
-      <!---->
-    </div>
-</div>
-</form> <button type="button" class="el-button el-button--success">
   <!---->
-  <!----><span>injection_mapping.save</span></button></div>
+</div>
+</div>
 `;
 
-exports[`Components InjectionMapping it has no context Situation shows a required error on save 1`] = `
-<div>
-  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
-    <div class="el-form-item is-error is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
-      <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="injection_mapping.context_situation" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
-        <!---->
-      </div><span class="el-cascader__label">
+exports[`Components InjectionMapping it can handle a context situation it has no context Situation shows a required error on save 1`] = `
+<div class="el-form-item is-error is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+  <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="injection_mapping.context_situation" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
+    <!---->
+  </div><span class="el-cascader__label">
 
     </span></span>
-      <div class="el-form-item__error" name="el-zoom-in-top">
-        injection_mapping.validation.context_situation.required
-      </div>
-    </div>
+  <div class="el-form-item__error" name="el-zoom-in-top">
+    injection_mapping.validation.context_situation.required
+  </div>
 </div>
-</form> <button type="button" class="el-button el-button--success">
+</div>
+`;
+
+exports[`Components InjectionMapping it can handle a injected process can change the injected process 1`] = `
+<div class="el-form-item is-required"><label for="injectedProcess" class="el-form-item__label">injection_mapping.injected_process</label>
+  <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
+    <!----></span>
+    <!---->
+  </div><span class="el-cascader__label">
+      Injected Process 1
+    </span></span>
   <!---->
-  <!----><span>injection_mapping.save</span></button></div>
+</div>
+</div>
+`;
+
+exports[`Components InjectionMapping it can handle a injected process can change the injected process 2`] = `
+<div class="el-form-item is-required"><label for="injectedProcess" class="el-form-item__label">injection_mapping.injected_process</label>
+  <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true" value="Injected Process 2"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
+    <!----></span>
+    <!---->
+  </div><span class="el-cascader__label">
+      Injected Process 2
+    </span></span>
+  <!---->
+</div>
+</div>
+`;
+
+exports[`Components InjectionMapping it can handle a injected process it has no injected process shows a required error on save 1`] = `
+<div class="el-form-item is-error is-required"><label for="injectedProcess" class="el-form-item__label">injection_mapping.injected_process</label>
+  <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="injection_mapping.injected_process" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
+    <!---->
+  </div><span class="el-cascader__label">
+
+    </span></span>
+  <div class="el-form-item__error" name="el-zoom-in-top">
+    injection_mapping.validation.injected_process.required
+  </div>
+</div>
+</div>
 `;
 
 exports[`Components InjectionMapping renders 1`] = `
 <div>
   <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
+    <div class="el-form-item">
+      <!---->
+      <div class="el-form-item__content">
+        <p class="ifft-text">injection_mapping.if</p>
+        <!---->
+      </div>
+    </div>
     <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
       <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
         <!----></span>
@@ -67,6 +99,30 @@ exports[`Components InjectionMapping renders 1`] = `
     </span></span>
       <!---->
     </div>
+</div>
+<div class="el-form-item">
+  <!---->
+  <div class="el-form-item__content">
+    <p class="ifft-text">injection_mapping.then</p>
+    <!---->
+  </div>
+</div>
+<div class="el-form-item is-required"><label for="injectedProcess" class="el-form-item__label">injection_mapping.injected_process</label>
+  <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+    <!----></span>
+    <!---->
+  </div><span class="el-cascader__label">
+      Injected Process 1
+    </span></span>
+  <!---->
+</div>
+</div>
+<div class="el-form-item">
+  <!---->
+  <div class="el-form-item__content">
+    <div class="process-preview-stub process-preview"></div>
+    <!---->
+  </div>
 </div>
 </form> <button type="button" class="el-button el-button--success">
   <!---->

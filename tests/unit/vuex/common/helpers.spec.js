@@ -1,4 +1,8 @@
-import { update, setActive, getGraphNodes } from '@/vuex/common/helpers'
+import { update, setActive, getGraphNodes, getByTags } from '@/vuex/common/helpers'
+
+import Vue from 'vue'
+
+Vue.i18n = { t: jest.fn().mockReturnValue('untagged') }
 
 describe('Vuex', () => {
   describe('Common', () => {
@@ -122,6 +126,131 @@ describe('Vuex', () => {
               }
             }
           ])
+        })
+      })
+
+      describe('getByTags', () => {
+        let objs
+        let tags
+        beforeEach(() => {
+          objs = [{
+            id: '1',
+            name: 'First Obj',
+            tags: [{
+              id: 't1'
+            }, {
+              id: 't2'
+            }]
+          }, {
+            id: '2',
+            name: 'Second Obj',
+            tags: [{
+              id: 't2'
+            }]
+          }, {
+            id: '3',
+            name: 'Third Obj',
+            tags: [{
+              id: 't3'
+            }]
+          }, {
+            id: '4',
+            name: 'Fourth Obj',
+            tags: []
+          }]
+          tags = [{
+            id: 't1',
+            name: 'Tag 1'
+          }, {
+            id: 't2',
+            name: 'Tag 2'
+          }, {
+            id: 't3',
+            name: 'Tag 3'
+          }, {
+            id: 't4',
+            name: 'Tag 4'
+          }]
+        })
+
+        it('if no objects given it returns only the tagarray', () => {
+          objs = []
+          expect(getByTags(objs, tags)).toEqual([{
+            value: '0',
+            label: 'untagged',
+            children: []
+          }, {
+            value: 't1',
+            label: 'Tag 1',
+            children: []
+          }, {
+            value: 't2',
+            label: 'Tag 2',
+            children: []
+          }, {
+            value: 't3',
+            label: 'Tag 3',
+            children: []
+          }, {
+            value: 't4',
+            label: 'Tag 4',
+            children: []
+          }])
+        })
+        it('if no tags given it returns an array with only the untagged', () => {
+          tags = []
+          expect(getByTags(objs, tags)).toEqual([{
+            value: '0',
+            label: 'untagged',
+            children: [{
+              value: objs[3],
+              label: objs[3].name,
+              key: objs[3].id
+            }]
+          }])
+        })
+        it('returns the objects grouped by tags', () => {
+          expect(getByTags(objs, tags)).toEqual([{
+            value: '0',
+            label: 'untagged',
+            children: [{
+              value: objs[3],
+              label: objs[3].name,
+              key: objs[3].id
+            }]
+          }, {
+            value: 't1',
+            label: 'Tag 1',
+            children: [{
+              value: objs[0],
+              label: objs[0].name,
+              key: objs[0].id
+            }]
+          }, {
+            value: 't2',
+            label: 'Tag 2',
+            children: [{
+              value: objs[0],
+              label: objs[0].name,
+              key: objs[0].id
+            }, {
+              value: objs[1],
+              label: objs[1].name,
+              key: objs[1].id
+            }]
+          }, {
+            value: 't3',
+            label: 'Tag 3',
+            children: [{
+              value: objs[2],
+              label: objs[2].name,
+              key: objs[2].id
+            }]
+          }, {
+            value: 't4',
+            label: 'Tag 4',
+            children: []
+          }])
         })
       })
     })

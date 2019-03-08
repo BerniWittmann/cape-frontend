@@ -3,5 +3,6 @@
 exports[`Vuex Modules Process Getters returns all getters 1`] = `
 Object {
   "processGraphNodes": [Function],
+  "processesByTags": [Function],
 }
 `;

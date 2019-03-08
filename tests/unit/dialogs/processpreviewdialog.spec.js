@@ -1,10 +1,11 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
 import moment from 'moment'
 import { Button, Dialog } from 'element-ui'
 
 import Tag from '@/components/Tag.vue'
+import ProcessPreview from '@/components/ProcessPreview.vue'
 import ProcessPreviewDialog from '@/dialogs/ProcessPreviewDialog.vue'
 import ProcessService from '@/services/process'
 
@@ -82,160 +83,9 @@ describe('Dialogs', () => {
     })
 
     it('can show the svg in iframe', () => {
-      expect(cmp.find('iframe').attributes('srcdoc')).toEqual(store.state.process.activeProcess.svg)
-    })
-
-    it('preview can handle no/empty svg', () => {
-      store = {
-        state: {
-          process: {
-            activeProcess: {
-              id: '42',
-              name: 'My Process 1',
-              createdAt: date.clone().subtract(14, 'days'),
-              lastEditedAt: date.clone().subtract(2, 'days'),
-              tags: [{
-                id: '421',
-                name: 'First Tag',
-                color: '#FF0000'
-              }, {
-                id: '43',
-                name: 'Second Tag',
-                color: '#FFFF00'
-              }]
-            }
-          }
-        }
-      }
-      cmp = mount(ProcessPreviewDialog, {
-        i18n,
-        mocks: {
-          $store: store
-        }
-      })
-      expect(cmp.vm.processSVG).toBe('process.error_svg_preview')
-      store = {
-        state: {
-          process: {
-            activeProcess: {
-              id: '42',
-              name: 'My Process 1',
-              createdAt: date.clone().subtract(14, 'days'),
-              lastEditedAt: date.clone().subtract(2, 'days'),
-              svg: '',
-              tags: [{
-                id: '421',
-                name: 'First Tag',
-                color: '#FF0000'
-              }, {
-                id: '43',
-                name: 'Second Tag',
-                color: '#FFFF00'
-              }]
-            }
-          }
-        }
-      }
-      cmp = mount(ProcessPreviewDialog, {
-        i18n,
-        mocks: {
-          $store: store
-        }
-      })
-      expect(cmp.vm.processSVG).toBe('process.error_svg_preview')
-    })
-
-    it('can extract and reuse the height from svg', () => {
-      expect(cmp.find('iframe').attributes('style')).toEqual('height: 55px;')
-      store = {
-        state: {
-          process: {
-            activeProcess: {
-              id: '42',
-              name: 'My Process 1',
-              createdAt: date.clone().subtract(14, 'days'),
-              lastEditedAt: date.clone().subtract(2, 'days'),
-              svg: 'placeholder height="3000" placeholder',
-              tags: [{
-                id: '421',
-                name: 'First Tag',
-                color: '#FF0000'
-              }, {
-                id: '43',
-                name: 'Second Tag',
-                color: '#FFFF00'
-              }]
-            }
-          }
-        }
-      }
-      cmp = mount(ProcessPreviewDialog, {
-        i18n,
-        mocks: {
-          $store: store
-        }
-      })
-      expect(cmp.vm.svgHeightAdjust).toBe('500px')
-    })
-
-    it('can handle no/empty svg for height adjustment', () => {
-      store = {
-        state: {
-          process: {
-            activeProcess: {
-              id: '42',
-              name: 'My Process 1',
-              createdAt: date.clone().subtract(14, 'days'),
-              lastEditedAt: date.clone().subtract(2, 'days'),
-              tags: [{
-                id: '421',
-                name: 'First Tag',
-                color: '#FF0000'
-              }, {
-                id: '43',
-                name: 'Second Tag',
-                color: '#FFFF00'
-              }]
-            }
-          }
-        }
-      }
-      cmp = mount(ProcessPreviewDialog, {
-        i18n,
-        mocks: {
-          $store: store
-        }
-      })
-      expect(cmp.vm.svgHeightAdjust).toBe('auto')
-      store = {
-        state: {
-          process: {
-            activeProcess: {
-              id: '42',
-              name: 'My Process 1',
-              createdAt: date.clone().subtract(14, 'days'),
-              lastEditedAt: date.clone().subtract(2, 'days'),
-              svg: '',
-              tags: [{
-                id: '421',
-                name: 'First Tag',
-                color: '#FF0000'
-              }, {
-                id: '43',
-                name: 'Second Tag',
-                color: '#FFFF00'
-              }]
-            }
-          }
-        }
-      }
-      cmp = mount(ProcessPreviewDialog, {
-        i18n,
-        mocks: {
-          $store: store
-        }
-      })
-      expect(cmp.vm.svgHeightAdjust).toBe('auto')
+      const preview = cmp.find(ProcessPreview)
+      expect(preview.exists()).toBeTruthy()
+      expect(preview.props('process')).toEqual(store.state.process.activeProcess)
     })
 
     it('renders the description', () => {

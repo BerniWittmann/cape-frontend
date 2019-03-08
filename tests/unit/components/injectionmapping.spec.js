@@ -21,7 +21,11 @@ describe('Components', () => {
           id: '142',
           processID: '42',
           extensionAreaID: 'EA_1',
-          injectedProcess: undefined,
+          injectedProcess: {
+            id: 'p1',
+            name: 'Injected Process',
+            svg: '<svg>p1</svg>'
+          },
           contextSituation: {
             id: 'c1',
             name: 'My Context Situation 1'
@@ -52,6 +56,31 @@ describe('Components', () => {
                 name: 'My Context Situation 2'
               }
             }]
+          }],
+          'process/processesByTags': [{
+            value: '0',
+            label: 'untagged',
+            children: []
+          }, {
+            value: 't1',
+            label: 'Tag 1',
+            children: [{
+              key: 'p1',
+              label: 'Injected Process 1',
+              value: {
+                id: 'p1',
+                name: 'Injected Process 1',
+                svg: '<svg>p1</svg>'
+              }
+            }, {
+              key: 'p2',
+              label: 'Injected Process 2',
+              value: {
+                id: 'p2',
+                name: 'Injected Process 2',
+                svg: '<svg>p2</svg>'
+              }
+            }]
           }]
         }
       }
@@ -64,6 +93,9 @@ describe('Components', () => {
         propsData,
         mocks: {
           $store: store
+        },
+        stubs: {
+          ProcessPreview: '<div class="process-preview-stub"></div>'
         }
       })
     }
@@ -72,28 +104,173 @@ describe('Components', () => {
       expect(cmp.html()).toMatchSnapshot()
     })
 
-    it('renders a cascader for the context situation', () => {
-      expect(cmp.contains('.el-cascader')).toBeTruthy()
+    describe('it can handle a context situation', () => {
+      let baseCmp
+      beforeEach(() => {
+        baseCmp = cmp
+        cmp = cmp.findAll('.el-form-item').at(1)
+      })
+
+      it('renders a cascader for the context situation', () => {
+        expect(cmp.contains('.el-cascader')).toBeTruthy()
+      })
+
+      it('preselects the context situation in the cascader', () => {
+        expect(baseCmp.vm.currentContextSituation).toEqual(['t1', { 'id': 'c1', 'name': 'My Context Situation 1' }])
+        const input = cmp.find('.el-cascader__label')
+        expect(input.text()).toEqual('My Context Situation 1')
+      })
+
+      it('can change the context situation', () => {
+        const cascader = cmp.find('.el-cascader')
+        cascader.trigger('click')
+
+        expect(cmp.html()).toMatchSnapshot()
+        baseCmp.vm.currentContextSituation = ['0', {
+          id: 'c2',
+          name: 'My Context Situation 2'
+        }]
+        expect(cmp.html()).toMatchSnapshot()
+        const input = cmp.find('.el-cascader__label')
+        expect(input.text()).toEqual('My Context Situation 2')
+      })
+
+      describe('it has no context Situation', () => {
+        beforeEach(() => {
+          propsData.injectionMapping.contextSituation = undefined
+          jest.clearAllMocks()
+          render()
+          baseCmp = cmp
+          cmp = cmp.findAll('.el-form-item').at(1)
+        })
+
+        it('does not select the context Situation', () => {
+          expect(baseCmp.vm.currentContextSituation).toEqual([])
+          const input = cmp.find('.el-cascader__label')
+          expect(input.text()).toEqual('')
+        })
+
+        it('shows a required error on save', () => {
+          const button = baseCmp.find('.el-button--success')
+          button.trigger('click')
+
+          expect(InjectionMappingService.update).not.toHaveBeenCalled()
+          expect(cmp.html()).toMatchSnapshot()
+          const err = cmp.find('.el-form-item__error')
+          expect(err.exists()).toBeTruthy()
+          expect(err.text()).toEqual('injection_mapping.validation.context_situation.required')
+        })
+
+        it('does not find the context Situation', () => {
+          propsData.injectionMapping.contextSituation = {
+            id: 'c999',
+            name: 'My not found CS'
+          }
+          render()
+          baseCmp = cmp
+          cmp = cmp.findAll('.el-form-item').at(1)
+
+          expect(baseCmp.vm.currentContextSituation).toEqual([])
+          const input = cmp.find('.el-cascader__label')
+          expect(input.text()).toEqual('')
+        })
+      })
     })
 
-    it('preselects the context situation in the cascader', () => {
-      expect(cmp.vm.currentContextSituation).toEqual(['t1', { 'id': 'c1', 'name': 'My Context Situation 1' }])
-      const input = cmp.find('.el-cascader__label')
-      expect(input.text()).toEqual('My Context Situation 1')
-    })
+    describe('it can handle a injected process', () => {
+      let baseCmp
+      beforeEach(() => {
+        baseCmp = cmp
+        cmp = cmp.findAll('.el-form-item').at(3)
+      })
 
-    it('can change the context situation', () => {
-      const cascader = cmp.find('.el-cascader')
-      cascader.trigger('click')
+      it('renders a cascader for the injected process', () => {
+        expect(cmp.contains('.el-cascader')).toBeTruthy()
+      })
 
-      expect(cmp.html()).toMatchSnapshot()
-      cmp.vm.currentContextSituation = ['0', {
-        id: 'c2',
-        name: 'My Context Situation 2'
-      }]
-      expect(cmp.html()).toMatchSnapshot()
-      const input = cmp.find('.el-cascader__label')
-      expect(input.text()).toEqual('My Context Situation 2')
+      it('preselects the injected process in the cascader', () => {
+        expect(baseCmp.vm.currentInjectedProcess).toEqual(['t1', { 'id': 'p1', 'name': 'Injected Process 1', 'svg': '<svg>p1</svg>' }])
+        const input = cmp.find('.el-cascader__label')
+        expect(input.text()).toEqual('Injected Process 1')
+      })
+
+      it('renders a process preview', () => {
+        const preview = baseCmp.find('.process-preview-stub')
+        expect(preview.exists()).toBeTruthy()
+        expect(preview.props('process')).toEqual({
+          id: 'p1',
+          name: 'Injected Process 1',
+          svg: '<svg>p1</svg>'
+        })
+      })
+
+      it('can change the injected process', () => {
+        const cascader = cmp.find('.el-cascader')
+        cascader.trigger('click')
+
+        expect(cmp.html()).toMatchSnapshot()
+        baseCmp.vm.currentInjectedProcess = ['0', {
+          id: 'p2',
+          name: 'Injected Process 2',
+          svg: '<svg>p2</svg>'
+        }]
+        expect(cmp.html()).toMatchSnapshot()
+        const input = cmp.find('.el-cascader__label')
+        expect(input.text()).toEqual('Injected Process 2')
+        const preview = baseCmp.find('.process-preview-stub')
+        expect(preview.exists()).toBeTruthy()
+        expect(preview.props('process')).toEqual({
+          id: 'p2',
+          name: 'Injected Process 2',
+          svg: '<svg>p2</svg>'
+        })
+      })
+
+      describe('it has no injected process', () => {
+        beforeEach(() => {
+          propsData.injectionMapping.injectedProcess = undefined
+          jest.clearAllMocks()
+          render()
+          baseCmp = cmp
+          cmp = cmp.findAll('.el-form-item').at(3)
+        })
+
+        it('does not select the injected process', () => {
+          expect(baseCmp.vm.currentInjectedProcess).toEqual([])
+          const input = cmp.find('.el-cascader__label')
+          expect(input.text()).toEqual('')
+        })
+
+        it('does not render a process preview', () => {
+          const preview = baseCmp.find('.process-preview-stub')
+          expect(preview.exists()).toBeFalsy()
+        })
+
+        it('shows a required error on save', () => {
+          const button = baseCmp.find('.el-button--success')
+          button.trigger('click')
+
+          expect(InjectionMappingService.update).not.toHaveBeenCalled()
+          expect(cmp.html()).toMatchSnapshot()
+          const err = cmp.find('.el-form-item__error')
+          expect(err.exists()).toBeTruthy()
+          expect(err.text()).toEqual('injection_mapping.validation.injected_process.required')
+        })
+
+        it('does not find the context Situation', () => {
+          propsData.injectionMapping.currentInjectedProcess = {
+            id: 'p999',
+            name: 'My not found Process'
+          }
+          render()
+          baseCmp = cmp
+          cmp = cmp.findAll('.el-form-item').at(3)
+
+          expect(baseCmp.vm.currentInjectedProcess).toEqual([])
+          const input = cmp.find('.el-cascader__label')
+          expect(input.text()).toEqual('')
+        })
+      })
     })
 
     it('has a save button', () => {
@@ -109,52 +286,15 @@ describe('Components', () => {
         'context_situation': { '_id': 'c1', 'name': 'My Context Situation 1', 'rules': undefined, 'tags': [] },
         'extension_area_id': 'EA_1',
         'injected_process': {
-          '_id': undefined,
+          '_id': 'p1',
           'description': undefined,
-          'name': undefined,
-          'svg': undefined,
+          'name': 'Injected Process',
+          'svg': '<svg>p1</svg>',
           'tags': [],
           'xml': undefined
         },
         'process_id': '42'
       }))
-    })
-
-    describe('it has no context Situation', () => {
-      beforeEach(() => {
-        propsData.injectionMapping.contextSituation = undefined
-        jest.clearAllMocks()
-        render()
-      })
-
-      it('does not select the context Situation', () => {
-        expect(cmp.vm.currentContextSituation).toEqual([])
-        const input = cmp.find('.el-cascader__label')
-        expect(input.text()).toEqual('')
-      })
-
-      it('shows a required error on save', () => {
-        const button = cmp.find('.el-button--success')
-        button.trigger('click')
-
-        expect(InjectionMappingService.update).not.toHaveBeenCalled()
-        expect(cmp.html()).toMatchSnapshot()
-        const err = cmp.find('.el-form-item__error')
-        expect(err.exists()).toBeTruthy()
-        expect(err.text()).toEqual('injection_mapping.validation.context_situation.required')
-      })
-
-      it('does not find the context Situation', () => {
-        propsData.injectionMapping.contextSituation = {
-          id: 'c999',
-          name: 'My not found CS'
-        }
-        render()
-
-        expect(cmp.vm.currentContextSituation).toEqual([])
-        const input = cmp.find('.el-cascader__label')
-        expect(input.text()).toEqual('')
-      })
     })
   })
 })
