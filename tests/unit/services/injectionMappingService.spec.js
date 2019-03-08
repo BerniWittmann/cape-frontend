@@ -3,7 +3,7 @@ import moxios from 'moxios'
 import axios from 'axios'
 import Vue from 'vue'
 import store from '@/vuex/store'
-import InjectionMapping from '@/models/InjectionMapping'
+import InjectionMapping from '@/models/injectionMapping'
 
 store.dispatch = jest.fn().mockImplementation(() => ({
   then: (arg) => arg()
