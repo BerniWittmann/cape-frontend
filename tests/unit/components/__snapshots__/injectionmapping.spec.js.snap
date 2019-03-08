@@ -1,3 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components InjectionMapping renders 1`] = `<p>TODO</p>`;
+exports[`Components InjectionMapping can change the context situation 1`] = `
+<div>
+  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
+    <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+      <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
+        <!----></span>
+        <!---->
+      </div><span class="el-cascader__label">
+      My Context Situation 1
+    </span></span>
+      <!---->
+    </div>
+</div>
+</form> <button type="button" class="el-button el-button--success">
+  <!---->
+  <!----><span>injection_mapping.save</span></button></div>
+`;
+
+exports[`Components InjectionMapping can change the context situation 2`] = `
+<div>
+  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
+    <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+      <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true" value="My Context Situation 2"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
+        <!----></span>
+        <!---->
+      </div><span class="el-cascader__label">
+      My Context Situation 2
+    </span></span>
+      <!---->
+    </div>
+</div>
+</form> <button type="button" class="el-button el-button--success">
+  <!---->
+  <!----><span>injection_mapping.save</span></button></div>
+`;
+
+exports[`Components InjectionMapping it has no context Situation shows a required error on save 1`] = `
+<div>
+  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
+    <div class="el-form-item is-error is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+      <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="injection_mapping.context_situation" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
+        <!---->
+      </div><span class="el-cascader__label">
+
+    </span></span>
+      <div class="el-form-item__error" name="el-zoom-in-top">
+        injection_mapping.validation.context_situation.required
+      </div>
+    </div>
+</div>
+</form> <button type="button" class="el-button el-button--success">
+  <!---->
+  <!----><span>injection_mapping.save</span></button></div>
+`;
+
+exports[`Components InjectionMapping renders 1`] = `
+<div>
+  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
+    <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+      <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+        <!----></span>
+        <!---->
+      </div><span class="el-cascader__label">
+      My Context Situation 1
+    </span></span>
+      <!---->
+    </div>
+</div>
+</form> <button type="button" class="el-button el-button--success">
+  <!---->
+  <!----><span>injection_mapping.save</span></button></div>
+`;

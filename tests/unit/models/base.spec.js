@@ -25,10 +25,12 @@ describe('Models', () => {
       it('converts keys of object correctly to snake case', () => {
         expect(convertObjectToSnakeCaseKeys({
           foo: 'bar',
-          testValue: 'snakeCase'
+          testValue: 'snakeCase',
+          id: 'test'
         })).toEqual({
           foo: 'bar',
-          test_value: 'snakeCase'
+          test_value: 'snakeCase',
+          _id: 'test'
         })
       })
 

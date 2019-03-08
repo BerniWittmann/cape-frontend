@@ -3,5 +3,6 @@
 exports[`Vuex Modules contextSituation Getters returns all getters 1`] = `
 Array [
   "contextSituationGraphNodes",
+  "contextSituationsByTags",
 ]
 `;

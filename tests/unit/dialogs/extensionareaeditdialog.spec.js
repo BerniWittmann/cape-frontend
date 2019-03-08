@@ -24,7 +24,35 @@ describe('Dialogs', () => {
         title: 'My Title'
       }
     }
+    let injections = []
     beforeEach(() => {
+      injections = [{
+        id: '1',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar',
+        injectedProcess: {
+          id: 'p1',
+          name: 'Process 1'
+        },
+        contextSituation: {
+          id: 'cs1',
+          name: 'Context Situation 1'
+        }
+      }, {
+        id: '2',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar2',
+        injectedProcess: {
+          id: 'p2',
+          name: 'Process 2'
+        },
+        contextSituation: {
+          id: 'cs2',
+          name: 'Context Situation 2'
+        }
+      }]
       store = {
         state: {
           process: {
@@ -49,17 +77,7 @@ describe('Dialogs', () => {
           }
         },
         getters: {
-          'injectionMapping/getInjectionMappings': jest.fn().mockReturnValue([{
-            id: '1',
-            processID: '1',
-            extensionAreaID: 'EA_1',
-            foo: 'bar'
-          }, {
-            id: '2',
-            processID: '1',
-            extensionAreaID: 'EA_1',
-            foo: 'bar2'
-          }])
+          'injectionMapping/getInjectionMappings': jest.fn().mockReturnValue(injections)
         }
       }
       render()
@@ -75,7 +93,8 @@ describe('Dialogs', () => {
         },
         stubs: {
           ElButton: Button,
-          ElDialog: Dialog
+          ElDialog: Dialog,
+          ElCollapseItem: '<div class="el-collapse-item"><div class="title"><slot name="title"></slot></div><div class="content"><slot></slot></div></div>'
         }
       })
     }
@@ -109,13 +128,77 @@ describe('Dialogs', () => {
         id: '1',
         processID: '1',
         extensionAreaID: 'EA_1',
-        foo: 'bar'
+        foo: 'bar',
+        injectedProcess: {
+          id: 'p1',
+          name: 'Process 1'
+        },
+        contextSituation: {
+          id: 'cs1',
+          name: 'Context Situation 1'
+        }
       })
       expect(ims.at(1).props('injectionMapping')).toEqual({
         id: '2',
         processID: '1',
         extensionAreaID: 'EA_1',
-        foo: 'bar2'
+        foo: 'bar2',
+        injectedProcess: {
+          id: 'p2',
+          name: 'Process 2'
+        },
+        contextSituation: {
+          id: 'cs2',
+          name: 'Context Situation 2'
+        }
+      })
+    })
+
+    it('renders a title for the injection mappings', (done) => {
+      let items = cmp.findAll('.el-collapse-item')
+      expect(items.length).toEqual(2)
+      expect(items.at(0).find('.title').text()).toEqual('Context Situation 1  Process 1')
+      expect(items.at(1).find('.title').text()).toEqual('Context Situation 2  Process 2')
+
+      injections.push({
+        id: '3',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar2',
+        injectedProcess: undefined,
+        contextSituation: undefined
+      })
+      injections.push({
+        id: '4',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar2',
+        injectedProcess: {
+          id: 'p2',
+          name: 'Process 2'
+        },
+        contextSituation: undefined
+      })
+      injections.push({
+        id: '5',
+        processID: '1',
+        extensionAreaID: 'EA_1',
+        foo: 'bar2',
+        injectedProcess: undefined,
+        contextSituation: {
+          id: 'cs2',
+          name: 'Context Situation 2'
+        }
+      })
+      render()
+
+      cmp.vm.$nextTick(() => {
+        items = cmp.findAll('.el-collapse-item')
+        expect(items.length).toEqual(5)
+        expect(items.at(2).find('.title').text()).toEqual('injection_mapping.undefined_contextSituation  injection_mapping.undefined_injectedProcess')
+        expect(items.at(3).find('.title').text()).toEqual('injection_mapping.undefined_contextSituation  Process 2')
+        expect(items.at(4).find('.title').text()).toEqual('Context Situation 2  injection_mapping.undefined_injectedProcess')
+        done()
       })
     })
   })
