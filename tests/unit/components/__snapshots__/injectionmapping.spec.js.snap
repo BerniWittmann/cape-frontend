@@ -1,5 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components InjectionMapping can be deleted show as confirmation dialog 1`] = `
+<div>
+  <form class="el-form injection-mapping-form el-form--label-top el-form--inline">
+    <div class="el-form-item">
+      <!---->
+      <div class="el-form-item__content">
+        <p class="ifft-text">injection_mapping.if</p>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
+      <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+        <!----></span>
+        <!---->
+      </div><span class="el-cascader__label">
+      My Context Situation 1
+    </span></span>
+      <!---->
+    </div>
+</div>
+<div class="el-form-item">
+  <!---->
+  <div class="el-form-item__content">
+    <p class="ifft-text">injection_mapping.then</p>
+    <!---->
+  </div>
+</div>
+<div class="el-form-item is-required"><label for="injectedProcess" class="el-form-item__label">injection_mapping.injected_process</label>
+  <div class="el-form-item__content"><span class="el-cascader"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span>
+    <!----></span>
+    <!---->
+  </div><span class="el-cascader__label">
+      Injected Process 1
+    </span></span>
+  <!---->
+</div>
+</div>
+<div class="el-form-item">
+  <!---->
+  <div class="el-form-item__content">
+    <div class="process-preview-stub process-preview"></div>
+    <!---->
+  </div>
+</div>
+</form> <button type="button" class="el-button el-button--success">
+  <!---->
+  <!----><span>injection_mapping.save</span></button> <button type="button" class="el-button el-button--danger">
+  <!---->
+  <!----><span>
+    injection_mapping.edit.delete
+  </span></button></div>
+`;
+
 exports[`Components InjectionMapping it can handle a context situation can change the context situation 1`] = `
 <div class="el-form-item is-required"><label for="contextSituation" class="el-form-item__label">injection_mapping.context_situation</label>
   <div class="el-form-item__content"><span class="el-cascader is-opened"><div class="el-input el-input--suffix is-focus"><!----><input type="text" autocomplete="off" class="el-input__inner" aria-expanded="true"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down is-reverse"></i><!----></span>
@@ -126,5 +179,9 @@ exports[`Components InjectionMapping renders 1`] = `
 </div>
 </form> <button type="button" class="el-button el-button--success">
   <!---->
-  <!----><span>injection_mapping.save</span></button></div>
+  <!----><span>injection_mapping.save</span></button> <button type="button" class="el-button el-button--danger">
+  <!---->
+  <!----><span>
+    injection_mapping.edit.delete
+  </span></button></div>
 `;

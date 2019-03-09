@@ -205,5 +205,53 @@ describe('Services', () => {
         })
       })
     })
+    describe('remove', () => {
+      it('should remove a Injection Mapping', (done) => {
+        moxios.stubRequest('/injection_mappings/42', {
+          status: 200,
+          response: undefined
+        })
+        const onFulfilled = jest.fn()
+        iMService.remove({ id: '42', name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(store.dispatch).toHaveBeenCalledWith('injectionMapping/remove', { id: '42', name: 'Test' })
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/injection_mappings/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        iMService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/injection_mappings/42', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        iMService.remove({ id: '42' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.injection_mappings.single.delete.failed.title',
+            message: 'notifications.injection_mappings.single.delete.failed.message'
+          })
+          done()
+        })
+      })
+    })
   })
 })

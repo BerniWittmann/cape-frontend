@@ -30,6 +30,9 @@
       </el-form-item>
     </el-form>
     <el-button type="success" @click="save">{{ $t('injection_mapping.save') }}</el-button>
+    <el-button type="danger" @click="deleteInjectionMapping()">
+      {{ $t('injection_mapping.edit.delete') }}
+    </el-button>
   </div>
 </template>
 
@@ -116,6 +119,24 @@ export default {
         if (valid) {
           InjectionMappingService.update(InjectionMapping.create(this.injectionData))
         }
+      })
+    },
+    deleteInjectionMapping() {
+      this.$confirm(this.$t('injection_mapping.delete.message'), this.$t('injection_mapping.delete.warning'), {
+        confirmButtonText: this.$t('injection_mapping.delete.ok'),
+        cancelButtonText: this.$t('injection_mapping.delete.cancel'),
+        type: 'warning',
+        cancelButtonClass: 'is-plain el-button--info',
+        confirmButtonClass: 'el-button--danger'
+      }).then(() => {
+        InjectionMappingService.remove(this.injectionData).then(() => {
+          InjectionMappingService.getByExtensionArea(this.injectionData.processID, this.injectionData.extensionAreaID)
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: this.$t('injection_mapping.delete.cancellation')
+        })
       })
     },
 

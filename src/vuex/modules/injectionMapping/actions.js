@@ -16,7 +16,12 @@ export const update = ({ commit }, payload) => {
   commit(types.UPDATE, payload)
 }
 
+export const remove = ({ commit }, payload) => {
+  commit(types.REMOVE, payload)
+}
+
 export default {
   store,
-  update
+  update,
+  remove
 }

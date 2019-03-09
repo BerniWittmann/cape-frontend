@@ -508,7 +508,19 @@
   "injection_mapping": {
     "context_situation": "Context Situation",
     "injected_process": "Injected Process",
-    "save": "Speichern",
+    "save": "Save",
+    "edit": {
+      "delete": "Delete"
+    },
+    "delete": {
+      "confirmation": "Injection Mapping deleted",
+      "message": "This will permanently delete the Injection Mapping. Continue?",
+      "ok": "Delete",
+      "cancel": "Cancel",
+      "warning": "Warning",
+      "delete_button": "Delete Injection Mapping",
+      "cancellation": "Delete cancelled"
+    },
     "undefined_injectedProcess": "Undefined Process",
     "undefined_contextSituation": "Undefined Situation",
     "if": "if",

@@ -296,5 +296,71 @@ describe('Components', () => {
         'process_id': '42'
       }))
     })
+
+    describe('can be deleted', () => {
+      beforeEach(() => {
+        cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+          then: (arg) => {
+            return {
+              catch: () => {
+              }
+            }
+          }
+        }))
+        InjectionMappingService.remove = jest.fn().mockImplementation(() => ({
+          then: (arg) => arg()
+        }))
+        cmp.vm.$message = jest.fn()
+      })
+      InjectionMappingService.getByExtensionArea = jest.fn().mockImplementation(() => ({}
+      ))
+      it('deletes the active Injection Mapping', () => {
+        InjectionMappingService.getAll = jest.fn().mockImplementation(() => {
+        })
+        cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+          then: (arg) => {
+            arg()
+            return {
+              catch: () => {
+              }
+            }
+          }
+        }))
+        cmp.findAll('.el-button--danger').at(0).trigger('click')
+        expect(InjectionMappingService.remove).toHaveBeenCalledWith(propsData.injectionMapping)
+        expect(InjectionMappingService.getByExtensionArea).toHaveBeenCalled()
+      })
+      it('show as confirmation dialog', () => {
+        expect(cmp.html()).toMatchSnapshot()
+        const button = cmp.findAll('.el-button--danger').at(0)
+        expect(button.exists()).toBeTruthy()
+        button.trigger('click')
+        expect(cmp.vm.$confirm).toHaveBeenCalledWith('injection_mapping.delete.message', 'injection_mapping.delete.warning',
+          {
+            'cancelButtonText': 'injection_mapping.delete.cancel',
+            'confirmButtonText': 'injection_mapping.delete.ok',
+            'type': 'warning',
+            'cancelButtonClass': 'is-plain el-button--info',
+            'confirmButtonClass': 'el-button--danger'
+          })
+      })
+      it('does not delete the Injection mapping if canceled', () => {
+        cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+          then: () => {
+            return {
+              catch: (arg) => {
+                arg()
+              }
+            }
+          }
+        }))
+        cmp.findAll('.el-button--danger').at(0).trigger('click')
+        expect(cmp.vm.$message).toHaveBeenCalledWith({
+          'message': 'injection_mapping.delete.cancellation',
+          'type': 'info'
+        })
+        expect(InjectionMappingService.remove).not.toHaveBeenCalled()
+      })
+    })
   })
 })

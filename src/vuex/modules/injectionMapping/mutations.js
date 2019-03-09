@@ -6,8 +6,9 @@
  * injectionMapping  module.
  */
 
-import { STORE, UPDATE } from './mutation-types'
+import { STORE, UPDATE, REMOVE } from './mutation-types'
 import { update } from '@/vuex/common/helpers'
+import { removeByID } from '@/utils/helpers'
 
 export default {
   [STORE](state, injectionMappings) {
@@ -15,5 +16,8 @@ export default {
   },
   [UPDATE](state, injectionMapping) {
     update(state, 'injectionMappings', 'activeInjectionMapping', injectionMapping)
+  },
+  [REMOVE](state, injectionMapping) {
+    state.injectionMappings = removeByID(state.injectionMappings, injectionMapping.id)
   }
 }
