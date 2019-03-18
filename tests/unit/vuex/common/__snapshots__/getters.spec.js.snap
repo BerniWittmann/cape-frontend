@@ -3,5 +3,7 @@
 exports[`Vuex Common Getters returns all getters 1`] = `
 Array [
   "graphEdges",
+  "graphEdgesProcessSituation",
+  "graphEdgesSituationFactor",
 ]
 `;

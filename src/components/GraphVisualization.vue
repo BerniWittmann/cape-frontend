@@ -61,7 +61,7 @@ export default {
       nodesep: 30,
       ranksep: 100,
       rankdir: 'LR',
-      align: 'UL',
+      align: 'UR',
       marginx: 20,
       marginy: 20
     })

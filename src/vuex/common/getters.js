@@ -4,25 +4,38 @@
  *
  */
 
+const factorRegex = new RegExp('(([a-z]|[0-9]){24})(?=.([a-z]|[0-9]){24})', 'g')
+
 export default {
-  graphEdges(state) {
-    // TODO return Edges between Processes, Situations, Factors for Graph instead of this mock
-    return [{
-      start: state.process.processes[0].id,
-      end: state.contextSituation.contextSituations[0].id,
+  graphEdges(state, getters) {
+    return [...getters.graphEdgesProcessSituation, ...getters.graphEdgesSituationFactor]
+  },
+
+  graphEdgesProcessSituation(state) {
+    return state.injectionMapping.injectionMappings.map((injectionMapping) => ({
+      start: injectionMapping.processID,
+      end: injectionMapping.contextSituation.id,
       type: 'process_situation'
-    }, {
-      start: state.process.processes[1].id,
-      end: state.contextSituation.contextSituations[0].id,
-      type: 'process_situation'
-    }, {
-      start: state.contextSituation.contextSituations[0].id,
-      end: state.contextFactor.contextFactors[0].id,
-      type: 'situation_factor'
-    }, {
-      start: state.contextSituation.contextSituations[0].id,
-      end: state.contextFactor.contextFactors[1].id,
-      type: 'situation_factor'
-    }]
+    }))
+  },
+
+  graphEdgesSituationFactor(state) {
+    const result = []
+    state.contextSituation.contextSituations.forEach(situation => {
+      const factors = new Set()
+      let currentMatch
+      while ((currentMatch = factorRegex.exec(situation.rules)) !== null) {
+        factors.add(currentMatch[0])
+      }
+
+      factors.forEach(factor => {
+        result.push({
+          start: situation.id,
+          end: factor,
+          type: 'situation_factor'
+        })
+      })
+    })
+    return result
   }
 }

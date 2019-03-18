@@ -34,7 +34,8 @@ const routes = [
       Promise.all([
         ProcessService.getAll(),
         ContextSituationService.getAll(),
-        ContextFactorService.getAll()
+        ContextFactorService.getAll(),
+        InjectionMappingService.getAll()
       ]).then(next)
     }
   },

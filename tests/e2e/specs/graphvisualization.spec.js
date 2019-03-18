@@ -13,14 +13,14 @@ describe('Graph Visualization', () => {
     cy.get('.node.process').should('have.length', 4)
     cy.get('.node.situation').should('have.length', 1)
     cy.get('.node.factor').should('have.length', 7)
-    cy.get('.edgePath.process_situation').should('have.length', 2)
-    cy.get('.edgePath.situation_factor').should('have.length', 2)
+    cy.get('.edgePath.process_situation').should('have.length', 1)
+    cy.get('.edgePath.situation_factor').should('have.length', 1)
   })
 
   it('can highlight the edges', () => {
     cy.get('.node.process').eq(1).trigger('mouseover')
     cy.get('.edgePath.active').should('have.length', 1)
-    cy.get('.edgePath.inactive').should('have.length', 3)
+    cy.get('.edgePath.inactive').should('have.length', 1)
   })
 
   describe('can navigate to entities', () => {
