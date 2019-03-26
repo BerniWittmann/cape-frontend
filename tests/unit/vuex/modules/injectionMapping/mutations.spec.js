@@ -65,6 +65,14 @@ describe('Vuex', () => {
             expect(state.injectionMappings).toEqual([{ id: 1 }, { id: 3 }])
           })
         })
+        describe('ADD', () => {
+          it('adds a given injection Mapping', () => {
+            state.injectionMappings = [{ id: 1 }, { id: 2 }]
+            iMMutations[mutationTypes.ADD](state, { id: 3 })
+
+            expect(state.injectionMappings).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
+          })
+        })
       })
     })
   })

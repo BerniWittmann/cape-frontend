@@ -521,6 +521,7 @@
       "delete_button": "Delete Injection Mapping",
       "cancellation": "Delete cancelled"
     },
+    "add": "Add Injection Mapping",
     "undefined_injectedProcess": "Undefined Process",
     "undefined_contextSituation": "Undefined Situation",
     "if": "if",

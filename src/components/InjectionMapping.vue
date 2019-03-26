@@ -117,7 +117,14 @@ export default {
     save() {
       this.$refs.injectionForm.validate((valid) => {
         if (valid) {
-          InjectionMappingService.update(InjectionMapping.create(this.injectionData))
+          const injectionObject = InjectionMapping.create(this.injectionData)
+          if (this.injectionData.id) {
+            InjectionMappingService.update(injectionObject)
+          } else {
+            InjectionMappingService.create(injectionObject).then(() => {
+              InjectionMappingService.getByExtensionArea(this.injectionData.processID, this.injectionData.extensionAreaID)
+            })
+          }
         }
       })
     },
@@ -129,9 +136,11 @@ export default {
         cancelButtonClass: 'is-plain el-button--info',
         confirmButtonClass: 'el-button--danger'
       }).then(() => {
-        InjectionMappingService.remove(this.injectionData).then(() => {
+        if (this.injectionData.id) {
+          InjectionMappingService.remove(this.injectionData)
+        } else {
           InjectionMappingService.getByExtensionArea(this.injectionData.processID, this.injectionData.extensionAreaID)
-        })
+        }
       }).catch(() => {
         this.$message({
           type: 'info',

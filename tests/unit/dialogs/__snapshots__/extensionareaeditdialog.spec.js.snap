@@ -22,7 +22,10 @@ exports[`Dialogs Extension Area Edit Dialog can be closed 1`] = `
             <injectionmapping-stub injectionmapping="[object Object]"></injectionmapping-stub>
           </div>
         </div>
-      </elcollapse-stub>
+      </elcollapse-stub> <button type="button" class="el-button el-button--default el-button--small is-plain" id="add">
+        <!----><i class="el-icon-plus"></i><span>
+    injection_mapping.add
+  </span></button>
     </div>
     <!---->
   </div>
@@ -51,7 +54,10 @@ exports[`Dialogs Extension Area Edit Dialog can render 1`] = `
             <injectionmapping-stub injectionmapping="[object Object]"></injectionmapping-stub>
           </div>
         </div>
-      </elcollapse-stub>
+      </elcollapse-stub> <button type="button" class="el-button el-button--default el-button--small is-plain" id="add">
+        <!----><i class="el-icon-plus"></i><span>
+    injection_mapping.add
+  </span></button>
     </div>
     <!---->
   </div>

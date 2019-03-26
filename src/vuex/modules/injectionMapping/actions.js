@@ -20,8 +20,13 @@ export const remove = ({ commit }, payload) => {
   commit(types.REMOVE, payload)
 }
 
+export const add = ({ commit }, payload) => {
+  commit(types.ADD, payload)
+}
+
 export default {
   store,
   update,
-  remove
+  remove,
+  add
 }

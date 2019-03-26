@@ -32,6 +32,13 @@ describe('Vuex', () => {
             expect(store.commit).toHaveBeenCalledWith(mutationTypes.REMOVE, { id: 1 })
           })
         })
+        describe('add', () => {
+          it('adds a new Injection Mapping', () => {
+            imActions.add(store)
+
+            expect(store.commit).toHaveBeenCalledWith(mutationTypes.ADD, undefined)
+          })
+        })
       })
     })
   })

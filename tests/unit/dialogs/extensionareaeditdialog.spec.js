@@ -6,6 +6,7 @@ import { Button, Dialog } from 'element-ui'
 
 import ExtensionAreaEditDialog from '@/dialogs/ExtensionAreaEditDialog.vue'
 import InjectionMapping from '@/components/InjectionMapping'
+import InjectionMappingModel from '@/models/injectionMapping'
 
 describe('Dialogs', () => {
   describe('Extension Area Edit Dialog', () => {
@@ -200,6 +201,16 @@ describe('Dialogs', () => {
         expect(items.at(4).find('.title').text()).toEqual('Context Situation 2  injection_mapping.undefined_injectedProcess')
         done()
       })
+    })
+    it('can add an Injection Mapping', () => {
+      store.dispatch = jest.fn().mockReturnValue({ then: (arg) => arg() })
+      cmp.find('.el-button').trigger('click')
+      expect(store.dispatch).toHaveBeenCalledWith('injectionMapping/add', new InjectionMappingModel({
+        '_id': undefined,
+        'context_situation': undefined,
+        'extension_area_id': 'EA_1',
+        'injected_process': undefined,
+        'process_id': 42 }))
     })
   })
 })

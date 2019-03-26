@@ -12,9 +12,10 @@ describe('Components', () => {
     let propsData
     let cmp
     let store
-    InjectionMappingService.update = jest.fn()
+    InjectionMappingService.update = jest.fn().mockReturnValue({ then: (arg) => arg() })
     console.warn = jest.fn()
-
+    InjectionMappingService.create = jest.fn().mockReturnValue({ then: (arg) => arg() })
+    InjectionMappingService.getByExtensionArea = jest.fn()
     beforeEach(() => {
       propsData = {
         injectionMapping: {
@@ -280,9 +281,27 @@ describe('Components', () => {
     it('can save the injection specification', () => {
       const button = cmp.find('.el-button--success')
       button.trigger('click')
-
       expect(InjectionMappingService.update).toHaveBeenCalledWith(new InjectionMappingModel({
         '_id': '142',
+        'context_situation': { '_id': 'c1', 'name': 'My Context Situation 1', 'rules': undefined, 'tags': [] },
+        'extension_area_id': 'EA_1',
+        'injected_process': {
+          '_id': 'p1',
+          'description': undefined,
+          'name': 'Injected Process',
+          'svg': '<svg>p1</svg>',
+          'tags': [],
+          'xml': undefined
+        },
+        'process_id': '42'
+      }))
+    })
+    it('posts a new InjectionMapping if it has no id', () => {
+      propsData.injectionMapping.id = undefined
+      render()
+      const button = cmp.find('.el-button--success')
+      button.trigger('click')
+      expect(InjectionMappingService.create).toHaveBeenCalledWith(new InjectionMappingModel({
         'context_situation': { '_id': 'c1', 'name': 'My Context Situation 1', 'rules': undefined, 'tags': [] },
         'extension_area_id': 'EA_1',
         'injected_process': {
@@ -315,8 +334,6 @@ describe('Components', () => {
       InjectionMappingService.getByExtensionArea = jest.fn().mockImplementation(() => ({}
       ))
       it('deletes the active Injection Mapping', () => {
-        InjectionMappingService.getAll = jest.fn().mockImplementation(() => {
-        })
         cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
           then: (arg) => {
             arg()
@@ -360,6 +377,21 @@ describe('Components', () => {
           'type': 'info'
         })
         expect(InjectionMappingService.remove).not.toHaveBeenCalled()
+      })
+      it(' can delete a mapping that does not already have an id', () => {
+        propsData.injectionMapping.id = undefined
+        render()
+        cmp.vm.$confirm = jest.fn().mockImplementation(() => ({
+          then: (arg) => {
+            arg()
+            return {
+              catch: () => {
+              }
+            }
+          }
+        }))
+        cmp.findAll('.el-button--danger').at(0).trigger('click')
+        expect(InjectionMappingService.getByExtensionArea).toHaveBeenCalled()
       })
     })
   })

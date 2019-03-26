@@ -205,6 +205,72 @@ describe('Services', () => {
         })
       })
     })
+    describe('create', () => {
+      it('should create an Injection Mapping', (done) => {
+        moxios.stubRequest('/injection_mappings', {
+          status: 200,
+          response: iMData
+        })
+        const onFulfilled = jest.fn()
+        iMService.create({ name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should handle fail', (done) => {
+        moxios.stubRequest('/injection_mappings', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        iMService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          done()
+        })
+      })
+
+      it('should show notification on fail', (done) => {
+        moxios.stubRequest('/injection_mappings', {
+          status: 400
+        })
+
+        const onFulfilled = jest.fn()
+        iMService.create({}).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.error).toHaveBeenCalledWith({
+            title: 'notifications.injection_mappings.all.post.failed.title',
+            message: 'notifications.injection_mappings.all.post.failed.message'
+          })
+          done()
+        })
+      })
+
+      it('should show notification on success', (done) => {
+        moxios.stubRequest('/injection_mappings', {
+          status: 200,
+          response: iMData
+        })
+
+        const onFulfilled = jest.fn()
+        iMService.create({ name: 'Test' }).then(onFulfilled)
+
+        moxios.wait(() => {
+          expect(onFulfilled).toHaveBeenCalled()
+          expect(notification.success).toHaveBeenCalledWith({
+            title: 'notifications.injection_mappings.all.post.success.title',
+            message: 'notifications.injection_mappings.all.post.success.message'
+          })
+          done()
+        })
+      })
+    })
     describe('remove', () => {
       it('should remove a Injection Mapping', (done) => {
         moxios.stubRequest('/injection_mappings/42', {
