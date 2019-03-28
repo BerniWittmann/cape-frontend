@@ -232,14 +232,26 @@ describe('Helpers', () => {
       expect(decodeContextSituationRuleString('')).toEqual([])
       expect(decodeContextSituationRuleString('Invalid String')).toEqual([])
       expect(decodeContextSituationRuleString('&& 5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6')).toEqual([])
-      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6 5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e7')).toEqual([])
-      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6 - 5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e7')).toEqual([])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5 12 5c758837bcf6fd47f203a8e5. te ')).toEqual([])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.???? - 5c758837bcf6fd47f203a8e5.!!!')).toEqual([])
       expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5 && 5c758838bcf6fd47f203a8e7')).toEqual([])
     })
     it('parses a single argument', () => {
       expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.5c758838bcf6fd47f203a8e6')).toEqual([{
         data: [
           '5c758837bcf6fd47f203a8e5', '5c758838bcf6fd47f203a8e6', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.test')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e5', 'test', false
+        ],
+        type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
+      }])
+      expect(decodeContextSituationRuleString('5c758837bcf6fd47f203a8e5.test_129aTE')).toEqual([{
+        data: [
+          '5c758837bcf6fd47f203a8e5', 'test_129aTE', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }])
@@ -320,23 +332,23 @@ describe('Helpers', () => {
     it('can parse single arguments', () => {
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'HEAT', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.HEAT')
     })
     it('can handle negations', () => {
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', true
+          '5c758837bcf6fd47f203a8e1', 'TEST', true
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('!5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2')
+      }])).toEqual('!5c758837bcf6fd47f203a8e1.TEST')
     })
     it('can parse multiple arguments connected with connectors', () => {
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'TEST', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }, {
@@ -344,13 +356,13 @@ describe('Helpers', () => {
         type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
       }, {
         data: [
-          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', true
+          '5c758837bcf6fd47f203a8e3', 'TEST1', true
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 && !5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.TEST && !5c758837bcf6fd47f203a8e3.TEST1')
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'TEST', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }, {
@@ -358,13 +370,13 @@ describe('Helpers', () => {
         type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
       }, {
         data: [
-          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', true
+          '5c758837bcf6fd47f203a8e3', 'TEST1', true
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 || !5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.TEST || !5c758837bcf6fd47f203a8e3.TEST1')
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'TEST', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }, {
@@ -372,13 +384,13 @@ describe('Helpers', () => {
         type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
       }, {
         data: [
-          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+          '5c758837bcf6fd47f203a8e3', 'TEST1', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 && 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.TEST && 5c758837bcf6fd47f203a8e3.TEST1')
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'TEST', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }, {
@@ -386,15 +398,15 @@ describe('Helpers', () => {
         type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
       }, {
         data: [
-          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+          '5c758837bcf6fd47f203a8e3', 'TEST1', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 || 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.TEST || 5c758837bcf6fd47f203a8e3.TEST1')
     })
     it('can handle undefined types', () => {
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'TEST', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }, {
@@ -405,13 +417,13 @@ describe('Helpers', () => {
         type: 'invalid'
       }, {
         data: [
-          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+          '5c758837bcf6fd47f203a8e3', 'TEST1', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 && 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.TEST && 5c758837bcf6fd47f203a8e3.TEST1')
       expect(encodeContextSituationRuleString([{
         data: [
-          '5c758837bcf6fd47f203a8e1', '5c758838bcf6fd47f203a8e2', false
+          '5c758837bcf6fd47f203a8e1', 'TEST', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
       }, {
@@ -419,10 +431,10 @@ describe('Helpers', () => {
         type: CONTEXT_SITUATION_RULES_PART_TYPES.CON
       }, {
         data: [
-          '5c758837bcf6fd47f203a8e3', '5c758838bcf6fd47f203a8e4', false
+          '5c758837bcf6fd47f203a8e3', 'TEST1', false
         ],
         type: CONTEXT_SITUATION_RULES_PART_TYPES.ARG
-      }])).toEqual('5c758837bcf6fd47f203a8e1.5c758838bcf6fd47f203a8e2 5c758837bcf6fd47f203a8e3.5c758838bcf6fd47f203a8e4')
+      }])).toEqual('5c758837bcf6fd47f203a8e1.TEST 5c758837bcf6fd47f203a8e3.TEST1')
     })
   })
 })

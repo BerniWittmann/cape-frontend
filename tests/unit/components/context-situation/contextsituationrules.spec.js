@@ -12,7 +12,7 @@ describe('Components', () => {
 
     beforeEach(() => {
       propsData = {
-        value: 'aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1 && !aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb2 || aaaaaaaaaaaaaaaaaaaaaaa2.bbbbbbbbbbbbbbbbbbbbbbb3'
+        value: 'aaaaaaaaaaaaaaaaaaaaaaa1.Hello && !aaaaaaaaaaaaaaaaaaaaaaa1.Empty_State || aaaaaaaaaaaaaaaaaaaaaaa2.short'
       }
       store = {
         state: {
@@ -20,19 +20,19 @@ describe('Components', () => {
             contextFactors: [{
               id: 'aaaaaaaaaaaaaaaaaaaaaaa1',
               name: 'CF 1',
-              attributes: [{
-                id: 'bbbbbbbbbbbbbbbbbbbbbbb1',
-                key: 'Attr 1'
+              contextRules: [{
+                state: 'Hello',
+                rule: 'Attr 1'
               }, {
-                id: 'bbbbbbbbbbbbbbbbbbbbbbb2',
-                key: 'Attr 2'
+                state: 'Empty State',
+                rule: 'Attr 2'
               }]
             }, {
               id: 'aaaaaaaaaaaaaaaaaaaaaaa2',
               name: 'CF 2',
-              attributes: [{
-                id: 'bbbbbbbbbbbbbbbbbbbbbbb3',
-                key: 'Attr 3'
+              contextRules: [{
+                state: 'short',
+                rule: 'Attr 3'
               }]
             }]
           }
@@ -69,9 +69,9 @@ describe('Components', () => {
     it('renders a cascader for the arguments', () => {
       const cascaders = cmp.findAll('.select--argument')
       expect(cascaders.length).toEqual(3)
-      expect(cascaders.at(0).text()).toEqual('CF 1 - Attr 1')
-      expect(cascaders.at(1).text()).toEqual('! CF 1 - Attr 2')
-      expect(cascaders.at(2).text()).toEqual('CF 2 - Attr 3')
+      expect(cascaders.at(0).text()).toEqual('CF 1 - Hello')
+      expect(cascaders.at(1).text()).toEqual('! CF 1 - Empty State')
+      expect(cascaders.at(2).text()).toEqual('CF 2 - short')
     })
 
     it('marks the negated cascaders', () => {
@@ -114,15 +114,15 @@ describe('Components', () => {
 
         const cascaders = cmp.findAll('.select--argument')
         expect(cascaders.length).toEqual(2)
-        expect(cascaders.at(0).text()).toEqual('CF 1 - Attr 1')
-        expect(cascaders.at(1).text()).toEqual('! CF 1 - Attr 2')
+        expect(cascaders.at(0).text()).toEqual('CF 1 - Hello')
+        expect(cascaders.at(1).text()).toEqual('! CF 1 - Empty State')
         const selects = cmp.findAll('.select--connector')
         expect(selects.length).toEqual(1)
         expect(selects.at(0).find('.el-input__inner').element.value).toEqual('context_situation.rules.connectors.and')
       })
 
       it('only removes the condition if it is first condition', () => {
-        cmp.setProps({ value: 'aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1' })
+        cmp.setProps({ value: 'aaaaaaaaaaaaaaaaaaaaaaa1.Hello' })
         const btn = cmp.find('.el-button--danger')
         btn.trigger('click')
 
@@ -142,7 +142,7 @@ describe('Components', () => {
 
     describe('it can add a condition', () => {
       beforeEach(() => {
-        cmp.setProps({ value: 'aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1' })
+        cmp.setProps({ value: 'aaaaaaaaaaaaaaaaaaaaaaa1.Hello' })
       })
       it('has a button', () => {
         expect(cmp.contains('.el-button--success')).toBeTruthy()
@@ -190,7 +190,7 @@ describe('Components', () => {
         const cascader = cmp.find('.select--argument')
         cascader.vm.$emit('change')
 
-        expect(cmp.emitted().change[0][0]).toEqual('aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb1 && !aaaaaaaaaaaaaaaaaaaaaaa1.bbbbbbbbbbbbbbbbbbbbbbb2 || aaaaaaaaaaaaaaaaaaaaaaa2.bbbbbbbbbbbbbbbbbbbbbbb3')
+        expect(cmp.emitted().change[0][0]).toEqual('aaaaaaaaaaaaaaaaaaaaaaa1.Hello && !aaaaaaaaaaaaaaaaaaaaaaa1.Empty_State || aaaaaaaaaaaaaaaaaaaaaaa2.short')
       })
 
       it('does not emit change event if invalid value is changed', (done) => {

@@ -37,7 +37,7 @@ describe('Context Situations Page', () => {
     cy.get('.el-notification').contains('Success')
   })
 
-  describe('it can update the rules', () => {
+  describe.skip('it can update the rules', () => {
     beforeEach(() => {
       const card = cy.get('.el-card')
       card.click()
@@ -112,7 +112,7 @@ describe('Context Situations Page', () => {
     tags.should('have.length', 1)
   })
 
-  it('can reset the process', () => {
+  it.skip('can reset the process', () => {
     const card = cy.get('.el-card')
     card.click()
 

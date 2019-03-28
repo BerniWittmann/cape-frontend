@@ -99,21 +99,24 @@ export default {
   computed: {
     availableArguments() {
       return this.availableContextFactors.map(cF => {
+        const children = cF.contextRules.map(rule => ({
+          value: rule.state.replace(/\s/g, '_'),
+          label: rule.state,
+          children: [{
+            value: false,
+            label: `${cF.name} - ${rule.state}`
+          }, {
+            value: true,
+            label: `! ${cF.name} - ${rule.state}`
+          }]
+        }))
         return {
           value: cF.id,
           label: cF.name,
-          // TODO Relate to Context Factor States instead of Attributes
-          children: cF.attributes.map(attr => ({
-            value: attr.id,
-            label: attr.key,
-            children: [{
-              value: false,
-              label: `${cF.name} - ${attr.key}`
-            }, {
-              value: true,
-              label: `! ${cF.name} - ${attr.key}`
-            }]
-          }))
+          children: children.filter((item, pos) => {
+            // Remove Duplicates
+            return children.findIndex(current => current.value === item.value) === pos
+          })
         }
       })
     },

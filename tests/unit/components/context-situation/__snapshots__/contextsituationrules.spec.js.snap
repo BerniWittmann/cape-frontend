@@ -7,7 +7,7 @@ exports[`Components ContextSituationRules it can update values does not emit cha
     <div><span><div class="el-form-item is-success"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--not-negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
       <!---->
     </div><span class="el-cascader__label">
-      CF 1 - Attr 1
+      CF 1 - Hello
     </span></span>
     <!---->
 </div>
@@ -38,7 +38,7 @@ exports[`Components ContextSituationRules it can update values does not emit cha
 </div></span><span><div class="el-form-item is-success"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
 <!---->
 </div><span class="el-cascader__label">
-      ! CF 1 - Attr 2
+      ! CF 1 - Empty State
     </span></span>
 <!---->
 </div>
@@ -69,7 +69,7 @@ exports[`Components ContextSituationRules it can update values does not emit cha
 </div></span><span><div class="el-form-item is-success"><!----><div class="el-form-item__content"><span class="el-cascader select--argument select--argument--not-negated"><div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-arrow-down"></i><!----></span><i class="el-input__icon el-input__validateIcon el-icon-loading"></i></span>
 <!---->
 </div><span class="el-cascader__label">
-      CF 2 - Attr 3
+      CF 2 - short
     </span></span>
 <!---->
 </div>
@@ -131,7 +131,7 @@ exports[`Components ContextSituationRules renders 1`] = `
       <!----></span>
       <!---->
     </div><span class="el-cascader__label">
-      CF 1 - Attr 1
+      CF 1 - Hello
     </span></span>
     <!---->
 </div>
@@ -164,7 +164,7 @@ exports[`Components ContextSituationRules renders 1`] = `
 <!----></span>
 <!---->
 </div><span class="el-cascader__label">
-      ! CF 1 - Attr 2
+      ! CF 1 - Empty State
     </span></span>
 <!---->
 </div>
@@ -197,7 +197,7 @@ exports[`Components ContextSituationRules renders 1`] = `
 <!----></span>
 <!---->
 </div><span class="el-cascader__label">
-      CF 2 - Attr 3
+      CF 2 - short
     </span></span>
 <!---->
 </div>

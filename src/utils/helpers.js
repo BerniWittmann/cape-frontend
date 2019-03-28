@@ -1,5 +1,5 @@
 import { CONTEXT_SITUATION_RULES_CONNECTORS, CONTEXT_SITUATION_RULES_PART_TYPES } from '@/utils/constants'
-const contextSituationRuleStringRegex = /^!?([a-z]|[0-9]){24}.([a-z]|[0-9]){24}( ((&&)|(\|\|)) !?([a-z]|[0-9]){24}.([a-z]|[0-9]){24})*$/
+const contextSituationRuleStringRegex = /^!?([a-z]|[0-9]){24}.([a-z]|[A-Z]|[0-9]|_)+( ((&&)|(\|\|)) !?([a-z]|[0-9]){24}.([a-z]|[A-Z]|[0-9]|_)+)*$/
 
 export function convertHexToRgba(color, opacity = 1) {
   const c = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color)
