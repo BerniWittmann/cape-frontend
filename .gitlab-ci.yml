@@ -2,7 +2,6 @@ image: registry.gitlab.com/cape-modeler/frontend:latest
 
 
 lint:
-  stage: lint
   before_script:
       - cp -R /app/node_modules .
   script:
@@ -11,7 +10,6 @@ lint:
     - tags
 
 unit:
-  stage: test
   before_script:
       - cp -R /app/node_modules .
       - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -28,7 +26,6 @@ unit:
     - tags
 
 e2e:
-  stage: test
   before_script:
       - cp -R /app/node_modules .
   script:
@@ -37,7 +34,6 @@ e2e:
     - tags
 
 pages:
-  stage: deploy
   before_script:
     - cp -R /app/node_modules .
   script:
