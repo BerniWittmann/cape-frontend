@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 1.0.0 - (2019-03-28)
+---
+
+* Added Context Rules to Context Factors
+* Added Injection Mappings
+
+
 ## 0.14.0 - (2019-02-28)
 ---
 
