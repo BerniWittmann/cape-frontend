@@ -109,17 +109,18 @@ export default {
       },
       // Data for Table used in Frontend, after Parsing
       tableData: [],
-      show: true
+      show: true,
+      separator: '_'
     }
   },
 
-  computed: {},
-
-  methods: {
+  computed: {
     attrExists() {
       return this.contextFactor.attributes.length > 0
-    },
+    }
+  },
 
+  methods: {
     addNewState() {
       this.$refs.newStateForm.validate((valid) => {
         if (valid) {
@@ -147,11 +148,11 @@ export default {
             } else {
               if (cr.indexOf('<=') >= 0) {
                 let ct = cr.split('<=')[0]
-                row[ct] = (row[ct] !== undefined) ? row[ct] + cr.split('<=')[1] : '-' + cr.split('<=')[1]
+                row[ct] = (row[ct] !== undefined) ? row[ct] + cr.split('<=')[1] : this.separator + cr.split('<=')[1]
               }
               if (cr.indexOf('>=') >= 0) {
                 let ct = cr.split('>=')[0]
-                row[ct] = (row[ct] !== undefined) ? cr.split('>=')[1] + row[ct] : cr.split('>=')[1] + '-'
+                row[ct] = (row[ct] !== undefined) ? cr.split('>=')[1] + row[ct] : cr.split('>=')[1] + this.separator
               }
             }
           }
@@ -189,13 +190,13 @@ export default {
                 cr.rule += ca.id + '==' + cs[ca.id]
                 break
               default:
-                let sPos = cs[ca.id].indexOf('-')
+                let sPos = cs[ca.id].indexOf(this.separator)
                 if (sPos < 0) {
                   if (cs[ca.id] + '' !== 'undefined') {
                     cr.rule += ca.id + '==' + cs[ca.id]
                   }
                 } else {
-                  let ct = cs[ca.id].split('-')
+                  let ct = cs[ca.id].split(this.separator)
                   if (ct[0] === ct[1]) {
                     if (ct[0] + '' !== 'undefined') {
                       cr.rule += ca.id + '==' + ct[0]

@@ -67,19 +67,20 @@ export default {
       }],
       data: {
         text: ''
-      }
+      },
+      separator: '_'
     }
   },
 
   computed: {
     singleNumberMode() {
-      return this.data.text === undefined || this.data.text.indexOf('-') === -1
+      return this.data.text === undefined || this.data.text.indexOf(this.separator) === -1
     },
 
     integerValue1: {
       get: function () {
         if (this.type === 'Number' && !this.singleNumberMode) {
-          return this.data.text.split('-')[0].length > 0 ? this.data.text.split('-')[0] : undefined
+          return this.data.text.split(this.separator)[0].length > 0 ? this.data.text.split(this.separator)[0] : undefined
         }
         if (this.type === 'Number' && this.singleNumberMode) {
           return this.data.text
@@ -95,13 +96,15 @@ export default {
               let temp = this.integerValue2
               this.integerValue2 = newInteger1Value
               newInteger1Value = temp
-              this.data.text = this.data.text.split('-')[0] + '-' + this.integerValue2
+              this.data.text = this.data.text.split(this.separator)[0] + this.separator + this.integerValue2
             }
-            if (this.data.text.indexOf('-') === 0) {
+            if (this.data.text.indexOf(this.separator) === 0) {
               this.data.text = newInteger1Value + this.data.text
             } else {
-              this.data.text = newInteger1Value + '-' + this.data.text.split('-')[1]
+              this.data.text = newInteger1Value + this.separator + this.data.text.split(this.separator)[1]
             }
+          } else {
+            this.data.text = this.separator + this.data.text.split(this.separator)[1]
           }
         }
       }
@@ -110,7 +113,7 @@ export default {
     integerValue2: {
       get: function () {
         if (this.type === 'Number' && !this.singleNumberMode) {
-          return this.data.text.split('-')[1].length > 0 ? this.data.text.split('-')[1] : undefined
+          return this.data.text.split(this.separator)[1].length > 0 ? this.data.text.split(this.separator)[1] : undefined
         }
         return undefined
       },
@@ -121,11 +124,13 @@ export default {
             this.integerValue1 = newInteger2Value
             newInteger2Value = temp
           }
-          if (this.data.text.indexOf('-') === this.data.text.length - 1) {
+          if (this.data.text.indexOf(this.separator) === this.data.text.length - 1) {
             this.data.text += newInteger2Value
           } else {
-            this.data.text = this.data.text.split('-')[0] + '-' + newInteger2Value
+            this.data.text = this.data.text.split(this.separator)[0] + this.separator + newInteger2Value
           }
+        } else {
+          this.data.text = this.data.text.split(this.separator)[0] + this.separator
         }
       }
     }
@@ -135,9 +140,9 @@ export default {
     switchNumberView() {
       // the separator for the numbers must be added or removed
       if (this.singleNumberMode) {
-        this.data.text += '-'
+        this.data.text += this.separator
       } else {
-        this.data.text = this.data.text.split('-')[0]
+        this.data.text = this.data.text.split(this.separator)[0]
       }
     },
 
