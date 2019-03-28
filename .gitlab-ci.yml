@@ -1,13 +1,6 @@
 image: registry.gitlab.com/cape-modeler/frontend:latest
 
 
-stages:
-  - lint
-  - test
-  - after
-  - deploy
-
-
 lint:
   stage: lint
   before_script:
