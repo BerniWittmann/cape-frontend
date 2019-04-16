@@ -44,9 +44,9 @@ describe('Process Injection', () => {
   })
   it('can edit an injection mapping', () => {
     cy.get('.el-dialog .el-collapse-item__header').click()
-    cy.get('.el-dialog :nth-child(2) > .el-form-item__content > .el-cascader > .el-cascader__label').click()
+    cy.get('.el-dialog :nth-child(2) > .el-form-item__content > .el-cascader > .el-cascader__label').click({ force: true })
     cy.get('.el-cascader-menu')
-    cy.get('.el-dialog :nth-child(4) > .el-form-item__content > .el-cascader > .el-cascader__label').click()
+    cy.get('.el-dialog :nth-child(4) > .el-form-item__content > .el-cascader > .el-cascader__label').click({ force: true })
     cy.get('.el-cascader-menu .el-cascader-menu__item').eq(10).click()
     cy.get('.el-dialog .el-button--success').click()
     cy.get('.el-notification').contains('Success')

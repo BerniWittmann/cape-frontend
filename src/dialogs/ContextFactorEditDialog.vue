@@ -156,7 +156,7 @@ export default {
         if (valid) {
           if (this.validateAttributes()) {
             this.contextFactorData.attributes.forEach((a, index) => {
-              if (a.type !== this.contextFactorStatesData.attributes[index].type) {
+              if (this.contextFactorStatesData.attributes[index] && a.type !== this.contextFactorStatesData.attributes[index].type) {
                 // updates a type in case of changes
                 this.contextFactorStatesData.attributes[index].type = a.type
               }
