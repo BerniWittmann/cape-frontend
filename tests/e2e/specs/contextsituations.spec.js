@@ -37,7 +37,7 @@ describe('Context Situations Page', () => {
     cy.get('.el-notification').contains('Success')
   })
 
-  describe.skip('it can update the rules', () => {
+  describe('it can update the rules', () => {
     beforeEach(() => {
       const card = cy.get('.el-card')
       card.click()
@@ -56,7 +56,7 @@ describe('Context Situations Page', () => {
       cy.get('.select--argument').should('have.length', 4)
       cy.get('.select--connector').should('have.length', 3)
     })
-    it('can change a rule', () => {
+    it.skip('can change a rule', () => {
       cy.get(':nth-child(5) > .el-form-item > .el-form-item__content > .el-cascader > .el-cascader__label').click()
       const item = cy.get('.select--argument__cascader .el-cascader-menu .el-cascader-menu__item').first()
       item.should('have.text', 'Pizza Donalds')
