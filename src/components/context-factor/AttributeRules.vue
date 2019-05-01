@@ -76,7 +76,7 @@ import InputEdit from '@/components/InputEdit.vue'
 
 /*
  * @vuese
- * @group Components/Context-Factor
+ * @group Components
  *
  * The component to allow to view and edit the Attributes and Rules for the States of a Context Factor
  */
@@ -134,6 +134,8 @@ export default {
       })
     },
 
+    // @vuese
+    // Converts the context rules to a representation that can be used in the table
     convertToTableData() {
       // on tab click
       if (this.contextFactor.contextRules !== undefined) {
@@ -169,6 +171,8 @@ export default {
       return lca > lcb ? 1 : (lca < lcb ? -1 : 0)
     },
 
+    // @vuese
+    // Converts the context rules table representation to a string that can be stored
     convertFromTableData() {
       // on save and tab click
       let cRules = []
@@ -255,6 +259,8 @@ export default {
       })
     },
 
+    // @vuese
+    // Triggers a new render of the component
     reRender() {
       // needed to ensure that data shown is updated
       this.show = false

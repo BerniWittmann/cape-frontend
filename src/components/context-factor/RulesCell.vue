@@ -33,12 +33,11 @@
 </template>
 
 <script>
-/* ============
- * RulesCell
- * ============
+/*
+ * @vuese
+ * @group Components
  *
  * A Cell which allows to edit the Attribute Cell of the Rules in the Context Factor
- *
  */
 export default {
   name: 'RulesCell',
@@ -48,11 +47,13 @@ export default {
   },
 
   props: {
-    // The Value of the input field
+    // The type of the input field
     type: {
+      // `'Number'` / `'Boolean'` / `'String'`
       type: String,
       required: true
     },
+    // The value of the input field
     value: {
       type: String
     }
@@ -149,6 +150,8 @@ export default {
     updateValue(selected) {
       // check if boolean input value is none to remove the text and attribute
       if (selected === this.$t('context_factor.none')) this.data.text = ''
+      // Emitted on change of the value
+      // @arg The updated value
       this.$emit('change', this.data.text)
     }
   },
@@ -160,6 +163,8 @@ export default {
       handler: function (newValue) {
         if (this.type === 'Boolean' && newValue !== 'TRUE' && newValue !== 'FALSE') newValue = undefined
         this.data.text = newValue
+        // Emitted on change of the value
+        // @arg The updated value
         this.$emit('change', this.data.text)
       }
     }
