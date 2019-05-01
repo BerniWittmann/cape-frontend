@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 1.0.2 - (2019-05-01)
+---
+
+* Fixed missing translation keys
+* Fixed CI Pipeline
+
+
 ## 1.0.1 - (2019-03-28)
 ---
 
