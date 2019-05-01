@@ -1,4 +1,4 @@
-![](https://gitlab.com/cape-modeler/frontend/wikis/uploads/0f5dde93fdc7f027a656aed68cddfcdf/icon.png)
+![](https://i.imgur.com/t19TbS5.png)
 
 # CaPE - Modeler - Frontend
 
