@@ -113,8 +113,9 @@ exports[`Components InputType it can change the type it can change the type to a
             <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
               <ul class="el-scrollbar__view el-select-dropdown__list">
                 <!---->
-                <li class="el-select-dropdown__item">TRUE</li>
-                <li class="el-select-dropdown__item">FALSE</li>
+                <li class="el-select-dropdown__item"><span>TRUE</span></li>
+                <li class="el-select-dropdown__item"><span>FALSE</span></li>
+                <li class="el-select-dropdown__item"><span>context_factor.none</span></li>
               </ul>
             </div>
             <div class="el-scrollbar__bar is-horizontal">
@@ -179,8 +180,9 @@ exports[`Components InputType it can change the type it can change the type to a
             <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
               <ul class="el-scrollbar__view el-select-dropdown__list">
                 <!---->
-                <li class="el-select-dropdown__item">TRUE</li>
-                <li class="el-select-dropdown__item">FALSE</li>
+                <li class="el-select-dropdown__item"><span>TRUE</span></li>
+                <li class="el-select-dropdown__item"><span>FALSE</span></li>
+                <li class="el-select-dropdown__item"><span>context_factor.none</span></li>
               </ul>
             </div>
             <div class="el-scrollbar__bar is-horizontal">
@@ -245,8 +247,9 @@ exports[`Components InputType it can change the type it can change the type to a
             <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
               <ul class="el-scrollbar__view el-select-dropdown__list">
                 <!---->
-                <li class="el-select-dropdown__item">TRUE</li>
-                <li class="el-select-dropdown__item">FALSE</li>
+                <li class="el-select-dropdown__item"><span>TRUE</span></li>
+                <li class="el-select-dropdown__item"><span>FALSE</span></li>
+                <li class="el-select-dropdown__item"><span>context_factor.none</span></li>
               </ul>
             </div>
             <div class="el-scrollbar__bar is-horizontal">

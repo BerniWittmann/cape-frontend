@@ -83,7 +83,7 @@ describe('Components', () => {
       expect(cmp.vm.$refs.newStateForm.validate).toHaveBeenCalled()
       expect(cmp.html()).toMatchSnapshot()
       expect(cmp.vm.tableData.length).toEqual(3)
-      expect(cmp.vm.tableData[2]).toEqual({ ca1: '', ca2: '', ca3: '', state: 'New State' })
+      expect(cmp.vm.tableData[2]).toEqual({ ca1: undefined, ca2: undefined, ca3: undefined, state: 'New State' })
     })
 
     it('does not add new rule on invalid input', () => {

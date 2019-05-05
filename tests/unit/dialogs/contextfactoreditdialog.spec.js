@@ -33,7 +33,8 @@ describe('Dialogs', () => {
               attributes: [{
                 id: 'ca1',
                 key: 'foo',
-                value: 'bar'
+                value: 'bar',
+                type: 'String'
               }],
               contextRules: [{
                 id: 'cr1',
@@ -320,6 +321,20 @@ describe('Dialogs', () => {
         input.setValue('New Name')
         cmp.find('.el-button--success').trigger('click')
         const data = store.state.contextFactor.activeContextFactor
+        expect(ContextFactorService.update).toHaveBeenCalledWith(new ContextFactor({
+          ...data,
+          name: 'New Name'
+        }))
+      })
+
+      it('does put the type to string if saved and has an undefined type', () => {
+        const input = cmp.findAll('input').at(0)
+        expect(input.exists()).toBeTruthy()
+        input.setValue('New Name')
+        cmp.vm.contextFactorData.attributes[0].type = undefined
+        cmp.find('.el-button--success').trigger('click')
+        const data = store.state.contextFactor.activeContextFactor
+        data.attributes[0].type = 'String'
         expect(ContextFactorService.update).toHaveBeenCalledWith(new ContextFactor({
           ...data,
           name: 'New Name'

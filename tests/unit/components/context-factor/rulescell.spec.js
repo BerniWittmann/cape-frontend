@@ -118,7 +118,21 @@ describe('Components', () => {
           cmp.vm.integerValue2 = 23
           cmp.find('elinputnumber-stub').vm.$emit('change')
           expect(cmp.emitted().change).toBeTruthy()
-          expect(cmp.emitted().change[1][0]).toEqual('12_23')
+          expect(cmp.emitted().change[2][0]).toEqual('12_23')
+        })
+        it('changes mode if equal value is in input 2', () => {
+          cmp.vm.integerValue1 = 12
+          cmp.vm.integerValue2 = 12
+          cmp.find('elinputnumber-stub').vm.$emit('change')
+          expect(cmp.emitted().change).toBeTruthy()
+          expect(cmp.emitted().change[2][0]).toEqual('12')
+        })
+        it('changes mode if equal value is in input 1', () => {
+          cmp.vm.integerValue2 = 15
+          cmp.vm.integerValue1 = 15
+          cmp.find('elinputnumber-stub').vm.$emit('change')
+          expect(cmp.emitted().change).toBeTruthy()
+          expect(cmp.emitted().change[2][0]).toEqual('15')
         })
         it('corrects the interval border ordering', () => {
           cmp.vm.integerValue2 = 30
@@ -131,7 +145,14 @@ describe('Components', () => {
           cmp.vm.integerValue1 = 1
           cmp.find('elinputnumber-stub').vm.$emit('change')
           expect(cmp.emitted().change).toBeTruthy()
-          expect(cmp.emitted().change[1][0]).toEqual('1_99')
+          expect(cmp.emitted().change[2][0]).toEqual('1_99')
+        })
+        it('uses existing number if switched', () => {
+          cmp.vm.integerValue1 = undefined
+          cmp.vm.integerValue2 = 10
+          cmp.find('.switchButton').vm.$emit('click')
+          expect(cmp.emitted().change).toBeTruthy()
+          expect(cmp.emitted().change[2][0]).toEqual('10')
         })
       })
     })

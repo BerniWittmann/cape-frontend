@@ -134,7 +134,7 @@ describe('Components', () => {
           const select = selectGroup.findAll('.el-select').at(1)
           expect(select.exists()).toBeTruthy()
           const options = select.findAll('.el-select-dropdown__item')
-          expect(options.length).toEqual(2)
+          expect(options.length).toEqual(3)
           expect(options.at(0).props('value')).toEqual('TRUE')
           expect(options.at(0).props('label')).toEqual('TRUE')
           expect(options.at(0).text()).toEqual('TRUE')

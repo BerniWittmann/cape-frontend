@@ -19,7 +19,6 @@
       </el-row>
       <el-row :gutter="20">
         <el-table :data="tableData" border>
-
           <el-table-column
                   v-for="(ca, index) in contextFactor.attributes" :prop="ca.id"
                   align="center" :key="index" :resizable="false"

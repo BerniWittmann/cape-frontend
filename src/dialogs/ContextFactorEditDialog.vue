@@ -307,6 +307,7 @@ export default {
     // @arg the context factor to be copied
     deepCopyData(mainData) {
       let tempData = ContextFactor.create({ ...mainData })
+      tempData.parentID = mainData.parentID
       tempData.attributes.forEach(function (attribute, index) {
         attribute.id = mainData.attributes[index].id
       }, this)

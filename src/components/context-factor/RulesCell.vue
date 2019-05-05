@@ -154,8 +154,10 @@ export default {
       // the separator for the numbers must be added or removed
       if (this.singleNumberMode) {
         this.data.text += this.separator
+        this.$emit('change', this.data.text)
       } else {
-        this.data.text = this.data.text.split(this.separator)[0]
+        this.data.text = this.data.text.split(this.separator)[0].length > 0 ? this.data.text.split(this.separator)[0] : this.data.text.split(this.separator)[1]
+        this.$emit('change', this.data.text)
       }
     },
 

@@ -64,7 +64,7 @@ describe('Dialogs', () => {
               lastEditedAt: date.clone().subtract(2, 'days'),
               svg: 'text height="30" more text="even more Text"',
               description: 'My Description',
-              xml: '<?xml version="1.0" encoding="UTF-8"?><bpmn:Process>Test Process</bpmn:Process>',
+              xml: '<?xml version="1.0" encoding="UTF-8"?><bpmn:Process>Test Process</bpmn:Process><EA_1>',
               tags: [{
                 id: '42',
                 name: 'First Tag',
