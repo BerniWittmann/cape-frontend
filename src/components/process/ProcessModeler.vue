@@ -50,6 +50,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // returns the svg of the process
     getSVG(cb) {
       if (this.modeler) {
         return this.modeler.saveSVG((err, svg) => {
@@ -62,6 +64,8 @@ export default {
       return cb()
     },
 
+    // @vuese
+    // returns the xml of the process
     getXML(cb) {
       if (this.modeler) {
         return this.modeler.saveXML((err, xml) => {

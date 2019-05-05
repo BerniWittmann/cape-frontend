@@ -109,6 +109,8 @@ export default {
       this.deletable = false
     },
 
+    // @vuese
+    // submits and saves the new tag
     submit() {
       this.$refs.tagForm.validate((valid) => {
         if (valid) {
@@ -120,6 +122,8 @@ export default {
       })
     },
 
+    // @vuese
+    // resets everything back to default
     reset() {
       this.tag = {
         name: undefined,
@@ -128,6 +132,8 @@ export default {
       this.$refs.tagForm.resetFields()
     },
 
+    // @vuese
+    // deletes the tag
     deleteTag(tag) {
       tagService.remove(tag)
     }

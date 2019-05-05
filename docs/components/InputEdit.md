@@ -1,6 +1,6 @@
 # InputEdit
 
-A component to edit a text but hidden behind a text with an edit button
+A component to edit a text but hidden behind a label with an edit button
 
 ## Props
 
@@ -32,6 +32,7 @@ A component to edit a text but hidden behind a text with an edit button
 |Method|Description|Parameters|
 |---|---|---|
 |showInput|shows the Input field|-|
+|hideInput|hides the Input field|-|
 
 <!-- @vuese:InputEdit:methods:end -->
 

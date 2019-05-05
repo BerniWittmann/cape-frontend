@@ -27,6 +27,8 @@ A Component which allows the process itself to be edited. This is a wrapper for 
 <!-- @vuese:ProcessModeler:methods:start -->
 |Method|Description|Parameters|
 |---|---|---|
+|getSVG|returns the svg of the process|-|
+|getXML|returns the xml of the process|-|
 |validate|Validate the Process Model|-|
 |reloadXML|Reload the XML data into the modeler|-|
 

@@ -87,6 +87,9 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // remove a tag
+    // @arg the tag to be removes
     removeTag(tag) {
       this.selectedTags = this.selectedTags.filter((t) => t.id !== tag.id)
       // Fired when the tag array changes
@@ -94,6 +97,8 @@ export default {
       this.$emit('change', this.selectedTags)
     },
 
+    // @vuese
+    // adds a new tag
     addTag() {
       if (!this.selectedTags.includes(this.newTag)) {
         this.selectedTags.push(this.newTag)

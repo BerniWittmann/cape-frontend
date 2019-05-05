@@ -13,3 +13,13 @@ A Component to choose an icon from all available FontAwesome Icons. This is used
 <!-- @vuese:FAIconPicker:events:end -->
 
 
+## Methods
+
+<!-- @vuese:FAIconPicker:methods:start -->
+|Method|Description|Parameters|
+|---|---|---|
+|betterIconName|removes the first 3 letters (fa-) from the names to make them more readable|-|
+
+<!-- @vuese:FAIconPicker:methods:end -->
+
+

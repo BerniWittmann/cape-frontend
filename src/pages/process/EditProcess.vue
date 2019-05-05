@@ -68,6 +68,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // saves the process
     submit() {
       this.$refs.processInfoForm.submit((result) => {
         if (result) {
@@ -104,6 +106,8 @@ export default {
       })
     },
 
+    // @vuese
+    // resets the process to the last saved state
     reset() {
       ProcessService.get(this.process).then(() => {
         this.name = this.process.name

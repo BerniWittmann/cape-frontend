@@ -16,7 +16,7 @@ import GraphVisualization from '@/components/GraphVisualization.vue'
  * @vuese
  * @group Pages
  *
- * The Landing Page
+ * The Landing Page with a graph visualization of the data.
  */
 export default {
   name: 'HomePage',

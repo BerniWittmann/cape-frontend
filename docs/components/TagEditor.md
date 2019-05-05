@@ -22,3 +22,14 @@ A Component to edit a list of tags
 <!-- @vuese:TagEditor:events:end -->
 
 
+## Methods
+
+<!-- @vuese:TagEditor:methods:start -->
+|Method|Description|Parameters|
+|---|---|---|
+|removeTag|remove a tag|the tag to be removes|
+|addTag|adds a new tag|-|
+
+<!-- @vuese:TagEditor:methods:end -->
+
+

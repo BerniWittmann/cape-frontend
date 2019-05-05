@@ -126,7 +126,7 @@ export default {
         if (valid) {
           let newRow = { state: this.newState.stateName }
           for (let ca of this.contextFactor.attributes) {
-            newRow[ca.id] = ''
+            newRow[ca.id] = undefined
           }
           this.tableData.push(newRow)
           this.newState.stateName = ''
@@ -237,6 +237,9 @@ export default {
       this.contextFactor.contextRules = cRules
     },
 
+    // @vuese
+    // Deletes a State after asking for confirmation
+    // @arg the index of the state to be deleted
     deleteState(stateIndex) {
       this.$confirm(this.$t('context_factor.edit.states.delete.message'), this.$t('context_factor.edit.states.delete.warning'), {
         confirmButtonText: this.$t('context_factor.edit.states.delete.ok'),

@@ -6,8 +6,15 @@
                    :value="option.value"></el-option>
       </el-select>
       <el-select v-model="data.value" :placeholder="placeholder" @change="handleChange" :size="size">
-        <el-option label="TRUE" value="TRUE">TRUE</el-option>
-        <el-option label="FALSE" value="FALSE">FALSE</el-option>
+        <el-option
+                v-for="item in booleanOptions"
+                :key="item.value"
+                :label="item.value"
+                :value="item.value">
+        </el-option>
+        <el-option
+                :value="$t('context_factor.none')"
+                :label="$t('context_factor.none')"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item prop="value" v-else>
@@ -85,6 +92,11 @@ export default {
         value: 'Boolean',
         label: this.$t('types.boolean')
       }],
+      booleanOptions: [{
+        value: 'TRUE'
+      }, {
+        value: 'FALSE'
+      }],
       rules: {
         value: [{
           validator: this.validateValue, trigger: 'blur'
@@ -117,7 +129,8 @@ export default {
   },
 
   methods: {
-    handleChange() {
+    handleChange(selected) {
+      if (this.isBoolean && selected === this.$t('context_factor.none')) this.data.value = ''
       this.$refs.inputTypeForm.validate((valid) => {
         if (valid) {
           // Emitted when the input value or type is changed

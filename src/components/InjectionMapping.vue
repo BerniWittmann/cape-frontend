@@ -26,7 +26,8 @@
         ></el-cascader>
       </el-form-item>
       <el-form-item>
-        <process-preview v-if="currentProcessObject.svg" class="process-preview" :process="currentProcessObject"></process-preview>
+        <process-preview v-if="currentProcessObject.svg" class="process-preview"
+                         :process="currentProcessObject"></process-preview>
       </el-form-item>
     </el-form>
     <el-button type="success" @click="save">{{ $t('injection_mapping.save') }}</el-button>
@@ -114,6 +115,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // saves the injection mapping
     save() {
       this.$refs.injectionForm.validate((valid) => {
         if (valid) {
@@ -128,6 +131,9 @@ export default {
         }
       })
     },
+
+    // @vuese
+    // deletes the injection mapping
     deleteInjectionMapping() {
       this.$confirm(this.$t('injection_mapping.delete.message'), this.$t('injection_mapping.delete.warning'), {
         confirmButtonText: this.$t('injection_mapping.delete.ok'),

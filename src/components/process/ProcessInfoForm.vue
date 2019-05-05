@@ -49,7 +49,7 @@ import InputEdit from '@/components/InputEdit.vue'
  * @vuese
  * @group Components
  *
- * A Form to show and edit basic information about a process
+ * A Form to show and edit basic information about a process like tags, description or the name. Contains the Buttons to save and go back also.
  */
 export default {
   name: 'ProcessInfoForm',

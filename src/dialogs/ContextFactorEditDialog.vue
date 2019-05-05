@@ -34,7 +34,9 @@
                   <li :key="idx">
                     <el-form :model="attr" inline :rules="attributeRules" :ref="'contextAttributeForm' + idx">
                       <el-form-item prop="key">
-                        <el-input v-model="attr.key" :placeholder="$t('context_factor.edit.attribute.key')"></el-input>
+                        <el-input v-model="attr.key"
+                                  :ref="'contextAttributeKey' + idx"
+                                  :placeholder="$t('context_factor.edit.attribute.key')"></el-input>
                       </el-form-item>
                       <el-form-item prop="value">
                         <input-type :value="attr.value" :type="attr.type"
@@ -97,7 +99,7 @@ import AttributeRules from '@/components/context-factor/AttributeRules'
  * @vuese
  * @group Dialogs
  *
- * A Dialog to edit a Context Factor
+ * A Dialog to edit or delete a Context Factor, allows to change the name, context type, attributes and its context attribute states and rules.
  */
 export default {
   name: 'ContextFactorEditDialog',
@@ -151,12 +153,19 @@ export default {
       this.$router.back()
     },
 
+    // @vuese
+    // saves the context factor
+    // @arg boolean which either saves and closes the dialog (true) or just saves it (false)
     save(close) {
       this.$refs.contextFactorForm.validate((valid) => {
         if (valid) {
           if (this.validateAttributes()) {
             this.contextFactorData.attributes.forEach((a, index) => {
-              if (this.contextFactorStatesData.attributes[index] && a.type !== this.contextFactorStatesData.attributes[index].type) {
+              if (a.type === undefined) {
+                // if no type is defined use string as standard
+                a.type = 'String'
+              }
+              if (this.contextFactorStatesData.attributes[index] !== undefined && a.type !== this.contextFactorStatesData.attributes[index].type) {
                 // updates a type in case of changes
                 this.contextFactorStatesData.attributes[index].type = a.type
               }
@@ -183,17 +192,18 @@ export default {
       })
     },
 
+    // @vuese
+    // resets the context factor back to the saved data
     reset() {
-      this.contextFactorData = { ...this.$store.state.contextFactor.contextFactors.filter(cf => cf.id === this.contextFactorData.id)[0] }
-      this.resetAttributeForms()
-      this.$refs.attributeRules.convertToTableData()
-
-      this.resetAttributeForms()
       this.copyActiveContextFactorData()
+      this.$refs.contextFactorForm.resetFields()
+      this.resetAttributeForms()
       this.$refs.attributeRules.convertToTableData()
       this.$refs.attributeRules.reRender()
     },
 
+    // @vuese
+    // deletes the context factor after asking for confirmation first
     deleteContextFactor() {
       this.$confirm(this.$t('context_factor.delete.message'), this.$t('context_factor.delete.warning'), {
         confirmButtonText: this.$t('context_factor.delete.ok'),
@@ -214,6 +224,8 @@ export default {
       })
     },
 
+    // @vuese
+    // validates the context factor attributes
     validateAttributes() {
       const count = this.contextFactorData.attributes.length
       let result = true
@@ -232,34 +244,48 @@ export default {
       return result
     },
 
+    // @vuese
+    // resets the context factor attribute forms
     resetAttributeForms() {
       const count = this.contextFactorData.attributes.length
       for (let i = 0; i < count; i++) {
         const form = this.$refs['contextAttributeForm' + i][0]
-        form.resetFields()
+        if (form !== undefined) form.resetFields()
       }
     },
 
+    // @vuese
+    // adds a new the context factor attribute
     addAttribute() {
       this.contextFactorData.attributes.push(ContextAttribute.create({}))
     },
 
+    // @vuese
+    // removes a the chosen context factor attribute
+    // @arg index of the attribute to be removed
     removeAttribute(idx) {
       this.contextFactorData.attributes.splice(idx, 1)
       this.resetAttributeForms()
     },
 
+    // @vuese
+    // handles the change of the context factor type to none type
+    // @arg the selected type
     selectChange(selected) {
       if (selected === this.$t('context_factor.none')) this.contextFactorData.contextType = undefined
     },
 
+    // @vuese
+    // handles the change of a context factor attribute to set the new values
+    // @arg the new data and the index of the attribute
     handleAttributeChange(data, idx) {
-      this.contextFactorData.attributes[idx] = {
-        ...this.contextFactorData.attributes[idx],
-        ...data
-      }
+      this.contextFactorData.attributes[idx].type = data.type
+      this.contextFactorData.attributes[idx].value = data.value
     },
 
+    // @vuese
+    // used to update the the rules depending on the tab
+    // @arg the selected tab
     updateStates(tab) {
       if (tab.label === this.$t('context_factor.edit.data_tab')) {
         this.$refs.attributeRules.convertFromTableData()
@@ -269,12 +295,22 @@ export default {
       }
     },
 
+    // @vuese
+    // copy the data of the active context factor using deep copy
     copyActiveContextFactorData() {
-      this.contextFactorData = { ...this.activeContextFactor }
-      this.contextFactorStatesData = ContextFactor.create({ ...this.activeContextFactor })
-      this.contextFactorStatesData.attributes.forEach(function (attribute, index) {
-        attribute.id = this.contextFactorData.attributes[index].id
+      this.contextFactorData = this.deepCopyData(this.activeContextFactor)
+      this.contextFactorStatesData = this.deepCopyData(this.activeContextFactor)
+    },
+
+    // @vuese
+    // creates and returns a deep copy of the given context factor
+    // @arg the context factor to be copied
+    deepCopyData(mainData) {
+      let tempData = ContextFactor.create({ ...mainData })
+      tempData.attributes.forEach(function (attribute, index) {
+        attribute.id = mainData.attributes[index].id
       }, this)
+      return tempData
     }
   },
 

@@ -37,7 +37,7 @@
  * @vuese
  * @group Components
  *
- * A Cell which allows to edit the Attribute Cell of the Rules in the Context Factor
+ * A Cell which allows to edit the Attribute Cell of the Rules in the Context Factor. Allows to edit Strings, Booleans and Numbers.
  */
 export default {
   name: 'RulesCell',
@@ -81,7 +81,7 @@ export default {
     integerValue1: {
       get: function () {
         if (this.type === 'Number' && !this.singleNumberMode) {
-          return this.data.text.split(this.separator)[0].length > 0 ? this.data.text.split(this.separator)[0] : undefined
+          return (this.data.text.split(this.separator)[0].length > 0) ? this.data.text.split(this.separator)[0] : undefined
         }
         if (this.type === 'Number' && this.singleNumberMode) {
           return this.data.text
@@ -93,18 +93,25 @@ export default {
           this.data.text = newInteger1Value + ''
         } else {
           if (newInteger1Value !== undefined) {
-            if (newInteger1Value > this.integerValue2 && this.integerValue2 !== undefined) {
-              let temp = this.integerValue2
-              this.integerValue2 = newInteger1Value
-              newInteger1Value = temp
-              this.data.text = this.data.text.split(this.separator)[0] + this.separator + this.integerValue2
-            }
-            if (this.data.text.indexOf(this.separator) === 0) {
-              this.data.text = newInteger1Value + this.data.text
+            if (this.integerValue2 !== undefined && (newInteger1Value + '') === (this.integerValue2 + '')) {
+              // if equal set it to singleNumberMode
+              this.data.text = newInteger1Value + ''
             } else {
-              this.data.text = newInteger1Value + this.separator + this.data.text.split(this.separator)[1]
+              if (newInteger1Value > this.integerValue2) {
+                // in case newIntegerValue1 is bigger than integerValue2
+                this.data.text = this.data.text.split(this.separator)[1] + this.separator + newInteger1Value
+              } else {
+                if (this.data.text.indexOf(this.separator) === 0) {
+                  // in case integerValue1 was undefined
+                  this.data.text = newInteger1Value + this.data.text
+                } else {
+                  // in case integerValue1 was defined and not bigger
+                  this.data.text = newInteger1Value + this.separator + this.data.text.split(this.separator)[1]
+                }
+              }
             }
           } else {
+            // in case of undefined newIntegerValue1
             this.data.text = this.separator + this.data.text.split(this.separator)[1]
           }
         }
@@ -114,21 +121,24 @@ export default {
     integerValue2: {
       get: function () {
         if (this.type === 'Number' && !this.singleNumberMode) {
-          return this.data.text.split(this.separator)[1].length > 0 ? this.data.text.split(this.separator)[1] : undefined
+          return (this.data.text.split(this.separator)[1].length > 0) ? this.data.text.split(this.separator)[1] : undefined
         }
         return undefined
       },
       set: function (newInteger2Value) {
         if (newInteger2Value !== undefined) {
-          if (newInteger2Value < this.integerValue1) {
-            let temp = this.integerValue1
-            this.integerValue1 = newInteger2Value
-            newInteger2Value = temp
-          }
-          if (this.data.text.indexOf(this.separator) === this.data.text.length - 1) {
-            this.data.text += newInteger2Value
+          if ((newInteger2Value + '') === (this.integerValue1 + '')) {
+            this.data.text = newInteger2Value + ''
           } else {
-            this.data.text = this.data.text.split(this.separator)[0] + this.separator + newInteger2Value
+            if (newInteger2Value < this.integerValue1) {
+              this.data.text = newInteger2Value + this.separator + this.data.text.split(this.separator)[0]
+            } else {
+              if (this.data.text.indexOf(this.separator) === this.data.text.length - 1) {
+                this.data.text += newInteger2Value
+              } else {
+                this.data.text = this.data.text.split(this.separator)[0] + this.separator + newInteger2Value
+              }
+            }
           }
         } else {
           this.data.text = this.data.text.split(this.separator)[0] + this.separator
@@ -138,6 +148,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // switches the view from a single number input to the double number input and back
     switchNumberView() {
       // the separator for the numbers must be added or removed
       if (this.singleNumberMode) {
@@ -147,9 +159,15 @@ export default {
       }
     },
 
+    // @vuese
+    // updates a value change, checks string for forbidden characters (=, &, |) and allows to empty a boolean choice
+    // @arg the input/selection
     updateValue(selected) {
       // check if boolean input value is none to remove the text and attribute
-      if (selected === this.$t('context_factor.none')) this.data.text = ''
+      if (this.type === 'Boolean' && selected === this.$t('context_factor.none')) this.data.text = ''
+      this.data.text = this.data.text.replace(/=/g, '')
+      this.data.text = this.data.text.replace(/&/g, '')
+      this.data.text = this.data.text.replace(/\|/g, '')
       // Emitted on change of the value
       // @arg The updated value
       this.$emit('change', this.data.text)

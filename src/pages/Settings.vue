@@ -42,6 +42,9 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // updates the layout depending of the tab to be opened
+    // @arg the tab to be opened
     updateLayout(tab) {
       if (tab.label === this.$t('settings.tags')) {
         this.$refs.tagSettings.updateLayoutTable()

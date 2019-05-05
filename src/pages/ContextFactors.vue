@@ -2,16 +2,16 @@
   <v-layout>
     <el-row justify="end" :gutter="20">
       <el-col :span="10">
-      <el-form ref='newFactorForm' :model="newContextFactor" label-position="top" :rules="rules" status-icon inline
-               @submit.native.prevent>
-        <el-form-item prop="name">
-          <el-input
-                  :placeholder="$t('context_factor.new_context_factor_name')"
-                  v-model="newContextFactor.name">
-          </el-input>
-        </el-form-item>
-        <el-button icon="el-icon-plus" @click="createNew">{{ $t('context_factor.create_new') }}</el-button>
-      </el-form>
+        <el-form ref='newFactorForm' :model="newContextFactor" label-position="top" :rules="rules" status-icon inline
+                 @submit.native.prevent>
+          <el-form-item prop="name">
+            <el-input
+                    :placeholder="$t('context_factor.new_context_factor_name')"
+                    v-model="newContextFactor.name">
+            </el-input>
+          </el-form-item>
+          <el-button icon="el-icon-plus" @click="createNew">{{ $t('context_factor.create_new') }}</el-button>
+        </el-form>
       </el-col>
       <el-col :span="4" :offset="10">
         <el-input
@@ -52,7 +52,7 @@ import ContextFactorService from '@/services/contextFactor'
  * @vuese
  * @group Pages
  *
- * A page which shows the Context Factors
+ * A page which shows a overview of all Context Factors. Allows to change their position in the tree and to add new Factors.
  */
 export default {
   name: 'ContextFactorsPage',
@@ -90,11 +90,16 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // edit the context factor by using a double-click
     editDouble() {
       // with v-on we we just get the html of the clicked node instead we use the currentNode
       // because the first click is not prevented and does select the correct node
       this.edit(this.$refs.tree.getCurrentNode())
     },
+
+    // @vuese
+    // edit the context factor by opening the edit dialog
     edit(data) {
       this.$router.push({
         name: 'context_factors.edit',
@@ -104,6 +109,8 @@ export default {
       })
     },
 
+    // @vuese
+    // updates the context factor in its new position after the drop
     handleDrop(draggingNode, dropNode, dropType) {
       let newParentID
       if (dropType === 'inner') {
@@ -119,11 +126,17 @@ export default {
       return this.hasMultipleRootElements || draggingNode.data.contextFactor.parentID
     },
 
+    // @vuese
+    // filters the nodes
+    // @arg value is the value to be filtered, data is the value to be checked against
     filterNode(value, data) {
       if (!value || value.length === 0) return true
       return data.label.toLowerCase().includes(value.toLowerCase())
     },
 
+    // @vuese
+    // returns the classes for the icons to be shown
+    // @arg data of the context factor
     getIconClasses(data) {
       const result = ['fa', 'fa-fw']
       if (data.contextFactor && data.contextFactor.contextType && data.contextFactor.contextType.icon) {
@@ -132,6 +145,8 @@ export default {
       return result.join(' ')
     },
 
+    // @vuese
+    // allows to add a new context factor at the selected node
     createNew() {
       this.$refs.newFactorForm.validate((valid) => {
         if (valid) {

@@ -101,7 +101,7 @@
       "states": {
         "name": "State Name",
         "add": "Add State",
-        "no_attributes": "Attributes must be added as they are required to add states!",
+        "no_attributes": " Attributes must be added and saved first before states can be added!",
         "delete": {
           "message": "This will permanently delete this state. Continue?",
           "ok": "Delete",
@@ -196,7 +196,8 @@
     }
   },
   "extension_area": {
-    "title": "Extension Area"
+    "title": "Extension Area",
+    "not_saved": " This Extension Area must be saved first before Injections can be added!"
   },
   "settings": {
     "title": "Settings",

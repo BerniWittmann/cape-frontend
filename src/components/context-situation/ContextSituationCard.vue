@@ -120,7 +120,7 @@ export default {
     },
 
     resetCS() {
-      this.contextSituationData = { ...this.contextSituation }
+      this.contextSituationData = this.copyContextSituation(this.contextSituation)
       this.$refs.contextSituationRules.reset()
     },
 

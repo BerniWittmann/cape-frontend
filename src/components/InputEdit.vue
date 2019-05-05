@@ -33,7 +33,7 @@
  * @vuese
  * @group Components
  *
- * A component to edit a text but hidden behind a text with an edit button
+ * A component to edit a text but hidden behind a label with an edit button
  */
 export default {
   name: 'InputEdit',
@@ -110,6 +110,8 @@ export default {
       })
     },
 
+    // @vuese
+    // hides the Input field
     hideInput() {
       this.$refs.textForm.validate((valid) => {
         if (valid) {

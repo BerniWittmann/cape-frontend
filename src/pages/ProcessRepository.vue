@@ -86,7 +86,7 @@ import Tag from '@/components/Tag.vue'
  * @vuese
  * @group Pages
  *
- * A page which shows all Processes
+ * A page which shows all Processes in an overview. Allows to upload or create new Processes.
  */
 export default {
   name: 'ProcessRepositoryPage',
@@ -142,6 +142,9 @@ export default {
       return row.tags.find(t => t.id === value)
     },
 
+    // @vuese
+    // navigates to the edit page of the process
+    // @arg the process to be edited
     edit(process) {
       this.$router.push({
         name: 'process.edit',
@@ -151,6 +154,9 @@ export default {
       })
     },
 
+    // @vuese
+    // navigates to the preview dialog of the process
+    // @arg the process to be previewed
     navigateToPreview(process) {
       this.$router.push({
         name: 'process.preview',
@@ -160,6 +166,8 @@ export default {
       })
     },
 
+    // @vuese
+    // custom name comparison to sort alphabetical not after char value
     nameCompare(a, b) {
       if (!a || !a.name || !b || !b.name) return 0
       const lca = a.name.toLowerCase()
@@ -167,6 +175,8 @@ export default {
       return lca > lcb ? 1 : (lca < lcb ? -1 : 0)
     },
 
+    // @vuese
+    // opens the imported process in a new edit page if successful
     handleImportSuccess(data) {
       this.$router.push({
         name: 'process.new',
@@ -177,6 +187,8 @@ export default {
       this.$refs.processImportUpload.clearFiles()
     },
 
+    // @vuese
+    // handles an error on import
     handleImportError() {
       this.$message.error(this.$t('process.import.failed'))
     }

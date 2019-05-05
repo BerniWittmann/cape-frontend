@@ -21,6 +21,8 @@ export default {
   },
 
   computed: {
+    // @vuese
+    // adjusts the height of the iframe to to either fit or be limited
     svgHeightAdjust() {
       if (!this.process.svg) return 'auto'
       const maxHeight = 500
@@ -28,6 +30,9 @@ export default {
       const height = parseInt(this.process.svg.substring(heightPos, this.process.svg.indexOf('"', heightPos)))
       return height <= maxHeight ? height + 25 + 'px' : maxHeight + 'px'
     },
+
+    // @vuese
+    // either returns the svg or a text if none available
     processSVG() {
       return !this.process.svg ? this.$t('process.error_svg_preview') : this.process.svg
     }

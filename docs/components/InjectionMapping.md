@@ -12,3 +12,14 @@ A Component to edit an Injection Mapping
 <!-- @vuese:InjectionMapping:props:end -->
 
 
+## Methods
+
+<!-- @vuese:InjectionMapping:methods:start -->
+|Method|Description|Parameters|
+|---|---|---|
+|save|saves the injection mapping|-|
+|deleteInjectionMapping|deletes the injection mapping|-|
+
+<!-- @vuese:InjectionMapping:methods:end -->
+
+

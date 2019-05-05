@@ -135,6 +135,8 @@ export default {
       this.contextType.icon = icon
     },
 
+    // @vuese
+    // submits and saves the new context type
     submit() {
       // validation of icon not necessary because no icon can't be chosen and default is given
       this.$refs.contextTypeForm.validate((valid) => {
@@ -147,6 +149,8 @@ export default {
       })
     },
 
+    // @vuese
+    // resets everything back to default
     reset() {
       this.contextType = {
         name: undefined,
@@ -155,6 +159,8 @@ export default {
       this.$refs.contextTypeForm.resetFields()
     },
 
+    // @vuese
+    // deletes the context type
     deleteContextType(contextType) {
       contextTypeService.remove(contextType)
     }

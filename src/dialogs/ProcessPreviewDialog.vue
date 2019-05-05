@@ -44,7 +44,7 @@ import processService from '@/services/process'
  * @vuese
  * @group Dialogs
  *
- * A Dialog to preview a Process
+ * A Dialog to preview a Process which shows the name, tags, description and a preview-svg. Allows to delete, edit or download a process.
  */
 export default {
   name: 'ProcessPreviewDialog',
@@ -74,9 +74,14 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // closes the dialog
     closeDialog() {
       this.$router.back()
     },
+
+    // @vuese
+    // routes to the edit page of the process
     editProcess() {
       this.$router.push({
         name: 'process.edit',
@@ -84,6 +89,8 @@ export default {
       })
     },
 
+    // @vuese
+    // deletes the process after asking for confirmation
     deleteProcess() {
       this.$confirm(this.$t('process.delete.message'), this.$t('process.delete.warning'), {
         confirmButtonText: this.$t('process.delete.ok'),

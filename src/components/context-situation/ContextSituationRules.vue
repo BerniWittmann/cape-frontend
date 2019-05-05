@@ -147,6 +147,7 @@ export default {
         data: []
       })
     },
+
     remove() {
       this.data.parts.pop()
       this.data.parts.pop()

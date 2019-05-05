@@ -59,7 +59,7 @@ import ContextSituation from '@/models/contextSituation'
  * @vuese
  * @group Pages
  *
- * A page which shows the Context Situations
+ * A page which shows a overview of all Context Situations. Allows to open them for editing.
  */
 export default {
   name: 'ContextSituationsPage',
@@ -126,6 +126,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // creates a new context situation
     createNew() {
       this.$refs.newFactorForm.validate((valid) => {
         if (valid) {
@@ -143,6 +145,8 @@ export default {
       this.$refs.newFactorForm.resetFields()
     },
 
+    // @vuese
+    // closes a context situation
     unsetActiveContextSituation() {
       this.$store.dispatch('contextSituation/unsetActive')
       this.$router.push({

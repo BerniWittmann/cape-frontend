@@ -1,5 +1,6 @@
 <template>
   <el-dialog :title="title" :visible.sync="showExtensionArea" width="70%">
+    <div v-if="isSavedEA">
     <el-collapse v-model="activeInjection" accordion>
       <el-collapse-item v-for="injectionMapping in injectionMappings" :key="injectionMapping.id" :name="injectionMapping.id || 'new'">
         <template slot="title">
@@ -11,6 +12,11 @@
     <el-button plain icon="el-icon-plus" size="small" @click="addInjectionMapping()" id="add" v-if="noExistingNewInjection">
       {{ $t('injection_mapping.add') }}
     </el-button>
+    </div>
+    <div v-else>
+      <i class="el-icon-warning"></i>
+      <span>{{ $t('extension_area.not_saved') }}</span>
+    </div>
   </el-dialog>
 </template>
 
@@ -57,8 +63,13 @@ export default {
     injectionMappings() {
       return this.$store.getters['injectionMapping/getInjectionMappings'](this.$route.params.processID, this.$route.params.extensionAreaID)
     },
+
     noExistingNewInjection() {
       return !(this.injectionMappings.filter(a => a.id === undefined).length > 0)
+    },
+
+    isSavedEA() {
+      return this.activeProcess.xml.indexOf(this.$route.params.extensionAreaID) >= 0
     }
   },
 

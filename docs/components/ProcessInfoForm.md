@@ -1,6 +1,6 @@
 # ProcessInfoForm
 
-A Form to show and edit basic information about a process
+A Form to show and edit basic information about a process like tags, description or the name. Contains the Buttons to save and go back also.
 
 ## Props
 

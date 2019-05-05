@@ -43,6 +43,8 @@ export default {
   },
 
   methods: {
+    // @vuese
+    // removes the first 3 letters (fa-) from the names to make them more readable
     betterIconName(faName) {
       return faName.substring(3)
     },
