@@ -275,6 +275,12 @@ describe('Dialogs', () => {
       expect(router.back).toHaveBeenCalled()
     })
 
+    it('prevents an error with undefined refs on reset', () => {
+      cmp.vm.contextFactorData.attributes = [new ContextAttribute({})]
+      cmp.vm.$refs['contextAttributeForm0'] = []
+      cmp.vm.resetAttributeForms()
+    })
+
     describe('it can be saved', () => {
       it('validates the form on submit', (done) => {
         const input = cmp.findAll('input').at(0)
