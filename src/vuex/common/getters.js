@@ -4,7 +4,7 @@
  *
  */
 
-const factorRegex = new RegExp('(([a-z]|[0-9]){24})(?=.([a-z]|[0-9]){24})', 'g')
+const factorRegex = new RegExp('(([a-z]|[0-9]){24})(?=.([A-Z]|[a-z]|[0-9])+)', 'g')
 
 export default {
   graphEdges(state, getters) {
@@ -27,7 +27,6 @@ export default {
       while ((currentMatch = factorRegex.exec(situation.rules)) !== null) {
         factors.add(currentMatch[0])
       }
-
       factors.forEach(factor => {
         result.push({
           start: situation.id,

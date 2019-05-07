@@ -86,6 +86,12 @@ describe('Components', () => {
       expect(cmp.vm.tableData[2]).toEqual({ ca1: undefined, ca2: undefined, ca3: undefined, state: 'New State' })
     })
 
+    it('can add a new rule', () => {
+      cmp.vm.newState.stateName = 'New &|=.State'
+      cmp.vm.checkStateName()
+      expect(cmp.vm.newState.stateName).toEqual('New State')
+    })
+
     it('does not add new rule on invalid input', () => {
       cmp.vm.$refs.newStateForm.validate = jest.fn().mockImplementation((arg) => arg(false))
       const btn = cmp.find('elbutton-stub')

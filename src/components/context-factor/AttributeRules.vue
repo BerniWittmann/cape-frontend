@@ -8,6 +8,7 @@
             <el-input class="input" ref="stateInput" size="small"
                       v-model="newState.stateName"
                       :placeholder="$t('context_factor.edit.states.name')"
+                      @change="checkStateName"
             ></el-input>
           </el-form-item>
           <el-form-item>
@@ -271,6 +272,15 @@ export default {
         this.$nextTick(() => {
         })
       })
+    },
+
+    // @vuese
+    // =, |, . and & are not allowed to be part of the name
+    checkStateName() {
+      this.newState.stateName = this.newState.stateName.replace(/=/g, '')
+      this.newState.stateName = this.newState.stateName.replace(/&/g, '')
+      this.newState.stateName = this.newState.stateName.replace(/\|/g, '')
+      this.newState.stateName = this.newState.stateName.replace(/\./g, '')
     }
   },
 
