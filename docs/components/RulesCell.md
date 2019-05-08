@@ -18,7 +18,7 @@ A Cell which allows to edit the Attribute Cell of the Rules in the Context Facto
 <!-- @vuese:RulesCell:events:start -->
 |Event Name|Description|Parameters|
 |---|---|---|
-|change|Emitted on change of the value|The updated value|
+|change|-|-|
 
 <!-- @vuese:RulesCell:events:end -->
 
