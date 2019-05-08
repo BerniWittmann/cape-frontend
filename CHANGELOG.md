@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+## 1.0.4 - (2019-05-06)
+---
+
+* Fixed a bug regarding context factor rule reference in graph visualization
+
 ## 1.0.3 - (2019-05-06)
 ---
 
