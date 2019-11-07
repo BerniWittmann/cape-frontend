@@ -23,7 +23,6 @@ function createExtensionAreaListener(event) {
 function getPaletteEntries(element) {
   const actions = this.cached(element)
 
-  delete actions['create.participant-expanded']
   delete actions['create.start-event']
   delete actions['create.end-event']
 
