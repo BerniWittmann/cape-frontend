@@ -15,7 +15,7 @@
     "docs": "vuese gen && cp public/docs_readme.md docs/README.md"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bpmn-js": "^3.0.2",
     "bpmn-js-properties-panel": "^0.28.2",
     "camunda-bpmn-moddle": "^3.1.1",
