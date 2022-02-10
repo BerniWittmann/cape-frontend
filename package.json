@@ -46,7 +46,7 @@
     "electron": "^3.0.0",
     "mockdate": "^2.0.2",
     "moxios": "^0.4.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.3",
     "vue-cli-plugin-electron-builder": "^1.0.0-rc.9",
     "vue-cli-plugin-element": "^1.0.0",
